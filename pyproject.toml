@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "bam"
+version = "0.1.0"
+description = ""
+authors = [
+    "Elfarouk Saleh <as14985@nyu.edu>",
+    "Chenyu Gu <cg4053@nyu.edu>",
+    "Weiye Sun <ws2309@nyu.edu>",
+    "Stephanie Hou <sh6403@nyu.edu>",
+    "Venu Vardhan Reddy Tekula <vt2182@nyu.edu>",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = "2.2"
+python-decouple = "3.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
