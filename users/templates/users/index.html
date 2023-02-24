@@ -1,0 +1,15 @@
+{% block content %}
+
+{% if message %}
+
+    <div class="alert" role="alert">
+        {{ message }}
+    </div>
+
+{% endif %}
+
+{% csrf_token %}
+
+<a href="{% url 'logout' %}">Logout</a>
+
+{% endblock %}

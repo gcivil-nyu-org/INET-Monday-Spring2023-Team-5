@@ -1,0 +1,14 @@
+{% block content %}
+
+{% if message %}
+
+    <div class="alert" role="alert">
+        {{ message }}
+    </div>
+
+{% endif %}
+
+<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'register' %}">Register</a>
+
+{% endblock %}
