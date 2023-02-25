@@ -1,8 +1,9 @@
+/* Global Variables */
 $darkBlue : #041E42;  
 $lightBlue : #6CACE4;
 $orange : #F15524;
   
-
+/* Fonts */
 @font-face {
     font-family: "Rubik80sFade";
     src: local("Rubik80sFade"),
@@ -44,11 +45,25 @@ $orange : #F15524;
     font-weight: 700;
 }
 
+
+/* Global Styling */
 body {
-    font-family: "Karla" !important;
+    max-width: 1920px;
+    font-family: "Karla", Garamond, serif !important;
 }
 
 body h1 {
-    font-family: "Rubik80sFade";
-    color: $orange;
+    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    color: $darkBlue;
+}
+
+#header .navbar-brand{
+    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    color: $darkBlue;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}
+
+#header .navbar-nav .nav-link{
+    color: $darkBlue;  
 }
