@@ -6,13 +6,17 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+from .models import Business
+
+
 def index_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     
     return render(request, 'users/index.html', {
         'message': 'Hello, {} {}! You are logged in.'.format(request.user.first_name, request.user.last_name)
-    })
+        }
+)
 
 
 def login_view(request):
@@ -20,7 +24,6 @@ def login_view(request):
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(request, username=email, password=password)
-
 
         if user is not None:
             login(request, user)
@@ -76,4 +79,36 @@ def logout_view(request):
 
     return render(request, 'users/logout.html', {
         'message': 'You have been logged out.'
+    })
+
+
+def add_business_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+    
+    if request.method == 'POST':
+        business = Business(
+            name=request.POST['name'],
+            address=request.POST['address'],
+            email=request.POST['email'],
+            phone=request.POST['phone'],
+            owner=request.user,
+        )
+        business.save()
+        
+        return HttpResponseRedirect(reverse('view_business', args=(business.id,)))
+    
+    return render(request, 'users/add_business.html', {
+        'message': 'Add your business.'
+    })
+
+def view_business_view(request, business_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+    
+    business = Business.objects.get(id=business_id)
+    
+    return render(request, 'users/view_business.html', {
+        'message': 'View your business.',
+        'business': business,
     })

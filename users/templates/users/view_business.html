@@ -8,8 +8,13 @@
 
 {% endif %}
 
-<a href="{% url 'logout' %}">Logout</a>
+{{ business.name }}
 
-<a href="{% url 'add_business' %}">Add Business</a>
+{{ business.address }}
+
+{{ business.phone }}
+
+{{ business.email }}
 
 {% endblock %}
+    
