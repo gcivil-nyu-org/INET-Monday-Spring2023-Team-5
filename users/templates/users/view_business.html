@@ -1,20 +1,16 @@
-{% block content %}
+{% extends "base.html" %} 
+
+{% block content %} 
 
 {% if message %}
 
-    <div class="alert" role="alert">
-        {{ message }}
-    </div>
+<div class="alert" role="alert">{{ message }}</div>
 
-{% endif %}
+{% endif %} 
 
-{{ business.name }}
-
-{{ business.address }}
-
-{{ business.phone }}
-
-{{ business.email }}
+{{ business.name }} 
+{{ business.address }} 
+{{ business.phone }} 
+{{ business.email }} 
 
 {% endblock %}
-    

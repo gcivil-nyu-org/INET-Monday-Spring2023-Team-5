@@ -1,14 +1,14 @@
-{% block content %}
+{% extends "base.html" %} 
+
+{% block content %} 
 
 {% if message %}
 
-    <div class="alert" role="alert">
-        {{ message }}
-    </div>
+<div class="alert" role="alert">{{ message }}</div>
 
 {% endif %}
 
 <a href="{% url 'login' %}">Login</a>
 <a href="{% url 'register' %}">Register</a>
 
-{% endblock %}
+{% endblock content%}

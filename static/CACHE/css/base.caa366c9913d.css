@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Rubik80sFade";
+  src: local("Rubik80sFade"), url("/static/static/fonts/Rubik80sFade.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/static/fonts/Karla-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/static/fonts/Karla-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/static/fonts/Karla-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/static/fonts/Karla-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/static/fonts/Karla-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700; }
+
+/* line 47, static/scss/base.scss */
+body {
+  font-family: "Karla" !important; }
+
+/* line 51, static/scss/base.scss */
+body h1 {
+  font-family: "Rubik80sFade";
+  color: #F15524; }

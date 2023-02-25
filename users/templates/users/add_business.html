@@ -1,21 +1,20 @@
-{% block content %}
+{% extends "base.html" %} 
+
+{% block content %} 
 
 {% if message %}
 
-    <div class="alert" role="alert">
-        {{ message }}
-    </div>
+<div class="alert" role="alert">{{ message }}</div>
 
 {% endif %}
 
 <form action="{% url 'add_business' %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="name" placeholder="Business Name">
-    <input type="text" name="address" placeholder="Business Address">
-    <input type="tel" name="phone" placeholder="Business Phone">
-    <input type="email" name="email" placeholder="Business Email">
-    <button type="submit">Add Business</button>
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Business Name" />
+  <input type="text" name="address" placeholder="Business Address" />
+  <input type="tel" name="phone" placeholder="Business Phone" />
+  <input type="email" name="email" placeholder="Business Email" />
+  <button type="submit">Add Business</button>
 </form>
 
-{% endblock %}
-    
+{% endblock content%}
