@@ -49,21 +49,47 @@ $orange : #F15524;
 /* Global Styling */
 body {
     max-width: 1920px;
+    margin: 0 auto !important;
     font-family: "Karla", Garamond, serif !important;
+
+    h1 {
+        font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+        color: $darkBlue;
+    }
+
+    main{
+        min-height: 38rem;
+    }
 }
 
-body h1 {
-    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
-    color: $darkBlue;
+#header {
+    .navbar-brand{
+        font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+        color: $darkBlue;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .navbar-nav .nav-link{
+        color: $darkBlue;  
+
+        &:hover{
+            color: $orange; 
+        }
+    }
 }
 
-#header .navbar-brand{
-    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
-    color: $darkBlue;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-}
+#footer{
+    background-color: $darkBlue;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-#header .navbar-nav .nav-link{
-    color: $darkBlue;  
+    h3{
+        color: $orange;
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+
 }

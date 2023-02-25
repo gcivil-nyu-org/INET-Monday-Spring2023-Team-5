@@ -1,0 +1,70 @@
+/* Global Variables */
+/* Fonts */
+@font-face {
+  font-family: "Rubik80sFade";
+  src: local("Rubik80sFade"), url("/static/fonts/Rubik80sFade.ttf?874bf2bb3343") format("truetype"); }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/fonts/Karla-Regular.ttf?a15dadc725a6") format("truetype");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/fonts/Karla-Bold.ttf?a15dadc725a6") format("truetype");
+  font-style: normal;
+  font-weight: 600; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/fonts/Karla-Italic.ttf?a15dadc725a6") format("truetype");
+  font-style: italic;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/fonts/Karla-ExtraBold.ttf?a15dadc725a6") format("truetype");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Karla";
+  src: url("/static/fonts/Karla-BoldItalic.ttf?a15dadc725a6") format("truetype");
+  font-style: italic;
+  font-weight: 700; }
+
+/* Global Styling */
+/* line 50, static/scss/base.scss */
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  font-family: "Karla", Garamond, serif !important; }
+  /* line 55, static/scss/base.scss */
+  body h1 {
+    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    color: #041E42; }
+
+/* line 62, static/scss/base.scss */
+#header .navbar-brand {
+  font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+  color: #041E42;
+  font-size: 2.5rem;
+  line-height: 2.5rem; }
+
+/* line 69, static/scss/base.scss */
+#header .navbar-nav .nav-link {
+  color: #041E42; }
+
+/* line 74, static/scss/base.scss */
+#footer {
+  background-color: #041E42;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 81, static/scss/base.scss */
+  #footer h3 {
+    color: #F15524;
+    font-size: 1rem;
+    line-height: 1rem; }

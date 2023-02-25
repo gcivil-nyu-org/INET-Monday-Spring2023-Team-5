@@ -2,6 +2,8 @@
 
 {% block content %} 
 
+<main>
+
 {% if message %}
 
 <div class="alert" role="alert">{{ message }}</div>
@@ -12,5 +14,7 @@
 {{ business.address }} 
 {{ business.phone }} 
 {{ business.email }} 
+
+</main>
 
 {% endblock %}

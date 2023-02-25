@@ -2,6 +2,8 @@
 
 {% block content %} 
 
+<main>
+
 {% if message %}
 
 <div class="alert" role="alert">{{ message }}</div>
@@ -11,5 +13,7 @@
 <a href="{% url 'logout' %}">Logout</a>
 
 <a href="{% url 'add_business' %}">Add Business</a>
+
+</main>
 
 {% endblock content %}
