@@ -1,18 +1,16 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block content %}
 
-{% block content %} 
+<main id="logout">
+  <section>
+    {% if message %}
 
-<main>
+    <p class="message" role="alert">{{ message }}</p>
 
-{% if message %}
+    {% endif %}
 
-<div class="alert" role="alert">{{ message }}</div>
-
-{% endif %}
-
-<a href="{% url 'login' %}">Login</a>
-<a href="{% url 'register' %}">Register</a>
-
+    <a href="{% url 'login' %}">Login</a><br />
+    <a href="{% url 'register' %}">Register</a>
+  </section>
 </main>
 
-{% endblock content%}
+{% endblock content %}

@@ -1,0 +1,50 @@
+/* Global Variables */
+/* line 7, users/static/users/users.scss */
+#login section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 15, users/static/users/users.scss */
+  #login section > div {
+    height: 100%; }
+    /* line 18, users/static/users/users.scss */
+    #login section > div:nth-of-type(1) {
+      background-color: #041E42; }
+    /* line 22, users/static/users/users.scss */
+    #login section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+
+/* line 33, users/static/users/users.scss */
+#register section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 41, users/static/users/users.scss */
+  #register section > div {
+    height: 100%; }
+    /* line 44, users/static/users/users.scss */
+    #register section > div:nth-of-type(1) {
+      background-color: #041E42; }
+    /* line 48, users/static/users/users.scss */
+    #register section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+
+@media screen and (max-width: 768px) {
+  /* line 60, users/static/users/users.scss */
+  #login section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; } }

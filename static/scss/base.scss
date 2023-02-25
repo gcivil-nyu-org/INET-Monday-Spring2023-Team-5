@@ -45,24 +45,129 @@ $orange : #F15524;
     font-weight: 700;
 }
 
-
 /* Global Styling */
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body {
+    height: 100%;
+    width: 100%;
     max-width: 1920px;
     margin: 0 auto !important;
     font-family: "Karla", Garamond, serif !important;
+    overflow: hidden;
+
+    main{
+        width: 100%;
+        height: 100%;
+
+
+        button{
+            border: none;
+            background-color: $darkBlue;
+            border-radius: 0.8rem;
+            height: 2.8rem;
+            color: white;
+            font-size: 0.875rem;
+            line-height: 0.875rem;
+            width: 100%;
+
+            &:hover{
+                background-color: $orange;
+                color: $darkBlue;
+            }
+        }
+    }
 
     h1 {
         font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
         color: $darkBlue;
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        margin: 0rem;
     }
 
-    main{
-        min-height: 38rem;
+    p{
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0rem;
+        margin: 1rem 0rem;
+
+        &.message{
+            color: $orange;
+            font-style: italic;
+        }
+    }
+
+    div{
+        width: 100%;
+
+        &.img-container{
+            overflow: hidden;
+        }
+
+        &.header-block{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 25rem;
+    }
+
+    input{
+        border: 1px solid lightgray;
+        border-radius: 0.8rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        line-height: 1rem;
+        padding: 1rem;
+        margin: 0rem 0rem 0.8rem 0rem;
+        width: 100%;
+        background-color: #f4faff;
+    }
+    
+    img{
+        width:100%; 
+    }
+
+    section{
+        position: relative;
     }
 }
 
+.page-container{
+    min-height: 39rem;
+    height: calc(100% - 4rem);
+    position: relative;
+    margin: 4rem 0rem 0rem 0rem;
+    overflow: scroll;
+}
+
+/* Header Styling */
 #header {
+    min-height: 4rem;
+    position: fixed;
+    z-index: 1;
+    top: 0%;
+    background-color: white;
+
+    .navbar{
+        border-bottom: 1px solid #5c5c5c1A;
+    }
+    
     .navbar-brand{
         font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
         color: $darkBlue;
@@ -79,7 +184,11 @@ body {
     }
 }
 
+/* Footer Styling */
 #footer{
+    display: none !important;
+
+    width: 100%;
     background-color: $darkBlue;
     min-height: 5rem;
     display: flex;
@@ -93,3 +202,77 @@ body {
     }
 
 }
+
+@media screen and (max-width: 1920px) {
+    body {
+        main{
+            button{
+                border-radius: 0.8vw;
+                height: 2.8vw;
+                font-size: 0.875vw;
+                line-height: 0.875vw;
+            }
+        }
+    
+        h1 {
+            font-size: 2.4vw;
+            line-height: 2.4vw;
+        }
+    
+        p{
+            font-size: 1vw;
+            line-height: 1.5vw;
+            margin: 1vw 0rem;
+        }
+
+        form{
+            max-width: 25vw;
+        }
+    
+        input{
+            border-radius: 0.8vw;
+            height: 2.5vw;
+            font-size: 1vw;
+            line-height: 1vw;
+            padding: 1vw;
+            margin: 0rem 0rem 0.8vw 0rem;
+        }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    body {
+        main{
+            button{
+                border-radius: 1.8vw;
+                height: 6.8vw;
+                font-size: 2.875vw;
+                line-height: 2.875vw;
+            }
+        }
+    
+        h1 {
+            font-size: 8.4vw;
+            line-height: 8.4vw;
+        }
+    
+        p{
+            font-size: 3vw;
+            line-height: 3.5vw;
+            margin: 3vw 0rem;
+        }
+
+        form{
+            max-width: 60vw;
+        }
+    
+        input{
+            border-radius: 1.8vw;
+            height: 4.5vw;
+            font-size: 3vw;
+            line-height: 3vw;
+            padding: 3vw;
+            margin: 0rem 0rem 1.8vw 0rem;
+        }
+    }
+  }

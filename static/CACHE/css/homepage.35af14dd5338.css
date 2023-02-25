@@ -1,0 +1,15 @@
+/* Global Variables */
+/* line 9, homepage/static/homepage/homepage.scss */
+#homepage section#hero .header-block {
+  text-align: left;
+  padding: 5rem; }
+  /* line 13, homepage/static/homepage/homepage.scss */
+  #homepage section#hero .header-block h1 {
+    color: white;
+    font-size: 5rem;
+    line-height: 5rem; }
+  /* line 19, homepage/static/homepage/homepage.scss */
+  #homepage section#hero .header-block p {
+    color: white;
+    font-size: 3rem;
+    line-height: 3rem; }

@@ -1,22 +1,28 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block content %}
 
-{% block content %} 
+<main id="login">
+  <section>
+    <div class="img-container">
+      {% load static %} <img src="{% static "images/nyc-skyline.jpg" %}"
+      alt="Login Image" />
+    </div>
+    <div>
+      <h1>Log In</h1>
 
-<main>
+      {% if message %}
 
-{% if message %}
+      <p class="message" role="alert">{{ message }}</p>
 
-<div class="alert" role="alert">{{ message }}</div>
+      {% endif %}
 
-{% endif %}
-
-<form action="{% url 'login' %}" method="post">
-  {% csrf_token %}
-  <input type="email" name="email" placeholder="Email" />
-  <input type="password" name="password" placeholder="Password" />
-  <button type="submit">Login</button>
-</form>
-
+      <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </section>
 </main>
 
 {% endblock content %}

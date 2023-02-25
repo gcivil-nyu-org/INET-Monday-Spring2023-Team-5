@@ -1,9 +1,6 @@
-{% extends "base.html" %} 
-
-{% block content %} 
+{% extends "base.html" %} {% block content %}
 
 <main>
-
   {% if message %}
 
   <div class="alert" role="alert">{{ message }}</div>
@@ -18,7 +15,6 @@
     <input type="email" name="email" placeholder="Business Email" />
     <button type="submit">Add Business</button>
   </form>
-
 </main>
 
 {% endblock content%}

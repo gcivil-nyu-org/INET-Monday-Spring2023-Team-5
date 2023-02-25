@@ -1,28 +1,35 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-<main>
-
-{% if message %}
-
-    <div class="alert" role="alert">
-        {{ message }}
+<main id="register">
+  <section>
+    <div class="img-container">
+      {% load static %} <img src="{% static "images/nyc-skyline.jpg" %}"
+      alt="Login Image" />
     </div>
+    <div>
+      <h1>Sign Up</h1>
 
-{% endif %}
+      {% if message %}
 
-<form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
-    <input type="email" name="email" placeholder="Email">
-    <input type="text" name="first_name" placeholder="First Name">
-    <input type="text" name="last_name" placeholder="Last Name">
-    <input type="password" name="password1" placeholder="Password">
-    <input type="password" name="password2" placeholder="Confirm Password">
-    <button type="submit">Register</button>
-</form>
+      <p class="message" role="alert">{{ message }}</p>
 
+      {% endif %}
+
+      <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" />
+        <input type="text" name="first_name" placeholder="First Name" />
+        <input type="text" name="last_name" placeholder="Last Name" />
+        <input type="password" name="password1" placeholder="Password" />
+        <input
+          type="password"
+          name="password2"
+          placeholder="Confirm Password"
+        />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </section>
 </main>
 
 {% endblock content %}
-    
