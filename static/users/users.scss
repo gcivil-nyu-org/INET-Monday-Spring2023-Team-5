@@ -67,15 +67,15 @@ $orange: #f15524;
 }
 
 #logout {
-    section {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+}
 
 @media screen and (max-width: 768px) {
   #login {

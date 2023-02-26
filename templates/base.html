@@ -45,9 +45,10 @@
     />
 
     {% endcompress %}
-
     <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    {% load bootstrap_icons %}
   </head>
   <body>
     <div class="page-container">
@@ -63,7 +64,9 @@
             aria-expanded="false"
             aria-label="Toggle Navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+              {% bs_icon 'list' size='1.7rem' %}
+            </span>
           </button>
           <div class="collapse navbar-collapse" id="mobileNavbar">
             <ul class="navbar-nav ml-auto">
@@ -81,16 +84,22 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Profile
+                  {% bs_icon 'person-circle' size='1.5rem' %}
                 </a>
                 <div
                   class="dropdown-menu dropdown-menu-right"
                   aria-labelledby="mobileNavbarDropdown"
                 >
+                  {% if user.is_authenticated %} 
+                  <p>{{welcome}}</p>
+                  <a class="dropdown-item" href="">My Account</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                  {% else %}
                   <a class="dropdown-item" href="{% url 'register' %}"
                     >Sign Up</a
                   >
                   <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+                  {% endif %}
                 </div>
               </li>
             </ul>

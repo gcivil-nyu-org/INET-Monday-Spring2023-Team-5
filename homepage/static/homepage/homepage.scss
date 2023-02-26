@@ -1,94 +1,86 @@
 /* Global Variables */
-$darkBlue : #041E42;  
-$lightBlue : #6CACE4;
-$orange : #F15524;
+$darkBlue: #041e42;
+$lightBlue: #6cace4;
+$orange: #f15524;
 
-#homepage{
-    section{
-        &#hero{
-            .header-block{
-                text-align: left;
-                padding: 10rem;
+#homepage {
+  section {
+    &#hero {
+      .header-block {
+        text-align: left;
+        padding: 10rem;
 
-                h1{
-                    color: white;
-                    font-size: 7rem;
-                    line-height: 7rem;
-                }
-
-                p{
-                    color: white;
-                    font-size: 2.3rem;
-                    line-height: 3rem;
-                }
-
-                button{
-                    width: 15rem;
-                    height: 3.5rem;
-                    font-size: 1.2rem;
-                    line-height: 1.2rem;
-                    font-weight: bold;
-                }
-            }
+        h1 {
+          color: white;
+          font-size: 9rem;
+          line-height: 8rem;
         }
+
+        p {
+          color: white;
+          font-size: 2.3rem;
+          line-height: 3rem;
+        }
+
+        button {
+          padding: 1rem 2.5rem;
+          font-weight: bold;
+        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 1920px) {
-    #homepage{
-        section{
-            &#hero{
-                .header-block{
-                    padding: 10vw;
-    
-                    h1{
-                        font-size: 7vw;
-                        line-height: 7vw;
-                    }
-    
-                    p{
-                        font-size: 2.3vw;
-                        line-height: 3vw;
-                    }
-    
-                    button{
-                        width: 15vw;
-                        height: 3.5vw;
-                        font-size: 1.2vw;
-                        line-height: 1.2vw;
-                    }
-                }
-            }
+  #homepage {
+    section {
+      &#hero {
+        .header-block {
+          padding: 10vw;
+
+          h1 {
+            font-size: 9vw;
+            line-height: 8vw;
+          }
+
+          p {
+            font-size: 2.3vw;
+            line-height: 3vw;
+          }
+
+          button {
+            padding: 1vw 2.5vw;
+          }
         }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 768px) {
-    #homepage{
-        section{
-            &#hero{
-                .header-block{
-                    padding: 10vw;
-    
-                    h1{
-                        font-size: 10.5vw;
-                        line-height: 10.5vw;
-                    }
-    
-                    p{
-                        font-size: 3.3vw;
-                        line-height: 3.3vw;
-                    }
-    
-                    button{
-                        width: 20vw;
-                        height: 8vw;
-                        padding: 2vw;
-                        font-size: 2vw;
-                        line-height: 2vw;
-                    }
-                }
-            }
+  #homepage {
+    section {
+      &#hero {
+        .header-block {
+          padding: 10vw;
+
+          h1 {
+            font-size: 10.5vw;
+            line-height: 10.5vw;
+          }
+
+          p {
+            font-size: 3.3vw;
+            line-height: 3.3vw;
+          }
+
+          button {
+            font-size: 1.6vw;
+            line-height: 1.6vw;
+            padding: 1.5vw 4vw;
+          }
         }
+      }
     }
+  }
 }

@@ -2,14 +2,23 @@
 
 <main id="user-dashboard">
   <section>
-    {% if message %}
+    <div>
+      {% if message %}
+      <p>My Account</p>
+      <h1>{{ message }}</h1>
 
-    <p class="message" role="alert">{{ message }}</p>
+      <p>My Profile</p>
+      <a href="">My Info</a>
+      <a href="">Neighborhoods</a>
+      <a href="">Settings</a>
 
-    {% endif %}
+      <p>My Bussiness</p>
+      <a href="{% url 'add_business' %}">My Businesses</a>
+      <a href="{% url 'add_business' %}">Add A Business</a>
 
-    <a href="{% url 'add_business' %}">Add Business</a><br/>
-    <a href="{% url 'logout' %}">Logout</a>
+      {% endif %}
+    </div>
+    <div></div>
   </section>
 </main>
 

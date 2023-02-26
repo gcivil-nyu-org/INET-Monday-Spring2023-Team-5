@@ -14,7 +14,8 @@ def index_view(request):
         return HttpResponseRedirect(reverse('login'))
     
     return render(request, 'users/index.html', {
-        'message': 'Hello, {} {}! You are logged in.'.format(request.user.first_name, request.user.last_name)
+        'welcome': 'Welcome {}!'.format(request.user.first_name),
+        'message': 'Welcome, {}'.format(request.user.first_name)
         }
 )
 
@@ -78,7 +79,7 @@ def logout_view(request):
     logout(request)
 
     return render(request, 'users/logout.html', {
-        'message': 'You have been logged out.'
+        'message': 'LOGGED OUT!'
     })
 
 

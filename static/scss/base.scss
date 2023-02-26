@@ -1,278 +1,332 @@
 /* Global Variables */
-$darkBlue : #041E42;  
-$lightBlue : #6CACE4;
-$orange : #F15524;
-  
+$darkBlue: #041e42;
+$lightBlue: #6cace4;
+$orange: #f15524;
+
 /* Fonts */
 @font-face {
-    font-family: "Rubik80sFade";
-    src: local("Rubik80sFade"),
+  font-family: "Rubik80sFade";
+  src: local("Rubik80sFade"),
     url("../../static/fonts/Rubik80sFade.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Karla";
-    src: url("../../static/fonts/Karla-Regular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: 400;
+  font-family: "Karla";
+  src: url("../../static/fonts/Karla-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: "Karla";
-    src: url("../../static/fonts/Karla-Bold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: 600;
+  font-family: "Karla";
+  src: url("../../static/fonts/Karla-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
 }
-  
+
 @font-face {
-    font-family: "Karla";
-    src: url("../../static/fonts/Karla-Italic.ttf") format("truetype");
-    font-style: italic;
-    font-weight: 400;
+  font-family: "Karla";
+  src: url("../../static/fonts/Karla-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
 }
-  
+
 @font-face {
-    font-family: "Karla";
-    src: url("../../static/fonts/Karla-ExtraBold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: 700;
+  font-family: "Karla";
+  src: url("../../static/fonts/Karla-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
 }
-  
+
 @font-face {
-    font-family: "Karla";
-    src: url("../../static/fonts/Karla-BoldItalic.ttf") format("truetype");
-    font-style: italic;
-    font-weight: 700;
+  font-family: "Karla";
+  src: url("../../static/fonts/Karla-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
 }
 
 /* Global Styling */
-html{
-    height: 100%;
-    width: 100%;
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    height: 100%;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto !important;
+  font-family: "Karla", Garamond, serif !important;
+  overflow: hidden;
+
+  main {
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto !important;
-    font-family: "Karla", Garamond, serif !important;
-    overflow: hidden;
+    height: 100%;
 
-    main{
-        width: 100%;
-        height: 100%;
+    button {
+      border: none;
+      background-color: $darkBlue;
+      border-radius: 0.8rem;
+      padding: 1rem 1.5rem;
+      color: white;
+      font-size: 0.875rem;
+      line-height: 0.875rem;
+      width: fit-content;
 
-
-        button{
-            border: none;
-            background-color: $darkBlue;
-            border-radius: 0.8rem;
-            height: 2.8rem;
-            color: white;
-            font-size: 0.875rem;
-            line-height: 0.875rem;
-            width: 100%;
-
-            &:hover{
-                background-color: $orange;
-                color: $darkBlue;
-            }
-        }
-    }
-
-    h1 {
-        font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+      &:hover {
+        background-color: $orange;
         color: $darkBlue;
-        font-size: 2.4rem;
-        line-height: 2.4rem;
-        margin: 0rem;
+      }
     }
 
-    p{
-        font-size: 1rem;
-        line-height: 1.5rem;
-        padding: 0rem;
-        margin: 1rem 0rem;
+    a {
+      font-size: 1rem;
+      line-height: 1rem;
+      color: orange;
+    }
+  }
 
-        &.message{
-            color: $orange;
-            font-style: italic;
-        }
+  h1 {
+    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    color: $darkBlue;
+    font-size: 3.25rem;
+    line-height: 3.25rem;
+    margin: 0rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0rem;
+    margin: 1rem 0rem;
+
+    &.message {
+      color: $orange;
+      font-style: italic;
+    }
+  }
+
+  div {
+    width: 100%;
+
+    &.img-container {
+      overflow: hidden;
     }
 
-    div{
-        width: 100%;
-
-        &.img-container{
-            overflow: hidden;
-        }
-
-        &.header-block{
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    &.header-block {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
+  }
 
-    form{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 25rem;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
+  }
 
-    input{
-        border: 1px solid lightgray;
-        border-radius: 0.8rem;
-        height: 2.5rem;
-        font-size: 1rem;
-        line-height: 1rem;
-        padding: 1rem;
-        margin: 0rem 0rem 0.8rem 0rem;
-        width: 100%;
-        background-color: #f4faff;
-    }
-    
-    img{
-        width:100%; 
-    }
+  input {
+    border: 1px solid lightgray;
+    border-radius: 0.8rem;
+    height: 2.5rem;
+    font-size: 1rem !important;
+    line-height: 1rem !important;
+    padding: 1rem;
+    margin: 0rem 0rem 0.8rem 0rem;
+    width: 100%;
+    background-color: #f4faff;
+  }
 
-    section{
-        position: relative;
-    }
+  img {
+    width: 100%;
+  }
+
+  section {
+    position: relative;
+  }
 }
 
-.page-container{
-    min-height: 39rem;
-    height: calc(100% - 4rem);
-    position: relative;
-    margin: 4rem 0rem 0rem 0rem;
-    overflow: scroll;
+.page-container {
+  min-height: 39rem;
+  height: 100%;
+  position: relative;
+  padding: 4rem 0rem 0rem 0rem;
+  overflow: scroll;
 }
 
 /* Header Styling */
 #header {
-    min-height: 4rem;
-    position: fixed;
-    z-index: 1;
-    top: 0%;
-    background-color: white;
+  min-height: 4rem;
+  position: fixed;
+  z-index: 1;
+  top: 0%;
+  background-color: white;
 
-    .navbar{
-        border-bottom: 1px solid #5c5c5c1A;
-    }
-    
-    .navbar-brand{
-        font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
-        color: $darkBlue;
-        font-size: 2.5rem;
-        line-height: 2.5rem;
-    }
+  .navbar {
+    border-bottom: 1px solid #5c5c5c1a;
+    max-width: 1920px;
+  }
 
-    .navbar-nav .nav-link{
-        color: $darkBlue;  
+  .navbar-brand {
+    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    color: $darkBlue;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 
-        &:hover{
-            color: $orange; 
+  .navbar-nav {
+    .dropdown-menu {
+      border: none;
+      box-shadow: 10px 10px 43px -19px #00001acc;
+      padding: 0rem;
+      margin: 0rem;
+
+      .dropdown-item {
+        padding: 0.5rem 1.5rem;
+
+        &:hover {
+          color: $orange;
         }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1rem;
+        padding: 0.5rem 1.5rem;
+        margin: 0rem;
+        color: $orange;
+      }
     }
+
+    .nav-link {
+      color: $darkBlue;
+
+      &.dropdown-toggle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
 }
 
 /* Footer Styling */
-#footer{
-    display: none !important;
+#footer {
+  display: none !important;
 
-    width: 100%;
-    background-color: $darkBlue;
-    min-height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  background-color: $darkBlue;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    h3{
-        color: $orange;
-        font-size: 1rem;
-        line-height: 1rem;
-    }
-
+  h3 {
+    color: $orange;
+    font-size: 1rem;
+    line-height: 1rem;
+  }
 }
 
 @media screen and (max-width: 1920px) {
-    body {
-        main{
-            button{
-                border-radius: 0.8vw;
-                height: 2.8vw;
-                font-size: 0.875vw;
-                line-height: 0.875vw;
-            }
-        }
-    
-        h1 {
-            font-size: 2.4vw;
-            line-height: 2.4vw;
-        }
-    
-        p{
-            font-size: 1vw;
-            line-height: 1.5vw;
-            margin: 1vw 0rem;
-        }
+  body {
+    main {
+      button {
+        border-radius: 0.8vw;
+        padding: 1vw 1.5vw;
+        font-size: 0.875vw;
+        line-height: 0.875vw;
+      }
 
-        form{
-            max-width: 25vw;
-        }
-    
-        input{
-            border-radius: 0.8vw;
-            height: 2.5vw;
-            font-size: 1vw;
-            line-height: 1vw;
-            padding: 1vw;
-            margin: 0rem 0rem 0.8vw 0rem;
-        }
+      a {
+        font-size: 1vw;
+        line-height: 1vw;
+      }
+    }
+
+    h1 {
+      font-size: 3.25vw;
+      line-height: 3.25vw;
+    }
+
+    p {
+      font-size: 1vw;
+      line-height: 1.5vw;
+      margin: 1vw 0rem;
+    }
+
+    form {
+      max-width: 30vw;
+    }
+
+    input {
+      border-radius: 0.8vw;
+      height: 2.5vw;
+      font-size: 1vw !important;
+      line-height: 1vw !important;
+      padding: 1vw;
+      margin: 0rem 0rem 0.8vw 0rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    main {
+      button {
+        border-radius: 1.8vw;
+        padding: 2.2vw 2.5vw;
+        font-size: 2.875vw;
+        line-height: 2.875vw;
+      }
+
+      a {
+        font-size: 3vw;
+        line-height: 3.5vw;
+      }
+    }
+
+    h1 {
+      font-size: 8.4vw;
+      line-height: 8.4vw;
+    }
+
+    p {
+      font-size: 3vw;
+      line-height: 3.5vw;
+      margin: 3vw 0rem;
+    }
+
+    form {
+      max-width: 85vw;
+    }
+
+    input {
+      border-radius: 1.8vw;
+      height: 4.5vw;
+      font-size: 3vw !important;
+      line-height: 3vw !important;
+      padding: 3vw;
+      margin: 0rem 0rem 1.8vw 0rem;
     }
   }
 
-  @media screen and (max-width: 768px) {
-    body {
-        main{
-            button{
-                border-radius: 1.8vw;
-                height: 6.8vw;
-                font-size: 2.875vw;
-                line-height: 2.875vw;
-            }
-        }
-    
-        h1 {
-            font-size: 8.4vw;
-            line-height: 8.4vw;
-        }
-    
-        p{
-            font-size: 3vw;
-            line-height: 3.5vw;
-            margin: 3vw 0rem;
-        }
-
-        form{
-            max-width: 60vw;
-        }
-    
-        input{
-            border-radius: 1.8vw;
-            height: 4.5vw;
-            font-size: 3vw;
-            line-height: 3vw;
-            padding: 3vw;
-            margin: 0rem 0rem 1.8vw 0rem;
-        }
+  #header {
+    .navbar-nav {
+      .dropdown-menu {
+        box-shadow: none;
+      }
     }
   }
+}
