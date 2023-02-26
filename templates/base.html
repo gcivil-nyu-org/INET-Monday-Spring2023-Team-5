@@ -92,7 +92,7 @@
                 >
                   {% if user.is_authenticated %} 
                   <p>{{welcome}}</p>
-                  <a class="dropdown-item" href="">My Account</a>
+                  <a class="dropdown-item" href="/users">My Account</a>
                   <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
                   {% else %}
                   <a class="dropdown-item" href="{% url 'register' %}"
