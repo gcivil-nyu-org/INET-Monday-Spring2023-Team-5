@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+
+<main>
+  {% if message %}
+
+  <div class="alert" role="alert">{{ message }}</div>
+
+  {% endif %} {{ business.name }} {{ business.address }} {{ business.phone }} {{
+  business.email }}
+</main>
+
+{% endblock %}
