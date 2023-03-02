@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from django.urls import reverse
 
@@ -113,3 +114,96 @@ def view_business_view(request, business_id):
         'message': 'View your business.',
         'business': business,
     })
+
+
+def edituser (request):
+    if not request.user.is_authenticated:
+        messages.error(request, "You are not authorized to view this page!")
+        return HttpResponseRedirect(reverse("login"))
+    else:
+        return render(request,"users/edituser.html",{
+            "user":User.objects.get(pk=request.user.pk)
+        })
+
+
+def updateuser (request):
+    if not request.user.is_authenticated:
+        messages.error(request, "You are not authorized to view this page!")
+        return HttpResponseRedirect(reverse("login"))
+    else:
+        if request.method =="POST":
+            user=User.objects.get(pk=request.user.pk)
+            user.username=request.POST["email"]
+            user.email=request.POST["email"]
+            user.first_name=request.POST["first_name"]          
+            user.last_name=request.POST["last_name"]
+            user.save()
+            messages.success(request,"Profile Updated Successfuly.")
+            return HttpResponseRedirect(reverse("index"))          
+        else:
+            return render(request,"users/updateuser.html",{
+            "user":User.objects.get(pk=request.user.pk)
+        })
+
+def viewuser(request):
+    pass
+
+def reset_password(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+    else:
+        return render(request, "users/reset_password.html")
+
+
+
+def update_password(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+    else:
+        if request.method=="POST":
+            current_password =request.POST["current_password"]
+            username = request.user.username
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            if password1 != password2:
+                return render(request, 'users/reset_password.html', {
+                'message': 'Passwords must match.'
+            })
+
+            u = User.objects.get(pk=request.user.pk)
+            if u.check_password(current_password):
+                u.set_password(password1)
+                u.save()
+                login(request,u)
+            else :
+                 return render(request, 'users/reset_password.html', {
+                'message': 'Wrong password'
+            })
+
+
+            return render(request, "users/updateuser.html",{
+                'message': "Password Updated Successfuly"
+            })
+
+        else:
+            return render(request, "users/update_password.html")
+
+def deactivate_user (request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+
+    if request. method=="POST":
+        password=request.POST["password"]
+        u = User.objects.get(pk=request.user.pk)
+        if u.check_password(password):
+            u.delete()
+            return render(request, 'users/logout.html', {
+                'message': 'User Deactivated'
+            }) 
+        else:
+            return render(request, 'users/deactivate_user.html', {
+                'message': 'Wrong password'
+            }) 
+
+    else:
+        return render(request,"users/deactivate_user.html")
