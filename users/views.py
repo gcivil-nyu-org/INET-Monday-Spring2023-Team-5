@@ -116,16 +116,6 @@ def view_business_view(request, business_id):
     })
 
 
-def edituser (request):
-    if not request.user.is_authenticated:
-        messages.error(request, "You are not authorized to view this page!")
-        return HttpResponseRedirect(reverse("login"))
-    else:
-        return render(request,"users/edituser.html",{
-            "user":User.objects.get(pk=request.user.pk)
-        })
-
-
 def updateuser (request):
     if not request.user.is_authenticated:
         messages.error(request, "You are not authorized to view this page!")
@@ -145,14 +135,8 @@ def updateuser (request):
             "user":User.objects.get(pk=request.user.pk)
         })
 
-def viewuser(request):
-    pass
 
-def reset_password(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
-    else:
-        return render(request, "users/reset_password.html")
+
 
 
 
@@ -166,7 +150,7 @@ def update_password(request):
             password1 = request.POST['password1']
             password2 = request.POST['password2']
             if password1 != password2:
-                return render(request, 'users/reset_password.html', {
+                return render(request, 'users/update_password.html', {
                 'message': 'Passwords must match.'
             })
 
@@ -176,7 +160,7 @@ def update_password(request):
                 u.save()
                 login(request,u)
             else :
-                 return render(request, 'users/reset_password.html', {
+                 return render(request, 'users/update_password.html', {
                 'message': 'Wrong password'
             })
 
@@ -187,6 +171,8 @@ def update_password(request):
 
         else:
             return render(request, "users/update_password.html")
+
+
 
 def deactivate_user (request):
     if not request.user.is_authenticated:
