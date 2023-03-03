@@ -193,3 +193,12 @@ def deactivate_user (request):
 
     else:
         return render(request,"users/deactivate_user.html")
+
+
+def view_all_businesses_view(request):
+
+    businesses = Business.objects.all()
+
+    return render(request, 'users/view_all_businesses.html', {
+        'businesses': businesses,
+    })
