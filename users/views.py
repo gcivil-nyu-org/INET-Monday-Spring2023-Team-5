@@ -174,7 +174,7 @@ def update_password(request):
 
 
 
-def deactivate_user (request):
+def delete_user (request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
 
@@ -184,12 +184,12 @@ def deactivate_user (request):
         if u.check_password(password):
             u.delete()
             return render(request, 'users/logout.html', {
-                'message': 'User Deactivated'
+                'message': 'Account Deleted'
             }) 
         else:
-            return render(request, 'users/deactivate_user.html', {
+            return render(request, 'users/delete_user.html', {
                 'message': 'Wrong password'
             }) 
 
     else:
-        return render(request,"users/deactivate_user.html")
+        return render(request,"users/delete_user.html")
