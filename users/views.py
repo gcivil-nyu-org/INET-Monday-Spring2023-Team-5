@@ -122,6 +122,11 @@ def updateuser (request):
         return HttpResponseRedirect(reverse("login"))
     else:
         if request.method =="POST":
+            email=request.POST["email"]
+            if User.objects.filter(email=email).exists():
+                return render(request, 'users/updateuser.html', {
+                'message': 'Email already exists.'
+            })
             user=User.objects.get(pk=request.user.pk)
             user.username=request.POST["email"]
             user.email=request.POST["email"]
@@ -174,7 +179,7 @@ def update_password(request):
 
 
 
-def deactivate_user (request):
+def delete_user (request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
 
@@ -184,12 +189,12 @@ def deactivate_user (request):
         if u.check_password(password):
             u.delete()
             return render(request, 'users/logout.html', {
-                'message': 'User Deactivated'
+                'message': 'Account Deleted'
             }) 
         else:
-            return render(request, 'users/deactivate_user.html', {
+            return render(request, 'users/delete_user.html', {
                 'message': 'Wrong password'
             }) 
 
     else:
-        return render(request,"users/deactivate_user.html")
+        return render(request,"users/delete_user.html")
