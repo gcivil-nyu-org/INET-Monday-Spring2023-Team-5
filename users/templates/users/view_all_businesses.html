@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+
+<main>
+
+    {% if message %}
+
+    <div class="alert" role="alert">{{ message }}</div>
+
+    {% endif %}
+
+    {% for business in businesses %}
+    <div class="card">
+        <h5>{{ business.name }}</h5>
+        <h6>{{ business.address }}</h6>
+        <p>{{ business.phone }}</p>
+        <p>{{ business.email }}</p>
+    </div>
+    {% endfor %}
+
+</main>
+
+{% endblock %}

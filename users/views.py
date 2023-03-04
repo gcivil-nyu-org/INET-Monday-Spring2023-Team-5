@@ -179,6 +179,7 @@ def update_password(request):
 
 
 
+
 def delete_user (request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
@@ -198,3 +199,15 @@ def delete_user (request):
 
     else:
         return render(request,"users/delete_user.html")
+
+
+
+
+def view_all_businesses_view(request):
+
+    businesses = Business.objects.all()
+
+    return render(request, 'users/view_all_businesses.html', {
+        'businesses': businesses,
+    })
+
