@@ -174,22 +174,14 @@ def update_password(request):
 
 
 
-def delete_user (request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
 
-    if request. method=="POST":
-        password=request.POST["password"]
-        u = User.objects.get(pk=request.user.pk)
-        if u.check_password(password):
-            u.delete()
-            return render(request, 'users/logout.html', {
-                'message': 'Account Deleted'
-            }) 
-        else:
-            return render(request, 'users/delete_user.html', {
-                'message': 'Wrong password'
-            }) 
 
-    else:
-        return render(request,"users/delete_user.html")
+
+def view_all_businesses_view(request):
+
+    businesses = Business.objects.all()
+
+    return render(request, 'users/view_all_businesses.html', {
+        'businesses': businesses,
+    })
+
