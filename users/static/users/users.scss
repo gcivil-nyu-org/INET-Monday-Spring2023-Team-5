@@ -132,6 +132,31 @@ $orange: #f15524;
   }
 }
 
+#all_business{
+  div &:nth-of-type(1) {
+    background-color: $darkBlue;
+    background-image: url("../../../static/images/neighborhood.jpg") !important;
+    background-position: center;
+  }
+  h1{
+    font-family: Karla;
+    display: flex;
+    color: $darkBlue;
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+  thead{
+    font-family: Karla;
+    background-color: $darkBlue;
+    color: white;
+  }
+td{
+    font-family: Karla;
+    color: whitesmoke;
+  }
+
+}
+
 @media screen and (max-width: 1920px) {
   #user-dashboard {
     section {

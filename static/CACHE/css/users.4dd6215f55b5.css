@@ -1,0 +1,168 @@
+/* Global Variables */
+/* line 7, users/static/users/users.scss */
+#login section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 15, users/static/users/users.scss */
+  #login section > div {
+    height: 100%; }
+    /* line 18, users/static/users/users.scss */
+    #login section > div:nth-of-type(1) {
+      background-color: #041e42;
+      background-image: url("/static/images/nyc-skyline.jpg?8c5053fda67f");
+      background-position: center; }
+    /* line 24, users/static/users/users.scss */
+    #login section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      /* line 30, users/static/users/users.scss */
+      #login section > div:nth-of-type(2) button {
+        width: 100%; }
+
+/* line 39, users/static/users/users.scss */
+#register section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 47, users/static/users/users.scss */
+  #register section > div {
+    height: 100%; }
+    /* line 50, users/static/users/users.scss */
+    #register section > div:nth-of-type(1) {
+      background-color: #041e42;
+      background-image: url("/static/images/nyc-skyline.jpg?8c5053fda67f");
+      background-position: center; }
+    /* line 56, users/static/users/users.scss */
+    #register section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      /* line 62, users/static/users/users.scss */
+      #register section > div:nth-of-type(2) button {
+        width: 100%; }
+
+/* line 71, users/static/users/users.scss */
+#user-dashboard section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 79, users/static/users/users.scss */
+  #user-dashboard section > div {
+    height: 100%; }
+    /* line 82, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(1) {
+      display: flex;
+      flex-direction: column;
+      background-color: #041e42;
+      padding: 3rem; }
+    /* line 89, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(2) {
+      background-color: #041e42;
+      background-image: url("/static/images/homepage-hero.jpg?8c5053fda67f");
+      background-position: center; }
+  /* line 96, users/static/users/users.scss */
+  #user-dashboard section h1 {
+    color: white;
+    font-size: 2.5rem;
+    line-height: 2.5rem; }
+  /* line 102, users/static/users/users.scss */
+  #user-dashboard section p {
+    color: white; }
+  /* line 106, users/static/users/users.scss */
+  #user-dashboard section a {
+    margin: 0.5rem 0rem 0rem; }
+    /* line 109, users/static/users/users.scss */
+    #user-dashboard section a:hover {
+      color: white; }
+
+/* line 117, users/static/users/users.scss */
+#logout section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  /* line 125, users/static/users/users.scss */
+  #logout section div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    align-items: center;
+    justify-content: center; }
+
+/* line 136, users/static/users/users.scss */
+#all_business h1 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  color: #041e42;
+  font-size: 2.5rem;
+  line-height: 2.5rem; }
+
+@media screen and (max-width: 1920px) {
+  /* line 150, users/static/users/users.scss */
+  #user-dashboard section > div:nth-of-type(1) {
+    padding: 3vw; }
+  /* line 155, users/static/users/users.scss */
+  #user-dashboard section h1 {
+    font-size: 2.5vw;
+    line-height: 2.5vw; }
+  /* line 160, users/static/users/users.scss */
+  #user-dashboard section a {
+    margin: 0.5vw 0rem 0rem; } }
+
+@media screen and (max-width: 768px) {
+  /* line 169, users/static/users/users.scss */
+  #login section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 176, users/static/users/users.scss */
+    #login section > div:nth-of-type(1) {
+      height: 35%; }
+    /* line 180, users/static/users/users.scss */
+    #login section > div:nth-of-type(2) {
+      height: 65%; }
+  /* line 188, users/static/users/users.scss */
+  #register section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 195, users/static/users/users.scss */
+    #register section > div:nth-of-type(1) {
+      height: 35%; }
+    /* line 199, users/static/users/users.scss */
+    #register section > div:nth-of-type(2) {
+      height: 65%; }
+  /* line 207, users/static/users/users.scss */
+  #user-dashboard section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 214, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(1) {
+      padding: 3vw; }
+    /* line 219, users/static/users/users.scss */
+    #user-dashboard section h1 {
+      font-size: 8.5vw;
+      line-height: 8.5vw; }
+    /* line 224, users/static/users/users.scss */
+    #user-dashboard section a {
+      margin: 0.8vw 0rem 0rem; } }
