@@ -122,12 +122,14 @@ def updateuser (request):
         return HttpResponseRedirect(reverse("login"))
     else:
         if request.method =="POST":
+            user=User.objects.get(pk=request.user.pk)
             email=request.POST["email"]
-            if User.objects.filter(email=email).exists():
+            #Check if the new email is used by any other users or not
+            if  user.email != email and User.objects.filter(email=email).exists():
                 return render(request, 'users/updateuser.html', {
                 'message': 'Email already exists.'
             })
-            user=User.objects.get(pk=request.user.pk)
+            
             user.username=request.POST["email"]
             user.email=request.POST["email"]
             user.first_name=request.POST["first_name"]          
