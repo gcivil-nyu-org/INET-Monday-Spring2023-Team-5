@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+
+<main>
+  {% if message %}
+
+  <div class="alert" role="alert">{{ message }}</div>
+
+  {% endif %}  
+  <h5>{{ listing.title }}</h5>
+  <h6>{{ listing.description }}</h6>
+  <p>{{ listing.price }} $</p>
+  <p>{{ listing.neighborhood.name }}</p>
+  <p>{{ listing.address }}</p>
+  <p>{{ listing.email }}</p>
+  <p>{{ listing.phone }}</p>
+  <p>Posted by: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
+  <p>Posted at: {{ listing.created_at }}</p>
+
+  <button><a href="{% url 'marketplace' %}">Back to Marketplace</a></button>
+</main>
+
+{% endblock %}
