@@ -19,6 +19,23 @@ django-compressor = "^4.3.1"
 django-libsass = "^0.9"
 django-bootstrap-icons = "^0.8.2"
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+flake8 = "^5.0.4"
+coverage = "^6.5.0"
+coveralls = "^3.3.1"
+
+[tool.black]
+line-length = 88
+preview = true
+target-version = ['py37']
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | migrations
+)/
+'''
 
 [build-system]
 requires = ["poetry-core"]
