@@ -1,0 +1,237 @@
+/* Global Variables */
+/* line 7, users/static/users/users.scss */
+#login section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 15, users/static/users/users.scss */
+  #login section > div {
+    height: 100%; }
+    /* line 18, users/static/users/users.scss */
+    #login section > div:nth-of-type(1) {
+      background-color: #041e42;
+      background-image: url("/static/images/nyc-skyline.jpg?850af29d2994");
+      background-position: center; }
+    /* line 24, users/static/users/users.scss */
+    #login section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      /* line 30, users/static/users/users.scss */
+      #login section > div:nth-of-type(2) button {
+        width: 100%; }
+
+/* line 39, users/static/users/users.scss */
+#register section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 47, users/static/users/users.scss */
+  #register section > div {
+    height: 100%; }
+    /* line 50, users/static/users/users.scss */
+    #register section > div:nth-of-type(1) {
+      background-color: #041e42;
+      background-image: url("/static/images/nyc-skyline.jpg?850af29d2994");
+      background-position: center; }
+    /* line 56, users/static/users/users.scss */
+    #register section > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      /* line 62, users/static/users/users.scss */
+      #register section > div:nth-of-type(2) button {
+        width: 100%; }
+
+/* line 74, users/static/users/users.scss */
+#user-dashboard section,
+#user-edit section,
+#user-update-password section,
+#user-delete section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+  /* line 82, users/static/users/users.scss */
+  #user-dashboard section > div,
+  #user-edit section > div,
+  #user-update-password section > div,
+  #user-delete section > div {
+    height: 100%; }
+    /* line 85, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(1),
+    #user-edit section > div:nth-of-type(1),
+    #user-update-password section > div:nth-of-type(1),
+    #user-delete section > div:nth-of-type(1) {
+      display: flex;
+      flex-direction: column;
+      background-color: #041e42;
+      padding: 3rem; }
+    /* line 92, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(2),
+    #user-edit section > div:nth-of-type(2),
+    #user-update-password section > div:nth-of-type(2),
+    #user-delete section > div:nth-of-type(2) {
+      background-color: #041e42;
+      background-image: url("/static/images/homepage-hero.jpg?850af29d2994");
+      background-position: center; }
+  /* line 99, users/static/users/users.scss */
+  #user-dashboard section h1,
+  #user-edit section h1,
+  #user-update-password section h1,
+  #user-delete section h1 {
+    color: white;
+    font-size: 2.5rem;
+    line-height: 2.5rem; }
+  /* line 105, users/static/users/users.scss */
+  #user-dashboard section p,
+  #user-edit section p,
+  #user-update-password section p,
+  #user-delete section p {
+    color: white; }
+  /* line 109, users/static/users/users.scss */
+  #user-dashboard section a,
+  #user-edit section a,
+  #user-update-password section a,
+  #user-delete section a {
+    margin: 0.5rem 0rem 0rem; }
+    /* line 112, users/static/users/users.scss */
+    #user-dashboard section a:hover,
+    #user-edit section a:hover,
+    #user-update-password section a:hover,
+    #user-delete section a:hover {
+      color: white; }
+
+/* line 124, users/static/users/users.scss */
+#user-edit section > div:nth-of-type(2),
+#user-update-password section > div:nth-of-type(2),
+#user-delete section > div:nth-of-type(2) {
+  background-color: white;
+  background-image: unset;
+  padding: 3rem; }
+  /* line 129, users/static/users/users.scss */
+  #user-edit section > div:nth-of-type(2) form,
+  #user-update-password section > div:nth-of-type(2) form,
+  #user-delete section > div:nth-of-type(2) form {
+    margin: 1rem 0rem; }
+
+/* line 138, users/static/users/users.scss */
+#logout section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  /* line 146, users/static/users/users.scss */
+  #logout section div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    align-items: center;
+    justify-content: center; }
+
+@media screen and (max-width: 1920px) {
+  /* line 163, users/static/users/users.scss */
+  #user-dashboard section > div:nth-of-type(1),
+  #user-edit section > div:nth-of-type(1),
+  #user-update-password section > div:nth-of-type(1),
+  #user-delete section > div:nth-of-type(1) {
+    padding: 3vw; }
+  /* line 168, users/static/users/users.scss */
+  #user-dashboard section h1,
+  #user-edit section h1,
+  #user-update-password section h1,
+  #user-delete section h1 {
+    font-size: 2.5vw;
+    line-height: 2.5vw; }
+  /* line 173, users/static/users/users.scss */
+  #user-dashboard section a,
+  #user-edit section a,
+  #user-update-password section a,
+  #user-delete section a {
+    margin: 0.5vw 0rem 0rem; }
+  /* line 184, users/static/users/users.scss */
+  #user-edit section > div:nth-of-type(2),
+  #user-update-password section > div:nth-of-type(2),
+  #user-delete section > div:nth-of-type(2) {
+    padding: 3vw; }
+    /* line 187, users/static/users/users.scss */
+    #user-edit section > div:nth-of-type(2) form,
+    #user-update-password section > div:nth-of-type(2) form,
+    #user-delete section > div:nth-of-type(2) form {
+      margin: 1vw 0rem; } }
+
+@media screen and (max-width: 768px) {
+  /* line 198, users/static/users/users.scss */
+  #login section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 205, users/static/users/users.scss */
+    #login section > div:nth-of-type(1) {
+      height: 35%; }
+    /* line 209, users/static/users/users.scss */
+    #login section > div:nth-of-type(2) {
+      height: 65%; }
+  /* line 217, users/static/users/users.scss */
+  #register section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 224, users/static/users/users.scss */
+    #register section > div:nth-of-type(1) {
+      height: 35%; }
+    /* line 228, users/static/users/users.scss */
+    #register section > div:nth-of-type(2) {
+      height: 65%; }
+  /* line 239, users/static/users/users.scss */
+  #user-dashboard section,
+  #user-edit section,
+  #user-update-password section,
+  #user-delete section {
+    display: flex;
+    grid-auto-flow: unset;
+    grid-template-columns: unset;
+    flex-direction: column; }
+    /* line 246, users/static/users/users.scss */
+    #user-dashboard section > div:nth-of-type(1),
+    #user-edit section > div:nth-of-type(1),
+    #user-update-password section > div:nth-of-type(1),
+    #user-delete section > div:nth-of-type(1) {
+      padding: 3vw; }
+    /* line 251, users/static/users/users.scss */
+    #user-dashboard section h1,
+    #user-edit section h1,
+    #user-update-password section h1,
+    #user-delete section h1 {
+      font-size: 5.5vw;
+      line-height: 5.5vw; }
+    /* line 256, users/static/users/users.scss */
+    #user-dashboard section a,
+    #user-edit section a,
+    #user-update-password section a,
+    #user-delete section a {
+      margin: 0.8vw 0rem 0rem; }
+  /* line 267, users/static/users/users.scss */
+  #user-edit section > div:nth-of-type(2),
+  #user-update-password section > div:nth-of-type(2),
+  #user-delete section > div:nth-of-type(2) {
+    padding: 6vw; }
+    /* line 270, users/static/users/users.scss */
+    #user-edit section > div:nth-of-type(2) form,
+    #user-update-password section > div:nth-of-type(2) form,
+    #user-delete section > div:nth-of-type(2) form {
+      margin: 3vw 0rem; } }

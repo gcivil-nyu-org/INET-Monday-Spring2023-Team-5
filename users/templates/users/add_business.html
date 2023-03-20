@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+
+<main id="user-add-business">
+  <section>
+    <div>
+      <p>My Account</p>
+      <h1>Welcome,</h1>
+
+      <p>My Profile</p>
+      <a href="">My Info</a>
+      <a href="{% url 'update_user' %}">Edit Profile</a>
+
+      <p>My Business</p>
+      <a href="">My Businesses</a>
+      <a href="{% url 'add_business' %}">Add A Business</a>
+    </div>
+    <div>
+      <h2>Add A Business</h2>
+      
+      {% if message %}
+
+      <p class="message" role="alert">{{ message }}</p>
+
+      {% endif %}
+
+      <form action="{% url 'add_business' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Business Name" />
+        <input type="text" name="address" placeholder="Business Address" />
+        <input type="tel" name="phone" placeholder="Business Phone" />
+        <input type="email" name="email" placeholder="Business Email" />
+        <button type="submit">Add Business</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

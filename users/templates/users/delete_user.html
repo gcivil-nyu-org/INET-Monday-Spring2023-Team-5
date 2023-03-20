@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+
+<main id="user-delete">
+  <section>
+    <div>
+      <p>My Account</p>
+      <h1>Welcome,</h1>
+
+      <p>My Profile</p>
+      <a href="">My Info</a>
+      <a href="{% url 'update_user' %}">Edit Profile</a>
+
+      <p>My Business</p>
+      <a href="">My Businesses</a>
+      <a href="{% url 'add_business' %}">Add A Business</a>
+    </div>
+    <div>
+      <h2>Delete Account</h2>
+
+      {% if message %}
+
+      <p class="message" role="alert">{{ message }}</p>
+
+      {% endif %}
+
+      <form action="{% url 'delete_user' %}" method="POST">
+        {% csrf_token %}
+        <input
+          type="password"
+          required="required"
+          name="password"
+          placeholder="Enter your Password"
+        />
+
+        <button type="submit">Delete User</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
