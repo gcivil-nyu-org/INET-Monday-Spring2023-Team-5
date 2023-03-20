@@ -1,12 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
-<main>
-  {% if message %}
+<main id="user-businesses">
+  <section>
+    {% if message %}
 
-  <div class="alert" role="alert">{{ message }}</div>
+    <div class="alert" role="alert">{{ message }}</div>
 
-  {% endif %} {{ business.name }} {{ business.address }} {{ business.phone }} {{
-  business.email }}
+    {% endif %} {{ business.name }} {{ business.address }} {{ business.phone }}
+    {{ business.email }}
+  </section>
 </main>
 
 {% endblock %}

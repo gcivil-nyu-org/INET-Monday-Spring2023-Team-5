@@ -9,9 +9,7 @@ urlpatterns = [
     path('add_business/', views.add_business_view, name='add_business'),
     path('view_business/<int:business_id>/', views.view_business_view, name='view_business'),
     path("update_password", views.update_password, name="update_password"),
-    path("updateuser/", views.updateuser, name="updateuser"),
+    path("update_user/", views.update_user, name="update_user"),
     path("delete_user/", views.delete_user, name="delete_user"),
     path('view_all_businesses/', views.view_all_businesses_view, name='view_all_businesses'),
-
-
 ]
