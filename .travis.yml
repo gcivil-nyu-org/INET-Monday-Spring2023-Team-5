@@ -23,12 +23,12 @@ after_success:
 
 deploy:
   - provider: elasticbeanstalk
-    region: "us-west-2"
-    app: "bam-prod"
-    env: "bam-env"
-    bucket_name: "elasticbeanstalk-us-west-2-906796636311"
-    bucket_path: "bam-prod"
+    region: $AWS_REGION
+    app: $AWS_APP
+    env: $AWS_ENV
+    bucket_name: $AWS_BUCKET_NAME
+    bucket_path: $AWS_BUCKET_PATH
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     on:
-      branch: develop
+      branch: $TRAVIS_BRANCH
