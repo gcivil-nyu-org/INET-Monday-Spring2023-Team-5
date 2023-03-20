@@ -25,8 +25,11 @@ SECRET_KEY = "18!w5p^@a(20xnc0v^41b5^s%(fvwy61fx5y$jc-cffgz0e4bk"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["bam-env.eba-n2psxg2h.us-west-2.elasticbeanstalk.com", "127.0.0.1"]
-
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "bam-env.eba-n2psxg2h.us-west-2.elasticbeanstalk.com",  # dev
+    "bam-nyc.eba-uw5cyphp.us-west-2.elasticbeanstalk.com",  # prod
+]
 
 # Application definition
 
