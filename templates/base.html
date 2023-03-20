@@ -70,14 +70,35 @@
           </button>
           <div class="collapse navbar-collapse" id="mobileNavbar">
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item mobile">
+                {% if user.is_authenticated %}                
+                <p>{{welcome}}</p>
+                <a class="nav-link" href="/users">
+                  {% bs_icon 'person-badge' size='1rem' %} My Account
+                </a>
+                <a class="nav-link" href="{% url 'logout' %}">
+                  {% bs_icon 'box-arrow-right' size='1rem' %} Log Out
+                </a>
+                {% else %}
+                <p>HI GUEST!</p>
+                <a class="nav-link" href="{% url 'register' %}">
+                  Sign Up
+                </a>
+                <a class="nav-link" href="{% url 'login' %}">
+                  Log In
+                </a>
+                {% endif %}
+                <hr/>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"> Neighborhoods </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'view_all_businesses' %}"> Services </a>
-
+                <a class="nav-link" href="{% url 'view_all_businesses' %}">
+                  Services
+                </a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown desktop">
                 <a
                   class="nav-link dropdown-toggle"
                   id="mobileNavbarDropdown"
@@ -91,14 +112,19 @@
                   class="dropdown-menu dropdown-menu-right"
                   aria-labelledby="mobileNavbarDropdown"
                 >
-                  {% if user.is_authenticated %} 
+                  {% if user.is_authenticated %}
                   <p>{{welcome}}</p>
-                  <a class="dropdown-item" href="/users">My Account</a>
-                  <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                  <a class="dropdown-item" href="/users">
+                    {% bs_icon 'person-badge' size='1rem' %} My Account
+                  </a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">
+                    {% bs_icon 'box-arrow-right' size='1rem' %} Log Out
+                  </a>
                   {% else %}
-                  <a class="dropdown-item" href="{% url 'register' %}"
-                    >Sign Up</a
-                  >
+                  <p>HI GUEST!</p>
+                  <a class="dropdown-item" href="{% url 'register' %}">
+                    Sign Up
+                  </a>
                   <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
                   {% endif %}
                 </div>

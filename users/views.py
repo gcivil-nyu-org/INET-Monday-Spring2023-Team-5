@@ -116,7 +116,7 @@ def view_business_view(request, business_id):
     })
 
 
-def updateuser (request):
+def update_user (request):
     if not request.user.is_authenticated:
         messages.error(request, "You are not authorized to view this page!")
         return HttpResponseRedirect(reverse("login"))
@@ -126,7 +126,7 @@ def updateuser (request):
             email=request.POST["email"]
             #Check if the new email is used by any other users or not
             if  user.email != email and User.objects.filter(email=email).exists():
-                return render(request, 'users/updateuser.html', {
+                return render(request, 'users/update_user.html', {
                 'message': 'Email already exists.'
             })
             
@@ -138,7 +138,7 @@ def updateuser (request):
             messages.success(request,"Profile Updated Successfuly.")
             return HttpResponseRedirect(reverse("index"))          
         else:
-            return render(request,"users/updateuser.html",{
+            return render(request,"users/update_user.html",{
             "user":User.objects.get(pk=request.user.pk)
         })
 
@@ -172,7 +172,7 @@ def update_password(request):
             })
 
 
-            return render(request, "users/updateuser.html",{
+            return render(request, "users/update_user.html",{
                 'message': "Password Updated Successfuly"
             })
 

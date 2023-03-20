@@ -1,22 +1,32 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% load bootstrap_icons %}
+{% block content %} 
+{% load static %}
 
-<main>
-
-    {% if message %}
-
-    <div class="alert" role="alert">{{ message }}</div>
-
-    {% endif %}
-
-    {% for business in businesses %}
-    <div class="card">
-        <h5>{{ business.name }}</h5>
-        <h6>{{ business.address }}</h6>
-        <p>{{ business.phone }}</p>
-        <p>{{ business.email }}</p>
+<main id="services">
+  <section>
+    <div class="sort-filter">
+      <button>{%bs_icon 'building' size='1rem' %}Queens</button>
+      <button>{%bs_icon 'building' size='1rem' %}Brooklyn</button>
+      <button>{%bs_icon 'building' size='1rem' %}Bronx</button>
+      <button>{%bs_icon 'building' size='1rem' %}Manhattan</button>
     </div>
-    {% endfor %}
-
+  </section>
+  <section>
+    <div class="list-page">
+      {% for business in businesses %}
+      <div class="listing">
+        <a>
+          <img src="{% static 'images/business-1.jpg' %}" />
+          <div>
+            <h3>{{ business.name }}</h3>
+            <p>{{ business.address }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 </main>
 
 {% endblock %}
