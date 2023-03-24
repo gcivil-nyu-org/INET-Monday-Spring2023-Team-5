@@ -293,7 +293,7 @@ class AddBusinessViewTestCase(TestCase):
         self.assertFalse(Business.objects.filter(name="Test Business").exists())
 
 
-#class ViewBusinessViewTestCase(TestCase):
+# class ViewBusinessViewTestCase(TestCase):
 #    def setUp(self):
 #        self.client = Client()
 #        self.user = User.objects.create_user(
@@ -357,6 +357,7 @@ class ViewAllBusinessesViewTestCase(TestCase):
         self.assertContains(response, "123 Main St")
         self.assertContains(response, "Test Business 2")
         self.assertContains(response, "456 Maple St")
+
 
 class ViewMyBusinessesViewTestCase(TestCase):
     def setUp(self):

@@ -213,10 +213,11 @@ def view_all_businesses_view(request):
         },
     )
 
+
 def view_my_businesses(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
-    
+
     businesses = Business.objects.filter(owner=request.user)
 
     return render(
