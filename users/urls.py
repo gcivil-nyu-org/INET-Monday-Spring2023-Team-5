@@ -25,4 +25,7 @@ urlpatterns = [
         views.view_my_businesses,
         name="view_my_businesses",
     ),
+    path("add_listing/", views.add_listing, name="add_listing"),
+    path("view_listing/<int:listing_id>/", views.view_listing, name="view_listing"),
+    path("marketplace/", views.marketplace, name="marketplace"),
 ]
