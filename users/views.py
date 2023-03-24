@@ -227,8 +227,8 @@ def view_my_businesses(request):
             "businesses": businesses,
         },
     )
-    
-    
+
+
 def add_listing(request):
     if not request.user.is_authenticated:
         messages.error(request, "You are not authorized to view this page!")
