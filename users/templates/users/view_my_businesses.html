@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+{% load bootstrap_icons %}
+{% block content %} 
+{% load static %}
+
+<main id="services">
+  <section>
+    <div>
+      <p>My Account</p>
+      <h1>Welcome,</h1>
+
+      <p>My Profile</p>
+      <a href="">My Info</a>
+      <a href="{% url 'update_user' %}">Edit Profile</a>
+      <br>
+      <a href="{% url 'view_my_businesses' %}">My Businesses</a>
+      <a href="{% url 'add_business' %}">Add A Business</a>
+    </div>
+  </section>
+  <section>
+    <div class="list-page">
+      {% for business in businesses %}
+      <div class="listing">
+        <a>
+          <img src="{% static 'images/business-1.jpg' %}" />
+          <div>
+            <h3>{{ business.name }}</h3>
+            <p>{{ business.address }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+{% endblock %}

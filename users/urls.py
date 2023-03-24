@@ -20,4 +20,9 @@ urlpatterns = [
         views.view_all_businesses_view,
         name="view_all_businesses",
     ),
+    path(
+        "view_my_businesses/",
+        views.view_my_businesses,
+        name="view_my_businesses",
+    ),
 ]

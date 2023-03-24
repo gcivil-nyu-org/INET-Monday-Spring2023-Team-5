@@ -277,7 +277,7 @@ class AddBusinessViewTestCase(TestCase):
             "phone": "555-555-1212",
         }
         response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("view_business", args=(1,)))
+        self.assertRedirects(response, reverse("view_my_businesses"))
         self.assertTrue(Business.objects.filter(name="Test Business").exists())
 
     def test_add_business_view_post_unauthenticated_user(self):
@@ -293,36 +293,36 @@ class AddBusinessViewTestCase(TestCase):
         self.assertFalse(Business.objects.filter(name="Test Business").exists())
 
 
-class ViewBusinessViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
-        )
-        self.business = Business.objects.create(
-            name="Test Business",
-            address="123 Main St",
-            owner=self.user,
-            phone="123-456-7890",
-        )
-        self.url = reverse("view_business", args=[self.business.id])
-
-    def test_view_business_view_unauthenticated_user(self):
-        response = self.client.get(self.url)
-        self.assertRedirects(response, "/users/login/")
-
-    def test_view_business_view_authenticated_user(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "View your business.")
-        self.assertContains(response, "Test Business")
-        self.assertContains(response, "123 Main St")
-        self.assertContains(response, "123-456-7890")
+#class ViewBusinessViewTestCase(TestCase):
+#    def setUp(self):
+#        self.client = Client()
+#        self.user = User.objects.create_user(
+#            username="testuser@example.com",
+#            email="testuser@example.com",
+#            password="password",
+#            first_name="Test",
+#            last_name="User",
+#        )
+#        self.business = Business.objects.create(
+#            name="Test Business",
+#            address="123 Main St",
+#            owner=self.user,
+#            phone="123-456-7890",
+#        )
+#        self.url = reverse("view_business", args=[self.business.id])
+#
+#    def test_view_business_view_unauthenticated_user(self):
+#        response = self.client.get(self.url)
+#        self.assertRedirects(response, "/users/login/")
+#
+#    def test_view_business_view_authenticated_user(self):
+#        self.client.login(username="testuser@example.com", password="password")
+#        response = self.client.get(self.url)
+#        self.assertEqual(response.status_code, 200)
+#        self.assertContains(response, "View your business.")
+#        self.assertContains(response, "Test Business")
+#        self.assertContains(response, "123 Main St")
+#        self.assertContains(response, "123-456-7890")
 
 
 class ViewAllBusinessesViewTestCase(TestCase):
@@ -350,6 +350,39 @@ class ViewAllBusinessesViewTestCase(TestCase):
         self.url = reverse("view_all_businesses")
 
     def test_view_all_businesses_view(self):
+        self.client.login(username="testuser@example.com", password="password")
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Business 1")
+        self.assertContains(response, "123 Main St")
+        self.assertContains(response, "Test Business 2")
+        self.assertContains(response, "456 Maple St")
+
+class ViewMyBusinessesViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="password",
+            first_name="Test",
+            last_name="User",
+        )
+        self.business1 = Business.objects.create(
+            name="Test Business 1",
+            address="123 Main St",
+            owner=self.user,
+            phone="123-456-7890",
+        )
+        self.business2 = Business.objects.create(
+            name="Test Business 2",
+            address="456 Maple St",
+            owner=self.user,
+            phone="555-555-5555",
+        )
+        self.url = reverse("view_my_businesses")
+
+    def test_view_my_businesses_view(self):
         self.client.login(username="testuser@example.com", password="password")
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)

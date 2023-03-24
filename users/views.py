@@ -95,7 +95,7 @@ def add_business_view(request):
         )
         business.save()
 
-        return HttpResponseRedirect(reverse("view_business", args=(business.id,)))
+        return HttpResponseRedirect(reverse("view_my_businesses"))
 
     return render(request, "users/add_business.html", {"message": "Add your business."})
 
@@ -208,6 +208,20 @@ def view_all_businesses_view(request):
     return render(
         request,
         "users/view_all_businesses.html",
+        {
+            "businesses": businesses,
+        },
+    )
+
+def view_my_businesses(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+    
+    businesses = Business.objects.filter(owner=request.user)
+
+    return render(
+        request,
+        "users/view_my_businesses.html",
         {
             "businesses": businesses,
         },
