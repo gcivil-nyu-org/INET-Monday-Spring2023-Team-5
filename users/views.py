@@ -14,6 +14,8 @@ def index_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     
+    request.session['first_name'] = request.user.first_name
+    
     return render(request, 'users/index.html', {
         'welcome': 'Welcome {}!'.format(request.user.first_name),
         'message': 'Welcome, {}'.format(request.user.first_name)
