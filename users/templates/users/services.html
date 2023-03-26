@@ -20,7 +20,7 @@
     <div class="list-page">
       {% if businesses %} {% for business in businesses %}
       <div class="listing">
-        <a>
+        <a href="{% url 'view_business_details' business.id %}">
           <img src="{% static 'images/business-1.jpg' %}" />
           <div>
             <h3>{{ business.name }}</h3>

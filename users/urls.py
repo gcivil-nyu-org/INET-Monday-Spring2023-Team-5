@@ -25,6 +25,11 @@ urlpatterns = [
         views.view_my_businesses,
         name="view_my_businesses",
     ),
+    path(
+        "business_details/<int:business_id>/",
+        views.view_business_details,
+        name="view_business_details",
+    ),
     path("add_listing/", views.add_listing, name="add_listing"),
     path("view_listing/<int:listing_id>/", views.view_listing, name="view_listing"),
     path("marketplace/", views.marketplace, name="marketplace"),

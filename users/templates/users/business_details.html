@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load bootstrap_icons %}
+{% block content %}
+{% load static %}
+    <main id="service_detail">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col">
+              <h1>{{ business.name }}</h1>
+            </div>
+            <div class="col-3">
+              <span class="text-danger">
+                {%bs_icon 'heart-fill' size='1rem' %}
+                <span class="ms-1">4.8/5.0</span>
+              </span>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col" id="info">
+                {%bs_icon 'geo-alt-fill' size='1rem' %}{{ business.address}}
+            </div>
+            <div class="col" id="info">
+              {%bs_icon 'envelope-at' size='1rem' %} {{ business.email }}
+            </div>
+            <div class="col" id="info">
+              {%bs_icon 'telephone' size='1rem' %} {{ business.phone }}
+            </div>
+          </div>
+            <div class="row w-25 p-3">
+              <div class="col h-50">
+                <img src="{% static 'images/business-1.jpg' %}" class="rounded float-start" alt="{% static 'images/business-1.jpg' %}">
+              </div>
+            </div>
+            <!--create a new col beside the image which contains its data and owner-->
+            <div class="col-lg-6">
+                <h3>Business Description</h3>
+                <p>{{ business.owner }}</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

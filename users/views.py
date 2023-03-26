@@ -365,3 +365,16 @@ def marketplace(request):
             "page": "marketplace",
         },
     )
+
+
+def view_business_details(request, business_id):
+    business = Business.objects.get(id=business_id)
+    return render(
+        request,
+        "users/business_details.html",
+        {
+            "business": business,
+            "firstname": "{}".format(request.user.first_name),
+            "page": "business-details",
+        },
+    )
