@@ -59,7 +59,8 @@ body {
   font-family: "Karla", Garamond, serif !important;
   overflow: hidden;
 
-  .mobile {
+  .mobile,
+  .br-mobile {
     display: none !important;
   }
 
@@ -94,7 +95,7 @@ body {
     a {
       font-size: 1rem;
       line-height: 1rem;
-      color: orange;
+      color:$orange;
     }
   }
 
@@ -133,7 +134,7 @@ body {
     margin: 1rem 0rem;
 
     &.message {
-      color: $orange;
+      color: $orange !important;
       font-style: italic;
     }
   }
@@ -201,6 +202,10 @@ body {
         flex-direction: column;
         align-items: center;
         row-gap: 0.5rem;
+
+        &:hover{
+          color: $orange;
+        }
       }
     }
   }
@@ -441,6 +446,10 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
+    .br-mobile {
+      display: block !important;
+    }
+
     main {
       button {
         border-radius: 1.8vw;

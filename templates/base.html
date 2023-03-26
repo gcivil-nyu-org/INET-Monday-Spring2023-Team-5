@@ -51,7 +51,7 @@
     {% load bootstrap_icons %}
   </head>
   <body>
-    <div class="page-container">
+    <div class="page-container {{page}}">
       <div id="header">
         <nav class="navbar navbar-expand-lg">
           <a class="navbar-brand" href="/">BAM</a>
@@ -71,30 +71,29 @@
           <div class="collapse navbar-collapse" id="mobileNavbar">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item mobile">
-                {% if user.is_authenticated %}                
-                <p>{{welcome}}</p>
+                {% if user.is_authenticated %}
+                <p>Welcome {{firstname}}!</p>
                 <a class="nav-link" href="/users">
                   {% bs_icon 'person-badge' size='1rem' %} My Account
+                </a>
+                <a class="nav-link" href="{% url 'marketplace' %}">
+                  {% bs_icon 'shop' size='1rem' %} Marketplace
                 </a>
                 <a class="nav-link" href="{% url 'logout' %}">
                   {% bs_icon 'box-arrow-right' size='1rem' %} Log Out
                 </a>
                 {% else %}
                 <p>HI GUEST!</p>
-                <a class="nav-link" href="{% url 'register' %}">
-                  Sign Up
-                </a>
-                <a class="nav-link" href="{% url 'login' %}">
-                  Log In
-                </a>
+                <a class="nav-link" href="{% url 'register' %}"> Sign Up </a>
+                <a class="nav-link" href="{% url 'login' %}"> Log In </a>
                 {% endif %}
-                <hr/>
+                <hr />
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"> Neighborhoods </a>
+                <a class="nav-link" href="/neighborhoods"> Neighborhoods </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'view_all_businesses' %}">
+                <a class="nav-link" href="{% url 'services' %}">
                   Services
                 </a>
               </li>
@@ -113,9 +112,12 @@
                   aria-labelledby="mobileNavbarDropdown"
                 >
                   {% if user.is_authenticated %}
-                  <p>{{welcome}}</p>
+                  <p>Welcome {{firstname}}!</p>
                   <a class="dropdown-item" href="/users">
                     {% bs_icon 'person-badge' size='1rem' %} My Account
+                  </a>
+                  <a class="dropdown-item" href="{% url 'marketplace' %}">
+                    {% bs_icon 'shop' size='1rem' %} Marketplace
                   </a>
                   <a class="dropdown-item" href="{% url 'logout' %}">
                     {% bs_icon 'box-arrow-right' size='1rem' %} Log Out
