@@ -1,17 +1,25 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load
+static %}
 
-<main>
-
-    {% if message %}
-
-    <div class="alert" role="alert">{{ message }}</div>
-
-    {% endif %}
-
-   <button> <a href="{% url 'add_listing' %}">Add A Listing to Marketplace</a></button>
-
-    {% for listing in listings %}
-    <div class="card">
+<main id="marketplace">
+  <section>
+    <div class="header">
+      <h1>Marketplace</h1>
+      <p>Buy and sell with other fellow new yorkers!</p>
+    </div>
+  </section>
+  <section>
+    <div class="sort-filter">
+      <button>{%bs_icon 'building' size='1rem' %}Queens</button>
+      <button>{%bs_icon 'building' size='1rem' %}Brooklyn</button>
+      <button>{%bs_icon 'building' size='1rem' %}Bronx</button>
+      <button>{%bs_icon 'building' size='1rem' %}Manhattan</button>
+    </div>
+  </section>
+  <section>
+    <div class="list-page">
+      {% if listings %} {% for listing in listings %}
+      <div class="listing">
         <a href="{% url 'view_listing' listing.pk %}">{{ listing.title }}</a>
         <h6>{{ listing.description }}</h6>
         <p>{{ listing.price }} $</p>
@@ -19,12 +27,17 @@
         <p>{{ listing.address }}</p>
         <p>{{ listing.email }}</p>
         <p>{{ listing.phone }}</p>
-        <p>Posted by: {{ listing.owner.first_name }} {{ listing.owner.last_name }}</p>
+        <p>
+          Posted by: {{ listing.owner.first_name }} {{ listing.owner.last_name
+          }}
+        </p>
         <p>Posted at: {{ listing.created_at }}</p>
+      </div>
+      {% endfor %} {% else %}
+      <h3 class="empty-list">No Listings Are Currently Availiable</h3>
+      {% endif %}
     </div>
-    {% endfor %}
-
-    <button><a href="{% url 'index' %}">Back to Homepage</a></button>
+  </section>
 </main>
 
 {% endblock %}

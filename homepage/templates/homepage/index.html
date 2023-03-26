@@ -1,14 +1,32 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{% block content %}
 
 <main id="homepage">
   <section id="hero">
-    <div class="img-container">
-      {% load static %} <img src="{% static 'images/homepage-hero.jpg' %}" alt="Hero Image" />
-    </div>
+    <div class="img-container"></div>
     <div class="header-block">
-      <h1>FROM <br/>NOISY TO NICE</h1>
-      <p>Let BAM Help You Find Your Perfect Neighborhood.</p>
+      <h1>
+        FROM <br />NOISY TO<br class="br-mobile" />
+        NICE
+      </h1>
+      <p>
+        Let BAM Help You Find <br class="br-mobile" />Your Perfect Neighborhood.
+      </p>
       <button>LEARN MORE</button>
+    </div>
+  </section>
+  <section id="about-us">
+    <div>
+      <h2>BIG APPLE MOVE</h2>
+    </div>
+    <div>
+      <h3>ABOUT US</h3>
+      <p>
+        BAM (Big Apple Move) is an interactive web app that provides information
+        and insights about the various neighborhoods and communities in New York
+        City. The app is designed to help people who are planning to move to or
+        are already living in the city make informed decisions about where to
+        live.
+      </p>
     </div>
   </section>
 </main>

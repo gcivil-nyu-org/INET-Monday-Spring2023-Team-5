@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "django_bootstrap_icons",
     "users.apps.UsersConfig",
     "homepage.apps.HomepageConfig",
+    "businesses.apps.BusinessesConfig",
+    "neighborhoods.apps.NeighborhoodsConfig",
 ]
 
 MIDDLEWARE = [

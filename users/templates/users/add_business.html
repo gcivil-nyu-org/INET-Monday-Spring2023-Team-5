@@ -1,37 +1,21 @@
-{% extends "base.html" %} {% block content %}
+{% extends "users/index.html" %} {% block body %}
 
-<main id="user-add-business">
-  <section>
-    <div>
-      <p>My Account</p>
-      <h1>Welcome,</h1>
+<h2>Add A Business</h2>
+<p>Please fill out the form below to add your business.</p>
 
-      <p>My Profile</p>
-      <a href="">My Info</a>
-      <a href="{% url 'update_user' %}">Edit Profile</a>
-      <br>
-      <a href="{% url 'view_my_businesses' %}">My Businesses</a>
-      <a href="{% url 'add_business' %}">Add A Business</a>
-    </div>
-    <div>
-      <h2>Add A Business</h2>
-      
-      {% if message %}
+{% if message %}
 
-      <p class="message" role="alert">{{ message }}</p>
+<p class="message" role="alert">{{ message }}</p>
 
-      {% endif %}
+{% endif %}
 
-      <form action="{% url 'add_business' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" name="name" placeholder="Business Name" />
-        <input type="text" name="address" placeholder="Business Address" />
-        <input type="tel" name="phone" placeholder="Business Phone" />
-        <input type="email" name="email" placeholder="Business Email" />
-        <button type="submit">Add Business</button>
-      </form>
-    </div>
-  </section>
-</main>
+<form action="{% url 'add_business' %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Business Name" />
+  <input type="text" name="address" placeholder="Business Address" />
+  <input type="tel" name="phone" placeholder="Business Phone" />
+  <input type="email" name="email" placeholder="Business Email" />
+  <button type="submit">Add Business</button>
+</form>
 
-{% endblock content %}
+{% endblock body %}

@@ -1,40 +1,24 @@
-{% extends "base.html" %} {% block content %}
+{% extends "users/index.html" %} {% block body %}
 
-<main id="user-delete">
-  <section>
-    <div>
-      <p>My Account</p>
-      <h1>Welcome,</h1>
+<h2>Delete Account</h2>
+<p>We are sad to see you go. If you would like to delete your account, please enter your email below.</p>
 
-      <p>My Profile</p>
-      <a href="">My Info</a>
-      <a href="{% url 'update_user' %}">Edit Profile</a>
-      <br>
-      <a href="{% url 'view_my_businesses' %}">My Businesses</a>
-      <a href="{% url 'add_business' %}">Add A Business</a>
-    </div>
-    <div>
-      <h2>Delete Account</h2>
+{% if message %}
 
-      {% if message %}
+<p class="message" role="alert">{{ message }}</p>
 
-      <p class="message" role="alert">{{ message }}</p>
+{% endif %}
 
-      {% endif %}
+<form action="{% url 'delete_user' %}" method="POST">
+  {% csrf_token %}
+  <input
+    type="password"
+    required="required"
+    name="password"
+    placeholder="Enter your Password"
+  />
 
-      <form action="{% url 'delete_user' %}" method="POST">
-        {% csrf_token %}
-        <input
-          type="password"
-          required="required"
-          name="password"
-          placeholder="Enter your Password"
-        />
+  <button type="submit">Delete User</button>
+</form>
 
-        <button type="submit">Delete User</button>
-      </form>
-    </div>
-  </section>
-</main>
-
-{% endblock content %}
+{% endblock body %}

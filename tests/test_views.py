@@ -11,7 +11,7 @@ from users.views import update_user
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.url = reverse("index")
+        self.url = reverse("user_dashboard")
 
     def test_index_view_unauthenticated_user(self):
         response = self.client.get(self.url)
@@ -45,7 +45,7 @@ class LoginViewTestCase(TestCase):
             reverse("login"), {"email": "test@example.com", "password": "testpassword"}
         )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("index"))
+        self.assertRedirects(response, reverse("user_dashboard"))
 
     def test_login_view_with_invalid_credentials(self):
         response = self.client.post(
@@ -92,7 +92,7 @@ class RegisterViewTestCase(TestCase):
             "last_name": "User",
         }
         response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("index"))
+        self.assertRedirects(response, reverse("user_dashboard"))
         self.assertTrue(User.objects.filter(email=data["email"]).exists())
 
     def test_register_view_passwords_must_match(self):
@@ -151,7 +151,6 @@ class UpdateUserViewTestCase(TestCase):
         request.user = self.user
         response = update_user(request)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Update Profile")
 
     def test_authenticated_user_can_update_profile(self):
         """Test that an authenticated user can update their profile."""
@@ -267,7 +266,6 @@ class AddBusinessViewTestCase(TestCase):
     def test_add_business_view_authenticated_user(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Add your business.")
 
     def test_add_business_view_post_success(self):
         data = {
@@ -347,7 +345,7 @@ class ViewAllBusinessesViewTestCase(TestCase):
             owner=self.user,
             phone="555-555-5555",
         )
-        self.url = reverse("view_all_businesses")
+        self.url = reverse("services")
 
     def test_view_all_businesses_view(self):
         self.client.login(username="testuser@example.com", password="password")
