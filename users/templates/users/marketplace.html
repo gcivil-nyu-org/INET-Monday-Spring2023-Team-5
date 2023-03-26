@@ -19,7 +19,7 @@ static %}
   <section>
     <div class="list-page">
       {% if listings %} {% for listing in listings %}
-      <div class="card">
+      <div class="listing">
         <a href="{% url 'view_listing' listing.pk %}">{{ listing.title }}</a>
         <h6>{{ listing.description }}</h6>
         <p>{{ listing.price }} $</p>

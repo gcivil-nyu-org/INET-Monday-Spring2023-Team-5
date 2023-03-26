@@ -263,16 +263,16 @@ def view_business_view(request, business_id):
 
 def services(request):
     businesses = Business.objects.all()
-        
+
     if not request.user.is_authenticated:
         return render(
-        request,
-        "users/services.html",
-        {
-            "businesses": businesses,
-            "page": "services",
-        },
-    )
+            request,
+            "users/services.html",
+            {
+                "businesses": businesses,
+                "page": "services",
+            },
+        )
 
     return render(
         request,
@@ -327,9 +327,11 @@ def add_listing(request):
             return render(
                 request,
                 "users/add_listing.html",
-                {"neighborhoods": neighborhoods, 
-                 "firstname": "{}".format(request.user.first_name),
-                        "page": "user-add-listing",},
+                {
+                    "neighborhoods": neighborhoods,
+                    "firstname": "{}".format(request.user.first_name),
+                    "page": "user-add-listing",
+                },
             )
 
 

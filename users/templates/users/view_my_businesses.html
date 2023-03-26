@@ -7,16 +7,15 @@
 <p>There are currently no businesses under this account.</p>
 {% endif %}
 
-<div class="list-page">
+<div class="account-list">
   {% if businesses %} {% for business in businesses %}
   <div class="listing">
-    <a>
-      <img src="{% static 'images/business-1.jpg' %}" />
-      <div>
-        <h3>{{ business.name }}</h3>
-        <p>{{ business.address }}</p>
-      </div>
-    </a>
+    <img src="{% static 'images/business-1.jpg' %}" />
+    <div>
+      <h3>{{ business.name }}</h3>
+      <p>{{ business.address }}</p>
+      <a>View Details</a>
+    </div>
   </div>
   {% endfor %} {% endif %}
 </div>

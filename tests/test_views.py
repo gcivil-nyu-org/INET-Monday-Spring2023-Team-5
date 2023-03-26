@@ -11,7 +11,7 @@ from users.views import update_user
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.url = reverse("index")
+        self.url = reverse("homepage")
 
     def test_index_view_unauthenticated_user(self):
         response = self.client.get(self.url)
@@ -45,7 +45,7 @@ class LoginViewTestCase(TestCase):
             reverse("login"), {"email": "test@example.com", "password": "testpassword"}
         )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("index"))
+        self.assertRedirects(response, reverse("user_dashboard"))
 
     def test_login_view_with_invalid_credentials(self):
         response = self.client.post(
@@ -92,7 +92,7 @@ class RegisterViewTestCase(TestCase):
             "last_name": "User",
         }
         response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("index"))
+        self.assertRedirects(response, reverse("user_dashboard"))
         self.assertTrue(User.objects.filter(email=data["email"]).exists())
 
     def test_register_view_passwords_must_match(self):
