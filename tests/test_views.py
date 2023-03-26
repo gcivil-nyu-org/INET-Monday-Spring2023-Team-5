@@ -11,7 +11,7 @@ from users.views import update_user
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.url = reverse("homepage")
+        self.url = reverse("user_dashboard")
 
     def test_index_view_unauthenticated_user(self):
         response = self.client.get(self.url)
