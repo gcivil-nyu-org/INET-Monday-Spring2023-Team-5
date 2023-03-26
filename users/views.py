@@ -369,6 +369,17 @@ def marketplace(request):
 
 def view_business_details(request, business_id):
     business = Business.objects.get(id=business_id)
+
+    if not request.user.is_authenticated:
+        return render(
+            request,
+            "users/business_details.html",
+            {
+                "business": business,
+                "page": "business-details",
+            },
+        )
+
     return render(
         request,
         "users/business_details.html",
