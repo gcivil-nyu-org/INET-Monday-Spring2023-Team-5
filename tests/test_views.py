@@ -346,6 +346,7 @@ class ViewAllBusinessesViewTestCase(TestCase):
             phone="555-555-5555",
         )
         self.url = reverse("services")
+        self.business1_url = reverse("view_business", args=[self.business1.id])
 
     def test_view_all_businesses_view(self):
         self.client.login(username="testuser@example.com", password="password")
@@ -355,6 +356,14 @@ class ViewAllBusinessesViewTestCase(TestCase):
         self.assertContains(response, "123 Main St")
         self.assertContains(response, "Test Business 2")
         self.assertContains(response, "456 Maple St")
+
+    def test_view_business_details(self):
+        self.client.login(username="testuser@example.com", password="password")
+        response = self.client.get(self.business1_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Business 1")
+        self.assertContains(response, "123 Main St")
+
 
 
 class ViewMyBusinessesViewTestCase(TestCase):
