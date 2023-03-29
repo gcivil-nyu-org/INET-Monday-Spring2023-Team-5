@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block content %} {% load bootstrap_icons %}
-
 <main id="login">
   <section>
     <div class="img-container">
@@ -9,7 +8,6 @@
       {% bs_icon 'house-heart' size='1.5rem' %}
       <h1>Welcome Back!</h1>
       <p>Please log in to continue.</p>
-
       {% if message %}
 
       <p class="message" role="alert">{{ message }}</p>
