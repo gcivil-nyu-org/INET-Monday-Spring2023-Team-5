@@ -3,7 +3,9 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.messages.storage.fallback import FallbackStorage
 
-from users.models import Business, Neighborhood, Listing
+from users.models import Business, Listing
+from neighborhood.models import Neighborhood
+
 from users.views import update_user
 
 
