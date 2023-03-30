@@ -449,7 +449,13 @@ class TestAddListingView(TestCase):
             first_name="Test",
             last_name="User",
         )
-        self.neighborhood = Neighborhood.objects.create(name="Test Neighborhood")
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
 
     def test_add_listing_authenticated(self):
         self.client.login(username="testuser@example.com", password="password")
@@ -517,7 +523,13 @@ class TestViewListingView(TestCase):
             first_name="Test",
             last_name="User",
         )
-        self.neighborhood = Neighborhood.objects.create(name="Test Neighborhood")
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.listing = Listing.objects.create(
             title="Test Listing",
             description="Test description",
@@ -556,7 +568,13 @@ class TestMarketplaceView(TestCase):
             first_name="Test",
             last_name="User",
         )
-        self.neighborhood = Neighborhood.objects.create(name="Test Neighborhood")
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.listing1 = Listing.objects.create(
             title="Test Listing 1",
             description="Test description 1",
