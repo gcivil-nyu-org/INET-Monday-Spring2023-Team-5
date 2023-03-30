@@ -4,33 +4,35 @@ python:
   - 3.7
 
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-dev.txt
-  
+  - curl -sSL https://install.python-poetry.org | python3 -
+  - poetry install -vvv
+
 before_script:
-  - python manage.py migrate
-  - python manage.py collectstatic --noinput
+  - poetry run python manage.py migrate
+  - poetry run python manage.py collectstatic --noinput
 
 script:
-  - black --check .
-  - flake8
-  - coverage run --source='.' manage.py test
-  - coverage report
+  - poetry run black --check .
+  - poetry run flake8
+  - poetry run coverage run --source='.' manage.py test
+  - poetry run coverage report
 
 after_success:
-  - coveralls
+  - poetry run coveralls
 
+before_deploy:
+  - poetry export -f requirements.txt --output requirements.txt
+  - git config --global user.email "NA"
+  - git config --global user.name "NA"
+  - git add -f db.sqlite3 static/ requirements.txt
+  - git commit -m "Surpassing Travis EB incompatibility"
 
 deploy:
-  - provider: elasticbeanstalk
-    region: $AWS_REGION
-    app: $AWS_APP
-    env: $AWS_ENV
-    bucket_name: $AWS_BUCKET_NAME
-    bucket_path: $AWS_BUCKET_PATH
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    on:
-      branch:
-        - main
-        - develop
+  provider: script
+  script: |
+    echo "Deploying to AWS Elastic Beanstalk..."
+    sudo apt-get install tree
+    ls -la
+    tree -I "__pycache__|static"
+  on:
+    branch: clean-repo
