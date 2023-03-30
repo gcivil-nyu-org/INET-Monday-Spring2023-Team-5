@@ -1,5 +1,5 @@
 [flake8]
-exclude = .git,__pycache__,.venv,migrations,.eggs
+exclude = .git,__pycache__,.venv,migrations,.eggs,scripts
 ignore = E129, E402, F841, W504, E128
 max-line-length = 88
 extend-ignore = E203

@@ -34,6 +34,7 @@ exclude = '''
     \.git
   | \.venv
   | migrations
+  | scripts
 )/
 '''
 
