@@ -23,6 +23,7 @@ after_success:
 before_deploy:
   - poetry export -f requirements.txt --output requirements.txt
   - poetry run python manage.py loaddata fixtures/neighborhood.json
+  - poetry run python manage.py loaddata fixtures/data.json
   - git config --global user.email "NA"
   - git config --global user.name "NA"
   - git add -f db.sqlite3 static/ requirements.txt
