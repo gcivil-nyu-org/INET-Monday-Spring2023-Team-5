@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from neighborhood.models import Neighborhood
+
 
 class Business(models.Model):
     name = models.CharField(max_length=50)
@@ -10,13 +12,6 @@ class Business(models.Model):
     phone = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
-
-
-class Neighborhood(models.Model):
-    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

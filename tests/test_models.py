@@ -1,6 +1,22 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from users.models import Business, Neighborhood, Listing
+
+from users.models import Business, Listing
+from neighborhood.models import Neighborhood
+
+
+# class Neighborhood(models.Model):
+#     name = models.CharField(max_length=50)
+#     borough = models.CharField(max_length=50)
+#     description = models.TextField()
+#     lat = models.FloatField()
+#     lon = models.FloatField()
+
+#     def __str__(self):
+#         return self.name
+
+#     def get_geopoint(self):
+#         return "POINT(%s %s)" % (self.lon, self.lat)
 
 
 class TestModels(TestCase):
@@ -12,7 +28,13 @@ class TestModels(TestCase):
             first_name="Test",
             last_name="User",
         )
-        self.neighborhood = Neighborhood.objects.create(name="Test Neighborhood")
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.business = Business.objects.create(
             name="Test Business",
             address="Test Address",
@@ -44,6 +66,11 @@ class TestModels(TestCase):
         neighborhood = self.neighborhood
         self.assertEqual(str(neighborhood), "Test Neighborhood")
         self.assertEqual(neighborhood.name, "Test Neighborhood")
+        self.assertEqual(neighborhood.borough, "Test Borough")
+        self.assertEqual(neighborhood.description, "Test description")
+        self.assertEqual(neighborhood.lat, 0)
+        self.assertEqual(neighborhood.lon, 0)
+        self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
 
     def test_listing_model(self):
         listing = self.listing

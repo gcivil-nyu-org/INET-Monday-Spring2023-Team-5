@@ -31,6 +31,7 @@ $ poetry shell
 (.venv) $ python manage.py makemigrations
 (.venv) $ python manage.py migrate
 (.venv) $ python manage.py createsuperuser # admin:admin
+(.venv) $ python manage.py loaddata fixtures/neighborhood.json
 (.venv) $ python manage.py runserver
 ```
 
