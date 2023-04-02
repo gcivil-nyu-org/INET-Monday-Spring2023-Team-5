@@ -8,30 +8,13 @@ Original file is located at
 """
 
 import pandas as pd
-
 import json
 
-dataURL = 'https://raw.githubusercontent.com/gcivil-nyu-org/INET-Monday-Spring2023-Team-5/nycopendata-playground/scripts/NHoodNameCentroids.csv'
-data = pd.read_csv(dataURL, index_col=1)
-
-nbrhd = data[['Borough', 'Name', 'the_geom']]
-nbrhd.columns = ['borough', 'name', 'geo_point']
-
-def extract_geo_point(s):
-    # Remove the "POINT (" prefix and ")" suffix from the string
-    s = s.replace("POINT (", "").replace(")", "")
-    # Split the remaining string into longitude and latitude values
-    lon, lat = s.split()
-    # Convert the values to floats and return them as a tuple
-    return (float(lon), float(lat))
-
-nbrhd['geo_point'] = nbrhd['geo_point'].apply(extract_geo_point)
-nbrhd[['lon', 'lat']] = pd.DataFrame(nbrhd['geo_point'].tolist(), index=nbrhd.index)
-nbrhd = nbrhd.drop("geo_point", axis=1)
-
+dataURL = 'https://raw.githubusercontent.com/gcivil-nyu-org/INET-Monday-Spring2023-Team-5/nyc-opendata-playground/scripts/datasets/neighborhoods.csv'
+data = pd.read_csv(dataURL, index_col=0)
 
 # Convert the dataframe to a list of dictionaries, with each dictionary representing a row
-rows = nbrhd.to_dict("records")
+rows = data.to_dict("records")
 
 # Convert each dictionary to a fixture object and add it to a list of fixtures
 fixtures = []
@@ -42,7 +25,7 @@ for i, row in enumerate(rows):
         "fields": {
             "name": row["name"],
             "borough": row["borough"],
-            "description": "POINT({} {})".format(row["lat"], row["lon"]),
+            "description": row["description"],
             "lat": float(row["lat"]),
             "lon": float(row["lon"]),
         }
