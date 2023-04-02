@@ -4,7 +4,7 @@ from geopy.distance import distance
 lat=-74.21776836068574
 lon=40.7411399220928
 min_distance = float('inf')
-with open('Neighborhood Names GIS.geojson','r',encoding='utf8') as goe_file:
+with open('datasets/Neighborhood Names GIS.geojson', 'r', encoding='utf8') as goe_file:
     data = json.load(goe_file)['features']
     for item in data:
         neighborhood = item['properties']['name']
