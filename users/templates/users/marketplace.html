@@ -19,18 +19,14 @@
     <div class="list-page">
       {% if listings %} {% for listing in listings %}
       <div class="listing">
-        <a href="{% url 'view_listing' listing.pk %}">{{ listing.title }}</a>
-        <h6>{{ listing.description }}</h6>
-        <p>{{ listing.price }} $</p>
-        <p>{{ listing.neighborhood.name }}</p>
-        <p>{{ listing.address }}</p>
-        <p>{{ listing.email }}</p>
-        <p>{{ listing.phone }}</p>
+        <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}<h3></a>
+        <p class="bourough">{{ listing.neighborhood.name }}</p>
+        <p>{{ listing.description }}</p>
+        <p class="price">${{ listing.price }}</p>
         <p>
-          Posted by: {{ listing.owner.first_name }} {{ listing.owner.last_name
-          }}
+          Posted By: <b>{{ listing.owner.first_name }} {{ listing.owner.last_name }}</b>
         </p>
-        <p>Posted at: {{ listing.created_at }}</p>
+        <p>Posted On: <b>{{ listing.created_at }}<b></p>
       </div>
       {% endfor %} {% else %}
       <h3 class="empty-list">No Listings Are Currently Availiable</h3>

@@ -172,9 +172,36 @@ body {
             border-radius: 5px;
           }
 
+          &:hover{
+            text-decoration: none;
+
+            p{
+              color: $orange;
+            }
+
+            img{
+              width: 101%;
+            }
+          }
+
           div {
             h3 {
               padding: 1rem 0rem 0.5rem;
+              font-size: 1.5rem;
+              line-height: 1.5rem;
+              display: flex;
+              flex-direction: row;
+              column-gap: 4rem;
+              align-items: center;
+
+              span {
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+              }
             }
 
             p {
@@ -418,6 +445,14 @@ body {
             div {
               h3 {
                 padding: 1vw 0rem 0.5vw;
+                font-size: 1.5vw;
+                line-height: 1.5vw;
+                column-gap: 4vw;
+
+                span {
+                  font-size: 1.2vw;
+                  line-height: 1.2vw;
+                }
               }
             }
           }
@@ -545,6 +580,15 @@ body {
             div {
               h3 {
                 padding: 1.5vw 0rem 1vw;
+                font-size: 3vw;
+                line-height: 3vw;
+                column-gap: 8vw;
+
+
+                span {
+                  font-size: 2.5vw;
+                  line-height: 2.5vw;
+                }
               }
 
               p {
@@ -555,7 +599,6 @@ body {
           }
         }
       }
-
 
       &.account-list {
         .listing {
