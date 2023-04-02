@@ -4,22 +4,29 @@ python:
   - 3.7
 
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-dev.txt
-  
+  - curl -sSL https://install.python-poetry.org | python3 -
+  - poetry install -vvv
+
 before_script:
-  - python manage.py migrate
-  - python manage.py collectstatic --noinput
+  - poetry run python manage.py migrate
+  - poetry run python manage.py collectstatic --noinput
 
 script:
-  - black --check .
-  - flake8
-  - coverage run --source='.' manage.py test
-  - coverage report
+  - poetry run black --check .
+  - poetry run flake8 .
+  - poetry run coverage run --source='.' manage.py test
+  - poetry run coverage report
 
 after_success:
-  - coveralls
+  - poetry run coveralls
 
+before_deploy:
+  - poetry export -f requirements.txt --output requirements.txt
+  - poetry run python manage.py loaddata fixtures/neighborhood.json
+  - git config --global user.email "NA"
+  - git config --global user.name "NA"
+  - git add -f db.sqlite3 static/ requirements.txt
+  - git commit -m "Surpassing Travis EB incompatibility"
 
 deploy:
   - provider: elasticbeanstalk

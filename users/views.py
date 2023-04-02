@@ -7,7 +7,8 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from .models import Business, Listing, Neighborhood
+from .models import Business, Listing
+from neighborhood.models import Neighborhood
 
 
 def index_view(request):

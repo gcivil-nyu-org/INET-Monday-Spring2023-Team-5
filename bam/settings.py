@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "homepage.apps.HomepageConfig",
     "businesses.apps.BusinessesConfig",
-    "neighborhoods.apps.NeighborhoodsConfig",
+    "neighborhood.apps.NeighborhoodsConfig",
 ]
 
 MIDDLEWARE = [
