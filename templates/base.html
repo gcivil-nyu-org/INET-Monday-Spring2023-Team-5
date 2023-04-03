@@ -11,10 +11,15 @@
 
     <title>BAM</title>
 
-    <link rel="icon" href="./favicon.ico" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    {% load static %} 
 
-    {% load static %} {% load compress %} {% compress css %}
+
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
+  
+    
+    {% load compress %} {% compress css %}
 
     <link
       type="text/x-scss"
