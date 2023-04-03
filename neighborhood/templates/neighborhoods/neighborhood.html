@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load static %}
+
+<main id="neighborhoods">
+  <section>
+    {% if neighborhood %}
+    <div class="header">
+      <h1>{{ neighborhood.name }}</h1>
+      <p>{{ neighborhood.borough }}</p>
+    </div>
+    {% endif %}
+  </section>
+  <section>
+    <div class="list-page">
+      {% if neighborhood %}
+      <div>
+        <p>{{ neighborhood.description }}</p>
+        <p>{{ neighborhood.get_geopoint }}</p>
+      </div>
+    </div>
+    {% else %}
+    <h3 class="empty-list">Neighborhood Data Is Currently Not Availiable</h3>
+    {% endif %}
+  </section>
+</main>
+
+{% endblock content %}

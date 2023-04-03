@@ -1,12 +1,38 @@
 from django.shortcuts import render
 
+from .models import Neighborhood
+from .utils import get_title
 
-def index_view(request):
-    if not request.user.is_authenticated:
-        return render(request, "neighborhoods/index.html", {"page": "neighborhoods"})
 
-    return render(
-        request,
-        "neighborhoods/index.html",
-        {"firstname": "{}".format(request.user.first_name), "page": "neighborhoods"},
-    )
+def neighborhoods(request):
+    neighborhoods = Neighborhood.objects.all()
+
+    context = {"neighborhoods": neighborhoods, "page": "neighborhoods"}
+
+    if request.user.is_authenticated:
+        context["firstname"] = request.user.first_name
+
+    return render(request, "neighborhoods/index.html", context)
+
+
+def neighborhood(request, neighborhood_id):
+    neighborhood = Neighborhood.objects.get(pk=neighborhood_id)
+
+    context = {"neighborhood": neighborhood, "page": "neighborhood"}
+
+    if request.user.is_authenticated:
+        context["firstname"] = request.user.first_name
+
+    return render(request, "neighborhoods/neighborhood.html", context)
+
+
+def borough(request, borough):
+    borough = get_title(borough)
+    neighborhoods = Neighborhood.objects.filter(borough=borough)
+
+    context = {"borough": borough, "neighborhoods": neighborhoods, "page": "borough"}
+
+    if request.user.is_authenticated:
+        context["firstname"] = request.user.first_name
+
+    return render(request, "neighborhoods/borough.html", context)
