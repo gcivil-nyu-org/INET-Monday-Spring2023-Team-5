@@ -190,10 +190,11 @@ body {
               padding: 1rem 0rem 0.5rem;
               font-size: 1.5rem;
               line-height: 1.5rem;
-              display: flex;
-              flex-direction: row;
-              column-gap: 4rem;
-              align-items: center;
+              display: grid;
+              grid-auto-flow: column;
+              grid-template-columns: 73% 18%;
+              column-gap: 2rem;
+              align-items: self-start;
 
               span {
                 font-size: 1.2rem;
@@ -449,7 +450,7 @@ body {
                 padding: 1vw 0rem 0.5vw;
                 font-size: 1.5vw;
                 line-height: 1.5vw;
-                column-gap: 4vw;
+                column-gap: 2vw;
 
                 span {
                   font-size: 1.2vw;
@@ -585,7 +586,7 @@ body {
                 padding: 1.5vw 0rem 1vw;
                 font-size: 3vw;
                 line-height: 3vw;
-                column-gap: 8vw;
+                column-gap: 4vw;
 
                 span {
                   font-size: 2.5vw;
