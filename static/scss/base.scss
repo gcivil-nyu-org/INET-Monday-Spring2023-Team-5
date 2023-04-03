@@ -277,7 +277,7 @@ body {
       height: 2.5rem;
       font-size: 1rem !important;
       line-height: 1rem !important;
-      padding: 1rem;
+      padding: 0.5rem;
       margin: 0rem 0rem 0.8rem 0rem;
       width: 100%;
       background-color: #f4faff;
@@ -425,12 +425,13 @@ body {
     form {
       max-width: 30vw;
 
-      input {
+      input,
+      select {
         border-radius: 0.8vw;
         height: 2.5vw;
         font-size: 1vw !important;
         line-height: 1vw !important;
-        padding: 1vw;
+        padding: 0.5vw;
         margin: 0rem 0rem 0.8vw 0rem;
       }
     }
@@ -558,12 +559,13 @@ body {
     form {
       max-width: 85vw;
 
-      input {
+      input,
+      select {
         border-radius: 1.8vw;
         height: 4.5vw;
         font-size: 3vw !important;
         line-height: 3vw !important;
-        padding: 3vw;
+        padding: 2.5vw;
         margin: 0rem 0rem 1.8vw 0rem;
       }
     }
