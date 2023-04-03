@@ -19,6 +19,7 @@
   <input type="email" name="email" placeholder="Email" />
 
   <select name="neighborhood" required="" id="id_neighborhood">
+    <option value="" disabled selected>Select A Neighborhood</option>
     {% for neighborhood in neighborhoods %}
 
     <option value="{{neighborhood.pk}}">{{neighborhood.name}}</option>
