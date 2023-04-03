@@ -653,3 +653,93 @@ class TestViewBusinessDetailsView(TestCase):
         self.assertEqual(response.context["business"], self.business)
         self.assertEqual(response.context["page"], "business-details")
         self.assertEqual(response.context["firstname"], "Test")
+
+
+class NeighborhoodsViewsTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        # Set up non-modified objects used by all test methods
+        Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=40.7128,
+            lon=-74.0060,
+        )
+
+    def setUp(self):
+        # Every test needs a client.
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="password",
+            first_name="Test",
+            last_name="User",
+        )
+
+    def test_neighborhoods_view(self):
+        # Issue a GET request.
+        response = self.client.get(reverse("neighborhoods"))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the rendered context contains the list of neighborhoods.
+        self.assertIn("neighborhoods", response.context)
+        neighborhoods = response.context["neighborhoods"]
+        self.assertEqual(neighborhoods.count(), 1)
+
+    def test_neighborhood_view(self):
+        # Issue a GET request.
+        neighborhood = Neighborhood.objects.first()
+        response = self.client.get(reverse("neighborhood", args=[neighborhood.pk]))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the rendered context contains the neighborhood.
+        self.assertIn("neighborhood", response.context)
+        self.assertEqual(response.context["neighborhood"], neighborhood)
+
+    def test_borough_view(self):
+        # Issue a GET request.
+        response = self.client.get(reverse("borough", args=["Test Borough"]))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the rendered context contains the borough and its neighborhoods.
+        self.assertIn("borough", response.context)
+        self.assertIn("neighborhoods", response.context)
+        borough = response.context["borough"]
+        neighborhoods = response.context["neighborhoods"]
+        self.assertEqual(borough, "Test Borough")
+        self.assertEqual(neighborhoods.count(), 1)
+
+    def test_authenticated_user_view(self):
+        # Create an authenticated user
+        self.client.login(username="testuser@example.com", password="password")
+
+        # Issue a GET request to neighborhoods view.
+        response = self.client.get(reverse("neighborhoods"))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Issue a GET request to neighborhood view.
+        neighborhood = Neighborhood.objects.first()
+        response = self.client.get(reverse("neighborhood", args=[neighborhood.pk]))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Issue a GET request to borough view.
+        response = self.client.get(reverse("borough", args=["Test Borough"]))
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the rendered context contains the authenticated user's first name.
+        self.assertIn("firstname", response.context)
+        self.assertIsNotNone(response.context["firstname"])
