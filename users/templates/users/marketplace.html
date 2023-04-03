@@ -19,7 +19,7 @@
     <div class="list-page">
       {% if listings %} {% for listing in listings %}
       <div class="listing">
-        <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}<h3></a>
+        <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}</h3></a>
         <p class="bourough">{{ listing.neighborhood.name }}</p>
         <p>{{ listing.description }}</p>
         <p class="price">${{ listing.price }}</p>
