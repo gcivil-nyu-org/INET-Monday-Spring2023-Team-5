@@ -53,6 +53,7 @@
     {% load bootstrap_icons %}
   </head>
   <body>
+  {% csrf_token %}
     <div class="page-container {{page}}">
       <div id="header">
         <nav class="navbar navbar-expand-lg">
