@@ -1,7 +1,52 @@
-{% extends 'base.html' %} {% block content %}
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load static %}
 
 <main id="neighborhoods">
-  <section></section>
+  <section>
+    <div class="header">
+      <h1>Neighborhoods</h1>
+      <p>Find your new home in the city that never sleeps!</p>
+    </div>
+  </section>
+  <section>
+    <div class="sort-filter">
+      <button>
+        <a href="{% url 'borough' 'queens' %}">
+          {%bs_icon 'building' size='1rem' %}Queens
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'borough' 'brooklyn' %}">
+          {%bs_icon 'building' size='1rem' %}Brooklyn
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'borough' 'bronx' %}">
+          {%bs_icon 'building' size='1rem' %}Bronx
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'borough' 'manhattan' %}">
+          {%bs_icon 'building' size='1rem' %}Manhattan
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'borough' 'staten-island' %}">
+          {%bs_icon 'building' size='1rem' %}Staten Island
+        </a>
+      </button>
+    </div>
+  </section>
+  <section>
+    <div class="list-page">
+      {% if neighborhoods %} {% for neighborhood in neighborhoods %}
+      <div class="listing">
+        <a href="{% url 'neighborhood' neighborhood.pk %}"><h3>{{ neighborhood.name }}</h3></a>
+        <p class="bourough">{{ neighborhood.borough }}</p>
+    </div>
+    {% endfor %} {% else %}
+    <h3 class="empty-list">Neighborhoods Data Is Currently Not Availiable</h3>
+    {% endif %}
+  </section>
 </main>
 
 {% endblock content %}
