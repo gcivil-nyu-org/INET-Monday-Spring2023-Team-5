@@ -1,52 +1,127 @@
-{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load static %}
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
+{% load static %}
 
 <main id="neighborhoods">
-  <section>
-    <div class="header">
-      <h1>Neighborhoods</h1>
-      <p>Find your new home in the city that never sleeps!</p>
+  <section class="map-container">
+    <div id="neighborhood-map"></div>
+    <input id="MAPBOX_API_KEY" value="{{ MAPBOX_API_KEY }}" type="hidden" />
+  </section>
+  <section class="sidebar-container">
+    <div>
+      <h1>Explore The Big Apple</h1>
+      <p>
+        Find the information you need to make your big move! <br />Click on the
+        map to learn more.
+      </p>
+      <div>
+        <a>{%bs_icon 'arrow-clockwise' size='1rem' %}</a>
+      </div>
+    </div>
+    <div class="sidebar-info">
+      <div class="sidebar-list">
+        {% if neighborhoods %} {% for neighborhood in neighborhoods %}
+        <div class="listing" id="{{ neighborhood.name }}">
+          <a href="{% url 'neighborhood' neighborhood.pk %}">
+            <div>
+              <h2>{{ neighborhood.name }}</h2>
+              <p>{{ neighborhood.borough }}</p>
+            </div>
+            <p>{%bs_icon 'arrow-right' size='1.5rem' %}</p>
+          </a>
+        </div>
+        {% endfor %} 
+        <h2 id="no-data" style="display: none; text-align: center;">No Data On Selected Neighborhood</h2>
+        {% else %}
+        <h2 class="empty-list">
+          Neighborhoods Data Is Currently Not Availiable
+        </h2>
+        {% endif %}
+      </div>
     </div>
   </section>
-  <section>
-    <div class="sort-filter">
-      <button>
-        <a href="{% url 'borough' 'queens' %}">
-          {%bs_icon 'building' size='1rem' %}Queens
-        </a>
-      </button>
-      <button>
-        <a href="{% url 'borough' 'brooklyn' %}">
-          {%bs_icon 'building' size='1rem' %}Brooklyn
-        </a>
-      </button>
-      <button>
-        <a href="{% url 'borough' 'bronx' %}">
-          {%bs_icon 'building' size='1rem' %}Bronx
-        </a>
-      </button>
-      <button>
-        <a href="{% url 'borough' 'manhattan' %}">
-          {%bs_icon 'building' size='1rem' %}Manhattan
-        </a>
-      </button>
-      <button>
-        <a href="{% url 'borough' 'staten-island' %}">
-          {%bs_icon 'building' size='1rem' %}Staten Island
-        </a>
-      </button>
-    </div>
-  </section>
-  <section>
-    <div class="list-page">
-      {% if neighborhoods %} {% for neighborhood in neighborhoods %}
-      <div class="listing">
-        <a href="{% url 'neighborhood' neighborhood.pk %}"><h3>{{ neighborhood.name }}</h3></a>
-        <p class="bourough">{{ neighborhood.borough }}</p>
-    </div>
-    {% endfor %} {% else %}
-    <h3 class="empty-list">Neighborhoods Data Is Currently Not Availiable</h3>
-    {% endif %}
-  </section>
+
+  <script>
+    const api_key = document.getElementById("MAPBOX_API_KEY").value;
+    mapboxgl.accessToken = api_key;
+
+    console.log("test " + api_key);
+
+    var target = '';
+
+    var map = new mapboxgl.Map({
+      container: 'neighborhood-map',
+      center: [-74.00597,40.71427],
+      zoom: 11,
+      style: 'mapbox://styles/mapbox/streets-v11'
+    });
+
+    map.on('load', () => {
+      map.addSource('neighborhoods', {
+      'type': 'geojson',
+      'data': '{% static 'data/tabulation.geojson' %}'
+      });
+
+      map.addLayer({
+      'id': 'neighborhoods-layer',
+      'type': 'fill',
+      'source': 'neighborhoods',
+      'paint': {
+      'fill-color': '#f15524',
+      'fill-opacity': 0.3,
+      'fill-outline-color': '#FFF'
+      }
+      });
+
+      map.addLayer({
+        'id': 'neighborhoods-layer-outline',
+        'type': 'line',
+        'source': 'neighborhoods',
+        'paint': {
+          'line-color': '#FFF',
+          'line-width': 2
+        }
+      });
+
+      map.on('click', 'neighborhoods-layer', (e) => {
+      new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(e.features[0].properties.ntaname)
+      .addTo(map);
+
+      target = e.features[0].properties.ntaname;
+
+      var elements = document.querySelectorAll('.sidebar-list .listing');
+      var nodata = document.getElementById('no-data');
+
+      var found = false;
+
+      for (var i = 0; i < elements.length; ++i) {
+        if(elements[i].id != target){
+          elements[i].style.display = "none";
+        } else{
+          elements[i].style.display = "block";
+          found = true;
+        }
+      }
+
+      if(!found){
+        nodata.style.display = "block";
+      } else{
+        nodata.style.display = "none";
+      }
+
+
+      });
+
+      map.on('mouseenter', 'neighborhoods-layer', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+
+      map.on('mouseleave', 'neighborhoods-layer', () => {
+      map.getCanvas().style.cursor = '';
+      });
+    });
+  </script>
 </main>
 
 {% endblock content %}
