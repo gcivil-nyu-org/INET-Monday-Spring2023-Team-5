@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render
 
 from .models import Neighborhood
@@ -7,7 +9,7 @@ from .utils import get_title
 def neighborhoods(request):
     neighborhoods = Neighborhood.objects.all()
 
-    context = {"neighborhoods": neighborhoods, "page": "neighborhoods"}
+    context = {"neighborhoods": neighborhoods, "page": "neighborhoods", "MAPBOX_API_KEY": os.environ.get('MAPBOX_API_KEY')}
 
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name
@@ -36,3 +38,4 @@ def borough(request, borough):
         context["firstname"] = request.user.first_name
 
     return render(request, "neighborhoods/borough.html", context)
+
