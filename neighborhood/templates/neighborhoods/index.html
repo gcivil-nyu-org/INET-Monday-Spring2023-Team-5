@@ -4,7 +4,6 @@
 <main id="neighborhoods">
   <section class="map-container">
     <div id="neighborhood-map"></div>
-    <input id="MAPBOX_API_KEY" value="{{ MAPBOX_API_KEY }}" type="hidden" />
   </section>
   <section class="sidebar-container">
     <div>
@@ -41,10 +40,9 @@
   </section>
 
   <script>
-    const api_key = document.getElementById("MAPBOX_API_KEY").value;
+    const api_key = "{{ MAPBOX_API_KEY }}";
     mapboxgl.accessToken = api_key;
-
-    console.log("test " + api_key);
+    // console.log("test " + api_key);
 
     var target = '';
 
@@ -58,7 +56,7 @@
     map.on('load', () => {
       map.addSource('neighborhoods', {
       'type': 'geojson',
-      'data': '{% static 'data/tabulation.geojson' %}'
+      'data': "{% static 'data/tabulation.geojson' %}"
       });
 
       map.addLayer({
