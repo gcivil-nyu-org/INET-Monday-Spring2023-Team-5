@@ -26,6 +26,12 @@ $ poetry install
 $ poetry shell
 ```
 
+## Setup env variables
+```bash
+(.venv) $ export DJANGO_SECRET_KEY="$(python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')"
+(.venv) $ export MAPBOX_API_KEY="<your-mapbox-api-key>"
+```
+
 ## Run the project locally
 ```bash
 (.venv) $ python manage.py makemigrations

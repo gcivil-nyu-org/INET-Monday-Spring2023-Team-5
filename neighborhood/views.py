@@ -5,11 +5,21 @@ from django.shortcuts import render
 from .models import Neighborhood
 from .utils import get_title
 
+from decouple import config
+
 
 def neighborhoods(request):
     neighborhoods = Neighborhood.objects.all()
 
+<<<<<<< HEAD
     context = {"neighborhoods": neighborhoods, "page": "neighborhoods", "MAPBOX_API_KEY": os.environ.get('MAPBOX_API_KEY')}
+=======
+    context = {
+        "neighborhoods": neighborhoods,
+        "page": "neighborhoods",
+        "MAPBOX_API_KEY": config("MAPBOX_API_KEY"),
+    }
+>>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
 
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name
@@ -20,7 +30,11 @@ def neighborhoods(request):
 def neighborhood(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(pk=neighborhood_id)
 
-    context = {"neighborhood": neighborhood, "page": "neighborhood"}
+    context = {
+        "neighborhood": neighborhood,
+        "page": "neighborhood",
+        "MAPBOX_API_KEY": config("MAPBOX_API_KEY"),
+    }
 
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name

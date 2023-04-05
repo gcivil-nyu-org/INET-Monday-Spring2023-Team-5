@@ -14,7 +14,13 @@
     </div>
   </section>
   <script>
+<<<<<<< HEAD
     mapboxgl.accessToken = '';
+=======
+    const api_key = "{{ MAPBOX_API_KEY }}";
+    mapboxgl.accessToken = api_key;
+    // console.log("test " + api_key);
+>>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
 
     var name = document.getElementById('name').innerText;
     var lat = document.getElementById('lat').innerText.split(': ').pop();
@@ -31,7 +37,11 @@
     map.on('load', () => {
       map.addSource('neighborhoods', {
       'type': 'geojson',
+<<<<<<< HEAD
       'data': '{% static 'data/tabulation.geojson' %}'
+=======
+      'data': "{% static 'data/tabulation.geojson' %}"
+>>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
       });
 
       map.addLayer({
