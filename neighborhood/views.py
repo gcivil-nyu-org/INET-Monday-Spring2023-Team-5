@@ -1,5 +1,3 @@
-import os
-
 from django.shortcuts import render
 
 from .models import Neighborhood
@@ -48,4 +46,3 @@ def borough(request, borough):
         context["firstname"] = request.user.first_name
 
     return render(request, "neighborhoods/borough.html", context)
-
