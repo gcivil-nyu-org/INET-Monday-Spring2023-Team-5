@@ -11,14 +11,22 @@
 
     <title>BAM</title>
 
-    {% load static %} 
-
+    {% load static %}
 
     <link rel="icon" href="{% static 'favicon/favicon.ico' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
-  
-    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'favicon/favicon-16x16.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'favicon/favicon-32x32.png' %}"
+    />
+
     {% load compress %} {% compress css %}
 
     <link
@@ -56,9 +64,22 @@
       media="screen"
     />
 
+    <link
+      type="text/x-scss"
+      href="{% static 'neighborhoods/neighborhoods.scss' %}"
+      rel="stylesheet"
+      media="screen"
+    />
+
     {% endcompress %}
+
     <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
     {% load bootstrap_icons %}
   </head>
@@ -105,9 +126,7 @@
                 <a class="nav-link" href="/neighborhoods"> Neighborhoods </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'services' %}">
-                  Services
-                </a>
+                <a class="nav-link" href="{% url 'services' %}"> Services </a>
               </li>
               <li class="nav-item dropdown desktop">
                 <a

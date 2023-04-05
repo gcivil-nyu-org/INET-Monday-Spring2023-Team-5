@@ -3,11 +3,17 @@ from django.shortcuts import render
 from .models import Neighborhood
 from .utils import get_title
 
+from decouple import config
+
 
 def neighborhoods(request):
     neighborhoods = Neighborhood.objects.all()
 
-    context = {"neighborhoods": neighborhoods, "page": "neighborhoods"}
+    context = {
+        "neighborhoods": neighborhoods,
+        "page": "neighborhoods",
+        "MAPBOX_API_KEY": config("MAPBOX_API_KEY"),
+    }
 
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name
@@ -18,7 +24,11 @@ def neighborhoods(request):
 def neighborhood(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(pk=neighborhood_id)
 
-    context = {"neighborhood": neighborhood, "page": "neighborhood"}
+    context = {
+        "neighborhood": neighborhood,
+        "page": "neighborhood",
+        "MAPBOX_API_KEY": config("MAPBOX_API_KEY"),
+    }
 
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name

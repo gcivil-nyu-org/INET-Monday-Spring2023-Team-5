@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load static %}
+{% extends "base.html" %} 
+{% load bootstrap_icons %} 
+{% block content %} 
+{% load static %}
 
 <main id="neighborhoods">
   <section>
@@ -10,12 +13,17 @@
   </section>
   <section>
     <div class="list-page">
-      {% if neighborhoods %} {% for neighborhood in neighborhoods %}
+      {% if neighborhoods %} 
+      {% for neighborhood in neighborhoods %}
       <div class="listing">
         <a href="{% url 'neighborhood' neighborhood.pk %}"><h3>{{ neighborhood.name }}</h3></a>
+      </div>
     </div>
-    {% endfor %} {% else %}
-    <h3 class="empty-list">Borough Neighborhoods Data Is Currently Not Availiable</h3>
+    {% endfor %} 
+    {% else %}
+    <h3 class="empty-list">
+      Borough Neighborhoods Data Is Currently Not Availiable
+    </h3>
     {% endif %}
   </section>
 </main>
