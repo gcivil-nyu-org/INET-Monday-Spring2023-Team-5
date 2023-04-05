@@ -54,6 +54,7 @@ $ poetry shell
 - Code linting using [flake8](https://flake8.pycqa.org/en/latest/)
 - Code coverage using [Coveralls.io](https://coveralls.io/)
 - CI/CD using [Travis CI](https://www.travis-ci.com/)
+- Maps integration with [Mapbox](https://www.mapbox.com/).
 
 ---
 
