@@ -1,13 +1,11 @@
-{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
+{% extends "base.html" %} 
+{% load bootstrap_icons %} 
+{% block content %} 
 {% load static %}
 
 <main id="neighborhoods">
   <section class="map-container">
     <div id="neighborhood-map"></div>
-<<<<<<< HEAD
-    <input id="MAPBOX_API_KEY" value="{{ MAPBOX_API_KEY }}" type="hidden" />
-=======
->>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
   </section>
   <section class="sidebar-container">
     <div>
@@ -16,7 +14,7 @@
         Find the information you need to make your big move! <br />Click on the
         map to learn more.
       </p>
-      <div>
+      <div style="display: none">
         <a>{%bs_icon 'arrow-clockwise' size='1rem' %}</a>
       </div>
     </div>
@@ -32,8 +30,10 @@
             <p>{%bs_icon 'arrow-right' size='1.5rem' %}</p>
           </a>
         </div>
-        {% endfor %} 
-        <h2 id="no-data" style="display: none; text-align: center;">No Data On Selected Neighborhood</h2>
+        {% endfor %}
+        <h2 id="no-data" style="display: none; text-align: center">
+          No Data On Selected Neighborhood
+        </h2>
         {% else %}
         <h2 class="empty-list">
           Neighborhoods Data Is Currently Not Availiable
@@ -44,16 +44,9 @@
   </section>
 
   <script>
-<<<<<<< HEAD
-    const api_key = document.getElementById("MAPBOX_API_KEY").value;
-    mapboxgl.accessToken = api_key;
-
-    console.log("test " + api_key);
-=======
     const api_key = "{{ MAPBOX_API_KEY }}";
     mapboxgl.accessToken = api_key;
     // console.log("test " + api_key);
->>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
 
     var target = '';
 
@@ -67,11 +60,7 @@
     map.on('load', () => {
       map.addSource('neighborhoods', {
       'type': 'geojson',
-<<<<<<< HEAD
       'data': '{% static 'data/tabulation.geojson' %}'
-=======
-      'data': "{% static 'data/tabulation.geojson' %}"
->>>>>>> fba1830f246c0087a6d34695bce4705065b984a9
       });
 
       map.addLayer({

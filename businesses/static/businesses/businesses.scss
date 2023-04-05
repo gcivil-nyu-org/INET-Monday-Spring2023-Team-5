@@ -36,28 +36,28 @@ $orange: #f15524;
   }
 }
 
-#marketplace{
-    .list-page{
-        .listing{
-            border: 1px solid $darkBlue;
-            border-radius: 5px;
-            padding: 1rem;
+#marketplace {
+  .list-page {
+    .listing {
+      border: 1px solid $darkBlue;
+      border-radius: 5px;
+      padding: 1rem;
 
-            .bourough{
-                color: white;
-                background: $orange;
-                font-weight: bold;
-                padding: 0.3rem 1rem;
-                width: fit-content;
-                border-radius: 5px;
-            }
+      .bourough {
+        color: white;
+        background: $orange;
+        font-weight: bold;
+        padding: 0.3rem 1rem;
+        width: fit-content;
+        border-radius: 5px;
+      }
 
-            .price{
-                color: $orange;
-                font-weight: bold;
-            }
-        }
+      .price {
+        color: $orange;
+        font-weight: bold;
+      }
     }
+  }
 }
 
 .service-details {
@@ -155,8 +155,8 @@ $orange: #f15524;
             width: 100%;
 
             & > div {
-                width: 25%;
-              }
+              width: 25%;
+            }
           }
         }
       }

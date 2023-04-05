@@ -225,27 +225,27 @@ $orange: #f15524;
 .user-edit {
   section {
     & > div {
-      &:nth-of-type(2) > div{
+      &:nth-of-type(2) > div {
         display: grid;
         grid-auto-flow: column;
         grid-template-columns: 49% 49%;
         column-gap: 1rem;
         margin-top: 2rem;
 
-        & > div{
+        & > div {
           &:nth-of-type(1) {
             background-color: $darkBlue;
             padding: 2rem;
             border-radius: 7px;
 
-            h3{
+            h3 {
               color: white;
             }
 
-            p{
+            p {
               color: white !important;
 
-              &.info{
+              &.info {
                 color: $orange !important;
               }
             }
@@ -418,10 +418,9 @@ $orange: #f15524;
   .user-edit {
     section {
       & > div {
-        &:nth-of-type(2) > div{
+        &:nth-of-type(2) > div {
           display: flex;
           flex-direction: column;
-
         }
       }
     }
