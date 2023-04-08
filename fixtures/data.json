@@ -76,7 +76,10 @@
   "pk": 1,
   "fields": {
     "name": "Pizza Paradise",
-    "address": "301 2nd Drive New York, NY 10028",
+    "address1": "301 2nd Drive",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10028",
     "owner": 2,
     "email": "jdeb@nyu.edu",
     "phone": "1234567890",
@@ -89,7 +92,10 @@
   "pk": 2,
   "fields": {
     "name": "Go-Getters Moving Company",
-    "address": "285 S 2nd St, Brooklyn, NY 11211",
+    "address1": "123 Main St.",
+    "city": "New York",
+    "state": "NY",
+    "zip": "11111",
     "owner": 3,
     "email": "jdoe@nyu.edu",
     "phone": "2345678901",
@@ -103,7 +109,6 @@
   "fields": {
     "title": "[FREE] Chair",
     "description": "https://www.ikea.com/us/en/p/millberget-swivel-chair-murum-dark-brown-80489402/",
-    "address": "301 2nd Drive New York, NY 10028",
     "owner": 2,
     "email": "jdeb@nyu.edu",
     "phone": "1234567890",
@@ -119,7 +124,6 @@
   "fields": {
     "title": "Table",
     "description": "Used table with minor scratches on the surface.",
-    "address": "285 S 2nd St, Brooklyn, NY 11211",
     "owner": 3,
     "email": "jdoe@nyu.edu",
     "phone": "2345678901",

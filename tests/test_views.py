@@ -318,7 +318,11 @@ class AddBusinessViewTestCase(TestCase):
     def test_add_business_view_post_success(self):
         data = {
             "name": "Test Business",
-            "address": "123 Main St.",
+            "address1": "123 Main St.",
+            "address2": "123 Main St.",
+            "city": "New York",
+            "state": "NY",
+            "zip": "11111",
             "email": "test@example.com",
             "phone": "555-555-1212",
         }
@@ -330,7 +334,11 @@ class AddBusinessViewTestCase(TestCase):
         self.client.logout()
         data = {
             "name": "Test Business",
-            "address": "123 Main St.",
+            "address1": "123 Main St.",
+            "address2": "123 Main St.",
+            "city": "New York",
+            "state": "NY",
+            "zip": "11111",
             "email": "test@example.com",
             "phone": "555-555-1212",
         }
@@ -351,7 +359,11 @@ class ViewBusinessViewTestCase(TestCase):
         )
         self.business = Business.objects.create(
             name="Test Business",
-            address="Test Address",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             email="test@example.com",
             phone="1234567890",
@@ -383,13 +395,21 @@ class ViewAllBusinessesViewTestCase(TestCase):
         )
         self.business1 = Business.objects.create(
             name="Test Business 1",
-            address="123 Main St",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             phone="123-456-7890",
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
-            address="456 Maple St",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             phone="555-555-5555",
         )
@@ -400,9 +420,9 @@ class ViewAllBusinessesViewTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Business 1")
-        self.assertContains(response, "123 Main St")
+        self.assertContains(response, "Test Address")
         self.assertContains(response, "Test Business 2")
-        self.assertContains(response, "456 Maple St")
+        self.assertContains(response, "Test Address")
 
 
 class ViewMyBusinessesViewTestCase(TestCase):
@@ -417,13 +437,21 @@ class ViewMyBusinessesViewTestCase(TestCase):
         )
         self.business1 = Business.objects.create(
             name="Test Business 1",
-            address="123 Main St",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             phone="123-456-7890",
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
-            address="456 Maple St",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             phone="555-555-5555",
         )
@@ -434,9 +462,9 @@ class ViewMyBusinessesViewTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Business 1")
-        self.assertContains(response, "123 Main St")
+        self.assertContains(response, "Test Address")
         self.assertContains(response, "Test Business 2")
-        self.assertContains(response, "456 Maple St")
+        self.assertContains(response, "Test Address")
 
 
 class TestAddListingView(TestCase):
@@ -465,7 +493,6 @@ class TestAddListingView(TestCase):
             "price": 100,
             "email": "test@example.com",
             "phone": "1234567890",
-            "address": "Test Address",
             "neighborhood": self.neighborhood.id,
         }
         response = self.client.post(reverse("add_listing"), data)
@@ -478,7 +505,6 @@ class TestAddListingView(TestCase):
         self.assertEqual(listing.price, 100)
         self.assertEqual(listing.email, "test@example.com")
         self.assertEqual(listing.phone, "1234567890")
-        self.assertEqual(listing.address, "Test Address")
         self.assertEqual(listing.owner, self.user)
         self.assertEqual(listing.neighborhood, self.neighborhood)
 
@@ -489,7 +515,6 @@ class TestAddListingView(TestCase):
             "price": 100,
             "email": "test@example.com",
             "phone": "1234567890",
-            "address": "Test Address",
             "neighborhood": self.neighborhood.id,
         }
         response = self.client.post(reverse("add_listing"), data)
@@ -536,7 +561,6 @@ class TestViewListingView(TestCase):
             price=100,
             email="test@example.com",
             phone="1234567890",
-            address="Test Address",
             owner=self.user,
             neighborhood=self.neighborhood,
         )
@@ -549,7 +573,6 @@ class TestViewListingView(TestCase):
         self.assertContains(response, "Test description")
         self.assertContains(response, "test@example.com")
         self.assertContains(response, "1234567890")
-        self.assertContains(response, "Test Address")
         self.assertContains(response, "Test User")
 
     def test_view_listing_unauthenticated(self):
@@ -581,7 +604,6 @@ class TestMarketplaceView(TestCase):
             price=100,
             email="test1@example.com",
             phone="1234567890",
-            address="Test Address 1",
             owner=self.user,
             neighborhood=self.neighborhood,
         )
@@ -591,7 +613,6 @@ class TestMarketplaceView(TestCase):
             price=200,
             email="test2@example.com",
             phone="2345678901",
-            address="Test Address 2",
             owner=self.user,
             neighborhood=self.neighborhood,
         )
@@ -629,7 +650,11 @@ class TestViewBusinessDetailsView(TestCase):
         )
         self.business = Business.objects.create(
             name="Test Business",
-            address="Test Address",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             email="test@example.com",
             phone="1234567890",

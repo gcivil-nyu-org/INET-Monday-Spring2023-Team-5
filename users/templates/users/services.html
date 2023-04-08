@@ -24,7 +24,7 @@
           <img src="{% static 'images/business-1.jpg' %}" />
           <div>
             <h3>{{ business.name }} <span>{%bs_icon 'star-fill' size='1rem' %} 4.0</span></h3>
-            <p>{{ business.address }}</p>
+            <p>{{ business.address1 }}, {{ business.address2 }}, {{ business.city }}, {{ business.state }}, {{ business.zip }}</p>
           </div>
         </a>
       </div>

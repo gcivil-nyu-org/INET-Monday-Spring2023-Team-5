@@ -37,7 +37,11 @@ class TestModels(TestCase):
         )
         self.business = Business.objects.create(
             name="Test Business",
-            address="Test Address",
+            address1="Test Address",
+            address2="Test Address",
+            city="Test Address",
+            state="Test Address",
+            zip="11111",
             owner=self.user,
             email="test@example.com",
             phone="1234567890",
@@ -57,7 +61,11 @@ class TestModels(TestCase):
         business = self.business
         self.assertEqual(str(business), "Test Business")
         self.assertEqual(business.name, "Test Business")
-        self.assertEqual(business.address, "Test Address")
+        self.assertEqual(business.address1, "Test Address")
+        self.assertEqual(business.address2, "Test Address")
+        self.assertEqual(business.city, "Test Address")
+        self.assertEqual(business.state, "Test Address")
+        self.assertEqual(business.zip, "11111")
         self.assertEqual(business.owner, self.user)
         self.assertEqual(business.email, "test@example.com")
         self.assertEqual(business.phone, "1234567890")
