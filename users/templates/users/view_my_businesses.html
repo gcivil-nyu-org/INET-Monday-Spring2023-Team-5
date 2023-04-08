@@ -13,7 +13,7 @@
     <img src="{% static 'images/business-1.jpg' %}" />
     <div>
       <h3>{{ business.name }}</h3>
-      <p>{{ business.address }}</p>
+      <p>{{ business.address1 }}, {{ business.address2 }}, {{ business.city }}, {{ business.state }}, {{ business.zip }}</p>
       <a href="{% url 'view_business_details' business.id %}">View Details</a>
     </div>
   </div>

@@ -6,7 +6,11 @@ from neighborhood.models import Neighborhood
 
 class Business(models.Model):
     name = models.CharField(max_length=50)
-    address = models.CharField(max_length=100)
+    address1 = models.CharField(max_length=100, blank=True)
+    address2 = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length=100, blank=True)
+    state = models.CharField(max_length=100, blank=True)
+    zip = models.CharField(max_length=6, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="businesses")
     email = models.EmailField(max_length=50, blank=True)
     phone = models.CharField(max_length=15)
@@ -20,7 +24,7 @@ class Business(models.Model):
 class Listing(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
     email = models.EmailField(max_length=50, blank=True)
     phone = models.CharField(max_length=15, blank=True)

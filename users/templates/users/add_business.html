@@ -11,10 +11,14 @@
 
 <form action="{% url 'add_business' %}" method="POST">
   {% csrf_token %}
-  <input type="text" name="name" placeholder="Business Name" />
-  <input type="text" name="address" placeholder="Business Address" />
-  <input type="tel" name="phone" placeholder="Business Phone" />
-  <input type="email" name="email" placeholder="Business Email" />
+  <input type="text" name="name" placeholder="Business Name" required />
+  <input type="text" name="address1" placeholder="Business Address 1" required/>
+  <input type="text" name="address2" placeholder="Business Address 2" />
+  <input type="text" name="city" placeholder="City" required/>
+  <input type="text" name="state" placeholder="State" required/>
+  <input type="text" name="zip" placeholder="Zip Code" required/>
+  <input type="tel" name="phone" placeholder="Business Phone" required/>
+  <input type="email" name="email" placeholder="Business Email" required/>
   <button type="submit">Add Business</button>
 </form>
 

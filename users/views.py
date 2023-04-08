@@ -227,7 +227,11 @@ def add_business_view(request):
     if request.method == "POST":
         business = Business(
             name=request.POST["name"],
-            address=request.POST["address"],
+            address1=request.POST["address1"],
+            address2=request.POST["address2"],
+            city=request.POST["city"],
+            state=request.POST["state"],
+            zip=request.POST["zip"],
             email=request.POST["email"],
             phone=request.POST["phone"],
             owner=request.user,
@@ -316,7 +320,7 @@ def add_listing(request):
                 price=request.POST["price"],
                 email=request.POST["email"],
                 phone=request.POST["phone"],
-                address=request.POST["address"],
+                # address=request.POST["address"],
                 owner=request.user,
                 neighborhood=n,
             )
