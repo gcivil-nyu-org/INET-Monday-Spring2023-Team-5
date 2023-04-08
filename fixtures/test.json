@@ -1,0 +1,128 @@
+[
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1TsC6zWLeffBGgEE7Yzq2F$6nH1yQ4nJ8utcjaeSZSrLw4autvx0itzbzgQNm9gFMs=",
+    "last_login": "2023-04-08T02:01:36.853Z",
+    "is_superuser": false,
+    "username": "prof_test@nyu.edu",
+    "first_name": "prof",
+    "last_name": "test",
+    "email": "prof_test@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:01:36.743Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1hUz7tHqqQWL7xn0yy9hKZ$xTcFyGz4qVOEqgrQ8gsKXMkEAKnnwPLwMIFrdyxTxEw=",
+    "last_login": "2023-04-08T02:02:10.206Z",
+    "is_superuser": false,
+    "username": "ta_test@nyu.edu",
+    "first_name": "ta",
+    "last_name": "test",
+    "email": "ta_test@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:02:10.095Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$vYUJ2K2slUOKxs86gHSrDn$lANIVOZnS0bHDZQAVuAU616u5TN+uwFTT9esQfxAN4U=",
+    "last_login": "2023-04-08T02:02:41.511Z",
+    "is_superuser": false,
+    "username": "test1@nyu.edu",
+    "first_name": "test1",
+    "last_name": "_",
+    "email": "test1@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:02:41.398Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$YZe4VPzkS7jbxSW6k6ba2L$oBuQiLU1dauHGT38d82FQVajX9R40drWfHzs9M4MBi0=",
+    "last_login": "2023-04-08T02:03:12.362Z",
+    "is_superuser": false,
+    "username": "test2@nyu.edu",
+    "first_name": "test2",
+    "last_name": "_",
+    "email": "test2@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:03:12.249Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$xAjdChbtDv0JogLQ2Pd8Aa$qZ+ThQgved5/tu8+538BxnKZ75xiSTlmyApA+9DGH4A=",
+    "last_login": "2023-04-08T02:03:43.136Z",
+    "is_superuser": false,
+    "username": "test3@nyu.edu",
+    "first_name": "test3",
+    "last_name": "_",
+    "email": "test3@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:03:43.024Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$Fi7vwjbxvWN3pEfaTMlBOL$xEXIioFekDpK207YzEuwf+lsyXHglFbDJveGcESB0A8=",
+    "last_login": "2023-04-08T02:04:12.164Z",
+    "is_superuser": false,
+    "username": "test4@nyu.edu",
+    "first_name": "test4",
+    "last_name": "_",
+    "email": "test4@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:04:12.055Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$gvTsHILNSjYYSeT7I6X17E$XTeYW038669mKE4Df3pHkf7jFQhlnCAi9TMNImTNalA=",
+    "last_login": "2023-04-08T02:04:38.389Z",
+    "is_superuser": false,
+    "username": "test5@nyu.edu",
+    "first_name": "test5",
+    "last_name": "_",
+    "email": "test5@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-08T02:04:38.275Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
