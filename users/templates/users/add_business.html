@@ -12,10 +12,24 @@
 <form action="{% url 'add_business' %}" method="POST">
   {% csrf_token %}
   <input type="text" name="name" placeholder="Business Name" />
-  <input type="text" name="address" placeholder="Business Address" />
+  <input type="text" name="street" id="street" placeholder="Street" />
+    <input type="text" name="city" id="city" placeholder="City" />
+    <input type="text" name="state" id="state" placeholder="State" />
+    <input type="text" name="zip" id="zip" placeholder="Zip Code" />
+    <input type="hidden" name="address" id="address" />
   <input type="tel" name="phone" placeholder="Business Phone" />
   <input type="email" name="email" placeholder="Business Email" />
-  <button type="submit">Add Business</button>
+  <button type="submit" onclick="connectAddress()">Add Business</button>
 </form>
+    <script>
+        function connectAddress(){
+            var street = document.getElementById('street').value;
+            var city = document.getElementById('city').value;
+            var state = document.getElementById('state').value;
+            var zip = document.getElementById('zip').value;
+            var address = street + ', ' + city + ', ' + state + ' ' + zip;
+            document.getElementById('address').value = address;
+        }
+    </script>
 
 {% endblock body %}
