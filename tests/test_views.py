@@ -1,3 +1,5 @@
+import json
+
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -687,8 +689,12 @@ class NeighborhoodsViewsTest(TestCase):
 
         # Check that the rendered context contains the list of neighborhoods.
         self.assertIn("neighborhoods", response.context)
-        neighborhoods = response.context["neighborhoods"]
-        self.assertEqual(neighborhoods.count(), 1)
+        json_neighborhoods = response.context["neighborhoods"]
+        neighborhoods = json.loads(json_neighborhoods)
+        tp = neighborhoods[0]["fields"]
+        neighborhood = Neighborhood.objects.all()
+        p = neighborhood[0].name
+        self.assertEqual(p, tp["name"])
 
     def test_neighborhood_view(self):
         # Issue a GET request.
