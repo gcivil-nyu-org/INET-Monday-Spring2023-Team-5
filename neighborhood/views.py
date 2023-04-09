@@ -1,23 +1,23 @@
+import json
 from django.shortcuts import render
-
 from .models import Neighborhood
 from .utils import get_title
-
 from decouple import config
+from django.core import serializers
 
 
 def neighborhoods(request):
     neighborhoods = Neighborhood.objects.all()
-
+    neighborhoods_json = serializers.serialize("json", neighborhoods)
+    json_data = json.loads(neighborhoods_json)
+    json_object = json.dumps(json_data)
     context = {
-        "neighborhoods": neighborhoods,
         "page": "neighborhoods",
         "MAPBOX_API_KEY": config("MAPBOX_API_KEY"),
     }
-
     if request.user.is_authenticated:
         context["firstname"] = request.user.first_name
-
+    context["neighborhoods"] = json_object
     return render(request, "neighborhoods/index.html", context)
 
 

@@ -20,17 +20,10 @@
     </div>
     <div class="sidebar-info">
       <div class="sidebar-list">
-        {% if neighborhoods %} {% for neighborhood in neighborhoods %}
-        <div class="listing" id="{{ neighborhood.name }}">
-          <a href="{% url 'neighborhood' neighborhood.pk %}">
-            <div>
-              <h2>{{ neighborhood.name }}</h2>
-              <p>{{ neighborhood.borough }}</p>
-            </div>
-            <p>{%bs_icon 'arrow-right' size='1.5rem' %}</p>
-          </a>
-        </div>
-        {% endfor %}
+          {% if neighborhoods %}
+          <div id="neighborhoods-container">
+              <h2>Loading</h2>
+          </div>
         <h2 id="no-data" style="display: none; text-align: center">
           No Data On Selected Neighborhood
         </h2>
@@ -42,8 +35,8 @@
       </div>
     </div>
   </section>
-
   <script>
+
     const api_key = "{{ MAPBOX_API_KEY }}";
     mapboxgl.accessToken = api_key;
     // console.log("test " + api_key);
@@ -124,6 +117,36 @@
       });
     });
   </script>
+    <script type="text/javascript">
+        function fs(){
+            var neighborhoods_json=JSON.parse('{{ neighborhoods|escapejs }}');
+          var container = document.getElementById('neighborhoods-container');
+          container.innerHTML = '';
+          for (var i = 0; i < neighborhoods_json.length; i++) {
+            var neighborhood = neighborhoods_json[i];
+            var listing = document.createElement('div');
+            listing.className = 'listing';
+            listing.id = neighborhood.fields.name;
+            var link = document.createElement('a');
+            link.href = '/neighborhoods/' + neighborhood.pk;
+            var div = document.createElement('div');
+            var h2 = document.createElement('h2');
+            h2.innerHTML = neighborhood.fields.name;
+            var p = document.createElement('p');
+            p.innerHTML = neighborhood.fields.borough;
+            var arrow = document.createElement('img');
+            arrow.src = '{% static 'bootstrap_icons/arrow-right.svg' %}';
+            arrow.width = '10';
+            div.appendChild(h2);
+            div.appendChild(p);
+            link.appendChild(div);
+            link.appendChild(arrow);
+            listing.appendChild(link);
+            container.appendChild(listing);
+      }
+        };
+        window.onload = fs;
+    </script>
 </main>
 
 {% endblock content %}
