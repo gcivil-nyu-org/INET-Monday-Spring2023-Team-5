@@ -1,0 +1,132 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$4yonkUiAHznXKjail4EmL4$25ae9M17t91qWaFjNS6/Tyu6H8QPNaVMyack4+Br6vM=",
+    "last_login": "2023-04-02T03:30:21.642Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@nyu.edu",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-03-31T19:28:51.101Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$MTVTDJvPBvtytDRqV49raM$iKYJpfcqKf0u5yw2z5M0MAA0bMIF7iAZNEvUtorXfZY=",
+    "last_login": "2023-03-31T21:19:42.719Z",
+    "is_superuser": false,
+    "username": "jdeb@nyu.edu",
+    "first_name": "John",
+    "last_name": "Deb",
+    "email": "jdeb@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-03-31T21:19:42.614Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$w6rjGXorR7TawMyqK5dAwJ$7V3M3E9NltQZSPAix5kMm+PBHKrjoEFm2TfyWPm5YJI=",
+    "last_login": "2023-03-31T21:20:10.382Z",
+    "is_superuser": false,
+    "username": "jdoe@nyu.edu",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "jdoe@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-03-31T21:20:10.272Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$pz1klO2u3QXHet8y16nZbv$RViDbZ46Not+jaD3wviB28ZWIPG55P85eWyoOKNNkOA=",
+    "last_login": "2023-03-31T21:22:57.667Z",
+    "is_superuser": false,
+    "username": "jdwarf@nyu.edu",
+    "first_name": "John",
+    "last_name": "Dwarf",
+    "email": "jdwarf@nyu.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-03-31T21:22:57.558Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.business",
+  "pk": 1,
+  "fields": {
+    "name": "Pizza Paradise",
+    "address": "301 2nd Drive New York, NY 10028",
+    "owner": 2,
+    "email": "jdeb@nyu.edu",
+    "phone": "1234567890",
+    "created_at": "2023-04-02T03:53:22.243Z",
+    "updated_at": "2023-04-02T03:53:22.243Z"
+  }
+},
+{
+  "model": "users.business",
+  "pk": 2,
+  "fields": {
+    "name": "Go-Getters Moving Company",
+    "address": "285 S 2nd St, Brooklyn, NY 11211",
+    "owner": 3,
+    "email": "jdoe@nyu.edu",
+    "phone": "2345678901",
+    "created_at": "2023-04-02T03:55:11.724Z",
+    "updated_at": "2023-04-02T03:55:11.724Z"
+  }
+},
+{
+  "model": "users.listing",
+  "pk": 1,
+  "fields": {
+    "title": "[FREE] Chair",
+    "description": "https://www.ikea.com/us/en/p/millberget-swivel-chair-murum-dark-brown-80489402/",
+    "address": "301 2nd Drive New York, NY 10028",
+    "owner": 2,
+    "email": "jdeb@nyu.edu",
+    "phone": "1234567890",
+    "neighborhood": 10,
+    "price": 60,
+    "created_at": "2023-04-02T03:57:15.442Z",
+    "updated_at": "2023-04-02T03:57:15.442Z"
+  }
+},
+{
+  "model": "users.listing",
+  "pk": 2,
+  "fields": {
+    "title": "Table",
+    "description": "Used table with minor scratches on the surface.",
+    "address": "285 S 2nd St, Brooklyn, NY 11211",
+    "owner": 3,
+    "email": "jdoe@nyu.edu",
+    "phone": "2345678901",
+    "neighborhood": 158,
+    "price": 20,
+    "created_at": "2023-04-02T03:59:23.282Z",
+    "updated_at": "2023-04-02T03:59:23.282Z"
+  }
+}
+]

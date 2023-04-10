@@ -1,25 +1,85 @@
 from django.test import TestCase
-from users.models import Business
 from django.contrib.auth.models import User
 
+from users.models import Business, Listing
+from neighborhood.models import Neighborhood
 
-class BusinessTestCase(TestCase):
-    def test_business_creation(self):
-        user = User.objects.create_user(
-            username="Test", first_name="John", last_name="Test"
+
+# class Neighborhood(models.Model):
+#     name = models.CharField(max_length=50)
+#     borough = models.CharField(max_length=50)
+#     description = models.TextField()
+#     lat = models.FloatField()
+#     lon = models.FloatField()
+
+#     def __str__(self):
+#         return self.name
+
+#     def get_geopoint(self):
+#         return "POINT(%s %s)" % (self.lon, self.lat)
+
+
+class TestModels(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="testpass",
+            email="testuser@example.com",
+            first_name="Test",
+            last_name="User",
         )
-        business = Business.objects.create(
-            name="Test Business Name",
-            address="123 Test Ave",
-            owner=user,
-            email="jtest@gmail.com",
-            phone="123-456-7890",
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
         )
-        self.assertEqual(business.name, "Test Business Name")
-        self.assertEqual(business.address, "123 Test Ave")
-        self.assertEqual(business.owner, user)
-        self.assertEqual(business.email, "jtest@gmail.com")
-        self.assertEqual(business.phone, "123-456-7890")
-        self.assertTrue(
-            Business.objects.filter(owner=user, name="Test Business Name").exists()
+        self.business = Business.objects.create(
+            name="Test Business",
+            address="Test Address",
+            owner=self.user,
+            email="test@example.com",
+            phone="1234567890",
         )
+        self.listing = Listing.objects.create(
+            title="Test Listing",
+            description="Test description",
+            price=100,
+            email="test@example.com",
+            phone="1234567890",
+            address="Test Address",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+        )
+
+    def test_business_model(self):
+        business = self.business
+        self.assertEqual(str(business), "Test Business")
+        self.assertEqual(business.name, "Test Business")
+        self.assertEqual(business.address, "Test Address")
+        self.assertEqual(business.owner, self.user)
+        self.assertEqual(business.email, "test@example.com")
+        self.assertEqual(business.phone, "1234567890")
+
+    def test_neighborhood_model(self):
+        neighborhood = self.neighborhood
+        self.assertEqual(str(neighborhood), "Test Neighborhood")
+        self.assertEqual(neighborhood.name, "Test Neighborhood")
+        self.assertEqual(neighborhood.borough, "Test Borough")
+        self.assertEqual(neighborhood.description, "Test description")
+        self.assertEqual(neighborhood.lat, 0)
+        self.assertEqual(neighborhood.lon, 0)
+        self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
+
+    def test_listing_model(self):
+        listing = self.listing
+        self.assertEqual(str(listing), "Test Listing")
+        self.assertEqual(listing.title, "Test Listing")
+        self.assertEqual(listing.description, "Test description")
+        self.assertEqual(listing.price, 100)
+        self.assertEqual(listing.email, "test@example.com")
+        self.assertEqual(listing.phone, "1234567890")
+        self.assertEqual(listing.address, "Test Address")
+        self.assertEqual(listing.owner, self.user)
+        self.assertEqual(listing.neighborhood, self.neighborhood)

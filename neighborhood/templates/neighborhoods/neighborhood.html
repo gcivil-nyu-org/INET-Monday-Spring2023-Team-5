@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% load bootstrap_icons %} 
+{% block content %} 
+{% load static %}
+
+<main id="neighborhood">
+  <section class="map-container">
+    <div id="neighborhood-map"></div>
+  </section>
+  <section class="neighborhood-details">
+    <div>
+      <h1 id="name">{{ neighborhood.name }}</h1>
+      <p id="borough">{{ neighborhood.borough }}</p>
+      <p id="description">{{ neighborhood.description }}</p>
+      <p id="lat"><b>Latitude: </b>{{ neighborhood.lat }}</p>
+      <p id="lon"><b>Longitude: </b>{{ neighborhood.lon }}</p>
+    </div>
+  </section>
+  <script>
+    const api_key = "{{ MAPBOX_API_KEY }}";
+    mapboxgl.accessToken = api_key;
+    // console.log("test " + api_key);
+
+    var name = document.getElementById('name').innerText;
+    var lat = document.getElementById('lat').innerText.split(': ').pop();
+    var lon = document.getElementById('lon').innerText.split(': ').pop();
+
+    var map = new mapboxgl.Map({
+      container: 'neighborhood-map',
+      center: [lon, lat],
+      zoom: 12,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      interactive: false
+    });
+
+    map.on('load', () => {
+      map.addSource('neighborhoods', {
+      'type': 'geojson',
+      'data': '{% static 'data/tabulation.geojson' %}'
+      });
+
+      map.addLayer({
+      'id': 'neighborhoods-layer',
+      'type': 'fill',
+      'filter': ['all', ['==', 'ntaname', name]],
+      'source': 'neighborhoods',
+      'paint': {
+      'fill-color': '#f15524',
+      'fill-opacity': 0.3,
+      'fill-outline-color': '#FFF'
+      }
+      });
+    });
+  </script>
+</main>
+
+{% endblock content %}

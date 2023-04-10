@@ -12,13 +12,37 @@ $orange: #f15524;
     justify-content: center;
     height: 100%;
 
+    p {
+      color: $orange;
+      text-align: center;
+
+      &.message {
+        color: red;
+        font-weight: bold;
+        margin-top: 0rem;
+      }
+    }
+
     & > div {
       height: 100%;
 
       &:nth-of-type(1) {
-        background-color: $darkBlue;
-        background-image: url("../../../static/images/nyc-skyline.jpg");
+        background-color: white;
+        background-image: url("../../../static/images/homepage-hero-mobile.jpg");
         background-position: center;
+        background-size: cover;
+
+        h1 {
+          padding: 2rem;
+          color: white;
+        }
+
+        a {
+          :hover {
+            color: white;
+            text-decoration: underline;
+          }
+        }
       }
 
       &:nth-of-type(2) {
@@ -30,8 +54,26 @@ $orange: #f15524;
         button {
           width: 100%;
         }
+
+        a {
+          color: $darkBlue;
+          margin-top: 1rem;
+          text-decoration: underline;
+
+          &:hover {
+            color: $orange;
+          }
+        }
       }
     }
+  }
+}
+
+.login,
+.register {
+  padding: 0rem !important;
+  #header {
+    display: none !important;
   }
 }
 
@@ -44,13 +86,37 @@ $orange: #f15524;
     justify-content: center;
     height: 100%;
 
+    p {
+      color: $orange;
+      text-align: center;
+
+      &.message {
+        color: red;
+        font-weight: bold;
+        margin-top: 0rem;
+      }
+    }
+
     & > div {
       height: 100%;
 
       &:nth-of-type(1) {
         background-color: $darkBlue;
-        background-image: url("../../../static/images/nyc-skyline.jpg");
+        background-image: url("../../../static/images/homepage-hero-mobile.jpg");
         background-position: center;
+        background-size: cover;
+
+        h1 {
+          padding: 2rem;
+          color: white;
+        }
+
+        a {
+          :hover {
+            color: white;
+            text-decoration: underline;
+          }
+        }
       }
 
       &:nth-of-type(2) {
@@ -62,16 +128,22 @@ $orange: #f15524;
         button {
           width: 100%;
         }
+
+        a {
+          color: $darkBlue;
+          margin-top: 1rem;
+          text-decoration: underline;
+
+          &:hover {
+            color: $orange;
+          }
+        }
       }
     }
   }
 }
 
-#user-dashboard,
-#user-edit,
-#user-update-password,
-#user-delete,
-#user-add-business {
+#user-dashboard {
   section {
     display: grid;
     grid-auto-flow: column;
@@ -94,6 +166,11 @@ $orange: #f15524;
         background-color: $darkBlue;
         background-image: url("../../../static/images/homepage-hero.jpg");
         background-position: center;
+        background-size: cover;
+
+        p {
+          color: $darkBlue;
+        }
       }
     }
 
@@ -105,6 +182,9 @@ $orange: #f15524;
 
     p {
       color: white;
+      margin: 1.5rem 0rem 0.5rem;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
     }
 
     a {
@@ -117,29 +197,68 @@ $orange: #f15524;
   }
 }
 
-#user-edit,
-#user-update-password,
-#user-delete,
-#user-add-business {
+.user-edit,
+.user-update-password,
+.user-delete,
+.user-add-business,
+.user-my-businesses,
+.user-add-listing {
   section {
     & > div {
       &:nth-of-type(2) {
-        background-color: white;
-        background-image: unset;
+        background-color: white !important;
+        background-image: unset !important;
         padding: 3rem;
 
         form {
           margin: 1rem 0rem;
         }
 
-        p{
-          color: $orange
+        p {
+          color: $orange;
         }
       }
     }
   }
 }
 
+.user-edit {
+  section {
+    & > div {
+      &:nth-of-type(2) > div {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 49% 49%;
+        column-gap: 1rem;
+        margin-top: 2rem;
+
+        & > div {
+          &:nth-of-type(1) {
+            background-color: $darkBlue;
+            padding: 2rem;
+            border-radius: 7px;
+
+            h3 {
+              color: white;
+            }
+
+            p {
+              color: white !important;
+
+              &.info {
+                color: $orange !important;
+              }
+            }
+          }
+
+          &:nth-of-type(2) {
+            padding: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
 
 #logout {
   section {
@@ -161,11 +280,7 @@ $orange: #f15524;
 }
 
 @media screen and (max-width: 1920px) {
-  #user-dashboard,
-  #user-edit,
-  #user-update-password,
-  #user-delete,
-  #user-add-business {
+  #user-dashboard {
     section {
       & > div {
         &:nth-of-type(1) {
@@ -178,16 +293,24 @@ $orange: #f15524;
         line-height: 2.5vw;
       }
 
+      p {
+        margin: 1.5vw 0rem 0.5vw;
+        font-size: 1.2vw;
+        line-height: 1.2vw;
+      }
+
       a {
         margin: 0.5vw 0rem 0rem;
       }
     }
   }
 
-  #user-edit,
-  #user-update-password,
-  #user-delete,
-  #user-add-business {
+  .user-edit,
+  .user-update-password,
+  .user-delete,
+  .user-add-business,
+  .user-my-businesses,
+  .user-add-listing {
     section {
       & > div {
         &:nth-of-type(2) {
@@ -241,16 +364,12 @@ $orange: #f15524;
     }
   }
 
-  #user-dashboard,
-  #user-edit,
-  #user-update-password,
-  #user-delete,
-  #user-add-business {
+  #user-dashboard {
     section {
       display: flex;
       grid-auto-flow: unset;
       grid-template-columns: unset;
-      flex-direction: column;
+      flex-direction: column-reverse;
 
       & > div {
         &:nth-of-type(1) {
@@ -263,17 +382,27 @@ $orange: #f15524;
         line-height: 5.5vw;
       }
 
+      p {
+        margin: 4.5vw 0rem 1.5vw;
+        font-size: 3.2vw;
+        line-height: 3.2vw;
+      }
+
       a {
         margin: 0.8vw 0rem 0rem;
       }
     }
   }
 
-  #user-edit,
-  #user-update-password,
-  #user-delete,
-  #user-add-business {
+  .user-edit,
+  .user-update-password,
+  .user-delete,
+  .user-add-business,
+  .user-my-businesses,
+  .user-add-listing {
     section {
+      flex-direction: column !important;
+
       & > div {
         &:nth-of-type(2) {
           padding: 6vw;
@@ -281,6 +410,17 @@ $orange: #f15524;
           form {
             margin: 3vw 0rem;
           }
+        }
+      }
+    }
+  }
+
+  .user-edit {
+    section {
+      & > div {
+        &:nth-of-type(2) > div {
+          display: flex;
+          flex-direction: column;
         }
       }
     }

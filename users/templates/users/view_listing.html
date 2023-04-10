@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
+{% load static %}
+
+<main class="service-details">
+  <section class="service-images">
+    <div>
+      <div>
+        <img src="{% static 'images/listing-1.jpg' %}" />
+        <h1>{{ listing.title }}</h1>
+      </div>
+      <div>
+        <div><img height="100%" src="{% static 'images/listing-2.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/listing-3.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/listing-4.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/listing-5.jpg' %}" /></div>
+      </div>
+    </div>
+  </section>
+  <section class="service-info">
+    <div>
+      <p class="service-label">Description</p>
+      <p>{{ listing.description }}</p>
+      <p class="service-label">
+        Posted By {{ listing.owner.first_name }} {{ listing.owner.last_name }}
+        on {{ listing.created_at }}
+      </p>
+    </div>
+    <div>
+      <p class="service-label">
+        {%bs_icon 'wallet-fill' size='1rem' %}Price
+      </p>
+      <p>${{ listing.price }}</p>
+      <p class="service-label">
+        {%bs_icon 'buildings-fill' size='1rem' %}Neighborhood
+      </p>
+      <p>{{ listing.neighborhood.name }}</p>
+      <p class="service-label">
+        {%bs_icon 'geo-alt-fill' size='1rem' %}Address
+      </p>
+      <p>{{ listing.address }}</p>
+      <p class="service-label">
+        {%bs_icon 'envelope-at-fill' size='1rem' %}Email
+      </p>
+      <p>{{ listing.email }}</p>
+      <p class="service-label">
+        {%bs_icon 'telephone-fill' size='1rem' %}Phone
+      </p>
+      <p>{{ listing.phone }}</p>
+    </div>
+  </section>
+</main>
+{% endblock %}

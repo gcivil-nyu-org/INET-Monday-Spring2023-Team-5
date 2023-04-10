@@ -11,6 +11,27 @@ $orange: #f15524;
 }
 
 @font-face {
+  font-family: "Rubik";
+  src: url("../../static/fonts/Rubik-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../../static/fonts/Rubik-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../../static/fonts/Rubik-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: "Karla";
   src: url("../../static/fonts/Karla-Regular.ttf") format("truetype");
   font-style: normal;
@@ -59,7 +80,8 @@ body {
   font-family: "Karla", Garamond, serif !important;
   overflow: hidden;
 
-  .mobile {
+  .mobile,
+  .br-mobile {
     display: none !important;
   }
 
@@ -94,12 +116,42 @@ body {
     a {
       font-size: 1rem;
       line-height: 1rem;
-      color: orange;
+      color: $orange;
     }
   }
 
   section {
     position: relative;
+  }
+
+  .map-container {
+    .mapboxgl-map {
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
+      min-height: 20rem;
+    }
+
+    .mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+      max-width: 10rem !important;
+    }
+
+    .mapboxgl-popup-content {
+      text-align: center;
+      padding: 1rem;
+      font-family: "Rubik", Copperplate, Papyrus, fantasy;
+      font-weight: bold;
+    }
+
+    .mapboxgl-popup-close-button {
+      color: black;
+      padding: 0.5rem;
+    }
+
+    .mapboxgl-ctrl-attrib.mapboxgl-compact,
+    .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+      display: none;
+    }
   }
 
   h1 {
@@ -111,19 +163,23 @@ body {
   }
 
   h2 {
-    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    font-family: "Rubik", Copperplate, Papyrus, fantasy;
     color: $darkBlue;
     font-size: 2.75rem;
     line-height: 2.75rem;
     margin: 0rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   h3 {
-    font-family: "Rubik80sFade", Copperplate, Papyrus, fantasy;
+    font-family: "Rubik", Copperplate, Papyrus, fantasy;
     color: $darkBlue;
     font-size: 2rem;
     line-height: 2rem;
     margin: 0rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   p {
@@ -131,9 +187,10 @@ body {
     line-height: 1.5rem;
     padding: 0rem;
     margin: 1rem 0rem;
+    word-wrap: break-word;
 
     &.message {
-      color: $orange;
+      color: $orange !important;
       font-style: italic;
     }
   }
@@ -171,14 +228,68 @@ body {
             border-radius: 5px;
           }
 
+          &:hover {
+            text-decoration: none;
+
+            p {
+              color: $orange;
+            }
+
+            img {
+              width: 101%;
+            }
+          }
+
           div {
             h3 {
               padding: 1rem 0rem 0.5rem;
+              font-size: 1.5rem;
+              line-height: 1.5rem;
+              display: grid;
+              grid-auto-flow: column;
+              grid-template-columns: 73% 18%;
+              column-gap: 2rem;
+              align-items: self-start;
+
+              span {
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+              }
             }
 
             p {
               margin: 0rem;
             }
+          }
+        }
+      }
+    }
+
+    &.account-list {
+      .listing {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 20% 76%;
+        padding: 1.5rem 0rem;
+        align-items: center;
+        column-gap: 2rem;
+        border-bottom: 1px solid lightgrey;
+        border-right: none;
+
+        p {
+          margin: 1rem 0rem !important;
+        }
+
+        a {
+          text-decoration: underline;
+
+          &:hover {
+            color: $orange !important;
+            text-decoration: underline !important;
           }
         }
       }
@@ -201,6 +312,10 @@ body {
         flex-direction: column;
         align-items: center;
         row-gap: 0.5rem;
+
+        &:hover {
+          color: $orange;
+        }
       }
     }
   }
@@ -211,13 +326,14 @@ body {
     width: 100%;
     max-width: 30rem;
 
-    input {
+    input,
+    select {
       border: 1px solid lightgray;
       border-radius: 0.8rem;
       height: 2.5rem;
       font-size: 1rem !important;
       line-height: 1rem !important;
-      padding: 1rem;
+      padding: 0.5rem;
       margin: 0rem 0rem 0.8rem 0rem;
       width: 100%;
       background-color: #f4faff;
@@ -365,12 +481,13 @@ body {
     form {
       max-width: 30vw;
 
-      input {
+      input,
+      select {
         border-radius: 0.8vw;
         height: 2.5vw;
         font-size: 1vw !important;
         line-height: 1vw !important;
-        padding: 1vw;
+        padding: 0.5vw;
         margin: 0rem 0rem 0.8vw 0rem;
       }
     }
@@ -386,9 +503,24 @@ body {
             div {
               h3 {
                 padding: 1vw 0rem 0.5vw;
+                font-size: 1.5vw;
+                line-height: 1.5vw;
+                column-gap: 2vw;
+
+                span {
+                  font-size: 1.2vw;
+                  line-height: 1.2vw;
+                }
               }
             }
           }
+        }
+      }
+
+      &.account-list {
+        .listing {
+          padding: 1.5vw 0rem;
+          column-gap: 2vw;
         }
       }
 
@@ -441,6 +573,10 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
+    .br-mobile {
+      display: block !important;
+    }
+
     main {
       button {
         border-radius: 1.8vw;
@@ -479,12 +615,13 @@ body {
     form {
       max-width: 85vw;
 
-      input {
+      input,
+      select {
         border-radius: 1.8vw;
         height: 4.5vw;
         font-size: 3vw !important;
         line-height: 3vw !important;
-        padding: 3vw;
+        padding: 2.5vw;
         margin: 0rem 0rem 1.8vw 0rem;
       }
     }
@@ -502,6 +639,14 @@ body {
             div {
               h3 {
                 padding: 1.5vw 0rem 1vw;
+                font-size: 3vw;
+                line-height: 3vw;
+                column-gap: 4vw;
+
+                span {
+                  font-size: 2.5vw;
+                  line-height: 2.5vw;
+                }
               }
 
               p {
@@ -510,6 +655,13 @@ body {
               }
             }
           }
+        }
+      }
+
+      &.account-list {
+        .listing {
+          padding: 3.5vw 0rem;
+          column-gap: 4vw;
         }
       }
 
