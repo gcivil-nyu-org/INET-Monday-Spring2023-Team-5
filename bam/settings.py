@@ -29,8 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    "bam-env.eba-n2psxg2h.us-west-2.elasticbeanstalk.com",  # dev
-    "bam-nyc.eba-uw5cyphp.us-west-2.elasticbeanstalk.com",  # prod
+    "bam-nyc.us-west-2.elasticbeanstalk.com",  # prod
+    "bam-nyc.eba-jiz96x3d.us-west-2.elasticbeanstalk.com",  # dev
 ]
 
 # Application definition
