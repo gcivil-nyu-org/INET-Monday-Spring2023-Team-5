@@ -21,15 +21,11 @@
 
       <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
-        <input type="email" name="email" placeholder="Email" />
-        <input type="text" name="first_name" placeholder="First Name" />
-        <input type="text" name="last_name" placeholder="Last Name" />
-        <input type="password" name="password1" placeholder="Password" />
-        <input
-          type="password"
-          name="password2"
-          placeholder="Confirm Password"
-        />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="first_name" placeholder="First Name" required />
+        <input type="text" name="last_name" placeholder="Last Name" required />
+        <input type="password" name="password1" placeholder="Password" required />
+        <input type="password" name="password2" placeholder="Confirm Password" required />
         <button type="submit">Register</button>
       </form>
       <a href="{% url 'login' %}"
