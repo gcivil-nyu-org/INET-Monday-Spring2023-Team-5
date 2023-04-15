@@ -16,10 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from users.marketplace import views as marketplace_views
+from users.services import views as services_views
+
 urlpatterns = [
     path("", include("homepage.urls")),
     path("admin/", admin.site.urls),
-    path("users/", include("users.urls")),
-    path("businesses/", include("businesses.urls")),
+    path("account/", include("users.urls")),
+    path("services/", services_views.services, name="services"),
+    path("services/<str:borough>", services_views.services, name="services_by_borough"),
+    path("marketplace/", marketplace_views.marketplace, name="marketplace"),
+    path(
+        "marketplace/<str:borough>",
+        marketplace_views.filter_by_borough,
+        name="marketplace_by_borough",
+    ),
     path("neighborhoods/", include("neighborhood.urls")),
 ]

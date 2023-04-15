@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-from .models import Business, Listing
-from neighborhood.models import Neighborhood
+from users.marketplace.models import Listing
+from users.services.models import Business
 
 
 admin.site.register(Business)
 admin.site.register(Listing)
-admin.site.register(Neighborhood)
