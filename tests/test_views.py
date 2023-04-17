@@ -1,13 +1,10 @@
-from django.test import Client, RequestFactory, TestCase
+from django.test import Client, TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.contrib.messages.storage.fallback import FallbackStorage
 
 from users.services.models import Business
 from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
-
-from users.views import update_user
 
 
 ########################################
@@ -15,298 +12,303 @@ from users.views import update_user
 ########################################
 
 
-class IndexViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.url = reverse("user_dashboard")
-
-    def test_index_view_unauthenticated_user(self):
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 302)
-
-    def test_index_view_authenticated_user(self):
-        user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
-        )
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Welcome Test!")
-
-
 ########################################
 # users.views
 ########################################
 
 
-class LoginViewTestCase(TestCase):
+class UserAccountViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(
-            username="test@example.com",
-            email="test@example.com",
-            password="testpassword",
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
         )
 
-    def test_login_view_with_valid_credentials(self):
+    def test_user_account_view(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("user_account"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "user account")
+        self.assertTemplateUsed(response, "users/index.html")
+
+    def test_user_account_view_requires_login(self):
+        response = self.client.get(reverse("user_account"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/accounts/")
+
+
+class AccountRegisterViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_account_register_view_get(self):
+        response = self.client.get(reverse("account_register"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "account register")
+        self.assertTemplateUsed(response, "users/account_register.html")
+
+    def test_account_register_view_post_valid_credentials(self):
         response = self.client.post(
-            reverse("login"), {"email": "test@example.com", "password": "testpassword"}
+            reverse("account_register"),
+            {
+                "email": "testuser@example.com",
+                "password1": "testpass",
+                "password2": "testpass",
+                "first_name": "Test",
+                "last_name": "User",
+            },
         )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("user_dashboard"))
+        self.assertRedirects(response, "/accounts/")
+        self.assertTrue(User.objects.filter(email="testuser@example.com").exists())
 
-    def test_login_view_with_invalid_credentials(self):
+    def test_account_register_view_post_passwords_dont_match(self):
         response = self.client.post(
-            reverse("login"), {"email": "test@example.com", "password": "wrongpassword"}
+            reverse("account_register"),
+            {
+                "email": "testuser@example.com",
+                "password1": "testpass",
+                "password2": "wrongpass",
+                "first_name": "Test",
+                "last_name": "User",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Passwords must match.")
+        self.assertTemplateUsed(response, "users/account_register.html")
+
+    def test_account_register_view_post_email_already_exists(self):
+        User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+        )
+        response = self.client.post(
+            reverse("account_register"),
+            {
+                "email": "testuser@example.com",
+                "password1": "testpass",
+                "password2": "testpass",
+                "first_name": "Test",
+                "last_name": "User",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Email already exists.")
+        self.assertTemplateUsed(response, "users/account_register.html")
+
+
+class AccountLoginViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+        )
+
+    def test_account_login_view_get(self):
+        response = self.client.get(reverse("account_login"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "account login")
+        self.assertTemplateUsed(response, "users/account_login.html")
+
+    def test_account_login_view_post_valid_credentials(self):
+        response = self.client.post(
+            reverse("account_login"),
+            {
+                "username": "testuser@example.com",
+                "email": "testuser@example.com",
+                "password": "testpass",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/")
+
+    def test_account_login_view_post_invalid_credentials(self):
+        response = self.client.post(
+            reverse("account_login"),
+            {
+                "username": "testuser@example.com",
+                "email": "testuser@example.com",
+                "password": "wrongpass",
+            },
         )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Invalid credentials.")
+        self.assertTemplateUsed(response, "users/account_login.html")
 
 
-class LogoutViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username="test@example.com",
-            email="test@example.com",
-            password="testpassword",
-        )
-
-    def test_logout_view_with_authenticated_user(self):
-        self.client.login(username="test@example.com", password="testpassword")
-        response = self.client.get(reverse("logout"))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "LOGGED OUT!")
-        self.assertFalse(self.client.session.get("_auth_user_id", None))
-
-    def test_logout_view_with_unauthenticated_user(self):
-        response = self.client.get(reverse("logout"))
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("login"))
-
-
-class RegisterViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.url = reverse("register")
-
-    def test_register_view_success(self):
-        data = {
-            "username": "testuser@example.com",
-            "email": "testuser@example.com",
-            "password1": "password",
-            "password2": "password",
-            "first_name": "Test",
-            "last_name": "User",
-        }
-        response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("user_dashboard"))
-        self.assertTrue(User.objects.filter(email=data["email"]).exists())
-
-    def test_register_view_passwords_must_match(self):
-        data = {
-            "username": "testuser@example.com",
-            "email": "testuser@example.com",
-            "password1": "password1",
-            "password2": "password2",
-            "first_name": "Test",
-            "last_name": "User",
-        }
-        response = self.client.post(self.url, data)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Passwords must match.")
-
-    def test_register_view_email_already_exists(self):
-        User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
-        )
-        data = {
-            "username": "testuser@example.com",
-            "email": "testuser@example.com",
-            "password1": "password",
-            "password2": "password",
-            "first_name": "Test",
-            "last_name": "User",
-        }
-        response = self.client.post(self.url, data)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Email already exists.")
-
-
-class TestDeleteUserView(TestCase):
+class AccountLogoutViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(
             username="testuser@example.com",
             email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
+            password="testpass",
         )
 
-    def test_delete_user_unauthenticated(self):
-        response = self.client.get(reverse("delete_user"))
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse("login"))
-
-    def test_delete_user_wrong_password(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.post(reverse("delete_user"), {"password": "wrongpass"})
+    def test_account_logout_view(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("account_logout"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/delete_user.html")
-        self.assertEqual(response.context["message"], "Wrong password")
-        self.assertEqual(response.context["firstname"], "Test")
-        self.assertEqual(response.context["page"], "user-delete")
-
-    def test_delete_user_correct_password(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.post(reverse("delete_user"), {"password": "password"})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/logout.html")
-        self.assertEqual(response.context["message"], "Account Deleted")
-        self.assertEqual(response.context["firstname"], "Test")
-        self.assertEqual(response.context["page"], "user-delete")
-        self.assertFalse(User.objects.filter(username="testuser").exists())
+        self.assertContains(response, "You have been logged out.")
+        self.assertTemplateUsed(response, "users/account_logout.html")
+        self.assertFalse("_auth_user_id" in self.client.session)
 
 
-class UpdateUserViewTestCase(TestCase):
+class AccountDeleteViewTestCase(TestCase):
     def setUp(self):
-        self.factory = RequestFactory()
+        self.client = Client()
         self.user = User.objects.create_user(
             username="testuser@example.com",
             email="testuser@example.com",
-            password="password",
+            password="testpass",
         )
 
-    def test_update_user_unauthenticated(self):
-        response = self.client.get(reverse("update_user"))
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse("login"))
-
-    def test_update_user_authenticated(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(reverse("update_user"))
+    def test_account_delete_view_get(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("account_delete"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/update_user.html")
+        self.assertContains(response, "account delete")
+        self.assertTemplateUsed(response, "users/account_delete.html")
 
-    # def test_unauthenticated_user_redirected_to_login(self):
-    #     """Test that an unauthenticated user is redirected to the login page."""
-    #     request = self.factory.get(reverse('update_user'))
-    #     response = update_user(request)
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertRedirects(response, reverse('login'))
-
-    def test_authenticated_user_can_view_form(self):
-        """Test that an authenticated user can view the update user form."""
-        request = self.factory.get(reverse("update_user"))
-        request.user = self.user
-        response = update_user(request)
-        self.assertEqual(response.status_code, 200)
-
-    def test_authenticated_user_can_update_profile(self):
-        """Test that an authenticated user can update their profile."""
-        data = {
-            "username": "newemail@example.com",
-            "email": "newemail@example.com",
-            "first_name": "New",
-            "last_name": "User",
-        }
-        request = self.factory.post(reverse("update_user"), data=data)
-        request.user = self.user
-        # Required to add messages.success() and messages.error() to the request.
-        setattr(request, "session", "session")
-        messages = FallbackStorage(request)
-        setattr(request, "_messages", messages)
-
-        response = update_user(request)
+    def test_account_delete_view_post_valid_password(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(reverse("account_delete"), {"password": "testpass"})
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/register/")
+        self.assertFalse(User.objects.filter(email="testuser@example.com").exists())
 
+    def test_account_delete_view_post_invalid_password(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("account_delete"), {"password": "wrongpass"}
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Wrong password")
+        self.assertTemplateUsed(response, "users/account_delete.html")
+        self.assertTrue(User.objects.filter(email="testuser@example.com").exists())
+
+
+class UpdateAccountViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+        )
+
+    def test_update_account_view_get(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("update_account"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "update account")
+        self.assertTemplateUsed(response, "users/update_account.html")
+
+    def test_update_account_view_post_valid_data(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_account"),
+            {
+                "email": "newuser@example.com",
+                "first_name": "New",
+                "last_name": "User",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("user_account"))
         self.user.refresh_from_db()
-        self.assertEqual(self.user.email, "newemail@example.com")
+        self.assertEqual(self.user.username, "newuser@example.com")
+        self.assertEqual(self.user.email, "newuser@example.com")
         self.assertEqual(self.user.first_name, "New")
         self.assertEqual(self.user.last_name, "User")
 
-    def test_authenticated_user_cannot_update_profile_with_existing_email(self):
-        """Test that an authenticated user cannot update their profile
-        with an existing email."""
+    def test_update_account_view_post_invalid_email(self):
         User.objects.create_user(
-            username="otheruser@example.com",
+            username="otheruser",
             email="otheruser@example.com",
-            password="password",
+            password="otherpass",
         )
-        data = {
-            "username": "otheruser@example.com",
-            "email": "otheruser@example.com",
-            "first_name": "New",
-            "last_name": "User",
-        }
-        request = self.factory.post(reverse("update_user"), data=data)
-        request.user = self.user
-        # Required to add messages.success() and messages.error() to the request.
-        setattr(request, "session", "session")
-        messages = FallbackStorage(request)
-        setattr(request, "_messages", messages)
-
-        response = update_user(request)
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_account"),
+            {
+                "email": "otheruser@example.com",
+                "first_name": "New",
+                "last_name": "User",
+            },
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Email already exists.")
+        self.assertTemplateUsed(response, "users/update_account.html")
         self.user.refresh_from_db()
-        self.assertNotEqual(self.user.email, "otheruser@example.com")
+        self.assertEqual(self.user.username, "testuser@example.com")
+        self.assertEqual(self.user.email, "testuser@example.com")
+        self.assertEqual(self.user.first_name, "")
+        self.assertEqual(self.user.last_name, "")
 
 
 class UpdatePasswordViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(
-            username="testuser",
-            password="testpass123",
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
         )
 
-    def test_user_not_authenticated(self):
+    def test_update_password_view_get(self):
+        self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("update_password"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "update password")
+        self.assertTemplateUsed(response, "users/update_password.html")
+
+    def test_update_password_view_post_valid_data(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_password"),
+            {
+                "current_password": "testpass",
+                "password1": "newpass",
+                "password2": "newpass",
+            },
+        )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/")
+        self.assertRedirects(response, reverse("user_account"))
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password("newpass"))
 
-    def test_passwords_must_match(self):
-        self.client.force_login(self.user)
-        data = {
-            "current_password": "testpass123",
-            "password1": "newpassword",
-            "password2": "differentpassword",
-        }
-        response = self.client.post(reverse("update_password"), data)
+    def test_update_password_view_post_invalid_password(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_password"),
+            {
+                "current_password": "wrongpass",
+                "password1": "newpass",
+                "password2": "newpass",
+            },
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Passwords must match.")
+        self.assertTemplateUsed(response, "users/update_password.html")
+        self.assertTrue(self.user.check_password("testpass"))
 
-    def test_wrong_password(self):
-        self.client.force_login(self.user)
-        data = {
-            "current_password": "wrongpassword",
-            "password1": "newpassword",
-            "password2": "newpassword",
-        }
-        response = self.client.post(reverse("update_password"), data)
+    def test_update_password_view_post_mismatched_passwords(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_password"),
+            {
+                "current_password": "testpass",
+                "password1": "newpass",
+                "password2": "wrongpass",
+            },
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Wrong password")
-
-    def test_update_password_successfully(self):
-        self.client.force_login(self.user)
-        data = {
-            "current_password": "testpass123",
-            "password1": "newpassword",
-            "password2": "newpassword",
-        }
-        response = self.client.post(reverse("update_password"), data)
-        self.assertEqual(response.status_code, 200)
-        # self.assertContains(response, "Password Updated Successfully")
+        self.assertTemplateUsed(response, "users/update_password.html")
+        self.assertTrue(self.user.check_password("testpass"))
 
 
 ########################################
