@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.messages.storage.fallback import FallbackStorage
 
-from users.models import Business
+from users.services.models import Business
 from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
 
@@ -320,177 +320,178 @@ class AddBusinessViewTestCase(TestCase):
         self.user = User.objects.create_user(
             username="testuser@example.com",
             email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
+            password="testpass",
         )
-        self.client.login(username="testuser@example.com", password="password")
-        self.url = reverse("add_business")
 
-    def test_add_business_view_authenticated_user(self):
-        response = self.client.get(self.url)
+    def test_add_view(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+
+        response = self.client.get(reverse("add_business"))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Add Business")
+        self.assertTemplateUsed(response, "services/add_business.html")
 
-    def test_add_business_view_post_success(self):
         data = {
             "name": "Test Business",
-            "address": "123 Main St.",
+            "address": "123 Test St",
             "email": "test@example.com",
-            "phone": "555-555-1212",
+            "phone": "123-456-7890",
         }
-        response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("view_my_businesses"))
-        self.assertTrue(Business.objects.filter(name="Test Business").exists())
+        response = self.client.post(reverse("add_business"), data)
 
-    def test_add_business_view_post_unauthenticated_user(self):
-        self.client.logout()
-        data = {
-            "name": "Test Business",
-            "address": "123 Main St.",
-            "email": "test@example.com",
-            "phone": "555-555-1212",
-        }
-        response = self.client.post(self.url, data)
-        self.assertRedirects(response, reverse("login"))
-        self.assertFalse(Business.objects.filter(name="Test Business").exists())
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, "/accounts/business/{}/".format(Business.objects.first().id)
+        )
+        self.assertEqual(Business.objects.count(), 1)
+        self.assertEqual(Business.objects.first().name, "Test Business")
+        self.assertEqual(Business.objects.first().address, "123 Test St")
+        self.assertEqual(Business.objects.first().email, "test@example.com")
+        self.assertEqual(Business.objects.first().phone, "123-456-7890")
+        self.assertEqual(Business.objects.first().owner, self.user)
+
+    def test_add_view_requires_login(self):
+        response = self.client.get(reverse("add_business"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/accounts/business/add/")
 
 
 class ViewBusinessViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
+        self.user1 = User.objects.create_user(
+            username="testuser1@example.com",
+            email="testuser1@example.com",
+            password="testpass1",
         )
-        self.business = Business.objects.create(
-            name="Test Business",
-            address="Test Address",
-            owner=self.user,
-            email="test@example.com",
-            phone="1234567890",
+        self.user2 = User.objects.create_user(
+            username="testuser2@example.com",
+            email="testuser2@example.com",
+            password="testpass2",
+        )
+        self.business1 = Business.objects.create(
+            name="Test Business 1",
+            address="123 Test St",
+            email="test1@example.com",
+            phone="123-456-7890",
+            owner=self.user1,
+        )
+        self.business2 = Business.objects.create(
+            name="Test Business 2",
+            address="456 Test St",
+            email="test2@example.com",
+            phone="123-456-7890",
+            owner=self.user2,
         )
 
-    def test_view_business_view_unauthenticated(self):
-        response = self.client.get(reverse("view_business", args=[self.business.id]))
+    def test_view_view(self):
+        self.client.login(username="testuser1@example.com", password="testpass1")
+        response = self.client.get(reverse("view_business", args=(self.business1.id,)))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Business 1")
+        self.assertNotContains(response, "Test Business 2")
+        self.assertTemplateUsed(response, "services/view_business.html")
+
+    def test_view_view_requires_login(self):
+        response = self.client.get(reverse("view_business", args=(self.business1.id,)))
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse("login"))
-
-    def test_view_business_view_authenticated(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(reverse("view_business", args=[self.business.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/view_business.html")
-        self.assertEqual(response.context["message"], "View your business.")
-        self.assertEqual(response.context["business"], self.business)
+        self.assertRedirects(
+            response,
+            "/accounts/login/?next=/accounts/business/{}/".format(self.business1.id),
+        )
 
 
-class ViewAllBusinessesViewTestCase(TestCase):
+class ServicesViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(
             username="testuser@example.com",
             email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
+            password="testpass",
         )
         self.business1 = Business.objects.create(
             name="Test Business 1",
-            address="123 Main St",
-            owner=self.user,
+            email="test1@example.com",
             phone="123-456-7890",
+            address="123 Test St",
+            owner=self.user,
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
-            address="456 Maple St",
+            email="test2@example.com",
+            phone="123-456-7890",
+            address="456 Test St",
             owner=self.user,
-            phone="555-555-5555",
         )
-        self.url = reverse("services")
 
-    def test_view_all_businesses_view(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(self.url)
+    def test_services_view(self):
+        response = self.client.get(reverse("services"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Business 1")
-        self.assertContains(response, "123 Main St")
         self.assertContains(response, "Test Business 2")
-        self.assertContains(response, "456 Maple St")
+        self.assertTemplateUsed(response, "services/services.html")
+
+    def test_services_view_authenticated_user(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("services"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Business 1")
+        self.assertContains(response, "Test Business 2")
+        self.assertTemplateUsed(response, "services/services.html")
+
+    def test_services_view_no_businesses(self):
+        Business.objects.all().delete()
+        response = self.client.get(reverse("services"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "services/services.html")
 
 
-class ViewMyBusinessesViewTestCase(TestCase):
+class BusinessesViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
+        self.user1 = User.objects.create_user(
+            username="testuser1@example.com",
+            email="testuser1@example.com",
+            password="testpass1",
+        )
+        self.user2 = User.objects.create_user(
+            username="testuser2@example.com",
+            email="testuser2@example.com",
+            password="testpass2",
         )
         self.business1 = Business.objects.create(
             name="Test Business 1",
-            address="123 Main St",
-            owner=self.user,
+            email="test1@example.com",
             phone="123-456-7890",
+            address="123 Test St",
+            owner=self.user1,
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
-            address="456 Maple St",
-            owner=self.user,
-            phone="555-555-5555",
+            email="test2@example.com",
+            phone="123-456-7890",
+            address="456 Test St",
+            owner=self.user2,
         )
-        self.url = reverse("view_my_businesses")
 
-    def test_view_my_businesses_view(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(self.url)
+    def test_businesses_view(self):
+        self.client.login(username="testuser1@example.com", password="testpass1")
+        response = self.client.get(reverse("user_businesses"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Business 1")
-        self.assertContains(response, "123 Main St")
-        self.assertContains(response, "Test Business 2")
-        self.assertContains(response, "456 Maple St")
+        self.assertNotContains(response, "Test Business 2")
+        self.assertTemplateUsed(response, "services/businesses.html")
 
+    def test_businesses_view_requires_login(self):
+        response = self.client.get(reverse("user_businesses"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/accounts/business/")
 
-class TestViewBusinessDetailsView(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
-        )
-        self.business = Business.objects.create(
-            name="Test Business",
-            address="Test Address",
-            owner=self.user,
-            email="test@example.com",
-            phone="1234567890",
-        )
-
-    def test_view_business_details_unauthenticated(self):
-        response = self.client.get(reverse("view_business_details", args=[1]))
+    def test_businesses_view_no_businesses(self):
+        self.client.login(username="testuser2@example.com", password="testpass2")
+        response = self.client.get(reverse("user_businesses"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/business_details.html")
-        self.assertEqual(response.context["business"], self.business)
-        self.assertEqual(response.context["page"], "business-details")
-        self.assertNotIn("firstname", response.context)
-
-    def test_view_business_details_authenticated(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(
-            reverse("view_business_details", args=[self.business.id])
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/business_details.html")
-        self.assertEqual(response.context["business"], self.business)
-        self.assertEqual(response.context["page"], "business-details")
-        self.assertEqual(response.context["firstname"], "Test")
+        self.assertTemplateUsed(response, "services/businesses.html")
 
 
 ########################################

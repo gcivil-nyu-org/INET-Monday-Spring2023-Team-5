@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #
     "users.apps.UsersConfig",
     "users.marketplace.apps.MarketplaceConfig",
+    "users.services.apps.ServicesConfig",
     "neighborhood.apps.NeighborhoodsConfig",
     #
     "homepage.apps.HomepageConfig",
