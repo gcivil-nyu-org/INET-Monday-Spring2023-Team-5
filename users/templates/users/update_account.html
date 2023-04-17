@@ -20,7 +20,7 @@
 
     {% endif %}
 
-    <form action="{% url 'update_user' %}" method="POST">
+    <form action="{% url 'update_account' %}" method="POST">
       {% csrf_token %}
       <input
         type="email"
@@ -47,7 +47,7 @@
       <button type="submit">Update</button>
     </form>
     <a href="{% url 'update_password' %}"><button>Update Password</button></a>
-    <a href="{% url 'delete_user' %}"><button>Delete Account</button></a>
+    <a href="{% url 'account_delete' %}"><button>Delete Account</button></a>
   </div>
 </div>
 

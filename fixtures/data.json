@@ -72,7 +72,7 @@
   }
 },
 {
-  "model": "users.business",
+  "model": "services.business",
   "pk": 1,
   "fields": {
     "name": "Pizza Paradise",
@@ -85,7 +85,7 @@
   }
 },
 {
-  "model": "users.business",
+  "model": "services.business",
   "pk": 2,
   "fields": {
     "name": "Go-Getters Moving Company",
@@ -98,7 +98,7 @@
   }
 },
 {
-  "model": "users.listing",
+  "model": "marketplace.listing",
   "pk": 1,
   "fields": {
     "title": "[FREE] Chair",
@@ -114,7 +114,7 @@
   }
 },
 {
-  "model": "users.listing",
+  "model": "marketplace.listing",
   "pk": 2,
   "fields": {
     "title": "Table",

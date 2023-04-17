@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from users.marketplace import views as marketplace_views
+from users.services import views as services_views
+
 urlpatterns = [
     path("", include("homepage.urls")),
     path("admin/", admin.site.urls),
-    path("users/", include("users.urls")),
+    path("accounts/", include("users.urls")),
     path("businesses/", include("businesses.urls")),
     path("neighborhoods/", include("neighborhood.urls")),
+    path("marketplace/", marketplace_views.marketplace, name="marketplace"),
+    path("services/", services_views.services, name="services"),
 ]

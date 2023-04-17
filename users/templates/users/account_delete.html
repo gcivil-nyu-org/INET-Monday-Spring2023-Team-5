@@ -9,7 +9,7 @@
 
 {% endif %}
 
-<form action="{% url 'delete_user' %}" method="POST">
+<form action="{% url 'account_delete' %}" method="POST">
   {% csrf_token %}
   <input
     type="password"

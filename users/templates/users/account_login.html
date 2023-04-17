@@ -16,13 +16,13 @@
 
       {% endif %}
 
-      <form action="{% url 'login' %}" method="post">
+      <form action="{% url 'account_login' %}" method="post">
         {% csrf_token %}
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Login</button>
       </form>
-      <a href="{% url 'register' %}"
+      <a href="{% url 'account_register' %}"
         >If you do not have an account, please sign up.</a
       >
     </div>
