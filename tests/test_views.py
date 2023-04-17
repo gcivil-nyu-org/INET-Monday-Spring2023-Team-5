@@ -262,7 +262,7 @@ class UpdatePasswordViewTestCase(TestCase):
     def test_user_not_authenticated(self):
         response = self.client.get(reverse("update_password"))
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "/users/login/")
+        self.assertRedirects(response, "/accounts/login/")
 
     def test_passwords_must_match(self):
         self.client.force_login(self.user)

@@ -43,12 +43,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "compressor",
-    "django_bootstrap_icons",
+    #
     "users.apps.UsersConfig",
+    "neighborhood.apps.NeighborhoodsConfig",
+    #
     "homepage.apps.HomepageConfig",
     "businesses.apps.BusinessesConfig",
-    "neighborhood.apps.NeighborhoodsConfig",
+    #
+    "compressor",
+    "django_bootstrap_icons",
 ]
 
 MIDDLEWARE = [
