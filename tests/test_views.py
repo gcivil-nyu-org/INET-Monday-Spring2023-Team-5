@@ -10,6 +10,11 @@ from neighborhood.models import Neighborhood
 from users.views import update_user
 
 
+########################################
+# bam.views
+########################################
+
+
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -31,6 +36,11 @@ class IndexViewTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Welcome Test!")
+
+
+########################################
+# users.views
+########################################
 
 
 class LoginViewTestCase(TestCase):
@@ -299,6 +309,11 @@ class UpdatePasswordViewTestCase(TestCase):
         # self.assertContains(response, "Password Updated Successfully")
 
 
+########################################
+# users.services.views
+########################################
+
+
 class AddBusinessViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -440,6 +455,109 @@ class ViewMyBusinessesViewTestCase(TestCase):
         self.assertContains(response, "456 Maple St")
 
 
+class TestViewBusinessDetailsView(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="password",
+            first_name="Test",
+            last_name="User",
+        )
+        self.business = Business.objects.create(
+            name="Test Business",
+            address="Test Address",
+            owner=self.user,
+            email="test@example.com",
+            phone="1234567890",
+        )
+
+    def test_view_business_details_unauthenticated(self):
+        response = self.client.get(reverse("view_business_details", args=[1]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "users/business_details.html")
+        self.assertEqual(response.context["business"], self.business)
+        self.assertEqual(response.context["page"], "business-details")
+        self.assertNotIn("firstname", response.context)
+
+    def test_view_business_details_authenticated(self):
+        self.client.login(username="testuser@example.com", password="password")
+        response = self.client.get(
+            reverse("view_business_details", args=[self.business.id])
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "users/business_details.html")
+        self.assertEqual(response.context["business"], self.business)
+        self.assertEqual(response.context["page"], "business-details")
+        self.assertEqual(response.context["firstname"], "Test")
+
+
+########################################
+# users.marketplace.views
+########################################
+
+
+class MarketplaceViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.listing1 = Listing.objects.create(
+            title="Test Listing 1",
+            description="Test description 1",
+            price=100,
+            email="test1@example.com",
+            phone="1234567890",
+            address="Test Address 1",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+        )
+        self.listing2 = Listing.objects.create(
+            title="Test Listing 2",
+            description="Test description 2",
+            price=200,
+            email="test2@example.com",
+            phone="2345678901",
+            address="Test Address 2",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+        )
+
+    def test_marketplace_view(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("marketplace"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Listing 1")
+        self.assertTemplateUsed(response, "marketplace/marketplace.html")
+        listings = Listing.objects.all()
+        self.assertQuerysetEqual(
+            response.context["listings"],
+            listings,
+            transform=lambda x: x,
+            ordered=False,
+        )
+        self.assertEqual(response.context["firstname"], "Test")
+        self.assertEqual(response.context["page"], "marketplace")
+
+    def test_marketplace_view_requires_login(self):
+        response = self.client.get(reverse("marketplace"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/marketplace/")
+
+
 class AddListingViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -530,102 +648,9 @@ class ViewListingViewTestCase(TestCase):
         )
 
 
-class MarketplaceViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="testpass",
-            first_name="Test",
-            last_name="User",
-        )
-        self.neighborhood = Neighborhood.objects.create(
-            name="Test Neighborhood",
-            borough="Test Borough",
-            description="Test description",
-            lat=0,
-            lon=0,
-        )
-        self.listing1 = Listing.objects.create(
-            title="Test Listing 1",
-            description="Test description 1",
-            price=100,
-            email="test1@example.com",
-            phone="1234567890",
-            address="Test Address 1",
-            owner=self.user,
-            neighborhood=self.neighborhood,
-        )
-        self.listing2 = Listing.objects.create(
-            title="Test Listing 2",
-            description="Test description 2",
-            price=200,
-            email="test2@example.com",
-            phone="2345678901",
-            address="Test Address 2",
-            owner=self.user,
-            neighborhood=self.neighborhood,
-        )
-
-    def test_marketplace_view(self):
-        self.client.login(username="testuser@example.com", password="testpass")
-        response = self.client.get(reverse("marketplace"))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Test Listing 1")
-        self.assertTemplateUsed(response, "marketplace/marketplace.html")
-        listings = Listing.objects.all()
-        self.assertQuerysetEqual(
-            response.context["listings"],
-            listings,
-            transform=lambda x: x,
-            ordered=False,
-        )
-        self.assertEqual(response.context["firstname"], "Test")
-        self.assertEqual(response.context["page"], "marketplace")
-
-    def test_marketplace_view_requires_login(self):
-        response = self.client.get(reverse("marketplace"))
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/?next=/marketplace/")
-
-
-class TestViewBusinessDetailsView(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser@example.com",
-            email="testuser@example.com",
-            password="password",
-            first_name="Test",
-            last_name="User",
-        )
-        self.business = Business.objects.create(
-            name="Test Business",
-            address="Test Address",
-            owner=self.user,
-            email="test@example.com",
-            phone="1234567890",
-        )
-
-    def test_view_business_details_unauthenticated(self):
-        response = self.client.get(reverse("view_business_details", args=[1]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/business_details.html")
-        self.assertEqual(response.context["business"], self.business)
-        self.assertEqual(response.context["page"], "business-details")
-        self.assertNotIn("firstname", response.context)
-
-    def test_view_business_details_authenticated(self):
-        self.client.login(username="testuser@example.com", password="password")
-        response = self.client.get(
-            reverse("view_business_details", args=[self.business.id])
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/business_details.html")
-        self.assertEqual(response.context["business"], self.business)
-        self.assertEqual(response.context["page"], "business-details")
-        self.assertEqual(response.context["firstname"], "Test")
+########################################
+# neighborhood.views
+########################################
 
 
 class NeighborhoodsViewsTest(TestCase):
