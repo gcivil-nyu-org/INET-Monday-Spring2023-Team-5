@@ -1,4 +1,6 @@
 from django.urls import path
+from django.urls import include
+
 from . import views
 
 urlpatterns = [
@@ -15,6 +17,7 @@ urlpatterns = [
     path("update_password", views.update_password, name="update_password"),
     path("update_user/", views.update_user, name="update_user"),
     path("delete_user/", views.delete_user, name="delete_user"),
+    path("listings/", include("users.marketplace.urls")),
     path(
         "services/",
         views.services,
@@ -30,7 +33,4 @@ urlpatterns = [
         views.view_business_details,
         name="view_business_details",
     ),
-    path("add_listing/", views.add_listing, name="add_listing"),
-    path("view_listing/<int:listing_id>/", views.view_listing, name="view_listing"),
-    path("marketplace/", views.marketplace, name="marketplace"),
 ]

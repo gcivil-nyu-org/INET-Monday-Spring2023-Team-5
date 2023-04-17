@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #
     "users.apps.UsersConfig",
+    "users.marketplace.apps.MarketplaceConfig",
     "neighborhood.apps.NeighborhoodsConfig",
     #
     "homepage.apps.HomepageConfig",

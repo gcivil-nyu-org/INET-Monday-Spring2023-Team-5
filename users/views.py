@@ -7,8 +7,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from .models import Business, Listing
-from neighborhood.models import Neighborhood
+from .models import Business
 
 
 def index_view(request):
@@ -299,71 +298,6 @@ def view_my_businesses(request):
             "businesses": businesses,
             "firstname": "{}".format(request.user.first_name),
             "page": "user-my-businesses",
-        },
-    )
-
-
-def add_listing(request):
-    if not request.user.is_authenticated:
-        messages.error(request, "You are not authorized to view this page!")
-        return HttpResponseRedirect(reverse("login"))
-    else:
-        if request.method == "POST":
-            n = Neighborhood.objects.get(pk=request.POST["neighborhood"])
-            listing = Listing(
-                title=request.POST["title"],
-                description=request.POST["description"],
-                price=request.POST["price"],
-                email=request.POST["email"],
-                phone=request.POST["phone"],
-                address=request.POST["address"],
-                owner=request.user,
-                neighborhood=n,
-            )
-            listing.save()
-            messages.success(request, "Listing was added successfuly!")
-            return HttpResponseRedirect(reverse("view_listing", args=(listing.id,)))
-        else:
-            neighborhoods = Neighborhood.objects.all()
-            return render(
-                request,
-                "users/add_listing.html",
-                {
-                    "neighborhoods": neighborhoods,
-                    "firstname": "{}".format(request.user.first_name),
-                    "page": "user-add-listing",
-                },
-            )
-
-
-def view_listing(request, listing_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
-    listing = Listing.objects.get(id=listing_id)
-
-    return render(
-        request,
-        "users/view_listing.html",
-        {
-            "message": "",
-            "listing": listing,
-        },
-    )
-
-
-def marketplace(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
-
-    listings = Listing.objects.all()
-
-    return render(
-        request,
-        "users/marketplace.html",
-        {
-            "listings": listings,
-            "firstname": "{}".format(request.user.first_name),
-            "page": "marketplace",
         },
     )
 

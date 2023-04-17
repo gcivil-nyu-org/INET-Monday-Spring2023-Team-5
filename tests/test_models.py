@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from users.models import Business, Listing
+from users.models import Business
+from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
 
 
