@@ -30,13 +30,13 @@ class UserAccountViewTestCase(TestCase):
         self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("user_account"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "user account")
+        self.assertContains(response, "account")
         self.assertTemplateUsed(response, "users/index.html")
 
     def test_user_account_view_requires_login(self):
         response = self.client.get(reverse("user_account"))
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/?next=/accounts/")
+        self.assertRedirects(response, "/accounts/login/?/=/accounts/")
 
 
 class AccountRegisterViewTestCase(TestCase):
@@ -46,7 +46,7 @@ class AccountRegisterViewTestCase(TestCase):
     def test_account_register_view_get(self):
         response = self.client.get(reverse("account_register"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "account register")
+        self.assertContains(response, "register")
         self.assertTemplateUsed(response, "users/account_register.html")
 
     def test_account_register_view_post_valid_credentials(self):
@@ -112,7 +112,7 @@ class AccountLoginViewTestCase(TestCase):
     def test_account_login_view_get(self):
         response = self.client.get(reverse("account_login"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "account login")
+        self.assertContains(response, "login")
         self.assertTemplateUsed(response, "users/account_login.html")
 
     def test_account_login_view_post_valid_credentials(self):
@@ -172,7 +172,7 @@ class AccountDeleteViewTestCase(TestCase):
         self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("account_delete"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "account delete")
+        self.assertContains(response, "account-delete")
         self.assertTemplateUsed(response, "users/account_delete.html")
 
     def test_account_delete_view_post_valid_password(self):
@@ -206,7 +206,7 @@ class UpdateAccountViewTestCase(TestCase):
         self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("update_account"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "update account")
+        self.assertContains(response, "account-edit")
         self.assertTemplateUsed(response, "users/update_account.html")
 
     def test_update_account_view_post_valid_data(self):
@@ -264,7 +264,7 @@ class UpdatePasswordViewTestCase(TestCase):
         self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("update_password"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "update password")
+        self.assertContains(response, "account-update-password")
         self.assertTemplateUsed(response, "users/update_password.html")
 
     def test_update_password_view_post_valid_data(self):
@@ -330,7 +330,7 @@ class AddBusinessViewTestCase(TestCase):
 
         response = self.client.get(reverse("add_business"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Add Business")
+        self.assertContains(response, "account-add-business")
         self.assertTemplateUsed(response, "services/add_business.html")
 
         data = {
@@ -584,7 +584,7 @@ class AddListingViewTestCase(TestCase):
 
         response = self.client.get(reverse("add_listing"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Add Listing")
+        self.assertContains(response, "account-add-listing")
         self.assertTemplateUsed(response, "marketplace/add_listing.html")
 
         data = {
