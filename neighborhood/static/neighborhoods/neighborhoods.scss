@@ -33,6 +33,17 @@ $orange: #f15524;
       }
     }
 
+    .sort-filter{
+      padding-top: 0rem;
+      column-gap: 2rem;
+
+      a{
+        font-weight: bold;
+        color: $orange;
+        cursor: pointer;
+      }
+    }
+
     .sidebar-info {
       height: 90%;
 
@@ -126,6 +137,10 @@ $orange: #f15524;
         }
       }
 
+      .sort-filter{
+        column-gap: 2vw;
+      }
+
       .sidebar-info {
         .sidebar-list {
           padding: 1vw 1.5vw;
@@ -188,6 +203,11 @@ $orange: #f15524;
           font-size: 3.8vw;
           line-height: 3.8vw;
         }
+      }
+
+      .sort-filter{
+        column-gap: 4vw;
+        padding-bottom: 4vw;
       }
 
       .sidebar-info {

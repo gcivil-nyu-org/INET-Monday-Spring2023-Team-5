@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     "neighborhood.apps.NeighborhoodsConfig",
     #
     "homepage.apps.HomepageConfig",
-    "businesses.apps.BusinessesConfig",
     #
     "compressor",
     "django_bootstrap_icons",

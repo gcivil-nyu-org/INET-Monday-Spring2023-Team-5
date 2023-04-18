@@ -22,7 +22,7 @@ def services(request):
 def businesses(request):
     businesses = Business.objects.filter(owner=request.user)
 
-    context = {"businesses": businesses, "page": "user businesses"}
+    context = {"businesses": businesses, "page": "account-my-businesses"}
     context["firstname"] = request.user.first_name
 
     return render(request, "services/businesses.html", context)
@@ -45,7 +45,7 @@ def add(request):
         id = business.id
         return HttpResponseRedirect(reverse("view_business", args=(id,)))
 
-    context = {"page": "add business"}
+    context = {"page": "account-add-business"}
     context["firstname"] = request.user.first_name
 
     return render(request, "services/add_business.html", context)
@@ -55,7 +55,7 @@ def add(request):
 def view(request, business_id):
     business = Business.objects.get(id=business_id)
 
-    context = {"business": business, "page": "view business"}
+    context = {"business": business, "page": "business"}
     context["firstname"] = request.user.first_name
 
     return render(request, "services/view_business.html", context)
