@@ -2,32 +2,36 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.views.decorators.cache import never_cache
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 
-@login_required
+@login_required(redirect_field_name="/")
 def user_account(request):
-    context = {"page": "user account"}
+    context = {"page": "account"}
     context["firstname"] = request.user.first_name
-
     return render(request, "users/index.html", context)
 
 
+@never_cache
 def account_register(request):
+    if request.user.is_authenticated:
+        return HttpResponsePermanentRedirect("/")
+
     if request.method == "POST":
         email = request.POST["email"]
         password1 = request.POST["password1"]
         password2 = request.POST["password2"]
 
         if password1 != password2:
-            context = {"message": "Passwords must match.", "page": "account register"}
+            context = {"message": "Passwords must match.", "page": "register"}
             return render(request, "users/account_register.html", context)
 
         if User.objects.filter(email=email).exists():
-            context = {"message": "Email already exists.", "page": "account register"}
+            context = {"message": "Email already exists.", "page": "register"}
             return render(request, "users/account_register.html", context)
 
         user = User.objects.create_user(
@@ -42,11 +46,15 @@ def account_register(request):
         login(request, user)
         return HttpResponseRedirect(reverse("user_account"))
 
-    context = {"page": "account register"}
+    context = {"page": "register"}
     return render(request, "users/account_register.html", context)
 
 
+@never_cache
 def account_login(request):
+    if request.user.is_authenticated:
+        return HttpResponsePermanentRedirect("/")
+
     if request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
@@ -56,22 +64,20 @@ def account_login(request):
             login(request, user)
             return HttpResponseRedirect(reverse("user_account"))
 
-        context = {"message": "Invalid credentials.", "page": "account login"}
+        context = {"message": "Invalid credentials.", "page": "login"}
         return render(request, "users/account_login.html", context)
 
-    context = {"page": "account login"}
+    context = {"page": "login"}
     return render(request, "users/account_login.html", context)
 
 
-@login_required
 def account_logout(request):
     logout(request)
 
-    context = {"message": "You have been logged out.", "page": "account logout"}
+    context = {"message": "You have been logged out.", "page": "logout"}
     return render(request, "users/account_logout.html", context)
 
 
-@login_required
 def account_delete(request):
     if request.method == "POST":
         password = request.POST["password"]
@@ -80,25 +86,24 @@ def account_delete(request):
         if user.check_password(password):
             user.delete()
 
-            context = {"message": "Account Deleted", "page": "account delete"}
+            context = {"message": "Account Deleted", "page": "account-delete"}
             context["firstname"] = request.user.first_name
             return HttpResponseRedirect(reverse("account_register"))
 
         context = {
             "message": "Wrong password",
-            "page": "account delete",
+            "page": "account-delete",
         }
         context["firstname"] = request.user.first_name
         return render(request, "users/account_delete.html", context)
 
     context = {
-        "page": "account delete",
+        "page": "account-delete",
     }
     context["firstname"] = request.user.first_name
     return render(request, "users/account_delete.html", context)
 
 
-@login_required
 def update_account(request):
     if request.method == "POST":
         user = User.objects.get(pk=request.user.pk)
@@ -118,13 +123,12 @@ def update_account(request):
 
     context = {
         "user": request.user,
-        "page": "update account",
+        "page": "account-edit",
     }
     context["firstname"] = request.user.first_name
     return render(request, "users/update_account.html", context)
 
 
-@login_required
 def update_password(request):
     if request.method == "POST":
         current_password = request.POST["current_password"]
@@ -145,7 +149,7 @@ def update_password(request):
                 messages.error(request, "Wrong password")
 
     context = {
-        "page": "update password",
+        "page": "account-update-password",
     }
     context["firstname"] = request.user.first_name
     return render(request, "users/update_password.html", context)

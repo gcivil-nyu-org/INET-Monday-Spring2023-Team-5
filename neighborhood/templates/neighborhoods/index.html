@@ -1,6 +1,4 @@
-{% extends "base.html" %} 
-{% load bootstrap_icons %} 
-{% block content %} 
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
 {% load static %}
 
 <main id="neighborhoods">
@@ -14,20 +12,33 @@
         Find the information you need to make your big move! <br />Click on the
         map to learn more.
       </p>
-      <div style="display: none">
-        <a>{%bs_icon 'arrow-clockwise' size='1rem' %}</a>
+      <div class="sort-filter">
+        <a class="mapFilter" id="reset">{%bs_icon 'arrow-clockwise' size='1rem' %}</a>
+        <a class="mapFilter" id="Bronx">Bronx</a>
+        <a class="mapFilter" id="Brooklyn">Brooklyn</a>
+        <a class="mapFilter" id="Queens">Queens</a>
+        <a class="mapFilter" id="Staten Island">Staten Island</a>
       </div>
     </div>
     <div class="sidebar-info">
       <div class="sidebar-list">
         {% if neighborhoods %} {% for neighborhood in neighborhoods %}
-        <div class="listing" id="{{ neighborhood.name }}">
+        <div
+          class="listing"
+          id="{{ neighborhood.name }}"
+          data-borough="{{ neighborhood.borough }}"
+        >
           <a href="{% url 'neighborhood' neighborhood.pk %}">
             <div>
               <h2>{{ neighborhood.name }}</h2>
               <p>{{ neighborhood.borough }}</p>
             </div>
-            <p><img src="{% static 'bootstrap_icons/arrow-right.svg' size='1.5rem' %}" alt="arrow" /></p>
+            <p>
+              <img
+                src="{% static 'bootstrap_icons/arrow-right.svg' size='1.5rem' %}"
+                alt="arrow"
+              />
+            </p>
           </a>
         </div>
         {% endfor %}
@@ -92,13 +103,15 @@
 
       target = e.features[0].properties.ntaname;
 
+      var targetArray = target.split("-");
+
       var elements = document.querySelectorAll('.sidebar-list .listing');
       var nodata = document.getElementById('no-data');
 
       var found = false;
 
       for (var i = 0; i < elements.length; ++i) {
-        if(elements[i].id != target){
+        if(!targetArray.includes(elements[i].id)){
           elements[i].style.display = "none";
         } else{
           elements[i].style.display = "block";
@@ -111,8 +124,6 @@
       } else{
         nodata.style.display = "none";
       }
-
-
       });
 
       map.on('mouseenter', 'neighborhoods-layer', () => {
@@ -122,6 +133,38 @@
       map.on('mouseleave', 'neighborhoods-layer', () => {
       map.getCanvas().style.cursor = '';
       });
+
+      var mapFilters = document.getElementsByClassName("mapFilter");
+
+      var filterMap = function() {
+        var borough = this.id;
+        var elements = document.querySelectorAll('.sidebar-list .listing');
+
+        if(borough == "reset"){
+          map.setFilter('neighborhoods-layer', null);
+          map.setFilter('neighborhoods-layer-outline', null);
+
+          for (var i = 0; i < elements.length; ++i) {
+              elements[i].style.display = "block";
+          }
+        } else{
+          map.setFilter('neighborhoods-layer', ['==', 'boro_name', borough]);
+          map.setFilter('neighborhoods-layer-outline', ['==', 'boro_name', borough]);
+
+          for (var i = 0; i < elements.length; ++i) {
+            if(!(elements[i].getAttribute('data-borough') == borough)){
+              elements[i].style.display = "none";
+            } else{
+              elements[i].style.display = "block";
+            }
+          }
+        }
+      };
+
+      for (var i = 0; i < mapFilters.length; i++) {
+        mapFilters[i].addEventListener('click', filterMap, false);
+      }
+
     });
   </script>
 </main>

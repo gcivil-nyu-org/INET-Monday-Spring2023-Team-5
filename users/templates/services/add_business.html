@@ -13,7 +13,7 @@
   {% csrf_token %}
   <input type="text" name="name" placeholder="Business Name" required />
   <input type="text" name="address" placeholder="Business Address" required />
-  <input type="tel" name="phone" placeholder="Business Phone" required />
+  <input type="tel" name="phone" placeholder="Business Phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" title="Must be a valid phone number (888 888 8888)." required />
   <input type="email" name="email" placeholder="Business Email" required />
   <button type="submit">Add Business</button>
 </form>

@@ -41,7 +41,7 @@ def add(request):
 
     neighborhoods = Neighborhood.objects.all()
 
-    context = {neighborhoods: neighborhoods, "page": "add listing"}
+    context = {neighborhoods: neighborhoods, "page": "account-add-listing"}
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/add_listing.html", context)
@@ -51,7 +51,7 @@ def add(request):
 def view(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
 
-    context = {"listing": listing, "page": "view listing"}
+    context = {"listing": listing, "page": "listing"}
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/view_listing.html", context)

@@ -197,12 +197,12 @@ $orange: #f15524;
   }
 }
 
-.user-edit,
-.user-update-password,
-.user-delete,
-.user-add-business,
-.user-my-businesses,
-.user-add-listing {
+.account-edit,
+.account-update-password,
+.account-delete,
+.account-add-business,
+.account-my-businesses,
+.account-add-listing {
   section {
     & > div {
       &:nth-of-type(2) {
@@ -222,7 +222,7 @@ $orange: #f15524;
   }
 }
 
-.user-edit {
+.account-edit {
   section {
     & > div {
       &:nth-of-type(2) > div {
@@ -305,12 +305,12 @@ $orange: #f15524;
     }
   }
 
-  .user-edit,
-  .user-update-password,
-  .user-delete,
-  .user-add-business,
-  .user-my-businesses,
-  .user-add-listing {
+  .account-edit,
+  .account-update-password,
+  .account-delete,
+  .account-add-business,
+  .account-my-businesses,
+  .account-add-listing {
     section {
       & > div {
         &:nth-of-type(2) {
@@ -394,12 +394,12 @@ $orange: #f15524;
     }
   }
 
-  .user-edit,
-  .user-update-password,
-  .user-delete,
-  .user-add-business,
-  .user-my-businesses,
-  .user-add-listing {
+  .account-edit,
+  .account-update-password,
+  .account-delete,
+  .account-add-business,
+  .account-my-businesses,
+  .account-add-listing {
     section {
       flex-direction: column !important;
 
@@ -415,7 +415,7 @@ $orange: #f15524;
     }
   }
 
-  .user-edit {
+  .account-edit {
     section {
       & > div {
         &:nth-of-type(2) > div {
