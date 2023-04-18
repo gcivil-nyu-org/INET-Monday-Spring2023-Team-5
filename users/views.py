@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -10,19 +9,18 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 
-@login_required(redirect_field_name='/')
-
+@login_required(redirect_field_name="/")
 def user_account(request):
     context = {"page": "account"}
     context["firstname"] = request.user.first_name
-
     return render(request, "users/index.html", context)
+
 
 @never_cache
 def account_register(request):
     if request.user.is_authenticated:
-        return HttpResponsePermanentRedirect('/')
-    
+        return HttpResponsePermanentRedirect("/")
+
     if request.method == "POST":
         email = request.POST["email"]
         password1 = request.POST["password1"]
@@ -51,11 +49,12 @@ def account_register(request):
     context = {"page": "register"}
     return render(request, "users/account_register.html", context)
 
+
 @never_cache
 def account_login(request):
     if request.user.is_authenticated:
-        return HttpResponsePermanentRedirect('/')
-    
+        return HttpResponsePermanentRedirect("/")
+
     if request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
@@ -70,6 +69,7 @@ def account_login(request):
 
     context = {"page": "login"}
     return render(request, "users/account_login.html", context)
+
 
 def account_logout(request):
     logout(request)
@@ -103,6 +103,7 @@ def account_delete(request):
     context["firstname"] = request.user.first_name
     return render(request, "users/account_delete.html", context)
 
+
 def update_account(request):
     if request.method == "POST":
         user = User.objects.get(pk=request.user.pk)
@@ -126,6 +127,7 @@ def update_account(request):
     }
     context["firstname"] = request.user.first_name
     return render(request, "users/update_account.html", context)
+
 
 def update_password(request):
     if request.method == "POST":
