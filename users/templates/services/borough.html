@@ -1,15 +1,40 @@
-{% extends "base.html" %}
-{% load bootstrap_icons %}
-{% block content %}
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
 {% load static %}
 
-<main id="neighborhoods">
+<main id="services">
   <section>
-    {% if borough %}
     <div class="header">
-      <h1>{{ borough }}</h1>
+      <h1>{{ borough }} Services</h1>
+      <p>Find what you need to make your big apple move easier!</p>
     </div>
-    {% endif %}
+  </section>
+  <section>
+    <div class="sort-filter">
+      <button>
+        <a href="{% url 'services_by_borough' 'queens' %}">
+          {%bs_icon 'building' size='1rem' %}Queens
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'brooklyn' %}">
+          {%bs_icon 'building' size='1rem' %}Brooklyn
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'bronx' %}">
+          {%bs_icon 'building' size='1rem' %}Bronx
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'manhattan' %}">
+          {%bs_icon 'building' size='1rem' %}Manhattan
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'staten-island' %}">
+          {%bs_icon 'building' size='1rem' %}Staten Island
+        </a>
+    </div>
   </section>
   <section>
     <div class="list-page">
@@ -30,4 +55,4 @@
   </section>
 </main>
 
-{% endblock content %}
+{% endblock %}

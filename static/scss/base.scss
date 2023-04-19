@@ -306,15 +306,20 @@ body {
       button {
         background-color: transparent;
         color: $darkBlue;
-        font-size: 0.9rem;
-        line-height: 0.9rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 0.5rem;
 
-        &:hover {
-          color: $orange;
+        a {
+          font-size: 0.9rem;
+          line-height: 0.9rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 0.5rem;
+          color: $darkBlue;
+
+          &:hover {
+            color: $orange;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -529,9 +534,11 @@ body {
         column-gap: 1vw;
 
         button {
-          font-size: 0.9vw;
-          line-height: 0.9vw;
-          row-gap: 0.5vw;
+          a {
+            font-size: 0.9vw;
+            line-height: 0.9vw;
+            row-gap: 0.5vw;
+          }
         }
       }
     }
@@ -670,9 +677,11 @@ body {
         column-gap: 1vw;
 
         button {
-          font-size: 1.9vw;
-          line-height: 1.9vw;
-          row-gap: 0.8vw;
+          a {
+            font-size: 1.9vw;
+            line-height: 1.9vw;
+            row-gap: 0.8vw;
+          }
         }
       }
     }
