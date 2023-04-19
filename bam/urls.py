@@ -26,4 +26,9 @@ urlpatterns = [
     path("neighborhoods/", include("neighborhood.urls")),
     path("marketplace/", marketplace_views.marketplace, name="marketplace"),
     path("services/", services_views.services, name="services"),
+    path(
+        "services/<str:borough>",
+        services_views.services_by_borough,
+        name="services_by_borough",
+    ),
 ]

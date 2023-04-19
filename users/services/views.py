@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 
 from users.services.models import Business
 
+from neighborhood.utils import get_title
+
 
 def services(request):
     businesses = Business.objects.all()
@@ -16,6 +18,21 @@ def services(request):
         context["firstname"] = request.user.first_name
 
     return render(request, "services/services.html", context)
+
+
+@login_required
+def services_by_borough(request, borough):
+    borough = get_title(borough)
+    businesses = Business.objects.filter(neighborhood__borough=borough)
+
+    context = {
+        "borough": borough,
+        "businesses": businesses,
+        "page": "services-by-borough",
+    }
+    context["firstname"] = request.user.first_name
+
+    return render(request, "services/borough.html", context)
 
 
 @login_required
@@ -36,6 +53,7 @@ def add(request):
             address=request.POST["address"],
             email=request.POST["email"],
             phone=request.POST["phone"],
+            neighborhood_id=request.POST["neighborhood"],
             owner=request.user,
         )
         business.save()
