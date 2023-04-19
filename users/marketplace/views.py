@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
 
+from neighborhood.utils import get_title
+
 
 @login_required
 def marketplace(request):
@@ -16,6 +18,21 @@ def marketplace(request):
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/marketplace.html", context)
+
+
+@login_required
+def marketplace_by_borough(request, borough):
+    borough = get_title(borough)
+    listings = Listing.objects.filter(neighborhood__borough=borough)
+
+    context = {
+        "borough": borough,
+        "listings": listings,
+        "page": "marketplace-by-borough",
+    }
+    context["firstname"] = request.user.first_name
+
+    return render(request, "marketplace/borough.html", context)
 
 
 @login_required

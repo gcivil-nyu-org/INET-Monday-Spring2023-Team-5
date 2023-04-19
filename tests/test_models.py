@@ -26,6 +26,7 @@ class TestModels(TestCase):
             name="Test Business",
             address="Test Address",
             owner=self.user,
+            neighborhood=self.neighborhood,
             email="test@example.com",
             phone="1234567890",
         )
@@ -46,6 +47,7 @@ class TestModels(TestCase):
         self.assertEqual(business.name, "Test Business")
         self.assertEqual(business.address, "Test Address")
         self.assertEqual(business.owner, self.user)
+        self.assertEqual(business.neighborhood, self.neighborhood)
         self.assertEqual(business.email, "test@example.com")
         self.assertEqual(business.phone, "1234567890")
 

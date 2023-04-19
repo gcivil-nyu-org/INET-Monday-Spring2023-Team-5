@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 from users.services.models import Business
+from neighborhood.models import Neighborhood
 
 
 class AddBusinessViewTestCase(TestCase):
@@ -12,6 +13,13 @@ class AddBusinessViewTestCase(TestCase):
             username="testuser@example.com",
             email="testuser@example.com",
             password="testpass",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
         )
 
     def test_add_view(self):
@@ -27,6 +35,7 @@ class AddBusinessViewTestCase(TestCase):
             "address": "123 Test St",
             "email": "test@example.com",
             "phone": "123-456-7890",
+            "neighborhood": self.neighborhood.pk,
         }
         response = self.client.post(reverse("add_business"), data)
 
@@ -40,6 +49,7 @@ class AddBusinessViewTestCase(TestCase):
         self.assertEqual(Business.objects.first().email, "test@example.com")
         self.assertEqual(Business.objects.first().phone, "123-456-7890")
         self.assertEqual(Business.objects.first().owner, self.user)
+        self.assertEqual(Business.objects.first().neighborhood, self.neighborhood)
 
     def test_add_view_requires_login(self):
         response = self.client.get(reverse("add_business"))
@@ -60,12 +70,20 @@ class ViewBusinessViewTestCase(TestCase):
             email="testuser2@example.com",
             password="testpass2",
         )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.business1 = Business.objects.create(
             name="Test Business 1",
             address="123 Test St",
             email="test1@example.com",
             phone="123-456-7890",
             owner=self.user1,
+            neighborhood=self.neighborhood,
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
@@ -73,6 +91,7 @@ class ViewBusinessViewTestCase(TestCase):
             email="test2@example.com",
             phone="123-456-7890",
             owner=self.user2,
+            neighborhood=self.neighborhood,
         )
 
     def test_view_view(self):
@@ -100,12 +119,20 @@ class ServicesViewTestCase(TestCase):
             email="testuser@example.com",
             password="testpass",
         )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.business1 = Business.objects.create(
             name="Test Business 1",
             email="test1@example.com",
             phone="123-456-7890",
             address="123 Test St",
             owner=self.user,
+            neighborhood=self.neighborhood,
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
@@ -113,6 +140,7 @@ class ServicesViewTestCase(TestCase):
             phone="123-456-7890",
             address="456 Test St",
             owner=self.user,
+            neighborhood=self.neighborhood,
         )
 
     def test_services_view(self):
@@ -150,12 +178,20 @@ class BusinessesViewTestCase(TestCase):
             email="testuser2@example.com",
             password="testpass2",
         )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
         self.business1 = Business.objects.create(
             name="Test Business 1",
             email="test1@example.com",
             phone="123-456-7890",
             address="123 Test St",
             owner=self.user1,
+            neighborhood=self.neighborhood,
         )
         self.business2 = Business.objects.create(
             name="Test Business 2",
@@ -163,6 +199,7 @@ class BusinessesViewTestCase(TestCase):
             phone="123-456-7890",
             address="456 Test St",
             owner=self.user2,
+            neighborhood=self.neighborhood,
         )
 
     def test_businesses_view(self):
@@ -183,3 +220,52 @@ class BusinessesViewTestCase(TestCase):
         response = self.client.get(reverse("user_businesses"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "services/businesses.html")
+
+
+class ServicesByBoroughTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood1 = Neighborhood.objects.create(
+            name="Example Neighborhood 1",
+            borough="Borough1",
+            description="A test neighborhood.",
+            lat=40.7128,
+            lon=-74.0060,
+        )
+        self.neighborhood2 = Neighborhood.objects.create(
+            name="Example Neighborhood 2",
+            borough="Borough2",
+            description="Another test neighborhood.",
+            lat=40.7128,
+            lon=-74.0060,
+        )
+        self.business1 = Business.objects.create(
+            name="Test Business 1",
+            email="test1@example.com",
+            phone="123-456-7890",
+            address="123 Test St",
+            owner=self.user,
+            neighborhood=self.neighborhood1,
+        )
+        self.business2 = Business.objects.create(
+            name="Test Business 2",
+            email="test2@example.com",
+            phone="123-456-7890",
+            address="456 Test St",
+            owner=self.user,
+            neighborhood=self.neighborhood2,
+        )
+
+    def test_services_by_borough(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("services_by_borough", args=["borough1"]))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(self.business1, response.context["businesses"])
+        self.assertNotIn(self.business2, response.context["businesses"])

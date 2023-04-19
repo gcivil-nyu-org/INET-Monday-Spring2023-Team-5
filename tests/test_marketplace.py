@@ -154,3 +154,52 @@ class ViewListingViewTestCase(TestCase):
             response,
             "/accounts/login/?next=/accounts/listings/{}/".format(self.listing.id),
         )
+
+
+class MarketplaceByBoroughTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood1 = Neighborhood.objects.create(
+            name="Example Neighborhood 1",
+            borough="Borough1",
+            description="A test neighborhood.",
+            lat=40.7128,
+            lon=-74.0060,
+        )
+        self.neighborhood2 = Neighborhood.objects.create(
+            name="Example Neighborhood 2",
+            borough="Borough2",
+            description="Another test neighborhood.",
+            lat=40.7128,
+            lon=-74.0060,
+        )
+        self.listing1 = Listing.objects.create(
+            title="Listing 1",
+            description="Test listing 1",
+            address="123 Example St",
+            owner=self.user,
+            neighborhood=self.neighborhood1,
+            price=1000,
+        )
+        self.listing2 = Listing.objects.create(
+            title="Listing 2",
+            description="Test listing 2",
+            address="456 Example St",
+            owner=self.user,
+            neighborhood=self.neighborhood2,
+            price=2000,
+        )
+
+    def test_marketplace_by_borough(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("marketplace_by_borough", args=["borough1"]))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(self.listing1, response.context["listings"])
+        self.assertNotIn(self.listing2, response.context["listings"])

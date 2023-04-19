@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load bootstrap_icons %}
+{% block content %}
+{% load static %}
+
+<main id="neighborhoods">
+  <section>
+    {% if borough %}
+    <div class="header">
+      <h1>{{ borough }}</h1>
+    </div>
+    {% endif %}
+  </section>
+  <section>
+    <div class="list-page">
+      {% if listings %}
+      {% for listing in listings %}
+      <div class="listing">
+        <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}</h3></a>
+        <p class="borough">{{ listing.neighborhood.name }}</p>
+        <p>{{ listing.description }}</p>
+        <p class="price">${{ listing.price }}</p>
+        <p>
+          Posted By: <b>{{ listing.owner.first_name }} {{ listing.owner.last_name }}</b>
+        </p>
+        <p>Posted On: <b>{{ listing.created_at }}</b></p>
+      </div>
+      {% endfor %} {% else %}
+      <h3 class="empty-list">
+        Borough Listings Data Is Currently Not Availiable
+      </h3>
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

@@ -10,10 +10,30 @@
   </section>
   <section>
     <div class="sort-filter">
-      <button>{%bs_icon 'building' size='1rem' %}Queens</button>
-      <button>{%bs_icon 'building' size='1rem' %}Brooklyn</button>
-      <button>{%bs_icon 'building' size='1rem' %}Bronx</button>
-      <button>{%bs_icon 'building' size='1rem' %}Manhattan</button>
+      <button>
+        <a href="{% url 'services_by_borough' 'queens' %}">
+          {%bs_icon 'building' size='1rem' %}Queens
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'brooklyn' %}">
+          {%bs_icon 'building' size='1rem' %}Brooklyn
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'bronx' %}">
+          {%bs_icon 'building' size='1rem' %}Bronx
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'manhattan' %}">
+          {%bs_icon 'building' size='1rem' %}Manhattan
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'staten-island' %}">
+          {%bs_icon 'building' size='1rem' %}Staten Island
+        </a>
     </div>
   </section>
   <section>
