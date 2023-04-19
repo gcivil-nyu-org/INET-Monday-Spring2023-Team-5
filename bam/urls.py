@@ -25,6 +25,11 @@ urlpatterns = [
     path("accounts/", include("users.urls")),
     path("neighborhoods/", include("neighborhood.urls")),
     path("marketplace/", marketplace_views.marketplace, name="marketplace"),
+    path(
+        "marketplace/<str:borough>",
+        marketplace_views.marketplace_by_borough,
+        name="marketplace_by_borough",
+    ),
     path("services/", services_views.services, name="services"),
     path(
         "services/<str:borough>",
