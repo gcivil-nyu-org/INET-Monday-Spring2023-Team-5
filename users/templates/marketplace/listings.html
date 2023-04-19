@@ -1,0 +1,23 @@
+{% extends "users/index.html" %} {% block body %} {% load static %}
+
+<h2>My Listings</h2>
+{% if listings %}
+<p>You can view all your listings below.</p>
+{% else %}
+<p>There are currently no listings under this account.</p>
+{% endif %}
+
+<div class="account-list">
+  {% if listings %} {% for listing in listings %}
+  <div class="listing">
+    <div>
+      <h3>{{ listing.title }}</h3>
+      <p class="borough">{{ listing.neighborhood.name }}</p>
+      <p class="price">${{ listing.price }}</p>
+      <a href="{% url 'view_listing' listing.id %}">View Details</a>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
+</div>
+
+{% endblock body %}
