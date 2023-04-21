@@ -13,7 +13,11 @@
   {% csrf_token %}
   <input type="text" name="title" placeholder="Listing Title" required />
   <input type="text" name="description" placeholder="Listing Description" required />
-  <input type="number" name="price" placeholder="Price" min="1" required />
+  <input type="number" name="price" placeholder="Price"
+         min="1"
+         max="999999999999" step="0.01" pattern="^\d{1,5}(\.\d{1,2})?$"
+         title="Must be a valid price (1.00)."
+         required />
   <input type="text" name="address" placeholder="Listing Address" />
   <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" title="Must be a valid phone number (888 888 8888)."/>
   <input type="email" name="email" placeholder="Email" />
@@ -26,7 +30,6 @@
 
     {% endfor %}
   </select>
-  <button type="submit">Add Listing</button>
+  <button type="submit" id="submit">Add Listing</button>
 </form>
-
 {% endblock body %}
