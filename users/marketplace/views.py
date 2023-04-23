@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 
 from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
@@ -72,3 +72,31 @@ def view(request, listing_id):
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/view_listing.html", context)
+
+
+@login_required
+def my_listings(request):
+    listings = Listing.objects.filter(owner=request.user)
+
+    context = {"listings": listings, "page": "account-my-businesses"}
+    context["firstname"] = request.user.first_name
+
+    return render(request, "marketplace/my_listings.html", context)
+
+
+#@login_required
+#def update_listing(request, listing_id):
+#    if request.method == "POST":
+#        listing = Listing.objects.get(id=listing_id)
+
+
+@login_required
+def delete_listing(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+        
+    if listing.owner != request.user:
+        return HttpResponseForbidden()
+    else:
+        listing.delete()
+        return HttpResponseRedirect(reverse("user_listings"))
+    

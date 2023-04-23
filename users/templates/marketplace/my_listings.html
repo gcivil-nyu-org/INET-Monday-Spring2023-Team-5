@@ -1,0 +1,32 @@
+{% extends "users/index.html" %} {% block body %} {% load static %}
+
+<h2>My Listings</h2>
+{% if listings %}
+<p>You can view all your listings below.</p>
+{% else %}
+<p>There are currently no listings under this account.</p>
+{% endif %}
+
+<div class="list-page">
+  {% if listings %} {% for listing in listings %}
+  <div class="listing">
+    <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}</h3></a>
+    <p class="borough">{{ listing.neighborhood.name }}</p>
+    <p>{{ listing.description }}</p>
+    <p class="price">${{ listing.price }}</p>
+    <p>
+      Posted By: <b>{{ listing.owner.first_name }} {{ listing.owner.last_name }}</b>
+    </p>
+    <p>Posted On: <b>{{ listing.created_at }}</b></p>
+    <button>Update</button></a>
+    <form method="POST" action="{% url 'delete_listing' listing.id %}">
+      {% csrf_token %}
+      <button>Delete</button>
+    </form>
+  </div>
+  {% endfor %} {% else %}
+  <h3 class="empty-list">No Listings Are Currently Availiable</h3>
+  {% endif %}
+</div>
+
+{% endblock body %}
