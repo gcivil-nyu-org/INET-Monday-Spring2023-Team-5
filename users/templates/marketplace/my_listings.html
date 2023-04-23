@@ -18,7 +18,7 @@
       Posted By: <b>{{ listing.owner.first_name }} {{ listing.owner.last_name }}</b>
     </p>
     <p>Posted On: <b>{{ listing.created_at }}</b></p>
-    <button>Update</button></a>
+    <a href="{% url 'update_listing' listing.id %}"><button>Update</button></a>
     <form method="POST" action="{% url 'delete_listing' listing.id %}">
       {% csrf_token %}
       <button>Delete</button>

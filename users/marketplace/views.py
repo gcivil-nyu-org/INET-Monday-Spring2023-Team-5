@@ -54,7 +54,7 @@ def add(request):
         messages.success(request, "Listing added successfully")
 
         id = listing.id
-        return HttpResponseRedirect(reverse("view_listing", args=(id,)))
+        return HttpResponseRedirect(reverse("user_listings"))
 
     neighborhoods = Neighborhood.objects.all()
 
@@ -78,17 +78,41 @@ def view(request, listing_id):
 def my_listings(request):
     listings = Listing.objects.filter(owner=request.user)
 
-    context = {"listings": listings, "page": "account-my-businesses"}
+    context = {"listings": listings}
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/my_listings.html", context)
 
 
-#@login_required
-#def update_listing(request, listing_id):
-#    if request.method == "POST":
-#        listing = Listing.objects.get(id=listing_id)
+@login_required
+def update_listing(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
 
+    if request.method == "POST": 
+        neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
+
+        if listing.owner != request.user:
+            return HttpResponseForbidden()
+        else:
+            listing.title=request.POST["title"]
+            listing.description=request.POST["description"]
+            listing.price=request.POST["price"]
+            listing.email=request.POST["email"]
+            listing.phone=request.POST["phone"]
+            listing.address=request.POST["address"]
+            listing.neighborhood=neighborhood
+            listing.save()
+
+            messages.success(request, "Listing updated successfully")
+
+            id = listing.id
+            return HttpResponseRedirect(reverse("user_listings"))
+
+    neighborhoods = Neighborhood.objects.all()
+    context = {"listing": listing, "neighborhoods": neighborhoods}
+    context["firstname"] = request.user.first_name
+
+    return render(request, "marketplace/update_listing.html", context)
 
 @login_required
 def delete_listing(request, listing_id):
