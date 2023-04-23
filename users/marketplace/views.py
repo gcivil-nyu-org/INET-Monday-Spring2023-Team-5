@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -88,19 +88,19 @@ def my_listings(request):
 def update_listing(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
 
-    if request.method == "POST": 
+    if request.method == "POST":
         neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
 
         if listing.owner != request.user:
             return HttpResponseForbidden()
         else:
-            listing.title=request.POST["title"]
-            listing.description=request.POST["description"]
-            listing.price=request.POST["price"]
-            listing.email=request.POST["email"]
-            listing.phone=request.POST["phone"]
-            listing.address=request.POST["address"]
-            listing.neighborhood=neighborhood
+            listing.title = request.POST["title"]
+            listing.description = request.POST["description"]
+            listing.price = request.POST["price"]
+            listing.email = request.POST["email"]
+            listing.phone = request.POST["phone"]
+            listing.address = request.POST["address"]
+            listing.neighborhood = neighborhood
             listing.save()
 
             messages.success(request, "Listing updated successfully")
@@ -114,13 +114,13 @@ def update_listing(request, listing_id):
 
     return render(request, "marketplace/update_listing.html", context)
 
+
 @login_required
 def delete_listing(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
-        
+
     if listing.owner != request.user:
         return HttpResponseForbidden()
     else:
         listing.delete()
         return HttpResponseRedirect(reverse("user_listings"))
-    

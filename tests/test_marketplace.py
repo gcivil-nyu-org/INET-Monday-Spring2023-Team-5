@@ -103,7 +103,7 @@ class AddListingViewTestCase(TestCase):
         }
         response = self.client.post(reverse("add_listing"), data)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("view_listing", args=[1]))
+        self.assertRedirects(response, reverse("user_listings"))
         self.assertEqual(Listing.objects.count(), 1)
 
     def test_add_view_requires_login(self):
@@ -203,3 +203,165 @@ class MarketplaceByBoroughTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(self.listing1, response.context["listings"])
         self.assertNotIn(self.listing2, response.context["listings"])
+
+
+class MyListingsViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.listing = Listing.objects.create(
+            title="Test Listing",
+            description="Test Description",
+            address="123 Test St",
+            owner=self.user,
+            email="test@example.com",
+            phone="123-456-7890",
+            neighborhood=self.neighborhood,
+            price=100,
+        )
+
+    def test_view_view(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("user_listings"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Test Listing")
+        self.assertTemplateUsed(response, "marketplace/my_listings.html")
+
+    def test_view_view_requires_login(self):
+        response = self.client.get(reverse("user_listings"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/accounts/listings/")
+
+
+class DeleteListingTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.listing = Listing.objects.create(
+            title="Test Listing",
+            description="Test Description",
+            address="123 Test St",
+            owner=self.user,
+            email="test@example.com",
+            phone="123-456-7890",
+            neighborhood=self.neighborhood,
+            price=100,
+        )
+
+    def test_delete_Listing(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.get(reverse("delete_listing", args=[self.listing.id]))
+        self.assertEqual(Listing.objects.count(), 0)
+        self.assertRedirects(response, reverse("user_listings"))
+
+    def test_delete_Listing_requires_login(self):
+        response = self.client.get(reverse("delete_listing", args=[self.listing.id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            "/accounts/login/?next=/accounts/listings/{}/delete/".format(
+                self.listing.id
+            ),
+        )
+
+
+class UpdateListingTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.listing = Listing.objects.create(
+            title="Test Listing",
+            description="Test Description",
+            address="123 Test St",
+            owner=self.user,
+            email="test@example.com",
+            phone="123-456-7890",
+            neighborhood=self.neighborhood,
+            price=100,
+        )
+
+    def test_update_listing(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        response = self.client.post(
+            reverse("update_listing", args=[self.listing.id]),
+            {
+                "title": "New Listing",
+                "description": "New Description",
+                "address": "123 New St",
+                "email": "newtest@example.com",
+                "phone": "321-654-0987",
+                "neighborhood": self.neighborhood.id,
+                "price": 200,
+            },
+        )
+
+        self.listing.refresh_from_db()
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(self.listing.title, "New Listing")
+        self.assertEqual(self.listing.description, "New Description")
+        self.assertEqual(self.listing.address, "123 New St")
+        self.assertEqual(self.listing.email, "newtest@example.com")
+        self.assertEqual(self.listing.phone, "321-654-0987")
+        self.assertEqual(self.listing.price, 200)
+        self.assertEqual(self.listing.neighborhood, self.neighborhood)
+        self.assertRedirects(response, reverse("user_listings"))
+
+    def test_update_Listing_requires_login(self):
+        response = self.client.post(
+            reverse("update_listing", args=[self.listing.id]),
+            {
+                "title": "New Listing",
+                "description": "New Description",
+                "address": "123 New St",
+                "email": "test@example.com",
+                "phone": "321-654-0987",
+                "neighborhood": self.neighborhood,
+                "price": 200,
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            "/accounts/login/?next=/accounts/listings/{}/update/".format(
+                self.listing.id
+            ),
+        )
