@@ -343,7 +343,11 @@ class UpdateListingTestCase(TestCase):
         self.assertEqual(self.listing.phone, "321-654-0987")
         self.assertEqual(self.listing.price, 200)
         self.assertEqual(self.listing.neighborhood, self.neighborhood)
-        self.assertRedirects(response, reverse("user_listings"))
+        
+        response = self.client.get(reverse("update_listing", args=[self.listing.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("listing", response.context)
+        self.assertEqual(response.context['listing'], self.listing)
 
     def test_update_Listing_requires_login(self):
         response = self.client.post(

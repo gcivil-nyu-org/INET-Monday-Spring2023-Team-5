@@ -90,23 +90,19 @@ def update_listing(request, listing_id):
 
     if request.method == "POST":
         neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
+        listing.title = request.POST["title"]
+        listing.description = request.POST["description"]
+        listing.price = request.POST["price"]
+        listing.email = request.POST["email"]
+        listing.phone = request.POST["phone"]
+        listing.address = request.POST["address"]
+        listing.neighborhood = neighborhood
+        listing.save()
 
-        if listing.owner != request.user:
-            return HttpResponseForbidden()
-        else:
-            listing.title = request.POST["title"]
-            listing.description = request.POST["description"]
-            listing.price = request.POST["price"]
-            listing.email = request.POST["email"]
-            listing.phone = request.POST["phone"]
-            listing.address = request.POST["address"]
-            listing.neighborhood = neighborhood
-            listing.save()
+        messages.success(request, "Listing updated successfully")
 
-            messages.success(request, "Listing updated successfully")
-
-            id = listing.id
-            return HttpResponseRedirect(reverse("user_listings"))
+        id = listing.id
+        return HttpResponseRedirect(reverse("user_listings"))
 
     neighborhoods = Neighborhood.objects.all()
     context = {"listing": listing, "neighborhoods": neighborhoods}
@@ -118,9 +114,6 @@ def update_listing(request, listing_id):
 @login_required
 def delete_listing(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
-
-    if listing.owner != request.user:
-        return HttpResponseForbidden()
-    else:
-        listing.delete()
-        return HttpResponseRedirect(reverse("user_listings"))
+    listing.delete()
+    
+    return HttpResponseRedirect(reverse("user_listings"))
