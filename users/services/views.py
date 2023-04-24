@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 
 from users.services.models import Business
+from neighborhood.models import Neighborhood
 
 from neighborhood.utils import get_title
 
@@ -48,12 +49,13 @@ def businesses(request):
 @login_required
 def add(request):
     if request.method == "POST":
+        neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
         business = Business(
             name=request.POST["name"],
             address=request.POST["address"],
             email=request.POST["email"],
             phone=request.POST["phone"],
-            neighborhood_id=request.POST["neighborhood"],
+            neighborhood=neighborhood,
             owner=request.user,
         )
         business.save()
@@ -63,7 +65,9 @@ def add(request):
         id = business.id
         return HttpResponseRedirect(reverse("view_business", args=(id,)))
 
-    context = {"page": "account-add-business"}
+    neighborhoods = Neighborhood.objects.all()
+
+    context = {"neighborhoods": neighborhoods, "page": "account-add-business"}
     context["firstname"] = request.user.first_name
 
     return render(request, "services/add_business.html", context)
