@@ -112,7 +112,7 @@ def update(request, listing_id):
 
 
 @login_required
-def delete_listing(request, listing_id):
+def delete(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
     listing.delete()
 
