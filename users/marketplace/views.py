@@ -85,7 +85,7 @@ def my_listings(request):
 
 
 @login_required
-def update_listing(request, listing_id):
+def update(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
 
     if request.method == "POST":
