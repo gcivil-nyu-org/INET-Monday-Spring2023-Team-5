@@ -8,12 +8,18 @@ from django.views.decorators.cache import never_cache
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+from users.services.models import Business
+from users.marketplace.models import Listing
+
 
 @login_required(redirect_field_name="/")
 def user_account(request):
-    context = {"page": "account"}
+    businesses = Business.objects.filter(owner=request.user)
+    listings = Listing.objects.filter(owner=request.user)
+
+    context = {"businesses": businesses, "listings": listings, "page": "user-account"}
     context["firstname"] = request.user.first_name
-    return render(request, "users/index.html", context)
+    return render(request, "users/user_account.html", context)
 
 
 @never_cache

@@ -1,0 +1,27 @@
+{% extends "users/index.html" %} {% block body %}
+
+<h2>My Profile</h2>
+<div>
+  <div>
+    <h3>My Businesses</h3>
+    <div>
+    {% for business in businesses %}
+      <p>{{ business.name }}</p>
+      <a href="{% url 'view_business' business.id %}"><button>View</button></a>
+      <!-- add update_business and delete_business views as well -->
+    {% endfor %}
+    </div>
+  </div>
+  <div>
+    <h3>My Listings</h3>
+    <div>
+    {% for listing in listings %}
+      <p>{{ listing.title }}</p>
+      <a href="{% url 'view_listing' listing.id %}"><button>View</button></a>
+      <!-- add update_listing and delete_listing views as well -->
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

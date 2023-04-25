@@ -2,6 +2,10 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+from users.marketplace.models import Listing
+from users.services.models import Business
+from neighborhood.models import Neighborhood
+
 
 class UserAccountViewTestCase(TestCase):
     def setUp(self):
@@ -11,13 +15,38 @@ class UserAccountViewTestCase(TestCase):
             email="testuser@example.com",
             password="testpass",
         )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.business = Business.objects.create(
+            name="Test Business",
+            email="test1@example.com",
+            phone="123-456-7890",
+            address="123 Test St",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+        )
+        self.listing = Listing.objects.create(
+            title="Listing",
+            description="Test listing",
+            address="123 Example St",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+            price=1000,
+        )
 
     def test_user_account_view(self):
         self.client.login(username="testuser@example.com", password="testpass")
         response = self.client.get(reverse("user_account"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "account")
-        self.assertTemplateUsed(response, "users/index.html")
+        self.assertTemplateUsed(response, "users/user_account.html")
+        self.assertContains(response, "Test Business")
+        self.assertContains(response, "Listing")
 
     def test_user_account_view_requires_login(self):
         response = self.client.get(reverse("user_account"))

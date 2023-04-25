@@ -202,7 +202,9 @@ $orange: #f15524;
 .account-delete,
 .account-add-business,
 .account-my-businesses,
-.account-add-listing {
+.account-my-listings,
+.account-add-listing,
+.user-account {
   section {
     & > div {
       &:nth-of-type(2) {
@@ -249,6 +251,31 @@ $orange: #f15524;
                 color: $orange !important;
               }
             }
+          }
+
+          &:nth-of-type(2) {
+            padding: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-account {
+  section {
+    & > div {
+      &:nth-of-type(2) > div {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 49% 49%;
+        column-gap: 1rem;
+        margin-top: 2rem;
+
+        & > div {
+          &:nth-of-type(1) {
+            padding: 2rem;
+            border-radius: 7px;
           }
 
           &:nth-of-type(2) {
@@ -310,7 +337,9 @@ $orange: #f15524;
   .account-delete,
   .account-add-business,
   .account-my-businesses,
-  .account-add-listing {
+  .account-my-listings,
+  .account-add-listing,
+  .user-account {
     section {
       & > div {
         &:nth-of-type(2) {
@@ -399,7 +428,9 @@ $orange: #f15524;
   .account-delete,
   .account-add-business,
   .account-my-businesses,
-  .account-add-listing {
+  .account-my-listings,
+  .account-add-listing,
+  .user-account {
     section {
       flex-direction: column !important;
 
@@ -415,7 +446,8 @@ $orange: #f15524;
     }
   }
 
-  .account-edit {
+  .account-edit,
+  .user-account {
     section {
       & > div {
         &:nth-of-type(2) > div {

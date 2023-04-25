@@ -9,16 +9,17 @@
       <h1>Welcome {{ firstname }}!</h1>
       {% endif %}
 
-      <p>My Profile</p>
-      <a href="{% url 'update_account' %}">My Profile</a>
+      <p>Profile</p>
+      <a href="{% url 'user_account' %}">My Account</a>
+      <a href="{% url 'update_account' %}">Update Account</a>
+      <a href="{% url 'update_password' %}">Update Password</a>
 
-      <p>My Businesses</p>
-      <a href="{% url 'user_businesses' %}">View My Businesses</a>
+      <p>Services</p>
+      <a href="{% url 'user_businesses' %}">My Businesses</a>
       <a href="{% url 'add_business' %}">Add A Business</a>
 
-      <p>My Neighborhoods</p>
-      <a href="{% url 'marketplace' %}">Saved Neighborhoods</a>
-      <a href="{% url 'marketplace' %}">The Marketplace</a>
+      <p>Marketplace</p>
+      <a href="{% url 'user_listings' %}">My Listings</a>
       <a href="{% url 'add_listing' %}">Add A Listing</a>
     </div>
     <div>

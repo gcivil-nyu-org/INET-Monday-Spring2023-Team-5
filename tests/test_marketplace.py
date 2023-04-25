@@ -203,3 +203,60 @@ class MarketplaceByBoroughTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(self.listing1, response.context["listings"])
         self.assertNotIn(self.listing2, response.context["listings"])
+
+
+class ListingsViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user1 = User.objects.create_user(
+            username="testuser1@example.com",
+            email="testuser1@example.com",
+            password="testpass1",
+        )
+        self.user2 = User.objects.create_user(
+            username="testuser2@example.com",
+            email="testuser2@example.com",
+            password="testpass2",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.listing1 = Listing.objects.create(
+            title="Listing 1",
+            description="Test listing 1",
+            address="123 Example St",
+            owner=self.user1,
+            neighborhood=self.neighborhood,
+            price=1000,
+        )
+        self.listing2 = Listing.objects.create(
+            title="Listing 2",
+            description="Test listing 2",
+            address="456 Example St",
+            owner=self.user2,
+            neighborhood=self.neighborhood,
+            price=2000,
+        )
+
+    def test_businesses_view(self):
+        self.client.login(username="testuser1@example.com", password="testpass1")
+        response = self.client.get(reverse("user_listings"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Listing 1")
+        self.assertNotContains(response, "Listing 2")
+        self.assertTemplateUsed(response, "marketplace/listings.html")
+
+    def test_businesses_view_requires_login(self):
+        response = self.client.get(reverse("user_listings"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/accounts/login/?next=/accounts/listings/")
+
+    def test_businesses_view_no_businesses(self):
+        self.client.login(username="testuser2@example.com", password="testpass2")
+        response = self.client.get(reverse("user_listings"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "marketplace/listings.html")

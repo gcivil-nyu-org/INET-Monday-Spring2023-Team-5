@@ -36,6 +36,16 @@ def marketplace_by_borough(request, borough):
 
 
 @login_required
+def listings(request):
+    listings = Listing.objects.filter(owner=request.user)
+
+    context = {"listings": listings, "page": "account-my-listings"}
+    context["firstname"] = request.user.first_name
+
+    return render(request, "marketplace/listings.html", context)
+
+
+@login_required
 def add(request):
     if request.method == "POST":
         neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
