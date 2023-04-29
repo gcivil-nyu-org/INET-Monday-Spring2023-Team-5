@@ -81,3 +81,14 @@ def view(request, business_id):
     context["firstname"] = request.user.first_name
 
     return render(request, "services/view_business.html", context)
+
+
+@login_required
+def delete(request, business_id):
+    if request.method == "POST":
+        business = Business.objects.get(id=business_id)
+        business.delete()
+
+        messages.success(request, "Business deleted successfully")
+
+        return HttpResponseRedirect(reverse("user_account"))
