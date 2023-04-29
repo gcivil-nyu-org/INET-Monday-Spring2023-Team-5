@@ -13,4 +13,9 @@ urlpatterns = [
     path("password/", views.update_password, name="update_password"),
     path("listings/", include("users.marketplace.urls")),
     path("business/", include("users.services.urls")),
+    path(
+        "delete-business/<int:business_id>/",
+        views.delete_business,
+        name="delete_business",
+    ),
 ]

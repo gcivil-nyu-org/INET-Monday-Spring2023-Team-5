@@ -159,3 +159,15 @@ def update_password(request):
     }
     context["firstname"] = request.user.first_name
     return render(request, "users/update_password.html", context)
+
+
+@login_required
+def delete_business(request, business_id):
+    if request.method == "POST":
+        business = Business.objects.get(id=business_id)
+        business.delete()
+
+        businesses = Business.objects.filter(owner=request.user)
+        context = {"businesses": businesses, "page": "delete-business"}
+        context["firstname"] = request.user.first_name
+        return HttpResponseRedirect(reverse("user_account"), context)

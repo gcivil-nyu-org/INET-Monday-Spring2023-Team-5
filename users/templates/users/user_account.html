@@ -7,7 +7,24 @@
     <div>
     {% for business in businesses %}
       <p>{{ business.name }}</p>
-      <a href="{% url 'view_business' business.id %}"><button>View</button></a>
+      <a href="{% url 'view_business' business.id %}">
+          <button class="btn btn-primary">View</button>
+      </a>
+        <button onclick="confirmDelete({{ business.id }})" class="btn
+        btn-danger">Delete</button>
+        <script>
+            function confirmDelete(id) {
+                if (confirm("Are you sure you want to delete this business?")) {
+                    document.getElementById('delete-form-' + id).submit();
+                  }
+            }
+        </script>
+          {% for business in businesses %}
+          <form id="delete-form-{{ business.id }}" method="post" action="{% url 'delete_business' business.id %}" style="display: none;">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ business.id }}">
+          </form>
+        {% endfor %}
       <!-- add update_business and delete_business views as well -->
     {% endfor %}
     </div>
@@ -17,11 +34,12 @@
     <div>
     {% for listing in listings %}
       <p>{{ listing.title }}</p>
-      <a href="{% url 'view_listing' listing.id %}"><button>View</button></a>
+      <a href="{% url 'view_listing' listing.id %}">
+          <button class="btn btn-primary">View</button>
+      </a>
       <!-- add update_listing and delete_listing views as well -->
     {% endfor %}
     </div>
   </div>
 </div>
-
 {% endblock body %}
