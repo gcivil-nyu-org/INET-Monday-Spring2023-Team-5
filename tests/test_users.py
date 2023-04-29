@@ -53,6 +53,14 @@ class UserAccountViewTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, "/accounts/login/?/=/accounts/")
 
+    def test_user_account_delete_business(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        url = reverse('delete_business', args=[self.business.id])
+        response = self.client.post(url)
+
+        # Check that the Business object was deleted
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Business.objects.filter(id=self.business.id).exists())
 
 class AccountRegisterViewTestCase(TestCase):
     def setUp(self):
