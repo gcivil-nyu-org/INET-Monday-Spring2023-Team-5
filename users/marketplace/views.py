@@ -82,3 +82,45 @@ def view(request, listing_id):
     context["firstname"] = request.user.first_name
 
     return render(request, "marketplace/view_listing.html", context)
+
+
+@login_required
+def update(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+
+    if request.method == "POST":
+        neighborhood = Neighborhood.objects.get(pk=request.POST["neighborhood"])
+        listing.title = request.POST["title"]
+        listing.description = request.POST["description"]
+        listing.price = request.POST["price"]
+        listing.email = request.POST["email"]
+        listing.phone = request.POST["phone"]
+        listing.address = request.POST["address"]
+        listing.neighborhood = neighborhood
+        listing.save()
+
+        messages.success(request, "Listing updated successfully")
+
+        id = listing.id
+        return HttpResponseRedirect(reverse("user_account"))
+
+    neighborhoods = Neighborhood.objects.all()
+    context = {
+        "listing": listing,
+        "neighborhoods": neighborhoods,
+        "page": "account-update-listing",
+    }
+    context["firstname"] = request.user.first_name
+
+    return render(request, "marketplace/update_listing.html", context)
+
+
+@login_required
+def delete(request, listing_id):
+    if request.method == "POST":
+        listing = Listing.objects.get(id=listing_id)
+        listing.delete()
+
+        messages.success(request, "Listing deleted successfully")
+
+        return HttpResponseRedirect(reverse("user_account"))

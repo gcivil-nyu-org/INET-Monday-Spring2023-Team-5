@@ -62,6 +62,15 @@ class UserAccountViewTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertFalse(Business.objects.filter(id=self.business.id).exists())
 
+    def test_delete_listing(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+        url = reverse("delete_listing", args=[self.listing.id])
+        response = self.client.post(url)
+
+        # Check that the Listing object was deleted
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Listing.objects.filter(id=self.listing.id).exists())
+
 
 class AccountRegisterViewTestCase(TestCase):
     def setUp(self):
