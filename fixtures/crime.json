@@ -1,0 +1,4186 @@
+[
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 1,
+        "fields": {
+            "name": "Wakefield",
+            "borough": "Bronx",
+            "description": "POINT(40.89470517661004 -73.8472005205491)",
+            "lat": 40.89470517661004,
+            "lon": -73.8472005205491,
+            "population": 43583,
+            "crime_case": 403,
+            "crime_rate": 0.009246724640341418
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 2,
+        "fields": {
+            "name": "Co-op City",
+            "borough": "Bronx",
+            "description": "POINT(40.87429419303015 -73.82993910812405)",
+            "lat": 40.87429419303015,
+            "lon": -73.82993910812405,
+            "population": 172590,
+            "crime_case": 200,
+            "crime_rate": 0.0011588156903644476
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 3,
+        "fields": {
+            "name": "Eastchester",
+            "borough": "Bronx",
+            "description": "POINT(40.88755567735082 -73.82780644716419)",
+            "lat": 40.88755567735082,
+            "lon": -73.82780644716419,
+            "population": 35422,
+            "crime_case": 138,
+            "crime_rate": 0.003895883913951781
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 4,
+        "fields": {
+            "name": "Fieldston",
+            "borough": "Bronx",
+            "description": "POINT(40.895437426903875 -73.90564259591689)",
+            "lat": 40.895437426903875,
+            "lon": -73.90564259591689,
+            "population": 28013,
+            "crime_case": 38,
+            "crime_rate": 0.0013565130475136544
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 5,
+        "fields": {
+            "name": "Riverdale",
+            "borough": "Bronx",
+            "description": "POINT(40.89083449389134 -73.91258546108577)",
+            "lat": 40.89083449389134,
+            "lon": -73.91258546108577,
+            "population": 62555,
+            "crime_case": 65,
+            "crime_rate": 0.0010390856046678923
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 6,
+        "fields": {
+            "name": "Kingsbridge",
+            "borough": "Bronx",
+            "description": "POINT(40.88168737120525 -73.90281798724611)",
+            "lat": 40.88168737120525,
+            "lon": -73.90281798724611,
+            "population": 143697,
+            "crime_case": 408,
+            "crime_rate": 0.0028393077099730683
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 7,
+        "fields": {
+            "name": "Marble Hill",
+            "borough": "Manhattan",
+            "description": "POINT(40.87655077879968 -73.91065965862988)",
+            "lat": 40.87655077879968,
+            "lon": -73.91065965862988,
+            "population": 49087,
+            "crime_case": 403,
+            "crime_rate": 0.008209913011591664
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 8,
+        "fields": {
+            "name": "Woodlawn",
+            "borough": "Bronx",
+            "description": "POINT(40.898272612138086 -73.86731496814183)",
+            "lat": 40.898272612138086,
+            "lon": -73.86731496814183,
+            "population": 43583,
+            "crime_case": 187,
+            "crime_rate": 0.004290663790927655
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 9,
+        "fields": {
+            "name": "Norwood",
+            "borough": "Bronx",
+            "description": "POINT(40.877224155994504 -73.87939073956817)",
+            "lat": 40.877224155994504,
+            "lon": -73.87939073956817,
+            "population": 40817,
+            "crime_case": 442,
+            "crime_rate": 0.010828821324448146
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 10,
+        "fields": {
+            "name": "Williamsbridge",
+            "borough": "Bronx",
+            "description": "POINT(40.88103887819214 -73.85744642974214)",
+            "lat": 40.88103887819214,
+            "lon": -73.85744642974214,
+            "population": 137959,
+            "crime_case": 456,
+            "crime_rate": 0.003305329844374053
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 11,
+        "fields": {
+            "name": "Baychester",
+            "borough": "Bronx",
+            "description": "POINT(40.86685810725274 -73.83579759808124)",
+            "lat": 40.86685810725274,
+            "lon": -73.83579759808124,
+            "population": 354960,
+            "crime_case": 200,
+            "crime_rate": 0.0005634437683119225
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 12,
+        "fields": {
+            "name": "Pelham Parkway",
+            "borough": "Bronx",
+            "description": "POINT(40.85741349808869 -73.85475564018006)",
+            "lat": 40.85741349808869,
+            "lon": -73.85475564018006,
+            "population": 143149,
+            "crime_case": 315,
+            "crime_rate": 0.0022005043695729623
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 13,
+        "fields": {
+            "name": "City Island",
+            "borough": "Bronx",
+            "description": "POINT(40.84724670491817 -73.7864884526742)",
+            "lat": 40.84724670491817,
+            "lon": -73.7864884526742,
+            "population": 296275,
+            "crime_case": 22,
+            "crime_rate": 7.425533710235424e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 14,
+        "fields": {
+            "name": "Bedford Park",
+            "borough": "Bronx",
+            "description": "POINT(40.87018516497537 -73.88551218419137)",
+            "lat": 40.87018516497537,
+            "lon": -73.88551218419137,
+            "population": 114556,
+            "crime_case": 478,
+            "crime_rate": 0.0041726317259680856
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 15,
+        "fields": {
+            "name": "University Heights",
+            "borough": "Bronx",
+            "description": "POINT(40.85572707719668 -73.91041596191317)",
+            "lat": 40.85572707719668,
+            "lon": -73.91041596191317,
+            "population": 839707,
+            "crime_case": 469,
+            "crime_rate": 0.0005585281532725105
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 16,
+        "fields": {
+            "name": "Morris Heights",
+            "borough": "Bronx",
+            "description": "POINT(40.84789792606274 -73.91967159119572)",
+            "lat": 40.84789792606274,
+            "lon": -73.91967159119572,
+            "population": 915872,
+            "crime_case": 324,
+            "crime_rate": 0.00035376122427588136
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 17,
+        "fields": {
+            "name": "Fordham",
+            "borough": "Bronx",
+            "description": "POINT(40.86099679638657 -73.8964265598163)",
+            "lat": 40.86099679638657,
+            "lon": -73.8964265598163,
+            "population": 82209,
+            "crime_case": 1197,
+            "crime_rate": 0.014560449585811772
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 18,
+        "fields": {
+            "name": "East Tremont",
+            "borough": "Bronx",
+            "description": "POINT(40.84269615786057 -73.88735617532345)",
+            "lat": 40.84269615786057,
+            "lon": -73.88735617532345,
+            "population": 39280,
+            "crime_case": 828,
+            "crime_rate": 0.021079429735234217
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 19,
+        "fields": {
+            "name": "West Farms",
+            "borough": "Bronx",
+            "description": "POINT(40.83947505672657 -73.87774474910552)",
+            "lat": 40.83947505672657,
+            "lon": -73.87774474910552,
+            "population": 82886,
+            "crime_case": 767,
+            "crime_rate": 0.009253673720531815
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 20,
+        "fields": {
+            "name": "High  Bridge",
+            "borough": "Bronx",
+            "description": "POINT(40.8366230107061 -73.92610209358138)",
+            "lat": 40.8366230107061,
+            "lon": -73.92610209358138,
+            "population": 80539,
+            "crime_case": 1005,
+            "crime_rate": 0.012478426600777264
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 21,
+        "fields": {
+            "name": "Melrose",
+            "borough": "Bronx",
+            "description": "POINT(40.81975437059498 -73.90942160757443)",
+            "lat": 40.81975437059498,
+            "lon": -73.90942160757443,
+            "population": 62992,
+            "crime_case": 992,
+            "crime_rate": 0.015748031496062992
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 22,
+        "fields": {
+            "name": "Mott Haven",
+            "borough": "Bronx",
+            "description": "POINT(40.80623874935181 -73.91609987487583)",
+            "lat": 40.80623874935181,
+            "lon": -73.91609987487583,
+            "population": 82225,
+            "crime_case": 1009,
+            "crime_rate": 0.01227120705381575
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 23,
+        "fields": {
+            "name": "Port Morris",
+            "borough": "Bronx",
+            "description": "POINT(40.80166362775625 -73.91322139386142)",
+            "lat": 40.80166362775625,
+            "lon": -73.91322139386142,
+            "population": 176499,
+            "crime_case": 50,
+            "crime_rate": 0.00028328772400976773
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 24,
+        "fields": {
+            "name": "Longwood",
+            "borough": "Bronx",
+            "description": "POINT(40.815099045458254 -73.89578820094466)",
+            "lat": 40.815099045458254,
+            "lon": -73.89578820094466,
+            "population": 44186,
+            "crime_case": 722,
+            "crime_rate": 0.016340017200018105
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 25,
+        "fields": {
+            "name": "Hunts Point",
+            "borough": "Bronx",
+            "description": "POINT(40.809729879387135 -73.88331505955298)",
+            "lat": 40.809729879387135,
+            "lon": -73.88331505955298,
+            "population": 185960,
+            "crime_case": 217,
+            "crime_rate": 0.0011669176166917616
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 26,
+        "fields": {
+            "name": "Morrisania",
+            "borough": "Bronx",
+            "description": "POINT(40.82359198585537 -73.90150648943066)",
+            "lat": 40.82359198585537,
+            "lon": -73.90150648943066,
+            "population": 160297,
+            "crime_case": 674,
+            "crime_rate": 0.004204695034841575
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 27,
+        "fields": {
+            "name": "Soundview",
+            "borough": "Bronx",
+            "description": "POINT(40.82101219791406 -73.86574609554933)",
+            "lat": 40.82101219791406,
+            "lon": -73.86574609554933,
+            "population": 85890,
+            "crime_case": 930,
+            "crime_rate": 0.010827803003842123
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 28,
+        "fields": {
+            "name": "Clason Point",
+            "borough": "Bronx",
+            "description": "POINT(40.806551120035934 -73.85414416189273)",
+            "lat": 40.806551120035934,
+            "lon": -73.85414416189273,
+            "population": 185960,
+            "crime_case": 57,
+            "crime_rate": 0.0003065175306517531
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 29,
+        "fields": {
+            "name": "Throgs Neck",
+            "borough": "Bronx",
+            "description": "POINT(40.815109258040096 -73.8163500215845)",
+            "lat": 40.815109258040096,
+            "lon": -73.8163500215845,
+            "population": 68068,
+            "crime_case": 66,
+            "crime_rate": 0.0009696186166774402
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 30,
+        "fields": {
+            "name": "Country Club",
+            "borough": "Bronx",
+            "description": "POINT(40.84424593694742 -73.82409926753857)",
+            "lat": 40.84424593694742,
+            "lon": -73.82409926753857,
+            "population": 67816,
+            "crime_case": 122,
+            "crime_rate": 0.0017989854901498171
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 31,
+        "fields": {
+            "name": "Parkchester",
+            "borough": "Bronx",
+            "description": "POINT(40.83793782226733 -73.8560031053579)",
+            "lat": 40.83793782226733,
+            "lon": -73.8560031053579,
+            "population": 29353,
+            "crime_case": 418,
+            "crime_rate": 0.014240452423943038
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 32,
+        "fields": {
+            "name": "Westchester Square",
+            "borough": "Bronx",
+            "description": "POINT(40.840619496432744 -73.8421940760445)",
+            "lat": 40.840619496432744,
+            "lon": -73.8421940760445,
+            "population": 163981,
+            "crime_case": 237,
+            "crime_rate": 0.001445289393283368
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 33,
+        "fields": {
+            "name": "Van Nest",
+            "borough": "Bronx",
+            "description": "POINT(40.84360847124722 -73.86629918075617)",
+            "lat": 40.84360847124722,
+            "lon": -73.86629918075617,
+            "population": 77742,
+            "crime_case": 356,
+            "crime_rate": 0.004579249311826297
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 34,
+        "fields": {
+            "name": "Morris Park",
+            "borough": "Bronx",
+            "description": "POINT(40.84754906353638 -73.85040178030428)",
+            "lat": 40.84754906353638,
+            "lon": -73.85040178030428,
+            "population": 130500,
+            "crime_case": 159,
+            "crime_rate": 0.0012183908045977011
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 35,
+        "fields": {
+            "name": "Belmont",
+            "borough": "Bronx",
+            "description": "POINT(40.85727710073898 -73.88845196134812)",
+            "lat": 40.85727710073898,
+            "lon": -73.88845196134812,
+            "population": 25967,
+            "crime_case": 647,
+            "crime_rate": 0.024916239842877497
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 36,
+        "fields": {
+            "name": "Spuyten Duyvil",
+            "borough": "Bronx",
+            "description": "POINT(40.8813949772709 -73.917190482104)",
+            "lat": 40.8813949772709,
+            "lon": -73.917190482104,
+            "population": 29872,
+            "crime_case": 55,
+            "crime_rate": 0.0018411890733797537
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 37,
+        "fields": {
+            "name": "North Riverdale",
+            "borough": "Bronx",
+            "description": "POINT(40.9085428295067 -73.90453054908934)",
+            "lat": 40.9085428295067,
+            "lon": -73.90453054908934,
+            "population": 62555,
+            "crime_case": 80,
+            "crime_rate": 0.0012788745903604829
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 38,
+        "fields": {
+            "name": "Pelham Bay",
+            "borough": "Bronx",
+            "description": "POINT(40.85064140940339 -73.83207378240478)",
+            "lat": 40.85064140940339,
+            "lon": -73.83207378240478,
+            "population": 378054,
+            "crime_case": 171,
+            "crime_rate": 0.00045231633576155785
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 39,
+        "fields": {
+            "name": "Schuylerville",
+            "borough": "Bronx",
+            "description": "POINT(40.82657951686926 -73.82620275994081)",
+            "lat": 40.82657951686926,
+            "lon": -73.82620275994081,
+            "population": 43712,
+            "crime_case": 259,
+            "crime_rate": 0.0059251464128843336
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 40,
+        "fields": {
+            "name": "Edgewater Park",
+            "borough": "Bronx",
+            "description": "POINT(40.82198611816354 -73.81388514428627)",
+            "lat": 40.82198611816354,
+            "lon": -73.81388514428627,
+            "population": 43712,
+            "crime_case": 62,
+            "crime_rate": 0.0014183748169838946
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 41,
+        "fields": {
+            "name": "Castle Hill",
+            "borough": "Bronx",
+            "description": "POINT(40.81901437698835 -73.84802729582742)",
+            "lat": 40.81901437698835,
+            "lon": -73.84802729582742,
+            "population": 50753,
+            "crime_case": 241,
+            "crime_rate": 0.004748487774121727
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 42,
+        "fields": {
+            "name": "Olinville",
+            "borough": "Bronx",
+            "description": "POINT(40.87137078192375 -73.86332361652784)",
+            "lat": 40.87137078192375,
+            "lon": -73.86332361652784,
+            "population": 57420,
+            "crime_case": 639,
+            "crime_rate": 0.011128526645768026
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 43,
+        "fields": {
+            "name": "Pelham Gardens",
+            "borough": "Bronx",
+            "description": "POINT(40.862965624780024 -73.8416119483123)",
+            "lat": 40.862965624780024,
+            "lon": -73.8416119483123,
+            "population": 351483,
+            "crime_case": 175,
+            "crime_rate": 0.0004978903673861894
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 44,
+        "fields": {
+            "name": "Concourse",
+            "borough": "Bronx",
+            "description": "POINT(40.834283807338544 -73.91558941773451)",
+            "lat": 40.834283807338544,
+            "lon": -73.91558941773451,
+            "population": 139194,
+            "crime_case": 803,
+            "crime_rate": 0.005768926821558401
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 45,
+        "fields": {
+            "name": "Unionport",
+            "borough": "Bronx",
+            "description": "POINT(40.82977429787165 -73.85053524451942)",
+            "lat": 40.82977429787165,
+            "lon": -73.85053524451942,
+            "population": 176636,
+            "crime_case": 290,
+            "crime_rate": 0.0016417944246925882
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 46,
+        "fields": {
+            "name": "Edenwald",
+            "borough": "Bronx",
+            "description": "POINT(40.88456130303736 -73.84808271877175)",
+            "lat": 40.88456130303736,
+            "lon": -73.84808271877175,
+            "population": 35422,
+            "crime_case": 380,
+            "crime_rate": 0.01072779628479476
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 47,
+        "fields": {
+            "name": "Bay Ridge",
+            "borough": "Brooklyn",
+            "description": "POINT(40.62580106501069 -74.03062069353821)",
+            "lat": 40.62580106501069,
+            "lon": -74.03062069353821,
+            "population": 319538,
+            "crime_case": 459,
+            "crime_rate": 0.001436448873060481
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 48,
+        "fields": {
+            "name": "Bensonhurst",
+            "borough": "Brooklyn",
+            "description": "POINT(40.61100890202048 -73.99517998380736)",
+            "lat": 40.61100890202048,
+            "lon": -73.99517998380736,
+            "population": 143206,
+            "crime_case": 549,
+            "crime_rate": 0.0038336382553803613
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 49,
+        "fields": {
+            "name": "madison",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64510294925433 -74.01031618527792)",
+            "lat": 40.64510294925433,
+            "lon": -74.01031618527792,
+            "population": 39076,
+            "crime_rate": 0
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 50,
+        "fields": {
+            "name": "Greenpoint",
+            "borough": "Brooklyn",
+            "description": "POINT(40.730200984864744 -73.954240931274)",
+            "lat": 40.730200984864744,
+            "lon": -73.954240931274,
+            "population": 223781,
+            "crime_case": 373,
+            "crime_rate": 0.001666808174063035
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 51,
+        "fields": {
+            "name": "Gravesend",
+            "borough": "Brooklyn",
+            "description": "POINT(40.59526001306597 -73.97347087708452)",
+            "lat": 40.59526001306597,
+            "lon": -73.97347087708452,
+            "population": 29257,
+            "crime_case": 346,
+            "crime_rate": 0.011826229620261818
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 52,
+        "fields": {
+            "name": "Brighton Beach",
+            "borough": "Brooklyn",
+            "description": "POINT(40.576825065666085 -73.96509448785343)",
+            "lat": 40.576825065666085,
+            "lon": -73.96509448785343,
+            "population": 331306,
+            "crime_case": 456,
+            "crime_rate": 0.0013763710889630734
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 53,
+        "fields": {
+            "name": "Sheepshead Bay",
+            "borough": "Brooklyn",
+            "description": "POINT(40.58689012678388 -73.94318640482987)",
+            "lat": 40.58689012678388,
+            "lon": -73.94318640482987,
+            "population": 319538,
+            "crime_case": 239,
+            "crime_rate": 0.0007479548598288779
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 54,
+        "fields": {
+            "name": "Manhattan Terrace",
+            "borough": "Brooklyn",
+            "description": "POINT(40.61443251335102 -73.95743840559946)",
+            "lat": 40.61443251335102,
+            "lon": -73.95743840559946,
+            "population": 65260,
+            "crime_case": 197,
+            "crime_rate": 0.0030186944529574013
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 55,
+        "fields": {
+            "name": "Flatbush",
+            "borough": "Brooklyn",
+            "description": "POINT(40.63632589026681 -73.95840106533912)",
+            "lat": 40.63632589026681,
+            "lon": -73.95840106533912,
+            "population": 222747,
+            "crime_case": 441,
+            "crime_rate": 0.001979824644102951
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 56,
+        "fields": {
+            "name": "Crown Heights",
+            "borough": "Brooklyn",
+            "description": "POINT(40.67082917695298 -73.9432911907359)",
+            "lat": 40.67082917695298,
+            "lon": -73.9432911907359,
+            "population": 839707,
+            "crime_case": 602,
+            "crime_rate": 0.0007169167340512822
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 57,
+        "fields": {
+            "name": "East Flatbush",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64171776668965 -73.93610256185843)",
+            "lat": 40.64171776668965,
+            "lon": -73.93610256185843,
+            "population": 222747,
+            "crime_case": 430,
+            "crime_rate": 0.0019304412629575257
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 58,
+        "fields": {
+            "name": "Kensington",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64238195800357 -73.98042110559481)",
+            "lat": 40.64238195800357,
+            "lon": -73.98042110559481,
+            "population": 36937,
+            "crime_case": 328,
+            "crime_rate": 0.008879984839050274
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 59,
+        "fields": {
+            "name": "Windsor Terrace",
+            "borough": "Brooklyn",
+            "description": "POINT(40.65694583575108 -73.98007340430179)",
+            "lat": 40.65694583575108,
+            "lon": -73.98007340430179,
+            "population": 43510,
+            "crime_case": 152,
+            "crime_rate": 0.0034934497816593887
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 60,
+        "fields": {
+            "name": "Prospect Heights",
+            "borough": "Brooklyn",
+            "description": "POINT(40.67682226225477 -73.96485924262697)",
+            "lat": 40.67682226225477,
+            "lon": -73.96485924262697,
+            "population": 910007,
+            "crime_case": 512,
+            "crime_rate": 0.000562633034690942
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 61,
+        "fields": {
+            "name": "Brownsville",
+            "borough": "Brooklyn",
+            "description": "POINT(40.66394994339758 -73.91023536176615)",
+            "lat": 40.66394994339758,
+            "lon": -73.91023536176615,
+            "population": 59099,
+            "crime_case": 1207,
+            "crime_rate": 0.020423357417215182
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 62,
+        "fields": {
+            "name": "Williamsburg",
+            "borough": "Brooklyn",
+            "description": "POINT(40.70714439344255 -73.95811529220936)",
+            "lat": 40.70714439344255,
+            "lon": -73.95811529220936,
+            "population": 64147,
+            "crime_case": 380,
+            "crime_rate": 0.005923893556986297
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 63,
+        "fields": {
+            "name": "Bushwick",
+            "borough": "Brooklyn",
+            "description": "POINT(40.69811611017905 -73.92525797487053)",
+            "lat": 40.69811611017905,
+            "lon": -73.92525797487053,
+            "population": 120710,
+            "crime_case": 1335,
+            "crime_rate": 0.011059564244884433
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 64,
+        "fields": {
+            "name": "Bedford Stuyvesant",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6872316077205 -73.94178488690304)",
+            "lat": 40.6872316077205,
+            "lon": -73.94178488690304,
+            "population": 195484,
+            "crime_case": 1240,
+            "crime_rate": 0.006343230136481758
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 65,
+        "fields": {
+            "name": "Brooklyn Heights",
+            "borough": "Brooklyn",
+            "description": "POINT(40.69586372272413 -73.99378225496432)",
+            "lat": 40.69586372272413,
+            "lon": -73.99378225496432,
+            "population": 839800,
+            "crime_case": 171,
+            "crime_rate": 0.00020361990950226245
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 66,
+        "fields": {
+            "name": "Cobble Hill",
+            "borough": "Brooklyn",
+            "description": "POINT(40.68791972248561 -73.9985613921847)",
+            "lat": 40.68791972248561,
+            "lon": -73.9985613921847,
+            "population": 63224,
+            "crime_case": 129,
+            "crime_rate": 0.0020403644185752246
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 67,
+        "fields": {
+            "name": "Carroll Gardens",
+            "borough": "Brooklyn",
+            "description": "POINT(40.68213188564184 -74.00037274122076)",
+            "lat": 40.68213188564184,
+            "lon": -74.00037274122076,
+            "population": 294337,
+            "crime_case": 141,
+            "crime_rate": 0.0004790427299320167
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 68,
+        "fields": {
+            "name": "Red Hook",
+            "borough": "Brooklyn",
+            "description": "POINT(40.67625323025092 -74.01275897473568)",
+            "lat": 40.67625323025092,
+            "lon": -74.01275897473568,
+            "population": 38327,
+            "crime_case": 155,
+            "crime_rate": 0.004044146424191823
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 69,
+        "fields": {
+            "name": "Gowanus",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6739311431872 -73.99444087145346)",
+            "lat": 40.6739311431872,
+            "lon": -73.99444087145346,
+            "population": 67263,
+            "crime_case": 325,
+            "crime_rate": 0.004831779730312356
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 70,
+        "fields": {
+            "name": "Fort Greene",
+            "borough": "Brooklyn",
+            "description": "POINT(40.688527260189815 -73.97290574369099)",
+            "lat": 40.688527260189815,
+            "lon": -73.97290574369099,
+            "population": 28335,
+            "crime_case": 315,
+            "crime_rate": 0.01111699311805188
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 71,
+        "fields": {
+            "name": "Park Slope",
+            "borough": "Brooklyn",
+            "description": "POINT(40.672320522682014 -73.97705030183931)",
+            "lat": 40.672320522682014,
+            "lon": -73.97705030183931,
+            "population": 40676,
+            "crime_case": 249,
+            "crime_rate": 0.006121545874717278
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 72,
+        "fields": {
+            "name": "Cypress Hills",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6846357939163 -73.87583132262635)",
+            "lat": 40.6846357939163,
+            "lon": -73.87583132262635,
+            "population": 295956,
+            "crime_case": 241,
+            "crime_rate": 0.0008143102353052481
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 73,
+        "fields": {
+            "name": "East New York",
+            "borough": "Brooklyn",
+            "description": "POINT(40.66992570084708 -73.88069863917373)",
+            "lat": 40.66992570084708,
+            "lon": -73.88069863917373,
+            "population": 241814,
+            "crime_case": 565,
+            "crime_rate": 0.0023365065711662683
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 74,
+        "fields": {
+            "name": "Starrett City",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64758905230878 -73.87936970045882)",
+            "lat": 40.64758905230878,
+            "lon": -73.87936970045882,
+            "population": 172590,
+            "crime_case": 263,
+            "crime_rate": 0.0015238426328292485
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 75,
+        "fields": {
+            "name": "Canarsie",
+            "borough": "Brooklyn",
+            "description": "POINT(40.63556432797432 -73.90209269778973)",
+            "lat": 40.63556432797432,
+            "lon": -73.90209269778973,
+            "population": 85058,
+            "crime_case": 428,
+            "crime_rate": 0.005031860612758353
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 76,
+        "fields": {
+            "name": "Flatlands",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6304460437575 -73.92911302644681)",
+            "lat": 40.6304460437575,
+            "lon": -73.92911302644681,
+            "population": 122565,
+            "crime_case": 469,
+            "crime_rate": 0.003826541019051116
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 77,
+        "fields": {
+            "name": "Mill Island",
+            "borough": "Brooklyn",
+            "description": "POINT(40.60633642168567 -73.90818571777432)",
+            "lat": 40.60633642168567,
+            "lon": -73.90818571777432,
+            "population": 214869,
+            "crime_case": 24,
+            "crime_rate": 0.00011169596358711587
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 78,
+        "fields": {
+            "name": "Manhattan Beach",
+            "borough": "Brooklyn",
+            "description": "POINT(40.57791350308661 -73.94353722891894)",
+            "lat": 40.57791350308661,
+            "lon": -73.94353722891894,
+            "population": 286748,
+            "crime_case": 27,
+            "crime_rate": 9.415933153849373e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 79,
+        "fields": {
+            "name": "Coney Island",
+            "borough": "Brooklyn",
+            "description": "POINT(40.57429256471605 -73.98868295821644)",
+            "lat": 40.57429256471605,
+            "lon": -73.98868295821644,
+            "population": 212605,
+            "crime_case": 453,
+            "crime_rate": 0.002130711883539898
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 80,
+        "fields": {
+            "name": "Bath Beach",
+            "borough": "Brooklyn",
+            "description": "POINT(40.599518702822415 -73.99875221443526)",
+            "lat": 40.599518702822415,
+            "lon": -73.99875221443526,
+            "population": 264998,
+            "crime_case": 413,
+            "crime_rate": 0.001558502328319459
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 81,
+        "fields": {
+            "name": "Borough Park",
+            "borough": "Brooklyn",
+            "description": "POINT(40.63313051275805 -73.99049823044818)",
+            "lat": 40.63313051275805,
+            "lon": -73.99049823044818,
+            "population": 101055,
+            "crime_case": 395,
+            "crime_rate": 0.003908762555044283
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 82,
+        "fields": {
+            "name": "Dyker Heights",
+            "borough": "Brooklyn",
+            "description": "POINT(40.61921945772268 -74.01931375636029)",
+            "lat": 40.61921945772268,
+            "lon": -74.01931375636029,
+            "population": 839707,
+            "crime_case": 308,
+            "crime_rate": 0.00036679460811926066
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 83,
+        "fields": {
+            "name": "Gerritsen Beach",
+            "borough": "Brooklyn",
+            "description": "POINT(40.59084843390208 -73.93010170691203)",
+            "lat": 40.59084843390208,
+            "lon": -73.93010170691203,
+            "population": 264998,
+            "crime_case": 180,
+            "crime_rate": 0.0006792504094370524
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 84,
+        "fields": {
+            "name": "Marine Park",
+            "borough": "Brooklyn",
+            "description": "POINT(40.60974777989464 -73.93134404108504)",
+            "lat": 40.60974777989464,
+            "lon": -73.93134404108504,
+            "population": 42940,
+            "crime_case": 227,
+            "crime_rate": 0.0052864462040055895
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 85,
+        "fields": {
+            "name": "Clinton Hill",
+            "borough": "Brooklyn",
+            "description": "POINT(40.69322942188155 -73.96784306216374)",
+            "lat": 40.69322942188155,
+            "lon": -73.96784306216374,
+            "population": 73887,
+            "crime_case": 355,
+            "crime_rate": 0.004804634103428208
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 86,
+        "fields": {
+            "name": "Sea Gate",
+            "borough": "Brooklyn",
+            "description": "POINT(40.576375378902284 -74.00787311200247)",
+            "lat": 40.576375378902284,
+            "lon": -74.00787311200247,
+            "population": null,
+            "crime_case": 133,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 87,
+        "fields": {
+            "name": "Downtown",
+            "borough": "Brooklyn",
+            "description": "POINT(40.69084402109806 -73.98346337431106)",
+            "lat": 40.69084402109806,
+            "lon": -73.98346337431106,
+            "population": 72965,
+            "crime_case": 778,
+            "crime_rate": 0.01066264647433701
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 88,
+        "fields": {
+            "name": "Boerum Hill",
+            "borough": "Brooklyn",
+            "description": "POINT(40.687241380657376 -73.98357724689187)",
+            "lat": 40.687241380657376,
+            "lon": -73.98357724689187,
+            "population": 30847,
+            "crime_case": 564,
+            "crime_rate": 0.018283787726521217
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 89,
+        "fields": {
+            "name": "Prospect Lefferts Gardens",
+            "borough": "Brooklyn",
+            "description": "POINT(40.65842001746986 -73.9548986707772)",
+            "lat": 40.65842001746986,
+            "lon": -73.9548986707772,
+            "population": 313992,
+            "crime_case": 837,
+            "crime_rate": 0.0026656730107773446
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 90,
+        "fields": {
+            "name": "Ocean Hill",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6784025547954 -73.91306831787404)",
+            "lat": 40.6784025547954,
+            "lon": -73.91306831787404,
+            "population": 87560,
+            "crime_case": 807,
+            "crime_rate": 0.009216537231612608
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 91,
+        "fields": {
+            "name": "City Line",
+            "borough": "Brooklyn",
+            "description": "POINT(40.678569957274824 -73.86797598081343)",
+            "lat": 40.678569957274824,
+            "lon": -73.86797598081343,
+            "population": 172590,
+            "crime_case": 489,
+            "crime_rate": 0.0028333043629410744
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 92,
+        "fields": {
+            "name": "Bergen Beach",
+            "borough": "Brooklyn",
+            "description": "POINT(40.615149550453125 -73.89855633630324)",
+            "lat": 40.615149550453125,
+            "lon": -73.89855633630324,
+            "population": 264998,
+            "crime_case": 18,
+            "crime_rate": 6.792504094370524e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 93,
+        "fields": {
+            "name": "Midwood",
+            "borough": "Brooklyn",
+            "description": "POINT(40.62559589869847 -73.95759523489846)",
+            "lat": 40.62559589869847,
+            "lon": -73.95759523489846,
+            "population": 55440,
+            "crime_case": 286,
+            "crime_rate": 0.005158730158730159
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 94,
+        "fields": {
+            "name": "Prospect Park South",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64700860318523 -73.96261316716055)",
+            "lat": 40.64700860318523,
+            "lon": -73.96261316716055,
+            "population": 89955,
+            "crime_case": 467,
+            "crime_rate": 0.005191484631204491
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 95,
+        "fields": {
+            "name": "Georgetown",
+            "borough": "Brooklyn",
+            "description": "POINT(40.623845244784235 -73.91607483951331)",
+            "lat": 40.623845244784235,
+            "lon": -73.91607483951331,
+            "population": 117212,
+            "crime_case": 125,
+            "crime_rate": 0.0010664437088352728
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 96,
+        "fields": {
+            "name": "Spring Creek",
+            "borough": "Brooklyn",
+            "description": "POINT(40.65713927658277 -73.86998779106547)",
+            "lat": 40.65713927658277,
+            "lon": -73.86998779106547,
+            "population": null,
+            "crime_case": 346,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 97,
+        "fields": {
+            "name": "East Williamsburg",
+            "borough": "Brooklyn",
+            "description": "POINT(40.70849241041552 -73.93885815269203)",
+            "lat": 40.70849241041552,
+            "lon": -73.93885815269203,
+            "population": 64147,
+            "crime_case": 783,
+            "crime_rate": 0.012206338566105975
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 98,
+        "fields": {
+            "name": "North Side",
+            "borough": "Brooklyn",
+            "description": "POINT(40.714822906532056 -73.95880857587589)",
+            "lat": 40.714822906532056,
+            "lon": -73.95880857587589,
+            "population": 313006,
+            "crime_case": 401,
+            "crime_rate": 0.0012811256014261707
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 99,
+        "fields": {
+            "name": "South Side",
+            "borough": "Brooklyn",
+            "description": "POINT(40.710861472650684 -73.95800095153338)",
+            "lat": 40.710861472650684,
+            "lon": -73.95800095153338,
+            "population": 313006,
+            "crime_case": 162,
+            "crime_rate": 0.0005175619636684281
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 100,
+        "fields": {
+            "name": "Navy Yard",
+            "borough": "Brooklyn",
+            "description": "POINT(40.698790872180545 -73.97164435527614)",
+            "lat": 40.698790872180545,
+            "lon": -73.97164435527614,
+            "population": null,
+            "crime_case": 108,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 101,
+        "fields": {
+            "name": "Ocean Parkway",
+            "borough": "Brooklyn",
+            "description": "POINT(40.61305976667946 -73.96836678035548)",
+            "lat": 40.61305976667946,
+            "lon": -73.96836678035548,
+            "population": 117566,
+            "crime_case": 278,
+            "crime_rate": 0.0023646292295391525
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 102,
+        "fields": {
+            "name": "Fort Hamilton",
+            "borough": "Brooklyn",
+            "description": "POINT(40.6147681269423 -74.0319791453799)",
+            "lat": 40.6147681269423,
+            "lon": -74.0319791453799,
+            "population": 78890,
+            "crime_case": 159,
+            "crime_rate": 0.0020154645709215364
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 103,
+        "fields": {
+            "name": "Chinatown",
+            "borough": "Manhattan",
+            "description": "POINT(40.715618422314364 -73.99427936255985)",
+            "lat": 40.715618422314364,
+            "lon": -73.99427936255985,
+            "population": 94493,
+            "crime_case": 450,
+            "crime_rate": 0.004762257521721186
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 104,
+        "fields": {
+            "name": "Washington Heights",
+            "borough": "Manhattan",
+            "description": "POINT(40.85190252555309 -73.93690027985242)",
+            "lat": 40.85190252555309,
+            "lon": -73.93690027985242,
+            "population": 839707,
+            "crime_case": 1114,
+            "crime_rate": 0.001326653225470313
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 105,
+        "fields": {
+            "name": "Inwood",
+            "borough": "Manhattan",
+            "description": "POINT(40.86768396449919 -73.92121042203905)",
+            "lat": 40.86768396449919,
+            "lon": -73.92121042203905,
+            "population": 49087,
+            "crime_case": 656,
+            "crime_rate": 0.013364027135494123
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 106,
+        "fields": {
+            "name": "Hamilton Heights",
+            "borough": "Manhattan",
+            "description": "POINT(40.82360428481197 -73.94968791883373)",
+            "lat": 40.82360428481197,
+            "lon": -73.94968791883373,
+            "population": 839707,
+            "crime_case": 1094,
+            "crime_rate": 0.001302835393774257
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 107,
+        "fields": {
+            "name": "Manhattanville",
+            "borough": "Manhattan",
+            "description": "POINT(40.81693442949784 -73.95738539351888)",
+            "lat": 40.81693442949784,
+            "lon": -73.95738539351888,
+            "population": 46522,
+            "crime_case": 527,
+            "crime_rate": 0.011327973861828813
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 108,
+        "fields": {
+            "name": "Central Harlem",
+            "borough": "Manhattan",
+            "description": "POINT(40.81597606742418 -73.94321112603912)",
+            "lat": 40.81597606742418,
+            "lon": -73.94321112603912,
+            "population": 223138,
+            "crime_case": 1915,
+            "crime_rate": 0.008582133029784259
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 109,
+        "fields": {
+            "name": "East Harlem",
+            "borough": "Manhattan",
+            "description": "POINT(40.79224946663037 -73.94418223148531)",
+            "lat": 40.79224946663037,
+            "lon": -73.94418223148531,
+            "population": 223138,
+            "crime_case": 2146,
+            "crime_rate": 0.009617366831288261
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 110,
+        "fields": {
+            "name": "Upper East Side",
+            "borough": "Manhattan",
+            "description": "POINT(40.77563857330185 -73.96050763135007)",
+            "lat": 40.77563857330185,
+            "lon": -73.96050763135007,
+            "population": 313006,
+            "crime_case": 223,
+            "crime_rate": 0.0007124464067781448
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 111,
+        "fields": {
+            "name": "Yorkville",
+            "borough": "Manhattan",
+            "description": "POINT(40.77592984988492 -73.94711784471833)",
+            "lat": 40.77592984988492,
+            "lon": -73.94711784471833,
+            "population": 187667,
+            "crime_case": 311,
+            "crime_rate": 0.0016571906621835485
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 112,
+        "fields": {
+            "name": "Lenox Hill",
+            "borough": "Manhattan",
+            "description": "POINT(40.76811265828737 -73.95885968813766)",
+            "lat": 40.76811265828737,
+            "lon": -73.95885968813766,
+            "population": 76631,
+            "crime_case": 451,
+            "crime_rate": 0.005885346661272853
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 113,
+        "fields": {
+            "name": "Roosevelt Island",
+            "borough": "Manhattan",
+            "description": "POINT(40.762403730702246 -73.9494705736962)",
+            "lat": 40.762403730702246,
+            "lon": -73.9494705736962,
+            "population": 171929,
+            "crime_case": 117,
+            "crime_rate": 0.000680513467768672
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 114,
+        "fields": {
+            "name": "Upper West Side",
+            "borough": "Manhattan",
+            "description": "POINT(40.7876579985349 -73.9770592363061)",
+            "lat": 40.7876579985349,
+            "lon": -73.9770592363061,
+            "population": 313006,
+            "crime_case": 529,
+            "crime_rate": 0.0016900634492629533
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 115,
+        "fields": {
+            "name": "Lincoln Square",
+            "borough": "Manhattan",
+            "description": "POINT(40.773528889421705 -73.9853377700127)",
+            "lat": 40.773528889421705,
+            "lon": -73.9853377700127,
+            "population": 178889,
+            "crime_case": 837,
+            "crime_rate": 0.004678879081441564
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 116,
+        "fields": {
+            "name": "Clinton",
+            "borough": "Manhattan",
+            "description": "POINT(40.758333686906404 -73.99640768221386)",
+            "lat": 40.758333686906404,
+            "lon": -73.99640768221386,
+            "population": 73887,
+            "crime_case": 1203,
+            "crime_rate": 0.016281619229363758
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 117,
+        "fields": {
+            "name": "Midtown",
+            "borough": "Manhattan",
+            "description": "POINT(40.75469110270627 -73.98166882730311)",
+            "lat": 40.75469110270627,
+            "lon": -73.98166882730311,
+            "population": 117662,
+            "crime_case": 1257,
+            "crime_rate": 0.010683143240808417
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 118,
+        "fields": {
+            "name": "Murray Hill",
+            "borough": "Manhattan",
+            "description": "POINT(40.74830307725222 -73.97833207924134)",
+            "lat": 40.74830307725222,
+            "lon": -73.97833207924134,
+            "population": 101428,
+            "crime_case": 621,
+            "crime_rate": 0.0061225697046180545
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 119,
+        "fields": {
+            "name": "Chelsea",
+            "borough": "Manhattan",
+            "description": "POINT(40.74403470674802 -74.0031163347282)",
+            "lat": 40.74403470674802,
+            "lon": -74.0031163347282,
+            "population": 55839,
+            "crime_case": 568,
+            "crime_rate": 0.010172101935922922
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 120,
+        "fields": {
+            "name": "Greenwich Village",
+            "borough": "Manhattan",
+            "description": "POINT(40.72693288536132 -73.99991402945909)",
+            "lat": 40.72693288536132,
+            "lon": -73.99991402945909,
+            "population": 392165,
+            "crime_case": 640,
+            "crime_rate": 0.0016319661367026634
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 121,
+        "fields": {
+            "name": "East Village",
+            "borough": "Manhattan",
+            "description": "POINT(40.72784677727029 -73.98222616506425)",
+            "lat": 40.72784677727029,
+            "lon": -73.98222616506425,
+            "population": 392165,
+            "crime_case": 481,
+            "crime_rate": 0.0012265245496155955
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 122,
+        "fields": {
+            "name": "Lower East Side",
+            "borough": "Manhattan",
+            "description": "POINT(40.71780674892769 -73.98089031999298)",
+            "lat": 40.71780674892769,
+            "lon": -73.98089031999298,
+            "population": 333094,
+            "crime_case": 597,
+            "crime_rate": 0.0017922868619668923
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 123,
+        "fields": {
+            "name": "Tribeca",
+            "borough": "Manhattan",
+            "description": "POINT(40.72152196744325 -74.01068328559094)",
+            "lat": 40.72152196744325,
+            "lon": -74.01068328559094,
+            "population": 36757,
+            "crime_case": 96,
+            "crime_rate": 0.0026117474222597057
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 124,
+        "fields": {
+            "name": "Little Italy",
+            "borough": "Manhattan",
+            "description": "POINT(40.71932379395911 -73.9973046720808)",
+            "lat": 40.71932379395911,
+            "lon": -73.9973046720808,
+            "population": 61113,
+            "crime_case": 230,
+            "crime_rate": 0.0037635200366534127
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 125,
+        "fields": {
+            "name": "Soho",
+            "borough": "Manhattan",
+            "description": "POINT(40.72218384131798 -74.00065666959766)",
+            "lat": 40.72218384131798,
+            "lon": -74.00065666959766,
+            "population": 36757,
+            "crime_case": 295,
+            "crime_rate": 0.008025682182985553
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 126,
+        "fields": {
+            "name": "West Village",
+            "borough": "Manhattan",
+            "description": "POINT(40.734433935724375 -74.00617998126819)",
+            "lat": 40.734433935724375,
+            "lon": -74.00617998126819,
+            "population": 392165,
+            "crime_case": 607,
+            "crime_rate": 0.0015478178827789324
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 127,
+        "fields": {
+            "name": "Manhattan Valley",
+            "borough": "Manhattan",
+            "description": "POINT(40.7973070417029 -73.96428617740662)",
+            "lat": 40.7973070417029,
+            "lon": -73.96428617740662,
+            "population": 40082,
+            "crime_case": 838,
+            "crime_rate": 0.02090714036225737
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 128,
+        "fields": {
+            "name": "Morningside Heights",
+            "borough": "Manhattan",
+            "description": "POINT(40.80799973816586 -73.96389627905339)",
+            "lat": 40.80799973816586,
+            "lon": -73.96389627905339,
+            "population": 1152713,
+            "crime_case": 456,
+            "crime_rate": 0.0003955884942739433
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 129,
+        "fields": {
+            "name": "Gramercy",
+            "borough": "Manhattan",
+            "description": "POINT(40.737209832715045 -73.98137594833548)",
+            "lat": 40.737209832715045,
+            "lon": -73.98137594833548,
+            "population": 26184,
+            "crime_case": 489,
+            "crime_rate": 0.018675527039413383
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 130,
+        "fields": {
+            "name": "Battery Park City",
+            "borough": "Manhattan",
+            "description": "POINT(40.71193198394569 -74.01686930508625)",
+            "lat": 40.71193198394569,
+            "lon": -74.01686930508625,
+            "population": 172590,
+            "crime_case": 135,
+            "crime_rate": 0.0007822005909960021
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 131,
+        "fields": {
+            "name": "Financial District",
+            "borough": "Manhattan",
+            "description": "POINT(40.70710710727052 -74.01066544521277)",
+            "lat": 40.70710710727052,
+            "lon": -74.01066544521277,
+            "population": null,
+            "crime_case": 554,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 132,
+        "fields": {
+            "name": "Astoria",
+            "borough": "Queens",
+            "description": "POINT(40.768508593354966 -73.91565374304241)",
+            "lat": 40.768508593354966,
+            "lon": -73.91565374304241,
+            "population": 117969,
+            "crime_case": 652,
+            "crime_rate": 0.005526875704634268
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 133,
+        "fields": {
+            "name": "Woodside",
+            "borough": "Queens",
+            "description": "POINT(40.746349088602265 -73.90184166838291)",
+            "lat": 40.746349088602265,
+            "lon": -73.90184166838291,
+            "population": 356852,
+            "crime_case": 640,
+            "crime_rate": 0.0017934605943080045
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 134,
+        "fields": {
+            "name": "Jackson Heights",
+            "borough": "Queens",
+            "description": "POINT(40.751981380073715 -73.88282109164372)",
+            "lat": 40.751981380073715,
+            "lon": -73.88282109164372,
+            "population": 839707,
+            "crime_case": 881,
+            "crime_rate": 0.0010491754862112619
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 135,
+        "fields": {
+            "name": "Elmhurst",
+            "borough": "Queens",
+            "description": "POINT(40.744048505122066 -73.88165622288396)",
+            "lat": 40.744048505122066,
+            "lon": -73.88165622288396,
+            "population": 133493,
+            "crime_case": 814,
+            "crime_rate": 0.006097698006637052
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 136,
+        "fields": {
+            "name": "Howard Beach",
+            "borough": "Queens",
+            "description": "POINT(40.6542252773849 -73.83813764600289)",
+            "lat": 40.6542252773849,
+            "lon": -73.83813764600289,
+            "population": 264998,
+            "crime_case": 82,
+            "crime_rate": 0.000309436297632435
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 137,
+        "fields": {
+            "name": "South Corona",
+            "borough": "Queens",
+            "description": "POINT(40.7423817501567 -73.85682497345266)",
+            "lat": 40.7423817501567,
+            "lon": -73.85682497345266,
+            "population": 139914,
+            "crime_case": 331,
+            "crime_rate": 0.002365738953928842
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 138,
+        "fields": {
+            "name": "Forest Hills",
+            "borough": "Queens",
+            "description": "POINT(40.725263782165065 -73.8444750078899)",
+            "lat": 40.725263782165065,
+            "lon": -73.8444750078899,
+            "population": 295956,
+            "crime_case": 249,
+            "crime_rate": 0.0008413412804606091
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 139,
+        "fields": {
+            "name": "Kew Gardens",
+            "borough": "Queens",
+            "description": "POINT(40.705179035414844 -73.8298190582571)",
+            "lat": 40.705179035414844,
+            "lon": -73.8298190582571,
+            "population": 294337,
+            "crime_case": 167,
+            "crime_rate": 0.0005673768503450127
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 140,
+        "fields": {
+            "name": "Richmond Hill",
+            "borough": "Queens",
+            "description": "POINT(40.69794731471767 -73.83183321446894)",
+            "lat": 40.69794731471767,
+            "lon": -73.83183321446894,
+            "population": 99359,
+            "crime_case": 612,
+            "crime_rate": 0.0061594822814239275
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 141,
+        "fields": {
+            "name": "Downtown Flushing",
+            "borough": "Queens",
+            "description": "POINT(40.76116362081876 -73.82936758711861)",
+            "lat": 40.76116362081876,
+            "lon": -73.82936758711861,
+            "population": 200577,
+            "crime_case": 1142,
+            "crime_rate": 0.00569357403889778
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 142,
+        "fields": {
+            "name": "Long Island City",
+            "borough": "Queens",
+            "description": "POINT(40.75021734610532 -73.93920223915512)",
+            "lat": 40.75021734610532,
+            "lon": -73.93920223915512,
+            "population": 296275,
+            "crime_case": 388,
+            "crime_rate": 0.0013095941270778837
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 143,
+        "fields": {
+            "name": "Sunnyside",
+            "borough": "Queens",
+            "description": "POINT(40.74017628351928 -73.92691617561584)",
+            "lat": 40.74017628351928,
+            "lon": -73.92691617561584,
+            "population": 374953,
+            "crime_case": 175,
+            "crime_rate": 0.00046672516288708183
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 144,
+        "fields": {
+            "name": "East Elmhurst",
+            "borough": "Queens",
+            "description": "POINT(40.764073238830946 -73.86704147658779)",
+            "lat": 40.764073238830946,
+            "lon": -73.86704147658779,
+            "population": 133493,
+            "crime_case": 288,
+            "crime_rate": 0.002157416493748736
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 145,
+        "fields": {
+            "name": "Maspeth",
+            "borough": "Queens",
+            "description": "POINT(40.72542737409365 -73.89621713626867)",
+            "lat": 40.72542737409365,
+            "lon": -73.89621713626867,
+            "population": 115201,
+            "crime_case": 277,
+            "crime_rate": 0.0024044930165536757
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 146,
+        "fields": {
+            "name": "Ridgewood",
+            "borough": "Queens",
+            "description": "POINT(40.70832315613862 -73.90143517559596)",
+            "lat": 40.70832315613862,
+            "lon": -73.90143517559596,
+            "population": 149994,
+            "crime_case": 673,
+            "crime_rate": 0.004486846140512287
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 147,
+        "fields": {
+            "name": "Glendale",
+            "borough": "Queens",
+            "description": "POINT(40.702762429678415 -73.87074167435614)",
+            "lat": 40.702762429678415,
+            "lon": -73.87074167435614,
+            "population": 53497,
+            "crime_case": 201,
+            "crime_rate": 0.003757220031029777
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 148,
+        "fields": {
+            "name": "Rego Park",
+            "borough": "Queens",
+            "description": "POINT(40.72897409480739 -73.85782686905377)",
+            "lat": 40.72897409480739,
+            "lon": -73.85782686905377,
+            "population": 29404,
+            "crime_case": 307,
+            "crime_rate": 0.010440756359678956
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 149,
+        "fields": {
+            "name": "Woodhaven",
+            "borough": "Queens",
+            "description": "POINT(40.689886879157925 -73.85811046554328)",
+            "lat": 40.689886879157925,
+            "lon": -73.85811046554328,
+            "population": 136374,
+            "crime_case": 386,
+            "crime_rate": 0.0028304515523486884
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 150,
+        "fields": {
+            "name": "Ozone Park",
+            "borough": "Queens",
+            "description": "POINT(40.68070846826546 -73.84320266173454)",
+            "lat": 40.68070846826546,
+            "lon": -73.84320266173454,
+            "population": 99958,
+            "crime_case": 570,
+            "crime_rate": 0.005702395005902479
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 151,
+        "fields": {
+            "name": "South Ozone Park",
+            "borough": "Queens",
+            "description": "POINT(40.66854957767199 -73.80986478649048)",
+            "lat": 40.66854957767199,
+            "lon": -73.80986478649048,
+            "population": 99958,
+            "crime_case": 594,
+            "crime_rate": 0.005942495848256267
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 152,
+        "fields": {
+            "name": "College Point",
+            "borough": "Queens",
+            "description": "POINT(40.78490274926025 -73.84304528896132)",
+            "lat": 40.78490274926025,
+            "lon": -73.84304528896132,
+            "population": 226636,
+            "crime_case": 240,
+            "crime_rate": 0.0010589668013907764
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 153,
+        "fields": {
+            "name": "Whitestone",
+            "borough": "Queens",
+            "description": "POINT(40.781290766026984 -73.8142021661087)",
+            "lat": 40.781290766026984,
+            "lon": -73.8142021661087,
+            "population": 31356,
+            "crime_case": 123,
+            "crime_rate": 0.003922694221201684
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 154,
+        "fields": {
+            "name": "Bayside",
+            "borough": "Queens",
+            "description": "POINT(40.76604063281068 -73.77427363068676)",
+            "lat": 40.76604063281068,
+            "lon": -73.77427363068676,
+            "population": 676915,
+            "crime_case": 242,
+            "crime_rate": 0.00035750426567589727
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 155,
+        "fields": {
+            "name": "Auburndale",
+            "borough": "Queens",
+            "description": "POINT(40.761729549032665 -73.79176243728068)",
+            "lat": 40.761729549032665,
+            "lon": -73.79176243728068,
+            "population": 20201,
+            "crime_case": 243,
+            "crime_rate": 0.012029107469927231
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 156,
+        "fields": {
+            "name": "Little Neck",
+            "borough": "Queens",
+            "description": "POINT(40.77082619282674 -73.73889775580747)",
+            "lat": 40.77082619282674,
+            "lon": -73.73889775580747,
+            "population": 104825,
+            "crime_case": 35,
+            "crime_rate": 0.000333889816360601
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 157,
+        "fields": {
+            "name": "Douglaston",
+            "borough": "Queens",
+            "description": "POINT(40.766846097907674 -73.74249820727337)",
+            "lat": 40.766846097907674,
+            "lon": -73.74249820727337,
+            "population": 24356,
+            "crime_case": 57,
+            "crime_rate": 0.002340285761208737
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 158,
+        "fields": {
+            "name": "Glen Oaks",
+            "borough": "Queens",
+            "description": "POINT(40.74944079974336 -73.71548118999152)",
+            "lat": 40.74944079974336,
+            "lon": -73.71548118999152,
+            "population": 22426,
+            "crime_case": 71,
+            "crime_rate": 0.0031659680727726745
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 159,
+        "fields": {
+            "name": "Bellerose",
+            "borough": "Queens",
+            "description": "POINT(40.72857318176679 -73.7201281482691)",
+            "lat": 40.72857318176679,
+            "lon": -73.7201281482691,
+            "population": 51175,
+            "crime_case": 68,
+            "crime_rate": 0.0013287738153395213
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 160,
+        "fields": {
+            "name": "Kew Gardens Hills",
+            "borough": "Queens",
+            "description": "POINT(40.72257824422808 -73.82087764933573)",
+            "lat": 40.72257824422808,
+            "lon": -73.82087764933573,
+            "population": 554241,
+            "crime_case": 197,
+            "crime_rate": 0.0003554410445997319
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 161,
+        "fields": {
+            "name": "Fresh Meadows",
+            "borough": "Queens",
+            "description": "POINT(40.734394465331334 -73.78271337003271)",
+            "lat": 40.734394465331334,
+            "lon": -73.78271337003271,
+            "population": 17373,
+            "crime_case": 202,
+            "crime_rate": 0.011627237667645196
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 162,
+        "fields": {
+            "name": "Briarwood",
+            "borough": "Queens",
+            "description": "POINT(40.710935472522756 -73.81174822458641)",
+            "lat": 40.710935472522756,
+            "lon": -73.81174822458641,
+            "population": 38675,
+            "crime_case": 361,
+            "crime_rate": 0.009334195216548158
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 163,
+        "fields": {
+            "name": "Jamaica Center",
+            "borough": "Queens",
+            "description": "POINT(40.704657360687214 -73.79690165888296)",
+            "lat": 40.704657360687214,
+            "lon": -73.79690165888296,
+            "population": 188523,
+            "crime_case": 871,
+            "crime_rate": 0.004620125926279552
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 164,
+        "fields": {
+            "name": "Oakland Gardens",
+            "borough": "Queens",
+            "description": "POINT(40.74561857141858 -73.75494976234339)",
+            "lat": 40.74561857141858,
+            "lon": -73.75494976234339,
+            "population": 294337,
+            "crime_case": 173,
+            "crime_rate": 0.0005877616473633964
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 165,
+        "fields": {
+            "name": "Queens Village",
+            "borough": "Queens",
+            "description": "POINT(40.7188930921674 -73.73871484578433)",
+            "lat": 40.7188930921674,
+            "lon": -73.73871484578433,
+            "population": 393950,
+            "crime_case": 330,
+            "crime_rate": 0.0008376697550450565
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 166,
+        "fields": {
+            "name": "Hollis",
+            "borough": "Queens",
+            "description": "POINT(40.71124344191908 -73.75925009335602)",
+            "lat": 40.71124344191908,
+            "lon": -73.75925009335602,
+            "population": 20747,
+            "crime_case": 301,
+            "crime_rate": 0.014508121656143057
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 167,
+        "fields": {
+            "name": "South Jamaica",
+            "borough": "Queens",
+            "description": "POINT(40.69691125378992 -73.79042613135549)",
+            "lat": 40.69691125378992,
+            "lon": -73.79042613135549,
+            "population": 151766,
+            "crime_case": 735,
+            "crime_rate": 0.004842981959068566
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 168,
+        "fields": {
+            "name": "St. Albans",
+            "borough": "Queens",
+            "description": "POINT(40.69444538522363 -73.75867603727725)",
+            "lat": 40.69444538522363,
+            "lon": -73.75867603727725,
+            "population": 82200,
+            "crime_case": 313,
+            "crime_rate": 0.003807785888077859
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 169,
+        "fields": {
+            "name": "Rochdale",
+            "borough": "Queens",
+            "description": "POINT(40.675211395917366 -73.77258787620913)",
+            "lat": 40.675211395917366,
+            "lon": -73.77258787620913,
+            "population": null,
+            "crime_case": 741,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 170,
+        "fields": {
+            "name": "Springfield Gardens",
+            "borough": "Queens",
+            "description": "POINT(40.666230490368626 -73.76042092682295)",
+            "lat": 40.666230490368626,
+            "lon": -73.76042092682295,
+            "population": 294337,
+            "crime_case": 233,
+            "crime_rate": 0.0007916096175472333
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 171,
+        "fields": {
+            "name": "Cambria Heights",
+            "borough": "Queens",
+            "description": "POINT(40.69277463916089 -73.73526873708033)",
+            "lat": 40.69277463916089,
+            "lon": -73.73526873708033,
+            "population": 839707,
+            "crime_case": 245,
+            "crime_rate": 0.0002917684382766846
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 172,
+        "fields": {
+            "name": "Rosedale",
+            "borough": "Queens",
+            "description": "POINT(40.65981643342812 -73.73526079428285)",
+            "lat": 40.65981643342812,
+            "lon": -73.73526079428285,
+            "population": 25502,
+            "crime_case": 137,
+            "crime_rate": 0.0053721276762606854
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 173,
+        "fields": {
+            "name": "Far Rockaway",
+            "borough": "Queens",
+            "description": "POINT(40.60313443250093 -73.7549796804388)",
+            "lat": 40.60313443250093,
+            "lon": -73.7549796804388,
+            "population": 48344,
+            "crime_case": 538,
+            "crime_rate": 0.01112857852060235
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 174,
+        "fields": {
+            "name": "Broad Channel",
+            "borough": "Queens",
+            "description": "POINT(40.603026583512424 -73.82005489110327)",
+            "lat": 40.603026583512424,
+            "lon": -73.82005489110327,
+            "population": 26711,
+            "crime_case": 14,
+            "crime_rate": 0.0005241286361424133
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 175,
+        "fields": {
+            "name": "Breezy Point",
+            "borough": "Queens",
+            "description": "POINT(40.557401288454564 -73.92551196994177)",
+            "lat": 40.557401288454564,
+            "lon": -73.92551196994177,
+            "population": 185960,
+            "crime_case": 5,
+            "crime_rate": 2.688750268875027e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 176,
+        "fields": {
+            "name": "Steinway",
+            "borough": "Queens",
+            "description": "POINT(40.77592301564293 -73.90228960391681)",
+            "lat": 40.77592301564293,
+            "lon": -73.90228960391681,
+            "population": 53604,
+            "crime_case": 191,
+            "crime_rate": 0.0035631669278412058
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 177,
+        "fields": {
+            "name": "Beechhurst",
+            "borough": "Queens",
+            "description": "POINT(40.792781403600515 -73.80436451720996)",
+            "lat": 40.792781403600515,
+            "lon": -73.80436451720996,
+            "population": null,
+            "crime_case": 56,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 178,
+        "fields": {
+            "name": "Bay Terrace",
+            "borough": "Queens",
+            "description": "POINT(40.7828428062456 -73.77680222621588)",
+            "lat": 40.7828428062456,
+            "lon": -73.77680222621588,
+            "population": 340317,
+            "crime_case": 116,
+            "crime_rate": 0.0003408586700047309
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 179,
+        "fields": {
+            "name": "Edgemere",
+            "borough": "Queens",
+            "description": "POINT(40.59564180736854 -73.77613282391712)",
+            "lat": 40.59564180736854,
+            "lon": -73.77613282391712,
+            "population": 31645,
+            "crime_case": 166,
+            "crime_rate": 0.005245694422499605
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 180,
+        "fields": {
+            "name": "Arverne",
+            "borough": "Queens",
+            "description": "POINT(40.58914394372975 -73.7919923313695)",
+            "lat": 40.58914394372975,
+            "lon": -73.7919923313695,
+            "population": 31645,
+            "crime_case": 137,
+            "crime_rate": 0.004329277927002686
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 181,
+        "fields": {
+            "name": "Seaside",
+            "borough": "Queens",
+            "description": "POINT(40.58280169684563 -73.82236121088758)",
+            "lat": 40.58280169684563,
+            "lon": -73.82236121088758,
+            "population": 313006,
+            "crime_case": 191,
+            "crime_rate": 0.0006102119448189491
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 182,
+        "fields": {
+            "name": "Neponsit",
+            "borough": "Queens",
+            "description": "POINT(40.57203673021705 -73.85754672410836)",
+            "lat": 40.57203673021705,
+            "lon": -73.85754672410836,
+            "population": null,
+            "crime_case": 3,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 183,
+        "fields": {
+            "name": "Murray Hill",
+            "borough": "Queens",
+            "description": "POINT(40.7641261226141 -73.81276269135873)",
+            "lat": 40.7641261226141,
+            "lon": -73.81276269135873,
+            "population": 101428,
+            "crime_case": 621,
+            "crime_rate": 0.0061225697046180545
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 184,
+        "fields": {
+            "name": "Floral Park",
+            "borough": "Queens",
+            "description": "POINT(40.74137842194548 -73.70884705889253)",
+            "lat": 40.74137842194548,
+            "lon": -73.70884705889253,
+            "population": 22426,
+            "crime_case": 61,
+            "crime_rate": 0.002720057076607509
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 185,
+        "fields": {
+            "name": "Holliswood",
+            "borough": "Queens",
+            "description": "POINT(40.720957207644446 -73.76714166714736)",
+            "lat": 40.720957207644446,
+            "lon": -73.76714166714736,
+            "population": 46808,
+            "crime_case": 108,
+            "crime_rate": 0.0023072978977952486
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 186,
+        "fields": {
+            "name": "Jamaica Estates",
+            "borough": "Queens",
+            "description": "POINT(40.716804830146174 -73.78722696936667)",
+            "lat": 40.716804830146174,
+            "lon": -73.78722696936667,
+            "population": 151766,
+            "crime_case": 208,
+            "crime_rate": 0.0013705309489609003
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 187,
+        "fields": {
+            "name": "Queensboro Hill",
+            "borough": "Queens",
+            "description": "POINT(40.744572309286745 -73.82580915110566)",
+            "lat": 40.744572309286745,
+            "lon": -73.82580915110566,
+            "population": 78798,
+            "crime_case": 253,
+            "crime_rate": 0.003210741389375365
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 188,
+        "fields": {
+            "name": "Hillcrest",
+            "borough": "Queens",
+            "description": "POINT(40.72382490182924 -73.79760300912679)",
+            "lat": 40.72382490182924,
+            "lon": -73.79760300912679,
+            "population": 31734,
+            "crime_case": 117,
+            "crime_rate": 0.00368689733408962
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 189,
+        "fields": {
+            "name": "Ravenswood",
+            "borough": "Queens",
+            "description": "POINT(40.76170452605419 -73.93157506072886)",
+            "lat": 40.76170452605419,
+            "lon": -73.93157506072886,
+            "population": 21104,
+            "crime_case": 538,
+            "crime_rate": 0.025492797573919635
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 190,
+        "fields": {
+            "name": "Lindenwood",
+            "borough": "Queens",
+            "description": "POINT(40.66391841925143 -73.84963782402448)",
+            "lat": 40.66391841925143,
+            "lon": -73.84963782402448,
+            "population": 28121,
+            "crime_case": 222,
+            "crime_rate": 0.00789445610042317
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 191,
+        "fields": {
+            "name": "Laurelton",
+            "borough": "Queens",
+            "description": "POINT(40.667883896602504 -73.74025607989829)",
+            "lat": 40.667883896602504,
+            "lon": -73.74025607989829,
+            "population": 26375,
+            "crime_case": 181,
+            "crime_rate": 0.006862559241706161
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 192,
+        "fields": {
+            "name": "Lefrak City",
+            "borough": "Queens",
+            "description": "POINT(40.73607457083084 -73.86252471413746)",
+            "lat": 40.73607457083084,
+            "lon": -73.86252471413746,
+            "population": 172590,
+            "crime_case": 705,
+            "crime_rate": 0.004084825308534677
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 193,
+        "fields": {
+            "name": "Belle Harbor",
+            "borough": "Queens",
+            "description": "POINT(40.57615556543113 -73.85401750392529)",
+            "lat": 40.57615556543113,
+            "lon": -73.85401750392529,
+            "population": 54668,
+            "crime_case": 18,
+            "crime_rate": 0.00032926026194483063
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 194,
+        "fields": {
+            "name": "Rockaway Park",
+            "borough": "Queens",
+            "description": "POINT(40.58034295646135 -73.84153370226193)",
+            "lat": 40.58034295646135,
+            "lon": -73.84153370226193,
+            "population": 48344,
+            "crime_case": 84,
+            "crime_rate": 0.0017375475757074302
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 195,
+        "fields": {
+            "name": "Somerville",
+            "borough": "Queens",
+            "description": "POINT(40.59771061565772 -73.79664750844056)",
+            "lat": 40.59771061565772,
+            "lon": -73.79664750844056,
+            "population": null,
+            "crime_case": 107,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 196,
+        "fields": {
+            "name": "Brookville",
+            "borough": "Queens",
+            "description": "POINT(40.66000322733616 -73.7517531073116)",
+            "lat": 40.66000322733616,
+            "lon": -73.7517531073116,
+            "population": 18950,
+            "crime_case": 69,
+            "crime_rate": 0.003641160949868074
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 197,
+        "fields": {
+            "name": "Bellaire",
+            "borough": "Queens",
+            "description": "POINT(40.73301404027838 -73.73889198912488)",
+            "lat": 40.73301404027838,
+            "lon": -73.73889198912488,
+            "population": null,
+            "crime_case": 199,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 198,
+        "fields": {
+            "name": "North Corona",
+            "borough": "Queens",
+            "description": "POINT(40.75407099904894 -73.85751790676454)",
+            "lat": 40.75407099904894,
+            "lon": -73.85751790676454,
+            "population": 139914,
+            "crime_case": 530,
+            "crime_rate": 0.0037880412253241276
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 199,
+        "fields": {
+            "name": "Forest Hills Gardens",
+            "borough": "Queens",
+            "description": "POINT(40.71461108151174 -73.84102211234017)",
+            "lat": 40.71461108151174,
+            "lon": -73.84102211234017,
+            "population": 554241,
+            "crime_case": 165,
+            "crime_rate": 0.00029770442821804954
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 200,
+        "fields": {
+            "name": "St. George",
+            "borough": "Staten Island",
+            "description": "POINT(40.64498157100444 -74.07935312512804)",
+            "lat": 40.64498157100444,
+            "lon": -74.07935312512804,
+            "population": 82200,
+            "crime_case": 235,
+            "crime_rate": 0.002858880778588808
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 201,
+        "fields": {
+            "name": "New Brighton",
+            "borough": "Staten Island",
+            "description": "POINT(40.64061455913515 -74.08701650516633)",
+            "lat": 40.64061455913515,
+            "lon": -74.08701650516633,
+            "population": 294428,
+            "crime_case": 147,
+            "crime_rate": 0.0004992731669542299
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 202,
+        "fields": {
+            "name": "Stapleton",
+            "borough": "Staten Island",
+            "description": "POINT(40.6269276253818 -74.07790192660073)",
+            "lat": 40.6269276253818,
+            "lon": -74.07790192660073,
+            "population": 24048,
+            "crime_case": 197,
+            "crime_rate": 0.008191949434464404
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 203,
+        "fields": {
+            "name": "Rosebank",
+            "borough": "Staten Island",
+            "description": "POINT(40.61530494652765 -74.06980526716148)",
+            "lat": 40.61530494652765,
+            "lon": -74.06980526716148,
+            "population": 24048,
+            "crime_case": 55,
+            "crime_rate": 0.0022870924817032603
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 204,
+        "fields": {
+            "name": "West Brighton",
+            "borough": "Staten Island",
+            "description": "POINT(40.63187892654611 -74.10718178265617)",
+            "lat": 40.63187892654611,
+            "lon": -74.10718178265617,
+            "population": 101552,
+            "crime_case": 167,
+            "crime_rate": 0.001644477706002836
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 205,
+        "fields": {
+            "name": "Grymes Hill",
+            "borough": "Staten Island",
+            "description": "POINT(40.62418479131304 -74.08724819983736)",
+            "lat": 40.62418479131304,
+            "lon": -74.08724819983736,
+            "population": 19834,
+            "crime_case": 122,
+            "crime_rate": 0.006151053746092568
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 206,
+        "fields": {
+            "name": "Todt Hill",
+            "borough": "Staten Island",
+            "description": "POINT(40.59706851814676 -74.11132881800887)",
+            "lat": 40.59706851814676,
+            "lon": -74.11132881800887,
+            "population": 30762,
+            "crime_case": 13,
+            "crime_rate": 0.00042259931083804694
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 207,
+        "fields": {
+            "name": "South Beach",
+            "borough": "Staten Island",
+            "description": "POINT(40.5802474135096 -74.07955292539827)",
+            "lat": 40.5802474135096,
+            "lon": -74.07955292539827,
+            "population": 264998,
+            "crime_case": 20,
+            "crime_rate": 7.547226771522804e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 208,
+        "fields": {
+            "name": "Port Richmond",
+            "borough": "Staten Island",
+            "description": "POINT(40.63366930554369 -74.12943426797015)",
+            "lat": 40.63366930554369,
+            "lon": -74.12943426797015,
+            "population": 176346,
+            "crime_case": 252,
+            "crime_rate": 0.0014290088802694702
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 209,
+        "fields": {
+            "name": "Mariner's Harbor",
+            "borough": "Staten Island",
+            "description": "POINT(40.63254639048117 -74.15008537046988)",
+            "lat": 40.63254639048117,
+            "lon": -74.15008537046988,
+            "population": 97608,
+            "crime_case": 81,
+            "crime_rate": 0.0008298500122940742
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 210,
+        "fields": {
+            "name": "Port Ivory",
+            "borough": "Staten Island",
+            "description": "POINT(40.63968297845546 -74.17464532993549)",
+            "lat": 40.63968297845546,
+            "lon": -74.17464532993549,
+            "population": 95029,
+            "crime_case": 35,
+            "crime_rate": 0.000368308621578676
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 211,
+        "fields": {
+            "name": "Castleton Corners",
+            "borough": "Staten Island",
+            "description": "POINT(40.613335937667465 -74.1191805853485)",
+            "lat": 40.613335937667465,
+            "lon": -74.1191805853485,
+            "population": 91429,
+            "crime_case": 60,
+            "crime_rate": 0.0006562469238425444
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 212,
+        "fields": {
+            "name": "New Springville",
+            "borough": "Staten Island",
+            "description": "POINT(40.59425237916174 -74.16496031329834)",
+            "lat": 40.59425237916174,
+            "lon": -74.16496031329834,
+            "population": 241814,
+            "crime_case": 21,
+            "crime_rate": 8.68436070698967e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 213,
+        "fields": {
+            "name": "Travis",
+            "borough": "Staten Island",
+            "description": "POINT(40.58631375103285 -74.19073717538123)",
+            "lat": 40.58631375103285,
+            "lon": -74.19073717538123,
+            "population": 39309,
+            "crime_case": 13,
+            "crime_rate": 0.0003307130682540894
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 214,
+        "fields": {
+            "name": "New Dorp",
+            "borough": "Staten Island",
+            "description": "POINT(40.57257231820636 -74.11647943606387)",
+            "lat": 40.57257231820636,
+            "lon": -74.11647943606387,
+            "population": 241814,
+            "crime_case": 91,
+            "crime_rate": 0.0003763222973028857
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 215,
+        "fields": {
+            "name": "Oakwood",
+            "borough": "Staten Island",
+            "description": "POINT(40.558462243288844 -74.12156593771904)",
+            "lat": 40.558462243288844,
+            "lon": -74.12156593771904,
+            "population": 22266,
+            "crime_case": 81,
+            "crime_rate": 0.003637833468067906
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 216,
+        "fields": {
+            "name": "Great Kills",
+            "borough": "Staten Island",
+            "description": "POINT(40.54948022871365 -74.14932381490999)",
+            "lat": 40.54948022871365,
+            "lon": -74.14932381490999,
+            "population": 41680,
+            "crime_case": 90,
+            "crime_rate": 0.002159309021113244
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 217,
+        "fields": {
+            "name": "Eltingville",
+            "borough": "Staten Island",
+            "description": "POINT(40.54223074745079 -74.16433080419367)",
+            "lat": 40.54223074745079,
+            "lon": -74.16433080419367,
+            "population": 26376,
+            "crime_case": 82,
+            "crime_rate": 0.00310888686684865
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 218,
+        "fields": {
+            "name": "Annadale",
+            "borough": "Staten Island",
+            "description": "POINT(40.538114174745104 -74.17854866165885)",
+            "lat": 40.538114174745104,
+            "lon": -74.17854866165885,
+            "population": 26376,
+            "crime_case": 37,
+            "crime_rate": 0.001402790415529269
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 219,
+        "fields": {
+            "name": "Woodrow",
+            "borough": "Staten Island",
+            "description": "POINT(40.53745265012707 -74.22135055371616)",
+            "lat": 40.53745265012707,
+            "lon": -74.22135055371616,
+            "population": 18894,
+            "crime_case": 13,
+            "crime_rate": 0.0006880491161215201
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 220,
+        "fields": {
+            "name": "Tottenville",
+            "borough": "Staten Island",
+            "description": "POINT(40.505333761156464 -74.24656934235291)",
+            "lat": 40.505333761156464,
+            "lon": -74.24656934235291,
+            "population": 41063,
+            "crime_case": 59,
+            "crime_rate": 0.0014368165988846407
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 221,
+        "fields": {
+            "name": "Tompkinsville",
+            "borough": "Staten Island",
+            "description": "POINT(40.63731606711036 -74.08055351790122)",
+            "lat": 40.63731606711036,
+            "lon": -74.08055351790122,
+            "population": null,
+            "crime_case": 185,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 222,
+        "fields": {
+            "name": "Silver Lake",
+            "borough": "Staten Island",
+            "description": "POINT(40.619193107926804 -74.09629029235465)",
+            "lat": 40.619193107926804,
+            "lon": -74.09629029235465,
+            "population": 16784,
+            "crime_case": 39,
+            "crime_rate": 0.0023236415633937084
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 223,
+        "fields": {
+            "name": "Sunnyside",
+            "borough": "Staten Island",
+            "description": "POINT(40.612760157564935 -74.09712552178537)",
+            "lat": 40.612760157564935,
+            "lon": -74.09712552178537,
+            "population": 374953,
+            "crime_case": 175,
+            "crime_rate": 0.00046672516288708183
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 224,
+        "fields": {
+            "name": "Ditmas Park",
+            "borough": "Brooklyn",
+            "description": "POINT(40.64367518334101 -73.96101312466787)",
+            "lat": 40.64367518334101,
+            "lon": -73.96101312466787,
+            "population": null,
+            "crime_case": 296,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 225,
+        "fields": {
+            "name": "Wingate",
+            "borough": "Brooklyn",
+            "description": "POINT(40.660946561881154 -73.93718680559321)",
+            "lat": 40.660946561881154,
+            "lon": -73.93718680559321,
+            "population": 70300,
+            "crime_case": 549,
+            "crime_rate": 0.0078093883357041255
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 226,
+        "fields": {
+            "name": "Rugby",
+            "borough": "Brooklyn",
+            "description": "POINT(40.65557231328081 -73.92688212616963)",
+            "lat": 40.65557231328081,
+            "lon": -73.92688212616963,
+            "population": 57934,
+            "crime_case": 586,
+            "crime_rate": 0.010114958400939
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 227,
+        "fields": {
+            "name": "Park Hill",
+            "borough": "Staten Island",
+            "description": "POINT(40.60919044434562 -74.08015734936303)",
+            "lat": 40.60919044434562,
+            "lon": -74.08015734936303,
+            "population": null,
+            "crime_case": 153,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 228,
+        "fields": {
+            "name": "Westerleigh",
+            "borough": "Staten Island",
+            "description": "POINT(40.62109047275413 -74.13304143951713)",
+            "lat": 40.62109047275413,
+            "lon": -74.13304143951713,
+            "population": 23790,
+            "crime_case": 56,
+            "crime_rate": 0.002353930222782682
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 229,
+        "fields": {
+            "name": "Graniteville",
+            "borough": "Staten Island",
+            "description": "POINT(40.62017151223193 -74.1531524638777)",
+            "lat": 40.62017151223193,
+            "lon": -74.1531524638777,
+            "population": 27957,
+            "crime_case": 181,
+            "crime_rate": 0.006474228279142969
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 230,
+        "fields": {
+            "name": "Arlington",
+            "borough": "Staten Island",
+            "description": "POINT(40.63532509911496 -74.16510420241131)",
+            "lat": 40.63532509911496,
+            "lon": -74.16510420241131,
+            "population": 27957,
+            "crime_case": 136,
+            "crime_rate": 0.004864613513610187
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 231,
+        "fields": {
+            "name": "Arrochar",
+            "borough": "Staten Island",
+            "description": "POINT(40.596312571276776 -74.06712363225581)",
+            "lat": 40.596312571276776,
+            "lon": -74.06712363225581,
+            "population": 15238,
+            "crime_case": 63,
+            "crime_rate": 0.00413440084000525
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 232,
+        "fields": {
+            "name": "Grasmere",
+            "borough": "Staten Island",
+            "description": "POINT(40.59826835959995 -74.07667436279057)",
+            "lat": 40.59826835959995,
+            "lon": -74.07667436279057,
+            "population": 15238,
+            "crime_case": 69,
+            "crime_rate": 0.004528153300958131
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 233,
+        "fields": {
+            "name": "Old Town",
+            "borough": "Staten Island",
+            "description": "POINT(40.596328913795176 -74.08751118005587)",
+            "lat": 40.596328913795176,
+            "lon": -74.08751118005587,
+            "population": 70965,
+            "crime_case": 62,
+            "crime_rate": 0.0008736701190727823
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 234,
+        "fields": {
+            "name": "Dongan Hills",
+            "borough": "Staten Island",
+            "description": "POINT(40.58867294819932 -74.09639905312528)",
+            "lat": 40.58867294819932,
+            "lon": -74.09639905312528,
+            "population": 295956,
+            "crime_case": 91,
+            "crime_rate": 0.0003074781386422306
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 235,
+        "fields": {
+            "name": "Midland Beach",
+            "borough": "Staten Island",
+            "description": "POINT(40.573526905742874 -74.09348266303599)",
+            "lat": 40.573526905742874,
+            "lon": -74.09348266303599,
+            "population": 264998,
+            "crime_case": 29,
+            "crime_rate": 0.00010943478818708066
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 236,
+        "fields": {
+            "name": "Grant City",
+            "borough": "Staten Island",
+            "description": "POINT(40.57621558711792 -74.10585598545441)",
+            "lat": 40.57621558711792,
+            "lon": -74.10585598545441,
+            "population": 172590,
+            "crime_case": 82,
+            "crime_rate": 0.0004751144330494235
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 237,
+        "fields": {
+            "name": "New Dorp Beach",
+            "borough": "Staten Island",
+            "description": "POINT(40.56425549307338 -74.10432707469131)",
+            "lat": 40.56425549307338,
+            "lon": -74.10432707469131,
+            "population": 486570,
+            "crime_case": 50,
+            "crime_rate": 0.00010276013728754342
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 238,
+        "fields": {
+            "name": "Bay Terrace",
+            "borough": "Staten Island",
+            "description": "POINT(40.55398800858466 -74.13916622175775)",
+            "lat": 40.55398800858466,
+            "lon": -74.13916622175775,
+            "population": 340317,
+            "crime_case": 116,
+            "crime_rate": 0.0003408586700047309
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 239,
+        "fields": {
+            "name": "Huguenot",
+            "borough": "Staten Island",
+            "description": "POINT(40.53191192048964 -74.19174105747821)",
+            "lat": 40.53191192048964,
+            "lon": -74.19174105747821,
+            "population": 26376,
+            "crime_case": 35,
+            "crime_rate": 0.001326963906581741
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 240,
+        "fields": {
+            "name": "Pleasant Plains",
+            "borough": "Staten Island",
+            "description": "POINT(40.52469937611818 -74.21983106616784)",
+            "lat": 40.52469937611818,
+            "lon": -74.21983106616784,
+            "population": null,
+            "crime_case": 22,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 241,
+        "fields": {
+            "name": "Butler Manor",
+            "borough": "Staten Island",
+            "description": "POINT(40.506081653463085 -74.22950350260034)",
+            "lat": 40.506081653463085,
+            "lon": -74.22950350260034,
+            "population": 24356,
+            "crime_case": 20,
+            "crime_rate": 0.0008211528986697323
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 242,
+        "fields": {
+            "name": "Charleston",
+            "borough": "Staten Island",
+            "description": "POINT(40.530531482833176 -74.23215775896533)",
+            "lat": 40.530531482833176,
+            "lon": -74.23215775896533,
+            "population": 18332,
+            "crime_case": 79,
+            "crime_rate": 0.004309404320314205
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 243,
+        "fields": {
+            "name": "Rossville",
+            "borough": "Staten Island",
+            "description": "POINT(40.549404006500765 -74.21572851113959)",
+            "lat": 40.549404006500765,
+            "lon": -74.21572851113959,
+            "population": 18894,
+            "crime_case": 39,
+            "crime_rate": 0.00206414734836456
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 244,
+        "fields": {
+            "name": "Arden Heights",
+            "borough": "Staten Island",
+            "description": "POINT(40.549285822783254 -74.185886745839)",
+            "lat": 40.549285822783254,
+            "lon": -74.185886745839,
+            "population": 839707,
+            "crime_case": 68,
+            "crime_rate": 8.098062776659001e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 245,
+        "fields": {
+            "name": "Greenridge",
+            "borough": "Staten Island",
+            "description": "POINT(40.559712496342954 -74.19150620964295)",
+            "lat": 40.559712496342954,
+            "lon": -74.19150620964295,
+            "population": 80539,
+            "crime_case": 55,
+            "crime_rate": 0.0006828989682017408
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 246,
+        "fields": {
+            "name": "Heartland Village",
+            "borough": "Staten Island",
+            "description": "POINT(40.589138948752854 -74.15902208156608)",
+            "lat": 40.589138948752854,
+            "lon": -74.15902208156608,
+            "population": 422927,
+            "crime_case": 199,
+            "crime_rate": 0.00047053037521841833
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 247,
+        "fields": {
+            "name": "Chelsea",
+            "borough": "Staten Island",
+            "description": "POINT(40.59472602746298 -74.18956045519697)",
+            "lat": 40.59472602746298,
+            "lon": -74.18956045519697,
+            "population": 55839,
+            "crime_case": 568,
+            "crime_rate": 0.010172101935922922
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 248,
+        "fields": {
+            "name": "Bloomfield",
+            "borough": "Staten Island",
+            "description": "POINT(40.60577868452362 -74.18725638381574)",
+            "lat": 40.60577868452362,
+            "lon": -74.18725638381574,
+            "population": 39309,
+            "crime_case": 26,
+            "crime_rate": 0.0006614261365081788
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 249,
+        "fields": {
+            "name": "Bulls Head",
+            "borough": "Staten Island",
+            "description": "POINT(40.60959180042034 -74.15940948657129)",
+            "lat": 40.60959180042034,
+            "lon": -74.15940948657129,
+            "population": null,
+            "crime_case": 110,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 250,
+        "fields": {
+            "name": "Carnegie Hill",
+            "borough": "Manhattan",
+            "description": "POINT(40.78268256712574 -73.95325646837121)",
+            "lat": 40.78268256712574,
+            "lon": -73.95325646837121,
+            "population": 63664,
+            "crime_case": 612,
+            "crime_rate": 0.009612968082432772
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 251,
+        "fields": {
+            "name": "Noho",
+            "borough": "Manhattan",
+            "description": "POINT(40.72325901885772 -73.98843368023604)",
+            "lat": 40.72325901885772,
+            "lon": -73.98843368023604,
+            "population": null,
+            "crime_case": 624,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 252,
+        "fields": {
+            "name": "Civic Center",
+            "borough": "Manhattan",
+            "description": "POINT(40.715228920462856 -74.00541529873362)",
+            "lat": 40.715228920462856,
+            "lon": -74.00541529873362,
+            "population": 36757,
+            "crime_case": 459,
+            "crime_rate": 0.012487417362679217
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 253,
+        "fields": {
+            "name": "Midtown South",
+            "borough": "Manhattan",
+            "description": "POINT(40.748509664312245 -73.98871313285254)",
+            "lat": 40.748509664312245,
+            "lon": -73.98871313285254,
+            "population": 117662,
+            "crime_case": 1338,
+            "crime_rate": 0.011371555812411824
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 254,
+        "fields": {
+            "name": "Richmond Town",
+            "borough": "Staten Island",
+            "description": "POINT(40.56960594275509 -74.13405729862578)",
+            "lat": 40.56960594275509,
+            "lon": -74.13405729862578,
+            "population": 141477,
+            "crime_case": 47,
+            "crime_rate": 0.00033220947574517413
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 255,
+        "fields": {
+            "name": "Shore Acres",
+            "borough": "Staten Island",
+            "description": "POINT(40.609719340792886 -74.06667766061778)",
+            "lat": 40.609719340792886,
+            "lon": -74.06667766061778,
+            "population": null,
+            "crime_case": 26,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 256,
+        "fields": {
+            "name": "Clifton",
+            "borough": "Staten Island",
+            "description": "POINT(40.61917845202847 -74.07264244548406)",
+            "lat": 40.61917845202847,
+            "lon": -74.07264244548406,
+            "population": 19834,
+            "crime_case": 56,
+            "crime_rate": 0.002823434506403146
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 257,
+        "fields": {
+            "name": "Concord",
+            "borough": "Staten Island",
+            "description": "POINT(40.604473189687944 -74.08402364740365)",
+            "lat": 40.604473189687944,
+            "lon": -74.08402364740365,
+            "population": 40676,
+            "crime_case": 35,
+            "crime_rate": 0.0008604582554823483
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 258,
+        "fields": {
+            "name": "Emerson Hill",
+            "borough": "Staten Island",
+            "description": "POINT(40.606794394801035 -74.09776206972529)",
+            "lat": 40.606794394801035,
+            "lon": -74.09776206972529,
+            "population": null,
+            "crime_case": 22,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 259,
+        "fields": {
+            "name": "Randall Manor",
+            "borough": "Staten Island",
+            "description": "POINT(40.63563000681155 -74.09805062373894)",
+            "lat": 40.63563000681155,
+            "lon": -74.09805062373894,
+            "population": 24356,
+            "crime_case": 49,
+            "crime_rate": 0.002011824601740844
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 260,
+        "fields": {
+            "name": "Howland Hook",
+            "borough": "Staten Island",
+            "description": "POINT(40.638432837947995 -74.1862233174983)",
+            "lat": 40.638432837947995,
+            "lon": -74.1862233174983,
+            "population": 38327,
+            "crime_rate": 0
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 261,
+        "fields": {
+            "name": "Elm Park",
+            "borough": "Staten Island",
+            "description": "POINT(40.63014674119387 -74.14181678968897)",
+            "lat": 40.63014674119387,
+            "lon": -74.14181678968897,
+            "population": null,
+            "crime_case": 122,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 262,
+        "fields": {
+            "name": "Remsen Village",
+            "borough": "Brooklyn",
+            "description": "POINT(40.65211745179353 -73.91665331978055)",
+            "lat": 40.65211745179353,
+            "lon": -73.91665331978055,
+            "population": 392165,
+            "crime_case": 509,
+            "crime_rate": 0.001297923068096337
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 263,
+        "fields": {
+            "name": "New Lots",
+            "borough": "Brooklyn",
+            "description": "POINT(40.66274427969663 -73.885117763793)",
+            "lat": 40.66274427969663,
+            "lon": -73.885117763793,
+            "population": 241814,
+            "crime_case": 784,
+            "crime_rate": 0.0032421613306094768
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 264,
+        "fields": {
+            "name": "Paerdegat Basin",
+            "borough": "Brooklyn",
+            "description": "POINT(40.63131755039671 -73.90233474295843)",
+            "lat": 40.63131755039671,
+            "lon": -73.90233474295843,
+            "population": 42940,
+            "crime_case": 142,
+            "crime_rate": 0.003306939916162087
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 265,
+        "fields": {
+            "name": "Mill Basin",
+            "borough": "Brooklyn",
+            "description": "POINT(40.615974239623405 -73.9151539155041)",
+            "lat": 40.615974239623405,
+            "lon": -73.9151539155041,
+            "population": 42940,
+            "crime_case": 161,
+            "crime_rate": 0.0037494177922682815
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 266,
+        "fields": {
+            "name": "Jamaica Hills",
+            "borough": "Queens",
+            "description": "POINT(40.71145964370486 -73.796464620816)",
+            "lat": 40.71145964370486,
+            "lon": -73.796464620816,
+            "population": 409047,
+            "crime_case": 214,
+            "crime_rate": 0.0005231672643974897
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 267,
+        "fields": {
+            "name": "Utopia",
+            "borough": "Queens",
+            "description": "POINT(40.7335002542976 -73.79671678028357)",
+            "lat": 40.7335002542976,
+            "lon": -73.79671678028357,
+            "population": 58049,
+            "crime_case": 55,
+            "crime_rate": 0.0009474754087064376
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 268,
+        "fields": {
+            "name": "Pomonok",
+            "borough": "Queens",
+            "description": "POINT(40.73493618075482 -73.80486120040544)",
+            "lat": 40.73493618075482,
+            "lon": -73.80486120040544,
+            "population": 31734,
+            "crime_case": 274,
+            "crime_rate": 0.00863427238923552
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 269,
+        "fields": {
+            "name": "Astoria Heights",
+            "borough": "Queens",
+            "description": "POINT(40.770317392998244 -73.89467996270581)",
+            "lat": 40.770317392998244,
+            "lon": -73.89467996270581,
+            "population": 957676,
+            "crime_case": 152,
+            "crime_rate": 0.00015871756209824618
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 270,
+        "fields": {
+            "name": "Claremont Village",
+            "borough": "Bronx",
+            "description": "POINT(40.83142834161551 -73.90119903387674)",
+            "lat": 40.83142834161551,
+            "lon": -73.90119903387674,
+            "population": 451392,
+            "crime_case": 974,
+            "crime_rate": 0.002157769743371615
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 271,
+        "fields": {
+            "name": "Concourse Village",
+            "borough": "Bronx",
+            "description": "POINT(40.82478049084294 -73.91584652759016)",
+            "lat": 40.82478049084294,
+            "lon": -73.91584652759016,
+            "population": 472398,
+            "crime_case": 1020,
+            "crime_rate": 0.0021591962709410287
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 272,
+        "fields": {
+            "name": "Mount Eden",
+            "borough": "Bronx",
+            "description": "POINT(40.843826176716576 -73.91655551964426)",
+            "lat": 40.843826176716576,
+            "lon": -73.91655551964426,
+            "population": 52649,
+            "crime_case": 399,
+            "crime_rate": 0.007578491519307109
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 273,
+        "fields": {
+            "name": "Mount Hope",
+            "borough": "Bronx",
+            "description": "POINT(40.84884160724669 -73.90829930881995)",
+            "lat": 40.84884160724669,
+            "lon": -73.90829930881995,
+            "population": 93325,
+            "crime_case": 943,
+            "crime_rate": 0.01010447361371551
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 274,
+        "fields": {
+            "name": "Sutton Place",
+            "borough": "Manhattan",
+            "description": "POINT(40.76028033131378 -73.9635561409431)",
+            "lat": 40.76028033131378,
+            "lon": -73.9635561409431,
+            "population": null,
+            "crime_case": 475,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 275,
+        "fields": {
+            "name": "Hunters Point",
+            "borough": "Queens",
+            "description": "POINT(40.74341409007358 -73.95386782130753)",
+            "lat": 40.74341409007358,
+            "lon": -73.95386782130753,
+            "population": 185960,
+            "crime_case": 222,
+            "crime_rate": 0.001193805119380512
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 276,
+        "fields": {
+            "name": "Turtle Bay",
+            "borough": "Manhattan",
+            "description": "POINT(40.75204236950726 -73.96770824581843)",
+            "lat": 40.75204236950726,
+            "lon": -73.96770824581843,
+            "population": 319538,
+            "crime_case": 237,
+            "crime_rate": 0.0007416958233449543
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 277,
+        "fields": {
+            "name": "Tudor City",
+            "borough": "Manhattan",
+            "description": "POINT(40.74691741074023 -73.97121928722272)",
+            "lat": 40.74691741074023,
+            "lon": -73.97121928722272,
+            "population": 172590,
+            "crime_case": 68,
+            "crime_rate": 0.00039399733472391215
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 278,
+        "fields": {
+            "name": "Stuyvesant Town",
+            "borough": "Manhattan",
+            "description": "POINT(40.73099955477065 -73.9740517046921)",
+            "lat": 40.73099955477065,
+            "lon": -73.9740517046921,
+            "population": 103945,
+            "crime_case": 64,
+            "crime_rate": 0.0006157102313723604
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 279,
+        "fields": {
+            "name": "Flatiron",
+            "borough": "Manhattan",
+            "description": "POINT(40.73967304763847 -73.99094710528267)",
+            "lat": 40.73967304763847,
+            "lon": -73.99094710528267,
+            "population": 55839,
+            "crime_case": 693,
+            "crime_rate": 0.01241068070703272
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 280,
+        "fields": {
+            "name": "Sunnyside Gardens",
+            "borough": "Queens",
+            "description": "POINT(40.745651806080794 -73.9181928643169)",
+            "lat": 40.745651806080794,
+            "lon": -73.9181928643169,
+            "population": 669290,
+            "crime_case": 377,
+            "crime_rate": 0.0005632834795081355
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 281,
+        "fields": {
+            "name": "Blissville",
+            "borough": "Queens",
+            "description": "POINT(40.73725071694501 -73.93244235260185)",
+            "lat": 40.73725071694501,
+            "lon": -73.93244235260185,
+            "population": null,
+            "crime_case": 97,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 282,
+        "fields": {
+            "name": "Fulton Ferry",
+            "borough": "Brooklyn",
+            "description": "POINT(40.70328109093018 -73.99550751888422)",
+            "lat": 40.70328109093018,
+            "lon": -73.99550751888422,
+            "population": null,
+            "crime_case": 28,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 283,
+        "fields": {
+            "name": "Vinegar Hill",
+            "borough": "Brooklyn",
+            "description": "POINT(40.703321498828785 -73.981116035924)",
+            "lat": 40.703321498828785,
+            "lon": -73.981116035924,
+            "population": 30847,
+            "crime_case": 96,
+            "crime_rate": 0.0031121340811099945
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 284,
+        "fields": {
+            "name": "Weeksville",
+            "borough": "Brooklyn",
+            "description": "POINT(40.67503986503241 -73.93053108817347)",
+            "lat": 40.67503986503241,
+            "lon": -73.93053108817347,
+            "population": null,
+            "crime_case": 857,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 285,
+        "fields": {
+            "name": "Broadway Junction",
+            "borough": "Brooklyn",
+            "description": "POINT(40.67786104769535 -73.90331684852606)",
+            "lat": 40.67786104769535,
+            "lon": -73.90331684852606,
+            "population": 26711,
+            "crime_case": 630,
+            "crime_rate": 0.023585788626408595
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 286,
+        "fields": {
+            "name": "Dumbo",
+            "borough": "Brooklyn",
+            "description": "POINT(40.70317632822696 -73.98875280745047)",
+            "lat": 40.70317632822696,
+            "lon": -73.98875280745047,
+            "population": 30847,
+            "crime_case": 103,
+            "crime_rate": 0.0033390605245242648
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 287,
+        "fields": {
+            "name": "Manor Heights",
+            "borough": "Staten Island",
+            "description": "POINT(40.60180957631448 -74.12059399718008)",
+            "lat": 40.60180957631448,
+            "lon": -74.12059399718008,
+            "population": 864063,
+            "crime_case": 77,
+            "crime_rate": 8.91138724838351e-05
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 288,
+        "fields": {
+            "name": "Willowbrook",
+            "borough": "Staten Island",
+            "description": "POINT(40.60370692627375 -74.13208447484305)",
+            "lat": 40.60370692627375,
+            "lon": -74.13208447484305,
+            "population": null,
+            "crime_case": 52,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 289,
+        "fields": {
+            "name": "Sandy Ground",
+            "borough": "Staten Island",
+            "description": "POINT(40.5411399220918 -74.21776636068574)",
+            "lat": 40.5411399220918,
+            "lon": -74.21776636068574,
+            "population": null,
+            "crime_case": 24,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 290,
+        "fields": {
+            "name": "Egbertville",
+            "borough": "Staten Island",
+            "description": "POINT(40.579118742961256 -74.12727240604953)",
+            "lat": 40.579118742961256,
+            "lon": -74.12727240604953,
+            "population": null,
+            "crime_case": 10,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 291,
+        "fields": {
+            "name": "Roxbury",
+            "borough": "Queens",
+            "description": "POINT(40.567375889570364 -73.89213760232829)",
+            "lat": 40.567375889570364,
+            "lon": -73.89213760232829,
+            "population": null,
+            "crime_case": 4,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 292,
+        "fields": {
+            "name": "Homecrest",
+            "borough": "Brooklyn",
+            "description": "POINT(40.59852509513729 -73.9591845942871)",
+            "lat": 40.59852509513729,
+            "lon": -73.9591845942871,
+            "population": 45679,
+            "crime_case": 270,
+            "crime_rate": 0.005910812408327678
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 293,
+        "fields": {
+            "name": "Middle Village",
+            "borough": "Queens",
+            "description": "POINT(40.71641451115823 -73.8811431920061)",
+            "lat": 40.71641451115823,
+            "lon": -73.8811431920061,
+            "population": 392165,
+            "crime_case": 113,
+            "crime_rate": 0.000288144021011564
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 294,
+        "fields": {
+            "name": "Prince's Bay",
+            "borough": "Staten Island",
+            "description": "POINT(40.526264067348166 -74.20152556457666)",
+            "lat": 40.526264067348166,
+            "lon": -74.20152556457666,
+            "population": 319538,
+            "crime_case": 49,
+            "crime_rate": 0.0001533463938561298
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 295,
+        "fields": {
+            "name": "Lighthouse Hill",
+            "borough": "Staten Island",
+            "description": "POINT(40.576506293794935 -74.13792663771576)",
+            "lat": 40.576506293794935,
+            "lon": -74.13792663771576,
+            "population": null,
+            "crime_case": 2,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 296,
+        "fields": {
+            "name": "Richmond Valley",
+            "borough": "Staten Island",
+            "description": "POINT(40.519541457489126 -74.22957080626948)",
+            "lat": 40.519541457489126,
+            "lon": -74.22957080626948,
+            "population": 99359,
+            "crime_case": 30,
+            "crime_rate": 0.0003019354059521533
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 297,
+        "fields": {
+            "name": "Malba",
+            "borough": "Queens",
+            "description": "POINT(40.790601556701525 -73.8266775713865)",
+            "lat": 40.790601556701525,
+            "lon": -73.8266775713865,
+            "population": null,
+            "crime_case": 42,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 298,
+        "fields": {
+            "name": "Highland Park",
+            "borough": "Brooklyn",
+            "description": "POINT(40.68248551101694 -73.8902809854761)",
+            "lat": 40.68248551101694,
+            "lon": -73.8902809854761,
+            "population": null,
+            "crime_case": 215,
+            "crime_rate": null
+        }
+    },
+    {
+        "model": "neighborhood.neighborhood",
+        "pk": 299,
+        "fields": {
+            "name": "Madison",
+            "borough": "Brooklyn",
+            "description": "POINT(40.609377701137696 -73.948415153289)",
+            "lat": 40.609377701137696,
+            "lon": -73.948415153289,
+            "population": 39076,
+            "crime_case": 173,
+            "crime_rate": 0.0044272699355102875
+        }
+    }
+]
