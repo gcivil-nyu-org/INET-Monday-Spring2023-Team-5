@@ -33,10 +33,26 @@
     <div>
     {% for listing in listings %}
       <p>{{ listing.title }}</p>
-      <a href="{% url 'view_listing' listing.id %}"><button>View</button></a>
-      <!-- add update_listing and delete_listing views as well -->
+      <a href="{% url 'view_listing' listing.id %}">
+        <button class="btn btn-primary">View</button>
+      </a>
+      <button onclick="confirmDelete({{ listing.id }})" class="btn btn-danger">Delete</button>
+      <form id="delete-form-{{ listing.id }}" method="post" action="{% url 'delete_listing' listing.id %}" style="display: none;">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ listing.id }}">
+      </form>
+      <a href="{% url 'update_listing' listing.id %}">
+        <button class="btn btn-primary">Update</button>
+      </a>
     {% endfor %}
     </div>
+    <script>
+      function confirmDelete(id) {
+          if (confirm("Are you sure you want to delete this listing?")) {
+              document.getElementById('delete-form-' + id).submit();
+            }
+      }
+    </script>
   </div>
 </div>
 

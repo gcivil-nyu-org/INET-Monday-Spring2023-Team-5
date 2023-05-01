@@ -205,6 +205,7 @@ $orange: #f15524;
 .account-update-business,
 .account-my-listings,
 .account-add-listing,
+.account-update-listing,
 .user-account {
   section {
     & > div {
@@ -340,6 +341,7 @@ $orange: #f15524;
   .account-update-business,
   .account-my-listings,
   .account-add-listing,
+  .account-update-listing,
   .user-account {
     section {
       & > div {
@@ -432,6 +434,7 @@ $orange: #f15524;
   .account-update-business,
   .account-my-listings,
   .account-add-listing,
+  .account-update-listing,
   .user-account {
     section {
       flex-direction: column !important;
