@@ -21,6 +21,8 @@ class TestModels(TestCase):
             description="Test description",
             lat=0,
             lon=0,
+            population=10000,
+            crimes=10,
         )
         self.business = Business.objects.create(
             name="Test Business",
@@ -59,7 +61,10 @@ class TestModels(TestCase):
         self.assertEqual(neighborhood.description, "Test description")
         self.assertEqual(neighborhood.lat, 0)
         self.assertEqual(neighborhood.lon, 0)
+        self.assertEqual(neighborhood.population, 10000)
+        self.assertEqual(neighborhood.crimes, 10)
         self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
+        self.assertEqual(neighborhood.crime_rate(), "10.00%")
 
     def test_listing_model(self):
         listing = self.listing
