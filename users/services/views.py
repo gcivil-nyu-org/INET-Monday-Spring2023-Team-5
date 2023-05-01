@@ -84,6 +84,36 @@ def view(request, business_id):
 
 
 @login_required
+def update(request, business_id):
+    business = Business.objects.get(id=business_id)
+
+    if request.method == "POST":
+        business = Business.objects.get(id=business_id)
+        business.name = request.POST["name"]
+        business.address = request.POST["address"]
+        business.email = request.POST["email"]
+        business.phone = request.POST["phone"]
+        business.neighborhood = Neighborhood.objects.get(
+            pk=request.POST["neighborhood"]
+        )
+        business.save()
+
+        messages.success(request, "Business updated successfully")
+
+        return HttpResponseRedirect(reverse("user_account"))
+
+    neighborhoods = Neighborhood.objects.all()
+    context = {
+        "business": business,
+        "neighborhoods": neighborhoods,
+        "page": "account-update-business",
+    }
+    context["firstname"] = request.user.first_name
+
+    return render(request, "services/update_business.html", context)
+
+
+@login_required
 def delete(request, business_id):
     if request.method == "POST":
         business = Business.objects.get(id=business_id)

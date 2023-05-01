@@ -269,3 +269,66 @@ class ServicesByBoroughTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(self.business1, response.context["businesses"])
         self.assertNotIn(self.business2, response.context["businesses"])
+
+
+class UpdateBusinessViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser@example.com",
+            email="testuser@example.com",
+            password="testpass",
+            first_name="Test",
+            last_name="User",
+        )
+        self.neighborhood = Neighborhood.objects.create(
+            name="Test Neighborhood",
+            borough="Test Borough",
+            description="Test description",
+            lat=0,
+            lon=0,
+        )
+        self.business = Business.objects.create(
+            name="Test Business",
+            address="Test Address",
+            email="test@test.com",
+            phone="1234567890",
+            owner=self.user,
+            neighborhood=self.neighborhood,
+        )
+
+    def test_update_business(self):
+        self.client.login(username="testuser@example.com", password="testpass")
+
+        response = self.client.get(reverse("update_business", args=[self.business.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "services/update_business.html")
+
+        response = self.client.post(
+            reverse("update_business", args=[self.business.id]),
+            {
+                "name": "New Business Name",
+                "address": "New Business Address",
+                "email": "newemail@test.com",
+                "phone": "0987654321",
+                "neighborhood": self.business.neighborhood.id,
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse("user_account"))
+
+        self.business.refresh_from_db()
+        self.assertEqual(self.business.name, "New Business Name")
+        self.assertEqual(self.business.address, "New Business Address")
+        self.assertEqual(self.business.email, "newemail@test.com")
+        self.assertEqual(self.business.phone, "0987654321")
+
+    def test_update_business_requires_login(self):
+        response = self.client.get(reverse("update_business", args=[self.business.id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            "/accounts/login/?next=/accounts/business/{}/update/".format(
+                self.business.id
+            ),
+        )

@@ -15,6 +15,9 @@
         {% csrf_token %}
         <input type="hidden" name="id" value="{{ business.id }}">
       </form>
+      <a href="{% url 'update_business' business.id %}">
+          <button class="btn btn-primary">Update</button>
+      </a>
     {% endfor %}
     </div>
     <script>
