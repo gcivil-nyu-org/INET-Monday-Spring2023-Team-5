@@ -197,7 +197,42 @@
       map.on('click', 'crime-layer', (e) => {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(e.features[0].properties.ntaname + '<br/> <br/> Crimes: ' + e.features[0].properties.crimes + 'cases')
+        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Crimes: ' + e.features[0].properties.crimes + ' cases</p>')
+        .addTo(map);
+
+        target = e.features[0].properties.ntaname;
+
+        var targetArray = target.split("-");
+
+        var lowerCaseArray = [];
+
+        targetArray.forEach(target => lowerCaseArray.push(target.toLowerCase()));
+
+        var elements = document.querySelectorAll('.sidebar-list .listing');
+        var nodata = document.getElementById('no-data');
+
+        var found = false;
+
+        for (var i = 0; i < elements.length; ++i) {
+          if(!lowerCaseArray.includes(elements[i].id.toLowerCase())){
+            elements[i].style.display = "none";
+          } else{
+            elements[i].style.display = "block";
+            found = true;
+          }
+        }
+
+        if(!found){
+          nodata.style.display = "block";
+        } else{
+          nodata.style.display = "none";
+        }
+      });
+
+      map.on('click', 'noise-layer', (e) => {
+        new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Noise: ' + e.features[0].properties.noise + ' cases</p>')
         .addTo(map);
 
         target = e.features[0].properties.ntaname;
