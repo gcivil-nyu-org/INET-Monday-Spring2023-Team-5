@@ -152,6 +152,27 @@ body {
     .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
       display: none;
     }
+
+    #neighborhood-map-overlay {
+      position: absolute;
+      top: 3%;
+      left: 3%;
+      width: 12rem;
+      background-color: white;
+      padding: 0.8rem;
+      border-radius: 0.2rem;
+      box-shadow: 1px 1px 1px 1px #00000021;
+
+      fieldset{
+        display: flex;
+        flex-direction: column;
+
+        label{
+          font-family: "Rubik", Copperplate, Papyrus, fantasy;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   h1 {

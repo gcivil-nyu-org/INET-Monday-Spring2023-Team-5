@@ -4,6 +4,18 @@
 <main id="neighborhoods">
   <section class="map-container">
     <div id="neighborhood-map"></div>
+    <div id="neighborhood-map-overlay">
+      <div id="neighborhood-map-overlay-inner">
+        <fieldset>
+          <label>Select Data</label>
+          <select id="layer" name="layer">
+            <option value="neighborhoods-layer">General</option>
+            <option value="noise-layer">Noise</option>
+            <option value="crime-layer">Crime</option>
+          </select>
+        </fieldset>
+      </div>
+    </div>
   </section>
   <section class="sidebar-container">
     <div>
@@ -13,7 +25,9 @@
         map to learn more.
       </p>
       <div class="sort-filter">
-        <a class="mapFilter" id="reset">{%bs_icon 'arrow-clockwise' size='1rem' %}</a>
+        <a class="mapFilter" id="reset"
+          >{%bs_icon 'arrow-clockwise' size='1rem' %}</a
+        >
         <a class="mapFilter" id="Bronx">Bronx</a>
         <a class="mapFilter" id="Brooklyn">Brooklyn</a>
         <a class="mapFilter" id="Queens">Queens</a>
@@ -87,13 +101,62 @@
       });
 
       map.addLayer({
-        'id': 'neighborhoods-layer-outline',
-        'type': 'line',
+        'id': 'crime-layer',
+        'type': 'fill',
         'source': 'neighborhoods',
+        'layout': {
+          'visibility': 'none'
+        },
         'paint': {
-          'line-color': '#FFF',
-          'line-width': 2
+          'fill-color': {
+            property: 'crimes',
+            stops: [
+              [1, '#d2dae5'],
+              [200, '#9eb0c8'],
+              [400, '#7a93b5'],
+              [600, '#5273a0'],
+              [800, '#3b6094'],
+              [1000, '#21477d'],
+              [1200, '#0e3161'],
+              [1400, '#041e42']
+            ]
+          },
+        'fill-opacity': 0.65
         }
+      });
+
+      map.addLayer({
+        'id': 'noise-layer',
+        'type': 'fill',
+        'source': 'neighborhoods',
+        'layout': {
+          'visibility': 'none'
+        },
+        'paint': {
+          'fill-color': {
+            property: 'noise',
+            stops: [
+              [1, '#f6e1da'],
+              [200, '#f0cbbf'],
+              [400, '#f1b39f'],
+              [600, '#ec9a81'],
+              [800, '#ee8767'],
+              [1000, '#ed704a'],
+              [1200, '#f15524']
+            ]
+          },
+        'fill-opacity': 0.65
+        }
+      });
+
+        map.addLayer({
+          'id': 'neighborhoods-layer-outline',
+          'type': 'line',
+          'source': 'neighborhoods',
+          'paint': {
+            'line-color': '#FFF',
+            'line-width': 2
+          }
       });
 
       map.on('click', 'neighborhoods-layer', (e) => {
@@ -129,6 +192,76 @@
       } else{
         nodata.style.display = "none";
       }
+      });
+
+      map.on('click', 'crime-layer', (e) => {
+        new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Crimes: ' + e.features[0].properties.crimes + ' cases</p>')
+        .addTo(map);
+
+        target = e.features[0].properties.ntaname;
+
+        var targetArray = target.split("-");
+
+        var lowerCaseArray = [];
+
+        targetArray.forEach(target => lowerCaseArray.push(target.toLowerCase()));
+
+        var elements = document.querySelectorAll('.sidebar-list .listing');
+        var nodata = document.getElementById('no-data');
+
+        var found = false;
+
+        for (var i = 0; i < elements.length; ++i) {
+          if(!lowerCaseArray.includes(elements[i].id.toLowerCase())){
+            elements[i].style.display = "none";
+          } else{
+            elements[i].style.display = "block";
+            found = true;
+          }
+        }
+
+        if(!found){
+          nodata.style.display = "block";
+        } else{
+          nodata.style.display = "none";
+        }
+      });
+
+      map.on('click', 'noise-layer', (e) => {
+        new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Noise: ' + e.features[0].properties.noise + ' cases</p>')
+        .addTo(map);
+
+        target = e.features[0].properties.ntaname;
+
+        var targetArray = target.split("-");
+
+        var lowerCaseArray = [];
+
+        targetArray.forEach(target => lowerCaseArray.push(target.toLowerCase()));
+
+        var elements = document.querySelectorAll('.sidebar-list .listing');
+        var nodata = document.getElementById('no-data');
+
+        var found = false;
+
+        for (var i = 0; i < elements.length; ++i) {
+          if(!lowerCaseArray.includes(elements[i].id.toLowerCase())){
+            elements[i].style.display = "none";
+          } else{
+            elements[i].style.display = "block";
+            found = true;
+          }
+        }
+
+        if(!found){
+          nodata.style.display = "block";
+        } else{
+          nodata.style.display = "none";
+        }
       });
 
       map.on('mouseenter', 'neighborhoods-layer', () => {
@@ -170,6 +303,24 @@
         mapFilters[i].addEventListener('click', filterMap, false);
       }
 
+      var layerSelect = document.getElementById("layer");
+
+      layer.onchange = function (e) {
+        if(layerSelect.value == "crime-layer"){
+          map.setLayoutProperty('neighborhoods-layer', 'visibility', 'none');
+          map.setLayoutProperty('noise-layer', 'visibility', 'none');
+          map.setLayoutProperty('crime-layer', 'visibility', 'visible');
+        } else if(layerSelect.value == "noise-layer"){
+          map.setLayoutProperty('neighborhoods-layer', 'visibility', 'none');
+          map.setLayoutProperty('noise-layer', 'visibility', 'visible');
+          map.setLayoutProperty('crime-layer', 'visibility', 'none');
+        } 
+        else{
+          map.setLayoutProperty('neighborhoods-layer', 'visibility', 'visible');
+          map.setLayoutProperty('crime-layer', 'visibility', 'none');
+          map.setLayoutProperty('noise-layer', 'visibility', 'none');
+        }
+      }
     });
   </script>
 </main>
