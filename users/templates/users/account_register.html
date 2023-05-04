@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %} {% load bootstrap_icons %}
+
+<main id="register">
+  <section>
+    <div class="img-container">
+      <a href="/"><h1>BAM</h1></a>
+    </div>
+    <div>
+      {% bs_icon 'house-heart' size='1.5rem' %}
+      <h1>Hello There!</h1>
+      <p>
+        We are excited to start your journey with us.<br />
+        Please sign up to continue!
+      </p>
+
+      {% if message %}
+
+      <p class="message" role="alert">{{ message }}</p>
+
+      {% endif %}
+
+      <form action="{% url 'account_register' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="first_name" placeholder="First Name" required />
+        <input type="text" name="last_name" placeholder="Last Name" required />
+        <input type="password" name="password1" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+        <input type="password" name="password2" placeholder="Confirm Password" required />
+        <button type="submit">Register</button>
+      </form>
+      <a href="{% url 'account_login' %}"
+        >If you already have an account, please log in.</a
+      >
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

@@ -197,12 +197,16 @@ $orange: #f15524;
   }
 }
 
-.user-edit,
-.user-update-password,
-.user-delete,
-.user-add-business,
-.user-my-businesses,
-.user-add-listing {
+.account-edit,
+.account-update-password,
+.account-delete,
+.account-my-businesses,
+.account-add-business,
+.account-update-business,
+.account-my-listings,
+.account-add-listing,
+.account-update-listing,
+.user-account {
   section {
     & > div {
       &:nth-of-type(2) {
@@ -222,7 +226,7 @@ $orange: #f15524;
   }
 }
 
-.user-edit {
+.account-edit {
   section {
     & > div {
       &:nth-of-type(2) > div {
@@ -249,6 +253,30 @@ $orange: #f15524;
                 color: $orange !important;
               }
             }
+          }
+
+          &:nth-of-type(2) {
+            padding: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-account {
+  section {
+    & > div {
+      &:nth-of-type(2) > div {
+        display: flex;
+        flex-direction: column;
+        column-gap: 1rem;
+        margin-top: 2rem;
+
+        & > div {
+          &:nth-of-type(1) {
+            padding: 2rem;
+            border-radius: 7px;
           }
 
           &:nth-of-type(2) {
@@ -305,12 +333,16 @@ $orange: #f15524;
     }
   }
 
-  .user-edit,
-  .user-update-password,
-  .user-delete,
-  .user-add-business,
-  .user-my-businesses,
-  .user-add-listing {
+  .account-edit,
+  .account-update-password,
+  .account-delete,
+  .account-my-businesses,
+  .account-add-business,
+  .account-update-business,
+  .account-my-listings,
+  .account-add-listing,
+  .account-update-listing,
+  .user-account {
     section {
       & > div {
         &:nth-of-type(2) {
@@ -394,12 +426,16 @@ $orange: #f15524;
     }
   }
 
-  .user-edit,
-  .user-update-password,
-  .user-delete,
-  .user-add-business,
-  .user-my-businesses,
-  .user-add-listing {
+  .account-edit,
+  .account-update-password,
+  .account-delete,
+  .account-my-businesses,
+  .account-add-business,
+  .account-update-business,
+  .account-my-listings,
+  .account-add-listing,
+  .account-update-listing,
+  .user-account {
     section {
       flex-direction: column !important;
 
@@ -415,7 +451,8 @@ $orange: #f15524;
     }
   }
 
-  .user-edit {
+  .account-edit,
+  .user-account {
     section {
       & > div {
         &:nth-of-type(2) > div {

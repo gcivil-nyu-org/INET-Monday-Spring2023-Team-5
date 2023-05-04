@@ -1,0 +1,24 @@
+{% extends "users/index.html" %} {% block body %}
+
+<h2>Delete Account</h2>
+<p>We are sad to see you go. If you would like to delete your account, please enter your email below.</p>
+
+{% if message %}
+
+<p class="message" role="alert">{{ message }}</p>
+
+{% endif %}
+
+<form action="{% url 'account_delete' %}" method="POST">
+  {% csrf_token %}
+  <input
+    type="password"
+    required="required"
+    name="password"
+    placeholder="Enter your Password"
+  />
+
+  <button type="submit">Delete User</button>
+</form>
+
+{% endblock body %}

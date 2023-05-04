@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+
+<main id="logout">
+  <section>
+    {% if message %}
+
+    <h1>{{ message }}</h1>
+    <p>We hope to see you again soon!</p>
+
+    {% endif %}
+    <div>
+      <a href="{% url 'account_login' %}"><button>Login</button></a>
+      <a href="{% url 'account_register' %}"><button>Register</button></a>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

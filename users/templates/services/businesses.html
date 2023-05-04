@@ -1,0 +1,23 @@
+{% extends "users/index.html" %} {% block body %} {% load static %}
+
+<h2>My Businesses</h2>
+{% if businesses %}
+<p>You can view all your businesses below.</p>
+{% else %}
+<p>There are currently no businesses under this account.</p>
+{% endif %}
+
+<div class="account-list">
+  {% if businesses %} {% for business in businesses %}
+  <div class="listing">
+    <img src="{% static 'images/business-1.jpg' %}" />
+    <div>
+      <h3>{{ business.name }}</h3>
+      <p>{{ business.address }}</p>
+      <a href="{% url 'view_business' business.id %}">View Details</a>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
+</div>
+
+{% endblock body %}

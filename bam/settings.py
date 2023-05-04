@@ -30,8 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "172.31.42.74",
-    "bam-nyc.us-west-2.elasticbeanstalk.com",  # prod
-    "bam-nyc.eba-jiz96x3d.us-west-2.elasticbeanstalk.com",  # dev
+    "bam-nyc.eba-7pq3incs.us-west-2.elasticbeanstalk.com",  # prod
+    "bam-nyc-dev.eba-humddqy5.us-west-2.elasticbeanstalk.com",  # dev
 ]
 
 # Application definition
@@ -43,12 +43,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    #
+    "users.apps.UsersConfig",
+    "users.marketplace.apps.MarketplaceConfig",
+    "users.services.apps.ServicesConfig",
+    "neighborhood.apps.NeighborhoodsConfig",
+    #
+    "homepage.apps.HomepageConfig",
+    #
     "compressor",
     "django_bootstrap_icons",
-    "users.apps.UsersConfig",
-    "homepage.apps.HomepageConfig",
-    "businesses.apps.BusinessesConfig",
-    "neighborhood.apps.NeighborhoodsConfig",
 ]
 
 MIDDLEWARE = [

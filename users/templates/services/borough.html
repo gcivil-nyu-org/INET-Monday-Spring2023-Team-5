@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} 
+{% load static %}
+
+<main id="services">
+  <section>
+    <div class="header">
+      <h1>{{ borough }} Services</h1>
+      <p>Find what you need to make your big apple move easier!</p>
+    </div>
+  </section>
+  <section>
+    <div class="sort-filter">
+      <button>
+        <a href="{% url 'services_by_borough' 'queens' %}">
+          {%bs_icon 'building' size='1rem' %}Queens
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'brooklyn' %}">
+          {%bs_icon 'building' size='1rem' %}Brooklyn
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'bronx' %}">
+          {%bs_icon 'building' size='1rem' %}Bronx
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'manhattan' %}">
+          {%bs_icon 'building' size='1rem' %}Manhattan
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'services_by_borough' 'staten-island' %}">
+          {%bs_icon 'building' size='1rem' %}Staten Island
+        </a>
+    </div>
+  </section>
+  <section>
+    <div class="list-page">
+      {% if businesses %} {% for business in businesses %}
+      <div class="listing">
+        <a href="{% url 'view_business' business.id %}">
+          <img src="{% static 'images/business-1.jpg' %}" />
+          <div>
+            <h3>{{ business.name }} <span>{%bs_icon 'star-fill' size='1rem' %} 4.0</span></h3>
+            <p>{{ business.address }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %} {% else %}
+      <h3 class="empty-list">No Services Are Currently Availiable</h3>
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+{% endblock %}

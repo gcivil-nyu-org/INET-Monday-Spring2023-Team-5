@@ -1,0 +1,30 @@
+{% extends "users/index.html" %} {% block body %}
+
+<h2>Add A Business</h2>
+<p>Please fill out the form below to add your business.</p>
+
+{% if message %}
+
+<p class="message" role="alert">{{ message }}</p>
+
+{% endif %}
+
+<form action="{% url 'add_business' %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Business Name" required />
+  <input type="text" name="address" placeholder="Business Address" required />
+  <input type="tel" name="phone" placeholder="Business Phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" title="Must be a valid phone number (888 888 8888)." required />
+  <input type="email" name="email" placeholder="Business Email" required />
+
+  <select name="neighborhood" required="" id="id_neighborhood">
+    <option value="" disabled selected>Select A Neighborhood</option>
+    {% for neighborhood in neighborhoods %}
+
+    <option value="{{neighborhood.pk}}">{{neighborhood.name}}</option>
+
+    {% endfor %}
+  </select>
+  <button type="submit">Add Business</button>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %}
+{% load static %}
+
+<main class="service-details">
+  <section class="service-images">
+    <div>
+      <div>
+        <img src="{% static 'images/business-1.jpg' %}" />
+        <h1>{{business.name}}</h1>
+      </div>
+      <div>
+        <div><img height="100%" src="{% static 'images/business-3.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/business-4.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/business-5.jpg' %}" /></div>
+        <div><img height="100%" src="{% static 'images/business-6.jpg' %}" /></div>
+      </div>
+    </div>
+  </section>
+  <section class="service-info">
+    <div>
+      <p class="service-label">Description</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <p class="service-label">Business Owned By {{business.owner}}</p>
+    </div>
+    <div>
+      <p class="service-label">{%bs_icon 'geo-alt-fill' size='1rem' %}Address</p>
+      <p>{{business.address}}</p>
+      <p class="service-label">{%bs_icon 'envelope-at-fill' size='1rem' %}Email</p>
+      <p>{{business.email}}</p>
+      <p class="service-label">{%bs_icon 'telephone-fill' size='1rem' %}Phone</p>
+      <p>{{business.phone}}</p>
+    </div>
+  </section>
+</main>
+{% endblock %}

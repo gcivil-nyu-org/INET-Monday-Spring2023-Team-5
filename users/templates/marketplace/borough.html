@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% load bootstrap_icons %} {% block content %} {% load static %}
+
+<main id="marketplace">
+  <section>
+    <div class="header">
+      <h1>{{ borough }} Marketplace</h1>
+      <p>Buy and sell with other fellow new yorkers!</p>
+    </div>
+  </section>
+  <section>
+    <div class="sort-filter">
+      <button>
+        <a href="{% url 'marketplace_by_borough' 'queens' %}">
+          {%bs_icon 'building' size='1rem' %}Queens
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'marketplace_by_borough' 'brooklyn' %}">
+          {%bs_icon 'building' size='1rem' %}Brooklyn
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'marketplace_by_borough' 'bronx' %}">
+          {%bs_icon 'building' size='1rem' %}Bronx
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'marketplace_by_borough' 'manhattan' %}">
+          {%bs_icon 'building' size='1rem' %}Manhattan
+        </a>
+      </button>
+      <button>
+        <a href="{% url 'marketplace_by_borough' 'staten-island' %}">
+          {%bs_icon 'building' size='1rem' %}Staten Island
+        </a>
+      </button>
+    </div>
+  </section>
+  <section>
+    <div class="list-page">
+      {% if listings %} {% for listing in listings %}
+      <div class="listing">
+        <a href="{% url 'view_listing' listing.pk %}"><h3>{{ listing.title }}</h3></a>
+        <p class="borough">{{ listing.neighborhood.name }}</p>
+        <p>{{ listing.description }}</p>
+        <p class="price">${{ listing.price }}</p>
+        <p>
+          Posted By: <b>{{ listing.owner.first_name }} {{ listing.owner.last_name }}</b>
+        </p>
+        <p>Posted On: <b>{{ listing.created_at }}</b></p>
+      </div>
+      {% endfor %} {% else %}
+      <h3 class="empty-list">No Listings Are Currently Availiable</h3>
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+{% endblock %}
+

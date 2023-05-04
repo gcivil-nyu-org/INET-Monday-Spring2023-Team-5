@@ -1,0 +1,33 @@
+{% extends "users/index.html" %} {% block body %}
+
+<h2>Update the Business</h2>
+<p>Please fill out the form below to update your business.</p>
+
+{% if message %}
+
+<p class="message" role="alert">{{ message }}</p>
+
+{% endif %}
+
+<form action="{% url 'update_business' business.id %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" value="{{ business.name }}" required />
+  <input type="text" name="address" value="{{ business.address }}" required />
+  <input type="tel" name="phone" value="{{ business.phone }}" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" title="Must be a valid phone number (888 888 8888)." required />
+  <input type="email" name="email" value="{{ business.email }}" required />
+
+  <select name="neighborhood" required="" id="id_neighborhood">
+    <option value="{{ business.neighborhood.pk }}">{{ business.neighborhood }}</option>
+    {% for neighborhood in neighborhoods %}
+
+    <option value="{{neighborhood.pk}}">{{ neighborhood.name }}</option>
+
+    {% endfor %}
+  </select>
+  <div>
+    <button type="submit">Update Business</button>
+    <button><a href="{% url 'user_account' %}">Cancel</a></button>
+  </div>
+</form>
+
+{% endblock body %}

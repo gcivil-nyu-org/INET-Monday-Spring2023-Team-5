@@ -1,0 +1,40 @@
+{% extends "users/index.html" %} {% block body %} {% load static %}
+
+<h2>Update Your Listing</h2>
+<p>Please fill out the form below to update your listing.</p>
+
+{% if message %}
+
+<div class="alert" role="alert">{{ message }}</div>
+
+{% endif %}
+
+<form action="{% url 'update_listing' listing.id %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="listing_id" value="{{ listing.id }}">
+  <input type="text" name="title" value="{{ listing.title }}" required />
+  <input type="text" name="description" value="{{ listing.description }}" required />
+  <input type="number" name="price" value="{{ listing.price }}"
+         min="1"
+         max="999999999999" step="0.01" pattern="^\d{1,5}(\.\d{1,2})?$"
+         title="Must be a valid price (1.00)."
+         required />
+  <input type="text" name="address" value="{{ listing.address }}" />
+  <input type="tel" name="phone" value="{{ listing.phone }}" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" title="Must be a valid phone number (888 888 8888)."/>
+  <input type="email" name="email" value="{{ listing.email }}" />
+
+  <select name="neighborhood" required="" id="id_neighborhood">
+    <option value="{{ listing.neighborhood.pk }}">{{ listing.neighborhood }}</option>
+    {% for neighborhood in neighborhoods %}
+
+    <option value="{{neighborhood.pk}}">{{neighborhood.name}}</option>
+
+    {% endfor %}
+  </select>
+  <div>
+    <button type="submit">Update Listing</button>
+    <button><a href="{% url 'user_account' %}">Cancel</a></button>
+  </div>
+</form>
+
+{% endblock body %}

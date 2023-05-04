@@ -1,22 +1,9 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from users.models import Business, Listing
+from users.services.models import Business
+from users.marketplace.models import Listing
 from neighborhood.models import Neighborhood
-
-
-# class Neighborhood(models.Model):
-#     name = models.CharField(max_length=50)
-#     borough = models.CharField(max_length=50)
-#     description = models.TextField()
-#     lat = models.FloatField()
-#     lon = models.FloatField()
-
-#     def __str__(self):
-#         return self.name
-
-#     def get_geopoint(self):
-#         return "POINT(%s %s)" % (self.lon, self.lat)
 
 
 class TestModels(TestCase):
@@ -34,11 +21,23 @@ class TestModels(TestCase):
             description="Test description",
             lat=0,
             lon=0,
+            population=10000,
+            crimes=10,
+        )
+        self.neighborhood2 = Neighborhood.objects.create(
+            name="Test Neighborhood 2",
+            borough="Test Borough 2",
+            description="Test description 2",
+            lat=0,
+            lon=0,
+            population=None,
+            crimes=None,
         )
         self.business = Business.objects.create(
             name="Test Business",
             address="Test Address",
             owner=self.user,
+            neighborhood=self.neighborhood,
             email="test@example.com",
             phone="1234567890",
         )
@@ -59,18 +58,24 @@ class TestModels(TestCase):
         self.assertEqual(business.name, "Test Business")
         self.assertEqual(business.address, "Test Address")
         self.assertEqual(business.owner, self.user)
+        self.assertEqual(business.neighborhood, self.neighborhood)
         self.assertEqual(business.email, "test@example.com")
         self.assertEqual(business.phone, "1234567890")
 
     def test_neighborhood_model(self):
         neighborhood = self.neighborhood
+        neighborhood2 = self.neighborhood2
         self.assertEqual(str(neighborhood), "Test Neighborhood")
         self.assertEqual(neighborhood.name, "Test Neighborhood")
         self.assertEqual(neighborhood.borough, "Test Borough")
         self.assertEqual(neighborhood.description, "Test description")
         self.assertEqual(neighborhood.lat, 0)
         self.assertEqual(neighborhood.lon, 0)
+        self.assertEqual(neighborhood.population, 10000)
+        self.assertEqual(neighborhood.crimes, 10)
         self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
+        self.assertEqual(neighborhood.crime_rate(), "10.00%")
+        self.assertEqual(neighborhood2.crime_rate(), "N/A")
 
     def test_listing_model(self):
         listing = self.listing

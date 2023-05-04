@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %} {% load bootstrap_icons %}
+
+<main id="login">
+  <section>
+    <div class="img-container">
+      <a href="/"><h1>BAM</h1></a>
+    </div>
+    <div>
+      {% bs_icon 'house-heart' size='1.5rem' %}
+      <h1>Welcome Back!</h1>
+      <p>Please log in to continue.</p>
+
+      {% if message %}
+
+      <p class="message" role="alert">{{ message }}</p>
+
+      {% endif %}
+
+      <form action="{% url 'account_login' %}" method="post">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <a href="{% url 'account_register' %}"
+        >If you do not have an account, please sign up.</a
+      >
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
