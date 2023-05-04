@@ -24,6 +24,15 @@ class TestModels(TestCase):
             population=10000,
             crimes=10,
         )
+        self.neighborhood2 = Neighborhood.objects.create(
+            name="Test Neighborhood 2",
+            borough="Test Borough 2",
+            description="Test description 2",
+            lat=0,
+            lon=0,
+            population=None,
+            crimes=None,
+        )
         self.business = Business.objects.create(
             name="Test Business",
             address="Test Address",
@@ -55,6 +64,7 @@ class TestModels(TestCase):
 
     def test_neighborhood_model(self):
         neighborhood = self.neighborhood
+        neighborhood2 = self.neighborhood2
         self.assertEqual(str(neighborhood), "Test Neighborhood")
         self.assertEqual(neighborhood.name, "Test Neighborhood")
         self.assertEqual(neighborhood.borough, "Test Borough")
@@ -65,6 +75,7 @@ class TestModels(TestCase):
         self.assertEqual(neighborhood.crimes, 10)
         self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
         self.assertEqual(neighborhood.crime_rate(), "10.00%")
+        self.assertEqual(neighborhood2.crime_rate(), "N/A")
 
     def test_listing_model(self):
         listing = self.listing
