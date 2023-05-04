@@ -30,8 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "172.31.42.74",
-    "bam-nyc.us-west-2.elasticbeanstalk.com",  # prod
-    "bam-nyc.eba-jiz96x3d.us-west-2.elasticbeanstalk.com",  # dev
+    "bam-nyc.eba-7pq3incs.us-west-2.elasticbeanstalk.com",  # prod
+    "bam-nyc-dev.eba-humddqy5.us-west-2.elasticbeanstalk.com",  # dev
 ]
 
 # Application definition
