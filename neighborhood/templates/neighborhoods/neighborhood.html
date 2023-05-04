@@ -3,6 +3,7 @@
 {% block content %} 
 {% load static %}
 
+
 <main id="neighborhood">
   <section class="map-container">
     <div id="neighborhood-map"></div>
@@ -38,7 +39,7 @@
     map.on('load', () => {
       map.addSource('neighborhoods', {
       'type': 'geojson',
-      'data': '{% static 'data/tabulation.geojson' %}'
+      'data': '{% static 'data/tabulation-v2.geojson' %}'
       });
 
       map.addLayer({
