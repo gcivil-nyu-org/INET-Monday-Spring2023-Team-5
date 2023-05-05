@@ -22,7 +22,8 @@ class TestModels(TestCase):
             lat=0,
             lon=0,
             population=10000,
-            crimes=10,
+            crime_count=10,
+            noise_count=10,
         )
         self.neighborhood2 = Neighborhood.objects.create(
             name="Test Neighborhood 2",
@@ -31,7 +32,8 @@ class TestModels(TestCase):
             lat=0,
             lon=0,
             population=None,
-            crimes=None,
+            crime_count=None,
+            noise_count=None,
         )
         self.business = Business.objects.create(
             name="Test Business",
@@ -72,7 +74,8 @@ class TestModels(TestCase):
         self.assertEqual(neighborhood.lat, 0)
         self.assertEqual(neighborhood.lon, 0)
         self.assertEqual(neighborhood.population, 10000)
-        self.assertEqual(neighborhood.crimes, 10)
+        self.assertEqual(neighborhood.crime_count, 10)
+        self.assertEqual(neighborhood.noise_count, 10)
         self.assertEqual(neighborhood.get_geopoint(), "POINT(0 0)")
         self.assertEqual(neighborhood.crime_rate(), "10.00%")
         self.assertEqual(neighborhood2.crime_rate(), "N/A")

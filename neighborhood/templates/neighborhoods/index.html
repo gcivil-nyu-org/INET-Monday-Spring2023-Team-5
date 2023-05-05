@@ -133,15 +133,14 @@
         },
         'paint': {
           'fill-color': {
-            property: 'noise',
+            property: 'noise_rate',
             stops: [
-              [1, '#f6e1da'],
-              [200, '#f0cbbf'],
-              [400, '#f1b39f'],
-              [600, '#ec9a81'],
-              [800, '#ee8767'],
-              [1000, '#ed704a'],
-              [1200, '#f15524']
+              [0, '#f6e1da'],
+              [1, '#f0cbbf'],
+              [2, '#f1b39f'],
+              [3, '#ec9a81'],
+              [4, '#ee8767'],
+              [5, '#f15524']
             ]
           },
         'fill-opacity': 0.65
@@ -231,7 +230,7 @@
       map.on('click', 'noise-layer', (e) => {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Noise: ' + e.features[0].properties.noise + ' cases</p>')
+        .setHTML(e.features[0].properties.ntaname + '<br/> <p style="font-size: 0.7rem;">Noise Rate: ' + e.features[0].properties.noise_rate + '</p>')
         .addTo(map);
 
         target = e.features[0].properties.ntaname;
@@ -341,7 +340,33 @@
           map.setLayoutProperty('neighborhoods-layer', 'visibility', 'none');
           map.setLayoutProperty('noise-layer', 'visibility', 'visible');
           map.setLayoutProperty('crime-layer', 'visibility', 'none');
-          legend.innerHTML = "";
+          legend.innerHTML = `<p>Legend<p>
+            <div>
+              <div>
+                <div style="background-color: #f6e1da;"></div>
+                <p>No Data</p>
+              </div>
+              <div>
+                <div style="background-color: #f0cbbf;"></div>
+                <p>Very Low Noise Rate</p>
+              </div>
+              <div>
+                <div style="background-color: #f1b39f;"></div>
+                <p>Low Noise Rate</p>
+              </div>
+              <div>
+                <div style="background-color: #ec9a81;"></div>
+                <p>Moderate Noise Rate</p>
+              </div>
+              <div>
+                <div style="background-color: #ee8767;"></div>
+                <p>High Noise Rate</p>
+              </div>
+              <div>
+                <div style="background-color: #f15524;"></div>
+                <p>Severe Noise Rate</p>
+              </div>
+            </div>`;
         }
         else{
           map.setLayoutProperty('neighborhoods-layer', 'visibility', 'visible');
