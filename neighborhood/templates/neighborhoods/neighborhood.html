@@ -3,6 +3,7 @@
 {% block content %} 
 {% load static %}
 
+
 <main id="neighborhood">
   <section class="map-container">
     <div id="neighborhood-map"></div>
@@ -11,9 +12,10 @@
     <div>
       <h1 id="name">{{ neighborhood.name }}</h1>
       <p id="borough">{{ neighborhood.borough }}</p>
+      <p id="star-rating"></p>
       <p id="description">{{ neighborhood.description }}</p>
       <p id="population"><b>Population: </b>{{ neighborhood.population }}</p>
-      <p id="crimes"><b>Crimes: </b>{{ neighborhood.crimes }}</p>
+      <p id="crime-count"><b>Crimes: </b>{{ neighborhood.crime_count }}</p>
       <p id="lat"><b>Latitude: </b>{{ neighborhood.lat }}</p>
       <p id="lon"><b>Longitude: </b>{{ neighborhood.lon }}</p>
     </div>
@@ -26,6 +28,65 @@
     var name = document.getElementById('name').innerText;
     var lat = document.getElementById('lat').innerText.split(': ').pop();
     var lon = document.getElementById('lon').innerText.split(': ').pop();
+    var rating = document.getElementById('star-rating');
+    var population = parseInt(document.getElementById('population').innerText.split(': ').pop());
+    var crime = parseInt(document.getElementById('crime-count').innerText.split(': ').pop());
+    
+    if(population > 0){
+      let rate = (crime/population) * 100;
+      console.log(rate);
+
+      switch(true) {
+        case rate < 0.2:
+          rating.innerHTML = `
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/> 
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          `;
+          break;
+        case rate > 0.2 && rate < 0.4:
+          rating.innerHTML = `
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/> 
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+        `;
+          break;
+        case rate > 0.4 && rate < 0.6:
+          rating.innerHTML = `
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/> 
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+        `;
+          break;
+        case rate > 0.6 && rate < 0.8:
+          rating.innerHTML = `
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/> 
+          <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+          <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+        `;
+          break;
+        case rate > 0.8:
+          rating.innerHTML = `
+            <img src="{% static 'bootstrap_icons/star-fill.svg' %}" style="width: 1rem;" alt="star"/> 
+            <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+            <img src="{% static 'bootstrap_icons/star.svg' %}" style="width: 1rem;" alt="star"/>
+          `;
+          break;
+        default:
+          rating.innerHTML = "";
+      }
+    }
+    
 
     var map = new mapboxgl.Map({
       container: 'neighborhood-map',
@@ -38,7 +99,7 @@
     map.on('load', () => {
       map.addSource('neighborhoods', {
       'type': 'geojson',
-      'data': '{% static 'data/tabulation.geojson' %}'
+      'data': '{% static 'data/tabulation-v2.geojson' %}'
       });
 
       map.addLayer({
